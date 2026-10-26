@@ -1,0 +1,11 @@
+tipo,servico,preco,duracao,descricao,destaque
+servico,Corte,45,40 min,"Máquina e tesoura, do social ao degradê na régua. Lavagem e finalização inclusas.",nao
+servico,Barba,35,30 min,"Toalha quente, navalha e balm. Contorno alinhado e pele sem irritação.",nao
+servico,Combo corte + barba,70,1h10,O pacote completo com desconto. O mais pedido da casa.,sim
+servico,Sobrancelha,15,10 min,Limpeza e alinhamento na navalha ou na pinça.,nao
+servico,Pigmentação,40,30 min,Preenche falhas da barba ou do corte e deixa o desenho mais marcado.,nao
+servico,Corte infantil,35,30 min,Até 12 anos. Paciência e capricho para a primeira visita.,nao
+horario,Segunda,,,Fechado,
+horario,Terça a sexta,,,9h às 20h,
+horario,Sábado,,,8h às 18h,
+horario,Domingo,,,Fechado,
