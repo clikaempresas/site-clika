@@ -371,9 +371,27 @@
     // As cores imitam o protótipo. "imagem" é opcional (ex.: "portfolio/barbearia/fotos/capa.jpg").
     portfolio: [
       {
-        nicho: "Barbearia", nome: "Do Zé", sobre: "Barbearia · Centro", link: "portfolio/barbearia/",
+        nicho: "Barbearia", nome: "Do Zé", sobre: "Barbearia · Centro", link: "portfolio/barbearia/", botao: "Agendar no WhatsApp",
         descricao: "Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.",
         cores: { fundo: "#0E0E0E", texto: "#F2EFE9", destaque: "#C8312B", listra: "repeating-linear-gradient(-45deg, #C8312B 0 10px, #F2EFE9 10px 20px, #1F3A68 20px 30px, #F2EFE9 30px 40px)" },
+        imagem: ""
+      },
+      {
+        nicho: "Lanchonete", nome: "Chapa da Esquina", sobre: "Hambúrguer na chapa", link: "portfolio/lanchonete/", botao: "Pedir no WhatsApp",
+        descricao: "Cardápio com preços, pedido no WhatsApp com o lanche já escrito, promoções, horários e bairros de entrega.",
+        cores: { fundo: "#151210", texto: "#F4EADB", destaque: "#FF6B1A" },
+        imagem: ""
+      },
+      {
+        nicho: "Academia", nome: "Força Total", sobre: "Academia · Vila Mariana", link: "portfolio/academia/", botao: "Agendar aula experimental",
+        descricao: "Planos com preço, grade de aulas e agendamento da aula experimental pelo WhatsApp.",
+        cores: { fundo: "#13213C", texto: "#F3EFE6", destaque: "#FF5A1F" },
+        imagem: ""
+      },
+      {
+        nicho: "Arena de esportes de areia", nome: "Pé na Areia", sobre: "Beach tennis · Futevôlei", link: "portfolio/arena-esportes-areia/", botao: "Reservar quadra",
+        descricao: "Preços por hora, aulas, day use e reserva de quadra ou aula experimental pelo WhatsApp.",
+        cores: { fundo: "#12324F", texto: "#F5EAD3", destaque: "#E8452C", listra: "linear-gradient(90deg, #E8CF9F 0 50%, #1E6FD9 50%)" },
         imagem: ""
       }
     ]
@@ -432,7 +450,7 @@ mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo 
     const bg = p.imagem ? `linear-gradient(transparent 30%, ${p.cores.fundo}), url('${esc(p.imagem)}') center / cover, ${p.cores.fundo}` : p.cores.fundo;
     return `<a class="work" href="${esc(p.link)}" target="_blank" rel="noopener">
       <div class="work-thumb" style="--thumb-bg:${bg};--thumb-text:${p.cores.texto};--thumb-accent:${p.cores.destaque};--thumb-stripe:${p.cores.listra || p.cores.destaque}">
-        <small>${esc(p.sobre)}</small><b>${esc(p.nome)}</b><i>Agendar no WhatsApp</i>
+        <small>${esc(p.sobre)}</small><b>${esc(p.nome)}</b><i>${esc(p.botao || "Falar no WhatsApp")}</i>
       </div>
       <div class="work-body">
         <span class="work-tag">${esc(p.nicho)}</span>
