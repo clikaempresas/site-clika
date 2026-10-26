@@ -1,0 +1,3 @@
+Coloque aqui as fotos do site, com os nomes exatos (letras minúsculas, .jpg).
+A lista completa e o tamanho de cada foto estão no LEIA-ME.md, na pasta de cima.
+Enquanto uma foto não existir, o site mostra um fundo neutro no lugar.
