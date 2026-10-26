@@ -2,35 +2,54 @@
 
 Arquivos:
 - `index.html` — o site inteiro (textos, visual e código)
-- `planos.csv` — os preços dos planos, que o site lê sozinho
+- `planos.csv` — cópia de reserva dos preços (o site só usa se `planilhaCSV` estiver vazio)
 
-## 1. Antes de publicar, edite no `index.html`
+Onde está tudo:
+- Site no ar: https://site-clika.pages.dev
+- Código no GitHub: https://github.com/clikaempresas/site-clika (conta `clikaempresas`)
+- Preços: planilha "Preços Clika" no Google Sheets da conta do negócio
 
-Procure o bloco `CONFIGURAÇÃO` perto do final do arquivo e troque:
-- `whatsapp`: o número do WhatsApp Business de vocês (55 + DDD + número, só dígitos)
-- `instagram`: o link do @ de vocês. Enquanto não tiverem Instagram, deixe vazio ("") que o link some do site
-- No texto, troque `[sua cidade]` pela cidade de vocês
+## Mudar um preço (sem Git)
 
-## 2. Subir no GitHub
+1. Edite a planilha "Preços Clika" no Google Sheets. Ela salva sozinha.
+2. Em até uns 5 minutos o site mostra o valor novo. Não precisa publicar nada.
 
-1. Crie um repositório chamado `site-clika` na conta do GitHub do negócio.
-2. Clique em **Add file > Upload files**, arraste `index.html` e `planos.csv` e clique em **Commit changes**.
-
-## 3. Publicar no Cloudflare Pages
-
-1. No painel do Cloudflare, vá em **Workers & Pages** e crie um projeto Pages conectado ao repositório `site-clika`.
-2. Em configuração de build, deixe o comando vazio e a pasta de saída como `/` (é um site estático, não precisa de build).
-3. Em instantes o site estará em `site-clika.pages.dev`. Cada alteração enviada ao GitHub publica uma nova versão.
-
-## 4. Testar a planilha de preços (o modelo do Plano Autônomo)
-
-1. Crie uma planilha no Google Sheets e importe o `planos.csv` (Arquivo > Importar).
-2. Vá em **Arquivo > Compartilhar > Publicar na Web**, escolha a aba e o formato **CSV** e copie o link.
-3. Cole o link em `planilhaCSV` no bloco de configuração do `index.html` e envie ao GitHub.
-4. Agora mude um preço na planilha e recarregue o site: o valor novo aparece sem nenhuma publicação nova. O Google pode levar alguns minutos para atualizar o CSV publicado.
+Cuidados:
+- Na coluna `preco`, escreva só o número: `1000`, não `1.000` nem `R$ 1000`.
+- Não mude os nomes das colunas na primeira linha.
+- Se a planilha for despublicada ou apagada, o site volta a mostrar os preços guardados dentro do `index.html`.
 
 Colunas da planilha: `tipo` (criacao ou mensal), `plano`, `preco` (só o número), `periodo`, `descricao`, `itens` (separados por ponto e vírgula) e `destaque` (sim ou nao).
 
-## 5. Domínio próprio (quando tiverem)
+## Mudar textos, fotos ou o visual
+
+1. Edite o `index.html`. As configurações (WhatsApp, Instagram, link da planilha) ficam no bloco `CONFIGURAÇÃO`, perto do final do arquivo.
+2. Abra o terminal na pasta `clika-site` e rode, um de cada vez:
+
+```
+git add .
+git commit -m "Descreva aqui o que mudou"
+git push
+```
+
+3. O Cloudflare publica a versão nova sozinho, em mais ou menos 1 minuto.
+
+Se o terminal não reconhecer `git`, feche e abra o terminal de novo (ou reinicie o computador).
+
+Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositório é público.
+
+## Como foi montado (para repetir com clientes)
+
+1. **Configuração:** preencher o bloco `CONFIGURAÇÃO` do `index.html` (WhatsApp com 55 + DDD + número, só dígitos; Instagram vazio se não tiver) e trocar os textos de exemplo, como a cidade.
+2. **Teste local:** abrir o site por um servidor local (por exemplo `http://localhost:8080`), não com dois cliques no arquivo, senão o navegador bloqueia a leitura dos preços.
+3. **GitHub:** com Git e GitHub CLI instalados (`winget install --id Git.Git -e` e `winget install --id GitHub.cli -e`):
+   - `gh auth login --hostname github.com --git-protocol https --web` (o login é feito no navegador)
+   - `git init -b main`, configurar nome e o e-mail privado (noreply) do GitHub com `git config user.name` / `git config user.email`
+   - `git add .` e `git commit -m "Primeira versão"`
+   - `gh repo create NOME-DO-REPO --public --source . --push`
+4. **Cloudflare Pages:** em **Workers & Pages > Create > Pages > Connect to Git**, autorizar só o repositório do site, e configurar: branch `main`, framework `None`, comando de build vazio, pasta de saída `/`. O link fica `NOME-DO-PROJETO.pages.dev`.
+5. **Planilha:** no Google Sheets, **Arquivo > Importar** o `planos.csv`; depois **Arquivo > Compartilhar > Publicar na Web**, escolher a aba e o formato **CSV**, copiar o link, colar em `planilhaCSV` e fazer commit e push. Testar mudando um preço (o Google leva alguns minutos para atualizar).
+
+## Domínio próprio (quando tiverem)
 
 No projeto Pages, vá em **Custom domains** e siga o passo 3 do Manual de operação.
