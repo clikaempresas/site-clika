@@ -1,0 +1,14 @@
+Coloque aqui as fotos com EXATAMENTE estes nomes (tudo minúsculo, .jpg).
+Enquanto uma foto não existir, o site mostra um fundo cor de areia no lugar.
+
+capa.jpg            1920 x 1280  Foto principal da quadra (topo). Deixe o assunto no centro.
+beach-tennis.jpg    1200 x 900   Modalidade beach tennis
+futevolei.jpg       1200 x 900   Modalidade futevôlei
+volei.jpg           1200 x 900   Modalidade vôlei de praia
+dayuse.jpg          1200 x 900   Gente curtindo o day use (bar, espreguiçadeiras)
+galeria-1.jpg       1200 x 1200  Destaque da galeria (aparece maior no computador)
+galeria-2.jpg ... galeria-6.jpg   800 x 800  Demais fotos da galeria (quadradas)
+logo.png            opcional, fundo transparente, 400 px de altura (ative em CONFIG.logo)
+
+Dica: exporte em JPG com qualidade ~75%. Cada foto deve ficar abaixo de 300 KB
+(a capa, abaixo de 400 KB). Use https://squoosh.app para comprimir.
