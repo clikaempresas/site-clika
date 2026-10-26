@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Troque estas 4 linhas pelo nome e descrição do cliente (são a prévia do link no WhatsApp e no Google) -->
+<title>Academia Força Total — Vila Mariana</title>
+<meta name="description" content="Musculação, funcional, spinning e lutas na Vila Mariana. Agende sua aula experimental grátis.">
+<meta property="og:title" content="Academia Força Total — Vila Mariana">
+<meta property="og:description" content="Agende sua aula experimental grátis.">
+<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#13213C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+<script>
+  /* ============ CONFIGURAÇÃO — edite só aqui ============ */
+  const CONFIG = {
+    nome: "Força Total",
+    tipo: "Academia",
+    slogan: "Treino de verdade, perto de casa.",
+
+    // Cores em hexadecimal: destaque (botões), escura (textos e faixas), fundo (página)
+    cores: { destaque: "#FF5A1F", escura: "#13213C", fundo: "#F3EFE6" },
+
+    // WhatsApp: 55 + DDD + número, só dígitos
+    whatsapp: "5511999999999",
+    mensagemWhatsapp: "Oi! Vi o site e quero agendar minha aula experimental grátis.",
+    // Só o nome de usuário, sem @. Vazio = o botão some
+    instagram: "academiaforcatotal",
+
+    endereco: "Rua das Palmeiras, 450 — Vila Mariana, São Paulo — SP",
+    // O que o mapa procura. Vazio = usa o endereço acima
+    mapaBusca: "Vila Mariana, São Paulo - SP",
+    // Link do "Como chegar" (copie do Google Maps em Compartilhar). Vazio = monta sozinho
+    mapaLink: "",
+
+    horarios: [
+      ["Segunda a sexta", "5h às 23h"],
+      ["Sábado", "8h às 16h"],
+      ["Domingo e feriados", "9h às 13h"]
+    ],
+
+    // Link CSV da planilha publicada no Google Sheets. Vazio ou fora do ar = usa o arquivo dados.csv
+    planilhaCSV: "",
+
+    textos: {
+      heroSelo: "Primeira aula grátis",
+      heroTitulo: "Bora começar",
+      heroDestaque: "hoje?",
+      heroTexto: "Agende sua aula experimental grátis e conheça a academia com um professor do seu lado. Sem matrícula, sem compromisso.",
+      heroBotao: "Agendar aula grátis",
+      destaques: ["Sem taxa de matrícula", "Aberto das 5h às 23h", "Avaliação física inclusa"],
+
+      planosTitulo: "Quanto mais tempo, mais você economiza",
+      planosTexto: "Todos os planos dão acesso à musculação e às aulas coletivas. Os valores são por mês.",
+      planoDestaque: "Mais escolhido",
+      comparacaoTitulo: "Quanto custa 1 ano de treino em cada plano",
+
+      modalidadesTitulo: "Tem treino para todo mundo",
+      aulasTitulo: "Encontre a sua turma",
+      aulasTexto: "Escolha o dia e veja as aulas. É só chegar uns minutinhos antes.",
+      equipeTitulo: "Quem vai treinar com você",
+      estruturaTitulo: "Espaço pensado para o seu treino",
+      resultadosTitulo: "Quem treina aqui, vê resultado",
+      chamadaTitulo: "Sua primeira aula é por nossa conta",
+      chamadaTexto: "Mande uma mensagem, escolha o melhor horário e venha conhecer.",
+      contatoTitulo: "Venha fazer uma visita"
+    },
+
+    modalidades: [
+      { nome: "Musculação", texto: "Aparelhos novos, pesos livres e treino montado pelo professor para o seu objetivo.", tag: "Todos os níveis" },
+      { nome: "Funcional", texto: "Circuitos rápidos e intensos para ganhar força, fôlego e disposição no dia a dia.", tag: "45 min" },
+      { nome: "Spinning", texto: "Bike indoor com música alta e luz baixa. Queima calorias sem impacto nos joelhos.", tag: "45 min" },
+      { nome: "Muay Thai", texto: "Técnica, condicionamento e confiança. Turmas para iniciantes e avançados.", tag: "60 min" },
+      { nome: "Jiu-jítsu", texto: "Defesa pessoal e muito treino de chão, com turma adulta e infantil.", tag: "60 min" },
+      { nome: "Alongamento", texto: "Mobilidade e relaxamento para treinar melhor e sentir menos dor.", tag: "30 min" }
+    ],
+
+    professores: [
+      { nome: "Rafael Souza", funcao: "Musculação e hipertrofia", registro: "CREF 012345-G/SP", foto: "professor-1.jpg" },
+      { nome: "Camila Prado", funcao: "Funcional e spinning", registro: "CREF 023456-G/SP", foto: "professor-2.jpg" },
+      { nome: "Diego Martins", funcao: "Muay Thai e jiu-jítsu", registro: "Faixa preta 2º grau", foto: "professor-3.jpg" }
+    ],
+
+    estrutura: [
+      { legenda: "Área de musculação", foto: "estrutura-1.jpg" },
+      { legenda: "Sala de spinning", foto: "estrutura-2.jpg" },
+      { legenda: "Tatame de lutas", foto: "estrutura-3.jpg" },
+      { legenda: "Espaço funcional", foto: "estrutura-4.jpg" },
+      { legenda: "Vestiários", foto: "estrutura-5.jpg" }
+    ],
+
+    // foto vazia = depoimento só com texto
+    depoimentos: [
+      { nome: "Juliana R.", resultado: "−12 kg em 7 meses", texto: "Eu já tinha desistido de academia três vezes. Aqui o pessoal lembra do meu nome e me cobra quando eu sumo.", foto: "antes-depois-1.jpg" },
+      { nome: "Marcos T.", resultado: "+6 kg de massa magra", texto: "O treino muda todo mês e o Rafa corrige cada exercício. Nunca evoluí tão rápido.", foto: "antes-depois-2.jpg" },
+      { nome: "Dona Cida, 64 anos", resultado: "Sem dor nos joelhos", texto: "Comecei pelo alongamento e hoje faço musculação três vezes por semana. Subo a escada de casa sem parar.", foto: "" }
+    ],
+
+    // Aviso de projeto demonstrativo no rodapé. Mude para false no site de um cliente real
+    avisoDemo: true,
+    linkClika: "https://site-clika.pages.dev"
+  };
+  /* ====================================================== */
+
+  // Cores aplicadas antes da página aparecer
+  const raiz = document.documentElement.style;
+  raiz.setProperty("--cor", CONFIG.cores.destaque);
+  raiz.setProperty("--escura", CONFIG.cores.escura);
+  raiz.setProperty("--fundo", CONFIG.cores.fundo);
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const semAcento = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  const waLink = msg => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg || CONFIG.mensagemWhatsapp);
+  const num = v => { let s = String(v).replace(/[^\d,.]/g, ""); if (s.includes(",")) s = s.replace(/\./g, "").replace(",", "."); return parseFloat(s); };
+  const reais = n => "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+  const foto = (arquivo, alt) => `<img src="fotos/${esc(arquivo)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">`;
+
+  function parseCSV(text) {
+    const rows = []; let row = [], field = "", quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quoted) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') quoted = false;
+        else field += c;
+      } else if (c === '"') quoted = true;
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") i++;
+        row.push(field); rows.push(row); row = []; field = "";
+      } else field += c;
+    }
+    if (field || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  // O CSV tem duas tabelas: a que começa com o cabeçalho "plano" e a que começa com "dia"
+  function lerDados(text) {
+    const dados = { planos: [], aulas: [] };
+    let cabecalho = null, alvo = null;
+    for (const r of parseCSV(text)) {
+      const cel = r.map(c => c.trim());
+      if (!cel.some(Boolean)) continue;
+      const primeira = semAcento(cel[0]);
+      if (primeira === "plano" || primeira === "dia") {
+        cabecalho = cel.map(semAcento);
+        alvo = primeira === "plano" ? dados.planos : dados.aulas;
+        continue;
+      }
+      if (alvo) alvo.push(Object.fromEntries(cabecalho.map((h, i) => [h, cel[i] || ""])));
+    }
+    dados.planos = dados.planos.filter(p => p.plano && num(p.preco) > 0);
+    dados.aulas = dados.aulas.filter(a => diaIndice(a.dia) >= 0 && a.horario && a.modalidade);
+    return dados;
+  }
+
+  async function carregarDados() {
+    for (const url of [CONFIG.planilhaCSV, "dados.csv"].filter(Boolean)) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(res.status);
+        const dados = lerDados(await res.text());
+        if (dados.planos.length || dados.aulas.length) return dados;
+      } catch (e) {}
+    }
+    return { planos: [], aulas: [] };
+  }
+
+  const semDados = texto => `<p class="vazio">${texto} <a href="${waLink()}" target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>.</p>`;
+
+  // Planos
+  const meses = p => {
+    const n = parseInt(p.periodo, 10);
+    if (n) return n;
+    const t = semAcento(p.periodo + " " + p.plano);
+    return /anual/.test(t) ? 12 : /semestr/.test(t) ? 6 : /trimestr/.test(t) ? 3 : 1;
+  };
+
+  function renderPlanos(planos) {
+    const alvo = document.getElementById("planos-lista");
+    const barras = document.getElementById("comparacao");
+    if (!planos.length) { alvo.innerHTML = semDados("Consulte os valores dos planos."); barras.hidden = true; return; }
+
+    planos = planos.map(p => ({ ...p, m: meses(p), valor: num(p.preco) })).sort((a, b) => a.m - b.m);
+    const base = Math.max(...planos.map(p => p.valor));
+    const maisBarato = Math.min(...planos.map(p => p.valor));
+
+    alvo.innerHTML = planos.map(p => {
+      const destaque = /^s/i.test(p.destaque);
+      const economiaAno = Math.round((base - p.valor) * 12);
+      const lista = p.beneficios.split(";").map(b => b.trim()).filter(Boolean).map(b => `<li>${esc(b)}</li>`).join("");
+      return `<article class="plano${destaque ? " plano-destaque" : ""}">
+        ${destaque ? `<span class="plano-tag">${esc(CONFIG.textos.planoDestaque)}</span>` : ""}
+        <h3>${esc(p.plano)}</h3>
+        <p class="plano-preco"><small>R$</small>${esc(reais(p.valor).replace("R$ ", ""))}<small>/mês</small></p>
+        <p class="plano-total">${p.m > 1 ? `${reais(p.valor * p.m)} no total (${p.m} meses)` : "Pague mês a mês"}</p>
+        <p class="plano-economia${economiaAno > 0 ? "" : " neutro"}">${economiaAno > 0 ? `Você economiza ${reais(economiaAno)} por ano` : "Valor de referência"}</p>
+        <ul>${lista}</ul>
+        <a class="btn ${destaque ? "btn-cor" : "btn-linha"}" href="${waLink(`Oi! Quero saber mais sobre o plano ${p.plano}.`)}" target="_blank" rel="noopener">Quero o ${esc(p.plano)}</a>
+      </article>`;
+    }).join("");
+
+    const maxAno = base * 12;
+    barras.querySelector(".barras").innerHTML = planos.map(p => {
+      const ano = p.valor * 12, economia = Math.round(maxAno - ano);
+      const classe = p.valor === maisBarato ? " melhor" : p.valor === base ? " base" : "";
+      return `<div class="barra${classe}">
+        <span class="barra-nome">${esc(p.plano)}</span>
+        <span class="barra-trilho"><span class="barra-fill" style="--w:${(ano / maxAno * 100).toFixed(1)}%"></span></span>
+        <span class="barra-valor">${reais(Math.round(ano))}${economia > 0 ? `<em>−${reais(economia)}</em>` : ""}</span>
+      </div>`;
+    }).join("");
+  }
+
+  // Grade de aulas
+  const DIAS = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
+  const diaIndice = d => ["seg", "ter", "qua", "qui", "sex", "sab", "dom"].indexOf(semAcento(d).slice(0, 3));
+  const hora = h => { const [hh, mm = "00"] = h.replace(/h/i, ":").split(":"); return { ordem: hh.padStart(2, "0") + mm.padEnd(2, "0"), texto: parseInt(hh, 10) + "h" + (mm !== "00" && mm ? mm : "") }; };
+
+  function renderAulas(aulas) {
+    const abas = document.getElementById("dias");
+    const lista = document.getElementById("aulas-lista");
+    if (!aulas.length) { abas.hidden = true; lista.innerHTML = semDados("Consulte a grade de aulas."); return; }
+
+    const porDia = DIAS.map((_, i) => aulas.filter(a => diaIndice(a.dia) === i).sort((a, b) => hora(a.horario).ordem.localeCompare(hora(b.horario).ordem)));
+    const hoje = (new Date().getDay() + 6) % 7;
+    const comAula = porDia.map((l, i) => l.length ? i : -1).filter(i => i >= 0);
+    let atual = comAula.includes(hoje) ? hoje : comAula[0];
+
+    const mostrar = () => {
+      abas.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", +b.dataset.dia === atual));
+      lista.innerHTML = porDia[atual].map(a => `<li class="aula">
+        <span class="aula-hora">${hora(a.horario).texto}</span>
+        <span class="aula-info"><strong>${esc(a.modalidade)}</strong>${a.professor ? `<span>com ${esc(a.professor)}</span>` : ""}</span>
+      </li>`).join("");
+    };
+
+    abas.innerHTML = comAula.map(i => `<button type="button" role="tab" data-dia="${i}">${DIAS[i].slice(0, 3)}${i === hoje ? "<small>hoje</small>" : ""}</button>`).join("");
+    abas.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { atual = +b.dataset.dia; mostrar(); } });
+    mostrar();
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const T = CONFIG.textos;
+    document.title = `${CONFIG.tipo} ${CONFIG.nome} — ${CONFIG.slogan}`;
+
+    document.querySelectorAll("[data-t]").forEach(el => { el.textContent = T[el.dataset.t] ?? ""; });
+    document.querySelectorAll("[data-c]").forEach(el => { el.textContent = CONFIG[el.dataset.c] ?? ""; });
+    document.querySelectorAll(".js-logo").forEach(el => { el.innerHTML = `${esc(CONFIG.nome)}<span>.</span>`; el.setAttribute("aria-label", `${CONFIG.tipo} ${CONFIG.nome}`); });
+    document.querySelectorAll(".js-wa").forEach(a => { a.href = waLink(); a.target = "_blank"; a.rel = "noopener"; });
+    document.querySelectorAll(".js-ig").forEach(a => {
+      if (!CONFIG.instagram) { a.hidden = true; return; }
+      a.href = "https://instagram.com/" + CONFIG.instagram.replace("@", ""); a.target = "_blank"; a.rel = "noopener";
+    });
+    document.querySelectorAll(".js-ig-nome").forEach(el => { el.textContent = "@" + CONFIG.instagram.replace("@", ""); });
+
+    document.getElementById("destaques").innerHTML = T.destaques.map(d => `<li>${esc(d)}</li>`).join("");
+    document.getElementById("hero-chip").innerHTML = `<strong>${CONFIG.modalidades.length}</strong> modalidades<br>num só lugar`;
+
+    const faixa = CONFIG.modalidades.map(m => `<span>${esc(m.nome)}</span>`).join("");
+    document.getElementById("faixa").innerHTML = `<div class="faixa-trilho">${faixa}${faixa}</div>`;
+
+    document.getElementById("modalidades-lista").innerHTML = CONFIG.modalidades.map((m, i) => `<article class="modalidade">
+      <span class="modalidade-num">${String(i + 1).padStart(2, "0")}</span>
+      <h3>${esc(m.nome)}</h3><p>${esc(m.texto)}</p>${m.tag ? `<span class="modalidade-tag">${esc(m.tag)}</span>` : ""}
+    </article>`).join("");
+
+    document.getElementById("equipe-lista").innerHTML = CONFIG.professores.map(p => `<article class="professor">
+      <div class="foto foto-retrato">${foto(p.foto, p.nome)}</div>
+      <h3>${esc(p.nome)}</h3><p>${esc(p.funcao)}</p>${p.registro ? `<small>${esc(p.registro)}</small>` : ""}
+    </article>`).join("");
+
+    document.getElementById("estrutura-lista").innerHTML = CONFIG.estrutura.map(e => `<figure class="foto">${foto(e.foto, e.legenda)}<figcaption>${esc(e.legenda)}</figcaption></figure>`).join("");
+
+    document.getElementById("resultados-lista").innerHTML = CONFIG.depoimentos.map(d => `<article class="depoimento${d.foto ? "" : " so-texto"}">
+      ${d.foto ? `<div class="foto foto-antes-depois">${foto(d.foto, "Antes e depois de " + d.nome)}<span class="rotulo">Antes</span><span class="rotulo depois">Depois</span></div>` : ""}
+      <div class="depoimento-corpo">
+        ${d.resultado ? `<span class="depoimento-resultado">${esc(d.resultado)}</span>` : ""}
+        <blockquote>“${esc(d.texto)}”</blockquote><cite>${esc(d.nome)}</cite>
+      </div>
+    </article>`).join("");
+
+    document.getElementById("horarios").innerHTML = CONFIG.horarios.map(([dias, h]) => `<li><span>${esc(dias)}</span><strong>${esc(h)}</strong></li>`).join("");
+    const busca = CONFIG.mapaBusca || CONFIG.endereco;
+    document.getElementById("mapa").src = "https://www.google.com/maps?q=" + encodeURIComponent(busca) + "&output=embed";
+    document.getElementById("como-chegar").href = CONFIG.mapaLink || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(busca);
+
+    const aviso = document.getElementById("aviso-demo");
+    if (CONFIG.avisoDemo) aviso.querySelector("a").href = CONFIG.linkClika; else aviso.remove();
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    const topo = document.querySelector(".topo");
+    const marcar = () => topo.classList.toggle("rolou", scrollY > 8);
+    addEventListener("scroll", marcar, { passive: true }); marcar();
+
+    carregarDados().then(d => { renderPlanos(d.planos); renderAulas(d.aulas); });
+  });
+</script>
+
+<style>
+  :root {
+    --cor: #FF5A1F; --escura: #13213C; --fundo: #F3EFE6;
+    --branco: #fff;
+    --suave: color-mix(in srgb, var(--escura) 62%, var(--fundo));
+    --linha: color-mix(in srgb, var(--escura) 14%, transparent);
+    --cartao: color-mix(in srgb, var(--fundo) 40%, #fff);
+    --raio: 18px;
+    --largura: 1160px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--fundo); color: var(--escura); font: 400 16px/1.6 "Archivo", system-ui, sans-serif; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { margin: 0; line-height: 1; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  :focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(100% - 32px, var(--largura)); margin-inline: auto; }
+  section { padding: 88px 0; }
+  .titulo { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(32px, 5vw, 54px); letter-spacing: -.01em; max-width: 16ch; }
+  .sobretitulo { display: inline-block; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--cor); margin-bottom: 14px; }
+  .intro { color: var(--suave); max-width: 52ch; margin: 16px 0 0; font-size: 17px; }
+  .cabeca { margin-bottom: 44px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; border: 2px solid transparent; transition: transform .15s, background-color .15s, color .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-cor { background: var(--cor); color: #fff; }
+  .btn-escura { background: var(--escura); color: var(--fundo); }
+  .btn-linha { border-color: var(--escura); color: var(--escura); }
+  .btn-linha:hover { background: var(--escura); color: var(--fundo); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+
+  /* Fotos: enquanto o arquivo não existe, aparece o fundo com o anel */
+  .foto { position: relative; overflow: hidden; margin: 0; border-radius: var(--raio); background:
+      radial-gradient(circle at 88% 104%, transparent 0 21%, color-mix(in srgb, var(--cor) 55%, transparent) 21% 25%, transparent 25%),
+      linear-gradient(150deg, color-mix(in srgb, var(--escura) 78%, #fff), var(--escura)); }
+  .foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  /* Topo */
+  .topo { position: sticky; top: 0; z-index: 20; background: var(--fundo); transition: box-shadow .2s; }
+  .topo.rolou { box-shadow: 0 1px 0 var(--linha); }
+  .topo .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+  .logo { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 22px; text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
+  .logo span { color: var(--cor); }
+  .menu { display: flex; gap: 28px; font-weight: 500; font-size: 15px; }
+  .menu a { text-decoration: none; color: var(--suave); }
+  .menu a:hover { color: var(--escura); }
+  .topo-acoes { display: flex; align-items: center; gap: 10px; }
+  .topo .btn { min-height: 42px; padding: 0 18px; font-size: 14px; }
+  .icone { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--linha); }
+  .icone svg { width: 20px; height: 20px; }
+
+  /* Hero */
+  .hero { padding: 40px 0 64px; overflow-x: clip; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+  .selo { display: inline-flex; align-items: center; gap: 8px; background: var(--branco); border-radius: 999px; padding: 7px 14px 7px 8px; font-weight: 700; font-size: 14px; }
+  .selo::before { content: ""; width: 22px; height: 22px; border-radius: 50%; background: var(--cor); box-shadow: inset 0 0 0 6px color-mix(in srgb, #fff 55%, var(--cor)); }
+  .hero h1 { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(54px, 9vw, 112px); line-height: .9; letter-spacing: -.02em; margin: 22px 0 22px; }
+  .hero h1 em { display: block; color: var(--cor); font-style: italic; }
+  .hero-texto { font-size: 19px; color: var(--suave); max-width: 46ch; margin: 0 0 30px; }
+  .hero-botoes { display: flex; flex-wrap: wrap; gap: 12px; }
+  .destaques { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; font-weight: 500; font-size: 15px; }
+  .destaques li { display: flex; align-items: center; gap: 8px; }
+  .destaques li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cor); }
+  .hero-foto { position: relative; isolation: isolate; }
+  .hero-foto .foto { aspect-ratio: 4 / 5; border-radius: 28px; }
+  .hero-foto::before { content: ""; position: absolute; width: 46%; aspect-ratio: 1; right: -8%; top: -6%; border-radius: 50%; border: 22px solid var(--cor); z-index: -1; }
+  .hero-chip { position: absolute; left: -24px; bottom: 32px; background: var(--branco); border-radius: 16px; padding: 14px 18px; font-weight: 500; font-size: 14px; line-height: 1.3; box-shadow: 0 12px 30px color-mix(in srgb, var(--escura) 18%, transparent); }
+  .hero-chip strong { font-size: 30px; font-weight: 900; font-style: italic; color: var(--cor); margin-right: 4px; }
+
+  /* Faixa rolante */
+  .faixa { background: var(--escura); color: var(--fundo); overflow: hidden; padding: 16px 0; }
+  .faixa-trilho { display: flex; width: max-content; animation: rolar 28s linear infinite; }
+  .faixa span { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 22px; padding: 0 22px; white-space: nowrap; display: flex; align-items: center; gap: 44px; }
+  .faixa span::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cor); margin-right: -22px; }
+  @keyframes rolar { to { transform: translateX(-50%); } }
+
+  /* Planos */
+  .planos-lista { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+  .plano { position: relative; display: flex; flex-direction: column; background: var(--branco); border-radius: var(--raio); padding: 28px 22px 22px; }
+  .plano h3 { font-weight: 800; font-size: 18px; }
+  .plano-preco { font-weight: 900; font-style: italic; font-size: 52px; line-height: 1; margin: 16px 0 6px; letter-spacing: -.02em; }
+  .plano-preco small { font-size: 16px; font-style: normal; font-weight: 700; letter-spacing: 0; margin: 0 3px; }
+  .plano-total { font-size: 14px; color: var(--suave); margin: 0; }
+  .plano-economia { align-self: flex-start; margin: 16px 0 18px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: color-mix(in srgb, var(--cor) 14%, transparent); color: color-mix(in srgb, var(--cor) 70%, var(--escura)); }
+  .plano-economia.neutro { background: var(--fundo); color: var(--suave); }
+  .plano ul { display: grid; gap: 9px; font-size: 15px; margin-bottom: 24px; flex: 1; }
+  .plano li { display: flex; gap: 10px; }
+  .plano li::before { content: ""; flex: none; width: 16px; height: 9px; margin-top: 6px; border-left: 2.5px solid var(--cor); border-bottom: 2.5px solid var(--cor); transform: rotate(-45deg) scale(.8); }
+  .plano .btn { width: 100%; }
+  .plano-destaque { background: var(--escura); color: var(--fundo); }
+  .plano-destaque .plano-total { color: color-mix(in srgb, var(--fundo) 70%, transparent); }
+  .plano-destaque .plano-economia { background: var(--cor); color: #fff; }
+  .plano-tag { position: absolute; top: -13px; left: 22px; background: var(--cor); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+
+  .comparacao { margin-top: 28px; background: var(--branco); border-radius: var(--raio); padding: 28px; }
+  .comparacao h3 { font-weight: 800; font-size: 18px; margin-bottom: 22px; }
+  .barras { display: grid; gap: 14px; }
+  .barra { display: grid; grid-template-columns: 110px 1fr 170px; align-items: center; gap: 16px; font-size: 15px; }
+  .barra-nome { font-weight: 700; }
+  .barra-trilho { height: 14px; border-radius: 999px; background: var(--fundo); overflow: hidden; }
+  .barra-fill { display: block; height: 100%; width: var(--w); border-radius: inherit; background: var(--escura); }
+  .barra.base .barra-fill { background: var(--suave); }
+  .barra.melhor .barra-fill { background: var(--cor); }
+  .barra-valor { font-weight: 700; text-align: right; white-space: nowrap; }
+  .barra-valor em { font-style: normal; font-size: 13px; color: var(--cor); margin-left: 8px; }
+
+  /* Modalidades */
+  .modalidades { background: var(--branco); }
+  .modalidades-lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .modalidade { border: 1.5px solid var(--linha); border-radius: var(--raio); padding: 26px; display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, transform .2s; }
+  .modalidade:hover { border-color: var(--cor); transform: translateY(-3px); }
+  .modalidade-num { font-weight: 900; font-style: italic; color: var(--cor); font-size: 15px; }
+  .modalidade h3 { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 26px; }
+  .modalidade p { margin: 0; color: var(--suave); flex: 1; }
+  .modalidade-tag { align-self: flex-start; font-size: 13px; font-weight: 700; background: var(--fundo); padding: 4px 10px; border-radius: 999px; }
+
+  /* Grade de aulas */
+  .dias { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 22px; padding-bottom: 4px; }
+  .dias::-webkit-scrollbar { display: none; }
+  .dias button { flex: none; min-width: 72px; height: 58px; border-radius: 16px; border: 1.5px solid var(--linha); background: transparent; font: 800 16px "Archivo", sans-serif; color: var(--escura); cursor: pointer; display: grid; place-content: center; line-height: 1.1; text-transform: uppercase; font-style: italic; }
+  .dias button small { font: 500 11px "Archivo", sans-serif; text-transform: none; color: var(--cor); }
+  .dias button[aria-selected="true"] { background: var(--escura); border-color: var(--escura); color: var(--fundo); }
+  .aulas-lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .aula { display: flex; align-items: center; gap: 18px; background: var(--branco); border-radius: 16px; padding: 18px 20px; }
+  .aula-hora { font-weight: 900; font-style: italic; font-size: 26px; color: var(--cor); min-width: 78px; }
+  .aula-info { display: grid; line-height: 1.3; }
+  .aula-info strong { font-weight: 800; font-size: 17px; }
+  .aula-info span { font-size: 14px; color: var(--suave); }
+
+  /* Equipe */
+  .equipe { background: var(--escura); color: var(--fundo); }
+  .equipe .intro { color: color-mix(in srgb, var(--fundo) 70%, transparent); }
+  .equipe-lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .foto-retrato { aspect-ratio: 4 / 5; margin-bottom: 18px; background:
+      radial-gradient(circle at 88% 104%, transparent 0 21%, color-mix(in srgb, var(--cor) 60%, transparent) 21% 25%, transparent 25%),
+      linear-gradient(150deg, color-mix(in srgb, var(--escura) 70%, #fff), color-mix(in srgb, var(--escura) 88%, #fff)); }
+  .professor h3 { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 24px; }
+  .professor p { margin: 6px 0 2px; color: var(--cor); font-weight: 700; }
+  .professor small { color: color-mix(in srgb, var(--fundo) 60%, transparent); font-size: 13px; }
+
+  /* Estrutura */
+  .estrutura-lista { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 220px; gap: 14px; }
+  .estrutura-lista .foto:first-child { grid-column: span 2; grid-row: span 2; }
+  .estrutura-lista figcaption { position: absolute; left: 12px; bottom: 12px; background: var(--fundo); color: var(--escura); font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+
+  /* Resultados */
+  .resultados { background: var(--branco); }
+  .resultados-lista { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+  .depoimento { background: var(--fundo); border-radius: var(--raio); overflow: hidden; }
+  .foto-antes-depois { aspect-ratio: 4 / 3; border-radius: 0; }
+  .foto-antes-depois::after { content: ""; position: absolute; inset: 0 auto 0 50%; width: 3px; background: var(--fundo); transform: translateX(-50%); }
+  .rotulo { position: absolute; left: 10px; bottom: 10px; z-index: 1; background: var(--escura); color: var(--fundo); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: 4px 10px; border-radius: 999px; }
+  .rotulo.depois { left: auto; right: 10px; background: var(--cor); color: #fff; }
+  .depoimento-corpo { padding: 22px; }
+  .depoimento-resultado { display: inline-block; font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 20px; color: var(--cor); margin-bottom: 10px; }
+  .depoimento blockquote { margin: 0 0 12px; font-size: 16px; }
+  .depoimento cite { font-style: normal; font-weight: 700; font-size: 14px; }
+  .so-texto .depoimento-corpo { padding: 32px 26px; }
+  .so-texto blockquote { font-size: 20px; line-height: 1.45; }
+
+  /* Chamada final */
+  .chamada { background: var(--cor); color: #fff; padding: 72px 0; }
+  .chamada .wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .chamada h2 { font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(32px, 5vw, 56px); max-width: 15ch; }
+  .chamada p { margin: 14px 0 0; font-size: 18px; opacity: .9; }
+
+  /* Contato */
+  .contato .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: stretch; }
+  .contato-info { display: flex; flex-direction: column; gap: 28px; }
+  .endereco { font-size: 18px; font-weight: 500; margin: 0; }
+  .horarios { display: grid; background: var(--branco); border-radius: var(--raio); padding: 8px 22px; }
+  .horarios li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linha); }
+  .horarios li:last-child { border-bottom: 0; }
+  .horarios span { color: var(--suave); }
+  .contato-botoes { display: flex; flex-wrap: wrap; gap: 10px; }
+  .mapa { border-radius: var(--raio); overflow: hidden; min-height: 420px; background: color-mix(in srgb, var(--escura) 10%, var(--fundo)); }
+  .mapa iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+
+  /* Rodapé */
+  .rodape { background: var(--escura); color: color-mix(in srgb, var(--fundo) 70%, transparent); padding: 44px 0 100px; font-size: 14px; }
+  .rodape .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+  .rodape .logo { color: var(--fundo); font-size: 20px; }
+  .rodape a { text-decoration: none; }
+  .rodape a:hover { color: var(--fundo); }
+  .aviso-demo { width: 100%; margin: 12px 0 0; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--fundo) 15%, transparent); font-size: 12.5px; color: color-mix(in srgb, var(--fundo) 50%, transparent); }
+  .aviso-demo a { text-decoration: underline; text-underline-offset: 2px; }
+
+  .vazio { background: var(--branco); padding: 22px; border-radius: var(--raio); grid-column: 1 / -1; margin: 0; }
+  .vazio a { color: var(--cor); font-weight: 700; }
+
+  /* WhatsApp fixo */
+  .wa-fixo { position: fixed; right: 18px; bottom: 18px; z-index: 30; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(0, 0, 0, .22); transition: transform .15s; }
+  .wa-fixo:hover { transform: scale(1.06); }
+  .wa-fixo svg { width: 30px; height: 30px; }
+
+  @media (max-width: 1020px) {
+    .planos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; }
+    .aulas-lista, .modalidades-lista, .resultados-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 820px) {
+    section { padding: 64px 0; }
+    .menu { display: none; }
+    .hero { padding: 16px 0 48px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .hero-texto { font-size: 17px; }
+    .hero-foto { margin: 0 14px 0 0; }
+    .hero-foto .foto { aspect-ratio: 5 / 4; }
+    .hero-foto::before { border-width: 16px; width: 40%; }
+    .hero-chip { left: 12px; bottom: -18px; }
+    .equipe-lista { grid-template-columns: repeat(3, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; margin-right: -16px; padding-right: 16px; scrollbar-width: none; }
+    .professor { scroll-snap-align: start; }
+    .estrutura-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 160px; }
+    .contato .wrap { grid-template-columns: 1fr; }
+    .mapa, .mapa iframe { min-height: 320px; }
+    .barra { grid-template-columns: 1fr auto; gap: 6px 12px; }
+    .barra-trilho { grid-column: 1 / -1; grid-row: 2; }
+  }
+  @media (max-width: 600px) {
+    .planos-lista, .aulas-lista, .modalidades-lista, .resultados-lista { grid-template-columns: 1fr; }
+    /* No celular a comparação vem antes dos cartões, para a economia aparecer logo */
+    #planos .wrap { display: flex; flex-direction: column; }
+    #planos .comparacao { order: -1; margin: -12px 0 40px; }
+    #planos .cabeca { order: -2; }
+    .topo .btn { display: none; }
+    .hero-botoes .btn { flex: 1 1 100%; }
+    .comparacao { padding: 22px 18px; }
+    .chamada .btn { width: 100%; }
+    .plano-preco { font-size: 46px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .faixa-trilho { animation: none; }
+    .btn, .modalidade { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo js-logo" href="#inicio"></a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#planos">Planos</a>
+      <a href="#modalidades">Modalidades</a>
+      <a href="#aulas">Aulas</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="topo-acoes">
+      <a class="icone js-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="btn btn-cor js-wa" data-t="heroSelo"></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div>
+        <span class="selo" data-t="heroSelo"></span>
+        <h1><span data-t="heroTitulo"></span> <em data-t="heroDestaque"></em></h1>
+        <p class="hero-texto" data-t="heroTexto"></p>
+        <div class="hero-botoes">
+          <a class="btn btn-cor js-wa">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+            <span data-t="heroBotao"></span>
+          </a>
+          <a class="btn btn-linha" href="#planos">Ver planos</a>
+        </div>
+        <ul class="destaques" id="destaques"></ul>
+      </div>
+      <div class="hero-foto">
+        <div class="foto"><img src="fotos/capa.jpg" alt="Alunos treinando na academia" fetchpriority="high" decoding="async" onerror="this.remove()"></div>
+        <p class="hero-chip" id="hero-chip"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa" id="faixa" aria-hidden="true"></div>
+
+  <section id="planos">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Planos</span>
+        <h2 class="titulo" data-t="planosTitulo"></h2>
+        <p class="intro" data-t="planosTexto"></p>
+      </div>
+      <div class="planos-lista" id="planos-lista"></div>
+      <div class="comparacao" id="comparacao">
+        <h3 data-t="comparacaoTitulo"></h3>
+        <div class="barras"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modalidades" id="modalidades">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Modalidades</span>
+        <h2 class="titulo" data-t="modalidadesTitulo"></h2>
+      </div>
+      <div class="modalidades-lista" id="modalidades-lista"></div>
+    </div>
+  </section>
+
+  <section id="aulas">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Aulas coletivas</span>
+        <h2 class="titulo" data-t="aulasTitulo"></h2>
+        <p class="intro" data-t="aulasTexto"></p>
+      </div>
+      <div class="dias" id="dias" role="tablist" aria-label="Dia da semana"></div>
+      <ul class="aulas-lista" id="aulas-lista" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <section class="equipe" id="equipe">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Professores</span>
+        <h2 class="titulo" data-t="equipeTitulo"></h2>
+      </div>
+      <div class="equipe-lista" id="equipe-lista"></div>
+    </div>
+  </section>
+
+  <section id="estrutura">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Estrutura</span>
+        <h2 class="titulo" data-t="estruturaTitulo"></h2>
+      </div>
+      <div class="estrutura-lista" id="estrutura-lista"></div>
+    </div>
+  </section>
+
+  <section class="resultados" id="resultados">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="sobretitulo">Alunos</span>
+        <h2 class="titulo" data-t="resultadosTitulo"></h2>
+      </div>
+      <div class="resultados-lista" id="resultados-lista"></div>
+    </div>
+  </section>
+
+  <section class="chamada">
+    <div class="wrap">
+      <div>
+        <h2 data-t="chamadaTitulo"></h2>
+        <p data-t="chamadaTexto"></p>
+      </div>
+      <a class="btn btn-escura js-wa" data-t="heroBotao"></a>
+    </div>
+  </section>
+
+  <section class="contato" id="contato">
+    <div class="wrap">
+      <div class="contato-info">
+        <div>
+          <span class="sobretitulo">Contato</span>
+          <h2 class="titulo" data-t="contatoTitulo"></h2>
+        </div>
+        <p class="endereco" data-c="endereco"></p>
+        <ul class="horarios" id="horarios" aria-label="Horário de funcionamento"></ul>
+        <div class="contato-botoes">
+          <a class="btn btn-cor js-wa">WhatsApp</a>
+          <a class="btn btn-linha js-ig">Instagram</a>
+          <a class="btn btn-linha" id="como-chegar" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+      </div>
+      <div class="mapa">
+        <iframe id="mapa" title="Mapa com a localização da academia" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <a class="logo js-logo" href="#inicio"></a>
+    <span><span data-c="endereco"></span></span>
+    <span>© <span id="ano"></span> · <a class="js-ig js-ig-nome"></a></span>
+    <p class="aviso-demo" id="aviso-demo">Projeto demonstrativo criado pela <a target="_blank" rel="noopener">Clika</a> — negócio fictício.</p>
+  </div>
+</footer>
+
+<a class="wa-fixo js-wa" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></svg>
+</a>
+
+</body>
+</html>

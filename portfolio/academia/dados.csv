@@ -1,0 +1,31 @@
+plano,preco,periodo,beneficios,destaque
+Mensal,129,1 mês,Musculação livre;Aulas coletivas;Avaliação física;Sem fidelidade,nao
+Trimestral,119,3 meses,Tudo do Mensal;Treino revisado todo mês;1 aula grátis para um amigo,nao
+Semestral,109,6 meses,Tudo do Trimestral;Reavaliação física a cada 3 meses;Camiseta da academia,sim
+Anual,97,12 meses,Tudo do Semestral;Congelamento de até 30 dias;2 consultas com nutricionista,nao
+,,,,
+dia,horario,modalidade,professor
+Segunda,06:30,Funcional,Camila
+Segunda,07:30,Spinning,Camila
+Segunda,12:15,Alongamento,Rafael
+Segunda,18:30,Spinning,Camila
+Segunda,19:30,Muay Thai,Diego
+Terça,06:30,Spinning,Camila
+Terça,18:00,Funcional,Camila
+Terça,19:00,Jiu-jítsu,Diego
+Terça,20:30,Muay Thai,Diego
+Quarta,06:30,Funcional,Camila
+Quarta,07:30,Spinning,Camila
+Quarta,12:15,Alongamento,Rafael
+Quarta,18:30,Spinning,Camila
+Quarta,19:30,Muay Thai,Diego
+Quinta,06:30,Spinning,Camila
+Quinta,18:00,Funcional,Camila
+Quinta,19:00,Jiu-jítsu,Diego
+Quinta,20:30,Muay Thai,Diego
+Sexta,06:30,Funcional,Camila
+Sexta,07:30,Spinning,Camila
+Sexta,18:30,Funcional,Camila
+Sábado,09:00,Spinning,Camila
+Sábado,10:00,Funcional,Camila
+Sábado,10:30,Jiu-jítsu kids,Diego
