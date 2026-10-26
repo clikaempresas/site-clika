@@ -53,3 +53,5 @@ Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositór
 ## Domínio próprio (quando tiverem)
 
 No projeto Pages, vá em **Custom domains** e siga o passo 3 do Manual de operação.
+
+Depois, troque `https://site-clika.pages.dev` pelo domínio novo nas linhas `og:url` e `og:image` do `index.html` (são as que montam a prévia do link no WhatsApp).
