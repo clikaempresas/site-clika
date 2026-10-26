@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barbearia do Zé · Corte e barba no centro</title>
+<meta name="description" content="Corte, barba, combo, sobrancelha e pigmentação. Agende pelo WhatsApp em poucos segundos.">
+<meta property="og:title" content="Barbearia do Zé">
+<meta property="og:description" content="Corte na régua. Sem enrolação. Agende pelo WhatsApp.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E0E0E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="fotos/capa.jpg" fetchpriority="high">
+<style>
+  :root {
+    --fundo: #0E0E0E;
+    --superficie: #181818;
+    --linha: #2A2A2A;
+    --destaque: #C8312B;
+    --texto: #F2EFE9;
+    --suave: #A9A49B;
+    --listra: #1F3A68;
+    --titulo: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+    --corpo: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --largura: 1160px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font: 16px/1.6 var(--corpo); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--titulo); font-weight: 400; letter-spacing: .5px; margin: 0; line-height: .95; }
+  .wrap { width: min(100% - 32px, var(--largura)); margin-inline: auto; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+  /* Botões */
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--destaque); color: #fff; text-decoration: none; font: 600 15px/1 var(--corpo); padding: 16px 22px; border: 0; cursor: pointer; transition: transform .15s, filter .15s; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn:active { transform: translateY(1px); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn.ghost { background: transparent; color: var(--texto); box-shadow: inset 0 0 0 1.5px var(--texto); }
+  .btn.ghost:hover { background: var(--texto); color: var(--fundo); filter: none; }
+  .btn.small { padding: 12px 16px; font-size: 14px; }
+
+  /* Faixa do poste de barbearia */
+  .poste { height: 14px; background: repeating-linear-gradient(-45deg, var(--destaque) 0 12px, var(--texto) 12px 24px, var(--listra) 24px 36px, var(--texto) 36px 48px); background-size: 68px 68px; animation: gira 3s linear infinite; }
+  @keyframes gira { to { background-position: 68px 0; } }
+  @media (prefers-reduced-motion: reduce) { .poste { animation: none; } html { scroll-behavior: auto; } }
+
+  /* Topo fixo */
+  .header { position: fixed; inset: 0 0 auto; z-index: 20; transition: background .25s, box-shadow .25s; }
+  .header.solid { background: rgba(14,14,14,.94); box-shadow: 0 1px 0 var(--linha); backdrop-filter: blur(8px); }
+  .header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font: 400 28px/1 var(--titulo); text-decoration: none; letter-spacing: 1px; }
+  .logo span { color: var(--destaque); }
+  .nav { display: flex; align-items: center; gap: 28px; }
+  .nav a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--suave); }
+  .nav a:hover { color: var(--texto); }
+  .nav .btn { color: #fff; }
+  @media (max-width: 820px) { .nav a:not(.btn) { display: none; } }
+
+  /* Hero */
+  .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate; overflow: hidden; }
+  .hero-foto { position: absolute; inset: 0; z-index: -2; background: radial-gradient(120% 80% at 75% 20%, #2a2a2a 0%, #141414 55%, #0b0b0b 100%); }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14,14,14,.55) 0%, rgba(14,14,14,.15) 35%, rgba(14,14,14,.85) 75%, var(--fundo) 100%); }
+  .hero-texto { padding: 120px 0 56px; }
+  .hero .sobre { font-size: 13px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--texto); display: flex; align-items: center; gap: 12px; }
+  .hero .sobre::before { content: ""; width: 32px; height: 2px; background: var(--destaque); }
+  .hero h1 { font-size: clamp(96px, 22vw, 260px); line-height: .82; margin: 14px 0 10px -4px; }
+  .hero .slogan { font: 400 clamp(26px, 4vw, 40px)/1 var(--titulo); color: var(--destaque); letter-spacing: 1px; margin: 0 0 14px; }
+  .hero .desc { max-width: 460px; color: var(--suave); margin: 0 0 28px; }
+  .hero .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .selos { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 36px; font-size: 14px; color: var(--suave); }
+  .hero .selos b { color: var(--texto); font-weight: 600; }
+
+  /* Seções */
+  section { padding: 96px 0; }
+  .titulo-secao { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
+  .titulo-secao .num { display: block; font: 500 13px/1 var(--corpo); letter-spacing: 3px; color: var(--destaque); margin-bottom: 10px; }
+  .titulo-secao h2 { font-size: clamp(52px, 8vw, 88px); }
+  .titulo-secao p { max-width: 380px; color: var(--suave); margin: 0; }
+
+  /* Serviços */
+  .servicos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--linha); border: 1px solid var(--linha); }
+  .servico { background: var(--fundo); padding: 28px 26px 24px; display: flex; flex-direction: column; position: relative; transition: background .2s; }
+  .servico:hover { background: var(--superficie); }
+  .servico .topo { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .servico h3 { font-size: 34px; }
+  .servico .preco { font: 400 38px/1 var(--titulo); color: var(--destaque); white-space: nowrap; }
+  .servico .preco small { font: 500 13px var(--corpo); color: var(--suave); margin-right: 3px; vertical-align: 12px; }
+  .servico .dur { font-size: 13px; color: var(--suave); margin: 6px 0 12px; display: flex; align-items: center; gap: 6px; }
+  .servico .dur svg { width: 14px; height: 14px; }
+  .servico p { color: var(--suave); font-size: 15px; margin: 0 0 22px; flex: 1; }
+  .servico a { align-self: flex-start; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; border-bottom: 1.5px solid var(--destaque); padding-bottom: 4px; }
+  .servico a:hover { color: var(--destaque); }
+  .servico.top { background: var(--superficie); }
+  .servico .tag { position: absolute; top: -1px; right: 26px; background: var(--destaque); color: #fff; font: 600 11px/1 var(--corpo); letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 10px; }
+  .servico.top .topo { margin-top: 10px; }
+  @media (max-width: 900px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .servicos { grid-template-columns: 1fr; } }
+
+  /* Agendamento */
+  .agendar { background: var(--superficie); border-block: 1px solid var(--linha); }
+  .agendar-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
+  .campo { margin-bottom: 22px; }
+  .campo > span { display: block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--suave); margin-bottom: 10px; }
+  .opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opcoes label { position: relative; }
+  .opcoes input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .opcoes label span { display: block; padding: 11px 15px; border: 1px solid var(--linha); background: var(--fundo); font-size: 14px; font-weight: 500; cursor: pointer; transition: border-color .15s, background .15s; }
+  .opcoes label:hover span { border-color: var(--suave); }
+  .opcoes input:checked + span { background: var(--destaque); border-color: var(--destaque); color: #fff; }
+  .opcoes input:focus-visible + span { outline: 2px solid var(--texto); outline-offset: 2px; }
+  .opcoes small { color: inherit; opacity: .75; font-weight: 400; margin-left: 4px; }
+  .balao { background: #0b1410; border: 1px solid #1d2b24; padding: 22px; position: sticky; top: 92px; }
+  .balao .cab { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--suave); margin-bottom: 16px; }
+  .balao .cab i { width: 34px; height: 34px; border-radius: 50%; background: #25D366; display: grid; place-items: center; }
+  .balao .cab i svg { width: 18px; height: 18px; fill: #fff; }
+  .balao .cab b { color: var(--texto); display: block; font-size: 14px; }
+  .msg { background: #005C4B; color: #E9EDEF; padding: 12px 14px 10px; border-radius: 10px 0 10px 10px; font-size: 14.5px; line-height: 1.5; white-space: pre-line; margin: 0 0 18px auto; max-width: 95%; position: relative; }
+  .msg::after { content: ""; position: absolute; top: 0; right: -8px; border-top: 10px solid #005C4B; border-right: 8px solid transparent; }
+  .balao .btn { width: 100%; justify-content: center; background: #25D366; color: #0b1410; }
+  .balao .nota { font-size: 12.5px; color: var(--suave); text-align: center; margin: 12px 0 0; }
+  @media (max-width: 900px) { .agendar-grid { grid-template-columns: 1fr; gap: 28px; } .balao { position: static; } }
+
+  /* Equipe */
+  .equipe { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .barbeiro .foto { aspect-ratio: 4 / 5; }
+  .barbeiro h3 { font-size: 36px; margin-top: 16px; }
+  .barbeiro .cargo { color: var(--destaque); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin: 6px 0 4px; }
+  .barbeiro p { color: var(--suave); margin: 0; font-size: 15px; }
+
+  /* Fundo neutro enquanto a foto não existe */
+  .foto { position: relative; overflow: hidden; background: linear-gradient(135deg, #1d1d1d, #121212); }
+  .foto::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, rgba(255,255,255,.025) 0 2px, transparent 2px 14px); }
+  .foto::after { content: ""; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; translate: -50% -50%; opacity: .14; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F2EFE9' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='6' cy='6' r='3'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Cpath d='M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12'/%3E%3C/svg%3E"); }
+  .foto img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+
+  /* Galeria */
+  .galeria { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .galeria figure { margin: 0; aspect-ratio: 4 / 5; }
+  .galeria figure:hover img { transform: scale(1.04); }
+  .galeria figcaption { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 40px 16px 14px; font: 400 22px/1 var(--titulo); letter-spacing: 1px; background: linear-gradient(transparent, rgba(0,0,0,.75)); }
+  @media (max-width: 700px) { .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .galeria figcaption { font-size: 18px; padding: 30px 12px 10px; } }
+
+  /* Depoimentos */
+  .depo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .depo { border: 1px solid var(--linha); padding: 28px; display: flex; flex-direction: column; }
+  .depo .estrelas { color: var(--destaque); letter-spacing: 3px; font-size: 15px; }
+  .depo blockquote { margin: 14px 0 22px; font-size: 16.5px; flex: 1; }
+  .depo cite { font-style: normal; font-weight: 600; font-size: 14px; }
+  .depo cite span { display: block; color: var(--suave); font-weight: 400; }
+  .nota-google { display: flex; align-items: baseline; gap: 12px; }
+  .nota-google b { font: 400 72px/1 var(--titulo); }
+  .nota-google span { color: var(--suave); font-size: 14px; }
+  @media (max-width: 900px) { .depo-grid { grid-template-columns: 1fr; } }
+
+  /* Horários e mapa */
+  .local-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: stretch; }
+  .horarios { list-style: none; padding: 0; margin: 0 0 32px; border-top: 1px solid var(--linha); }
+  .horarios li { display: flex; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px solid var(--linha); }
+  .horarios li .h { font-weight: 600; }
+  .horarios li.fechado .h { color: var(--suave); font-weight: 400; }
+  .horarios li.hoje { color: var(--texto); }
+  .horarios li.hoje .d::after { content: "Hoje"; margin-left: 10px; background: var(--destaque); color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; vertical-align: 2px; }
+  .endereco { font-size: 17px; margin: 0 0 6px; }
+  .endereco + p { color: var(--suave); margin: 0 0 24px; }
+  .mapa { min-height: 380px; border: 1px solid var(--linha); background: var(--superficie); }
+  .mapa iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; filter: grayscale(1) invert(.92) contrast(.9); }
+  @media (max-width: 900px) { .local-grid { grid-template-columns: 1fr; gap: 32px; } .mapa, .mapa iframe { min-height: 300px; } }
+
+  /* Chamada final e rodapé */
+  .final { text-align: center; padding: 88px 0; }
+  .final h2 { font-size: clamp(56px, 11vw, 140px); }
+  .final p { color: var(--suave); margin: 14px 0 28px; }
+  .final .acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  footer { border-top: 1px solid var(--linha); padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); font-size: 14px; color: var(--suave); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--texto); }
+  .demo { width: 100%; text-align: center; font-size: 12.5px; opacity: .7; padding-top: 18px; margin-top: 6px; border-top: 1px solid var(--linha); }
+  .demo a { text-decoration: underline; }
+
+  /* WhatsApp flutuante */
+  .wa-fixo { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 30; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(0,0,0,.45); transition: transform .2s; }
+  .wa-fixo:hover { transform: scale(1.06); }
+  .wa-fixo svg { width: 30px; height: 30px; fill: #fff; }
+
+  @media (max-width: 600px) {
+    section { padding: 72px 0; }
+    .titulo-secao { margin-bottom: 32px; }
+    .hero-texto { padding-bottom: 40px; }
+    .hero .acoes .btn { flex: 1 1 100%; justify-content: center; }
+    .servico { padding: 24px 20px 22px; }
+    .nav .btn { padding: 10px 14px; font-size: 13px; }
+    footer { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+  }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#topo" data-cfg="logo">Barbearia <span>do Zé</span></a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#local">Horários</a>
+      <a class="btn small" href="#agendar">Agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="hero-foto"><img src="fotos/capa.jpg" alt="" fetchpriority="high" onerror="this.remove()"></div>
+    <div class="wrap hero-texto">
+      <div class="sobre" data-cfg="sobretitulo"></div>
+      <h1 data-cfg="titulo"></h1>
+      <p class="slogan" data-cfg="slogan"></p>
+      <p class="desc" data-cfg="descricao"></p>
+      <div class="acoes">
+        <a class="btn js-wa" href="#agendar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Agendar no WhatsApp</a>
+        <a class="btn ghost" href="#servicos">Ver serviços e preços</a>
+      </div>
+      <div class="selos" id="selos"></div>
+    </div>
+    <div class="poste" aria-hidden="true"></div>
+  </div>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="titulo-secao">
+        <div><span class="num">01 — Serviços</span><h2>Cardápio da casa</h2></div>
+        <p data-cfg="textoServicos"></p>
+      </div>
+      <div class="servicos" id="lista-servicos"></div>
+    </div>
+  </section>
+
+  <section class="agendar" id="agendar">
+    <div class="wrap">
+      <div class="titulo-secao">
+        <div><span class="num">02 — Agendamento</span><h2>Marque em 10 segundos</h2></div>
+        <p>Escolha o que você quer, a gente responde no WhatsApp com os horários livres.</p>
+      </div>
+      <div class="agendar-grid">
+        <form id="form-agendar" onsubmit="return false">
+          <div class="campo"><span>Serviço</span><div class="opcoes" id="op-servico"></div></div>
+          <div class="campo" id="campo-barbeiro"><span>Barbeiro</span><div class="opcoes" id="op-barbeiro"></div></div>
+          <div class="campo"><span>Dia</span><div class="opcoes" id="op-dia"></div></div>
+          <div class="campo"><span>Período</span><div class="opcoes" id="op-periodo"></div></div>
+        </form>
+        <div class="balao">
+          <div class="cab"><i><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></i><div><b data-cfg="nome"></b>Sua mensagem vai assim:</div></div>
+          <p class="msg" id="previa"></p>
+          <a class="btn" id="enviar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Enviar no WhatsApp</a>
+          <p class="nota">Você revisa antes de enviar. Sem cadastro, sem app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipe">
+    <div class="wrap">
+      <div class="titulo-secao">
+        <div><span class="num">03 — Equipe</span><h2>Quem faz o seu corte</h2></div>
+        <p data-cfg="textoEquipe"></p>
+      </div>
+      <div class="equipe" id="lista-equipe"></div>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <div class="wrap">
+      <div class="titulo-secao">
+        <div><span class="num">04 — Galeria</span><h2>Feito aqui</h2></div>
+        <a class="btn ghost small js-ig" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#i-ig"/></svg><span class="js-ig-user">Instagram</span></a>
+      </div>
+      <div class="galeria" id="lista-galeria"></div>
+    </div>
+  </section>
+
+  <section id="depoimentos" style="padding-top: 0">
+    <div class="wrap">
+      <div class="titulo-secao">
+        <div><span class="num">05 — Clientes</span><h2>Quem senta, volta</h2></div>
+        <div class="nota-google" id="nota-google"></div>
+      </div>
+      <div class="depo-grid" id="lista-depoimentos"></div>
+    </div>
+  </section>
+
+  <div class="poste" aria-hidden="true"></div>
+
+  <section id="local">
+    <div class="wrap local-grid">
+      <div>
+        <div class="titulo-secao" style="margin-bottom: 28px"><div><span class="num">06 — Horários</span><h2>Aberto pra você</h2></div></div>
+        <ul class="horarios" id="lista-horarios"></ul>
+        <p class="endereco" data-cfg="endereco"></p>
+        <p data-cfg="referencia"></p>
+        <a class="btn ghost small" id="como-chegar" target="_blank" rel="noopener">Como chegar</a>
+      </div>
+      <div class="mapa"><iframe id="mapa" title="Mapa com a localização da barbearia" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 data-cfg="chamadaFinal"></h2>
+      <p>Chama no WhatsApp e garante seu horário.</p>
+      <div class="acoes">
+        <a class="btn js-wa" href="#agendar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Agendar no WhatsApp</a>
+        <a class="btn ghost js-ig" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#i-ig"/></svg>Seguir no Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#topo" data-cfg="logo"></a>
+    <span data-cfg="endereco"></span>
+    <a class="js-ig js-ig-user" href="#">Instagram</a>
+    <p class="demo" id="aviso-demo" hidden>Projeto demonstrativo criado pela <a href="https://site-clika.pages.dev/" target="_blank" rel="noopener">Clika</a> — negócio fictício</p>
+  </div>
+</footer>
+
+<a class="wa-fixo js-wa" href="#agendar" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.4 9.4 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43m8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.33 11.33 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.09 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<script>
+  /* ====================== CONFIGURAÇÃO ======================
+     Tudo que muda de um cliente para outro fica aqui.
+     Fotos: troque os arquivos da pasta "fotos" mantendo os mesmos nomes.
+     Preços e horários: ficam no dados.csv (ou na planilha do Google). */
+  const CONFIG = {
+    nome: "Barbearia do Zé",
+    // Logo em texto: a parte entre [ ] fica na cor de destaque
+    logo: "Barbearia [do Zé]",
+    sobretitulo: "Barbearia · Centro",
+    titulo: "Do Zé",
+    slogan: "Corte na régua. Sem enrolação.",
+    descricao: "Degradê, barba na toalha quente e aquele papo bom. Desde 2009 cuidando do visual do bairro.",
+    // Frases curtas logo abaixo dos botões do topo (deixe [] para esconder)
+    selos: ["<b>15 anos</b> no bairro", "<b>4,9</b> no Google", "<b>Café</b> por conta da casa"],
+
+    cores: {
+      fundo: "#0E0E0E",
+      superficie: "#181818",
+      destaque: "#C8312B",   // botões, preços e detalhes
+      texto: "#F2EFE9",
+      listra: "#1F3A68"      // terceira cor da faixa do poste
+    },
+
+    // WhatsApp do negócio: 55 + DDD + número, só dígitos.
+    // No protótipo está o número da Clika, para quem testar falar com a gente.
+    whatsapp: "5514991337516",
+    mensagemWhatsapp: "Olá, Barbearia do Zé! Vi o site e quero agendar um horário.",
+    // Link completo do perfil. Deixe vazio se não tiver: os botões somem sozinhos.
+    instagram: "https://www.instagram.com/",
+    instagramUsuario: "@barbeariadoze",
+
+    endereco: "Rua das Palmeiras, 245 · Centro",
+    referencia: "Em frente à praça da matriz. Estacionamento na rua.",
+    // O que o Google Maps deve procurar para mostrar o mapa (endereço completo ou nome do lugar)
+    mapaBusca: "Praça da Sé, São Paulo - SP",
+    // Link do botão "Como chegar" (no Google Maps: Compartilhar > Copiar link)
+    linkMaps: "https://maps.google.com/?q=Pra%C3%A7a+da+S%C3%A9,+S%C3%A3o+Paulo",
+
+    textoServicos: "Preço fechado, sem surpresa. Todo serviço inclui lavagem e finalização.",
+    textoEquipe: "Três cadeiras, três estilos. Escolha o seu ou deixe com a gente.",
+    chamadaFinal: "Bora dar um tapa no visual?",
+
+    equipe: [
+      { nome: "Zé", cargo: "Fundador", especialidade: "Corte social, tesoura e barba clássica na navalha.", foto: "fotos/barbeiro-1.jpg" },
+      { nome: "Rafa", cargo: "Barbeiro", especialidade: "Degradê, navalhado e desenhos na máquina.", foto: "fotos/barbeiro-2.jpg" },
+      { nome: "Dudu", cargo: "Barbeiro", especialidade: "Barboterapia, pigmentação e sobrancelha.", foto: "fotos/barbeiro-3.jpg" }
+    ],
+
+    galeria: [
+      { foto: "fotos/galeria-1.jpg", legenda: "Degradê navalhado" },
+      { foto: "fotos/galeria-2.jpg", legenda: "Barba desenhada" },
+      { foto: "fotos/galeria-3.jpg", legenda: "Social na tesoura" },
+      { foto: "fotos/galeria-4.jpg", legenda: "Pigmentação" },
+      { foto: "fotos/galeria-5.jpg", legenda: "Corte infantil" },
+      { foto: "fotos/galeria-6.jpg", legenda: "Toalha quente" }
+    ],
+
+    notaGoogle: { nota: "4,9", texto: "média de 230 avaliações no Google" },
+    depoimentos: [
+      { texto: "Corto com o Rafa há três anos. Degradê perfeito toda vez e nunca atrasa.", nome: "Lucas M.", info: "Cliente desde 2021" },
+      { texto: "Levei meu filho pro primeiro corte e foi tranquilo. O Zé tem uma paciência absurda.", nome: "Carlos A.", info: "Pai do Theo, 4 anos" },
+      { texto: "A barba na toalha quente é outro nível. Agendo pelo WhatsApp e sou atendido na hora.", nome: "Felipe R.", info: "Cliente desde 2019" }
+    ],
+
+    periodos: ["Manhã", "Tarde", "Noite"],
+
+    // Link CSV da planilha publicada no Google Sheets. Vazio = usa o arquivo dados.csv
+    planilhaCSV: "",
+
+    // true no protótipo. Mude para false quando virar site de cliente.
+    avisoDemo: true
+  };
+  /* ========================================================== */
+
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const $ = id => document.getElementById(id);
+  const wa = text => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
+
+  // Cores e textos
+  Object.entries(CONFIG.cores).forEach(([k, v]) => document.documentElement.style.setProperty("--" + k, v));
+  const logoHTML = esc(CONFIG.logo).replace(/\[(.*?)\]/, "<span>$1</span>");
+  document.querySelectorAll("[data-cfg]").forEach(el => {
+    const k = el.dataset.cfg;
+    if (k === "logo") el.innerHTML = logoHTML;
+    else el.textContent = CONFIG[k] ?? "";
+  });
+  $("selos").innerHTML = CONFIG.selos.map(s => `<span>${s}</span>`).join("");
+  $("aviso-demo").hidden = !CONFIG.avisoDemo;
+
+  // WhatsApp e Instagram
+  document.querySelectorAll(".js-wa").forEach(a => { a.href = wa(CONFIG.mensagemWhatsapp); a.target = "_blank"; a.rel = "noopener"; });
+  document.querySelectorAll(".js-ig").forEach(a => {
+    if (!CONFIG.instagram) { a.hidden = true; return; }
+    a.href = CONFIG.instagram; a.target = "_blank"; a.rel = "noopener";
+  });
+  if (CONFIG.instagramUsuario) document.querySelectorAll(".js-ig-user").forEach(el => el.textContent = CONFIG.instagramUsuario);
+
+  // Mapa
+  $("mapa").src = "https://maps.google.com/maps?q=" + encodeURIComponent(CONFIG.mapaBusca) + "&z=16&output=embed";
+  $("como-chegar").href = CONFIG.linkMaps;
+
+  // Foto com fundo neutro enquanto o arquivo não existe
+  const foto = (src, alt) => `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">`;
+
+  $("lista-equipe").innerHTML = CONFIG.equipe.map(b => `
+    <article class="barbeiro">
+      <div class="foto">${foto(b.foto, "Barbeiro " + b.nome)}</div>
+      <h3>${esc(b.nome)}</h3>
+      <div class="cargo">${esc(b.cargo)}</div>
+      <p>${esc(b.especialidade)}</p>
+    </article>`).join("");
+
+  $("lista-galeria").innerHTML = CONFIG.galeria.map(g => `
+    <figure class="foto">${foto(g.foto, g.legenda)}${g.legenda ? `<figcaption>${esc(g.legenda)}</figcaption>` : ""}</figure>`).join("");
+
+  if (CONFIG.notaGoogle) $("nota-google").innerHTML = `<b>${esc(CONFIG.notaGoogle.nota)}</b><span>★★★★★<br>${esc(CONFIG.notaGoogle.texto)}</span>`;
+  $("lista-depoimentos").innerHTML = CONFIG.depoimentos.map(d => `
+    <figure class="depo" style="margin:0">
+      <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+      <blockquote>“${esc(d.texto)}”</blockquote>
+      <cite>${esc(d.nome)}<span>${esc(d.info)}</span></cite>
+    </figure>`).join("");
+
+  // Topo fica sólido ao rolar
+  const header = $("header");
+  const onScroll = () => header.classList.toggle("solid", scrollY > 40);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+  // Dados (serviços e horários) vindos da planilha ou do dados.csv
+  const FALLBACK = `tipo,servico,preco,duracao,descricao,destaque
+servico,Corte,45,40 min,"Máquina e tesoura, do social ao degradê na régua. Lavagem e finalização inclusas.",nao
+servico,Barba,35,30 min,"Toalha quente, navalha e balm. Contorno alinhado e pele sem irritação.",nao
+servico,Combo corte + barba,70,1h10,O pacote completo com desconto. O mais pedido da casa.,sim
+servico,Sobrancelha,15,10 min,Limpeza e alinhamento na navalha ou na pinça.,nao
+servico,Pigmentação,40,30 min,Preenche falhas da barba ou do corte e deixa o desenho mais marcado.,nao
+servico,Corte infantil,35,30 min,Até 12 anos. Paciência e capricho para a primeira visita.,nao
+horario,Segunda,,,Fechado,
+horario,Terça a sexta,,,9h às 20h,
+horario,Sábado,,,8h às 18h,
+horario,Domingo,,,Fechado,`;
+
+  function parseCSV(text) {
+    const rows = []; let row = [], field = "", quoted = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quoted) {
+        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+        else if (c === '"') quoted = false;
+        else field += c;
+      } else if (c === '"') quoted = true;
+      else if (c === ",") { row.push(field); field = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") i++;
+        row.push(field); rows.push(row); row = []; field = "";
+      } else field += c;
+    }
+    if (field || row.length) { row.push(field); rows.push(row); }
+    const head = rows.shift().map(h => h.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""));
+    return rows.filter(r => r.some(v => v.trim())).map(r => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
+  }
+
+  const preco = v => {
+    const n = Number(String(v).replace("R$", "").replace(",", ".").trim());
+    return isNaN(n) || !String(v).trim() ? esc(v) : `<small>R$</small>${n.toLocaleString("pt-BR")}`;
+  };
+  const precoTexto = v => { const n = Number(String(v).replace(",", ".")); return isNaN(n) || !String(v).trim() ? v : "R$ " + n.toLocaleString("pt-BR"); };
+
+  // Marca a linha de hoje nos horários ("Terça a sexta", "Sábado", "Seg, qua e sex"...)
+  const DIAS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+  function ehHoje(rotulo, hoje = new Date().getDay()) {
+    const t = rotulo.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+    const achados = [...t.matchAll(/dom|seg|ter|qua|qui|sex|sab/g)].map(m => DIAS.indexOf(m[0]));
+    if (achados.length === 2 && /\s(a|ate)\s|-/.test(t)) {
+      const [ini, fim] = achados;
+      return ini <= fim ? hoje >= ini && hoje <= fim : hoje >= ini || hoje <= fim;
+    }
+    return achados.includes(hoje);
+  }
+
+  function render(dados) {
+    const servicos = dados.filter(d => d.tipo === "servico");
+    const horarios = dados.filter(d => d.tipo === "horario");
+
+    $("lista-servicos").innerHTML = servicos.map(s => {
+      const top = /^s/i.test(s.destaque);
+      return `<article class="servico${top ? " top" : ""}">
+        ${top ? '<span class="tag">Mais pedido</span>' : ""}
+        <div class="topo"><h3>${esc(s.servico)}</h3><span class="preco">${preco(s.preco)}</span></div>
+        ${s.duracao ? `<div class="dur"><svg aria-hidden="true"><use href="#i-relogio"/></svg>${esc(s.duracao)}</div>` : ""}
+        <p>${esc(s.descricao)}</p>
+        <a href="${wa(`Olá, ${CONFIG.nome}! Quero agendar: ${s.servico} (${precoTexto(s.preco)}). Qual horário tem disponível?`)}" target="_blank" rel="noopener">Agendar ${esc(s.servico.toLowerCase())} →</a>
+      </article>`;
+    }).join("");
+
+    $("lista-horarios").innerHTML = horarios.map(h => {
+      const fechado = /fechad/i.test(h.descricao);
+      return `<li class="${fechado ? "fechado" : ""}${ehHoje(h.servico) ? " hoje" : ""}"><span class="d">${esc(h.servico)}</span><span class="h">${esc(h.descricao)}</span></li>`;
+    }).join("");
+
+    montarAgendamento(servicos, horarios);
+  }
+
+  // Agendamento: monta a mensagem do WhatsApp com o que a pessoa escolheu
+  function opcoes(id, nome, itens) {
+    $(id).innerHTML = itens.map((it, i) => `<label><input type="radio" name="${nome}" value="${i}"${i === 0 ? " checked" : ""}><span>${it.rotulo}</span></label>`).join("");
+  }
+
+  function montarAgendamento(servicos, horarios) {
+    const nomesDia = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+    // Próximos 7 dias, pulando os que aparecem como "Fechado" nos horários
+    const fechado = dia => horarios.some(h => /fechad/i.test(h.descricao) && ehHoje(h.servico, dia));
+    const dias = Array.from({ length: 14 }, (_, i) => {
+      const d = new Date(); d.setDate(d.getDate() + i);
+      return { d, i };
+    }).filter(({ d }) => !fechado(d.getDay())).slice(0, 7).map(({ d, i }) => {
+      const data = `${nomesDia[d.getDay()]}, ${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}`;
+      const curto = i === 0 ? "Hoje" : i === 1 ? "Amanhã" : nomesDia[d.getDay()].replace(/^./, c => c.toUpperCase()).slice(0, 3) + " " + d.getDate();
+      return { rotulo: curto, texto: i < 2 ? `${curto.toLowerCase()} (${data})` : data };
+    });
+    const barbeiros = [{ rotulo: "Tanto faz", texto: "" }, ...CONFIG.equipe.map(b => ({ rotulo: esc(b.nome), texto: b.nome }))];
+
+    opcoes("op-servico", "servico", servicos.map(s => ({ rotulo: `${esc(s.servico)}<small>${esc(precoTexto(s.preco))}</small>` })));
+    opcoes("op-barbeiro", "barbeiro", barbeiros);
+    opcoes("op-dia", "dia", dias);
+    opcoes("op-periodo", "periodo", CONFIG.periodos.map(p => ({ rotulo: esc(p) })));
+    $("campo-barbeiro").hidden = !CONFIG.equipe.length;
+
+    const form = $("form-agendar");
+    const atualizar = () => {
+      const v = n => Number((form.querySelector(`input[name="${n}"]:checked`) || {}).value || 0);
+      const s = servicos[v("servico")];
+      const b = barbeiros[v("barbeiro")];
+      const linhas = [
+        `Olá, ${CONFIG.nome}! Quero agendar:`,
+        s && `• Serviço: ${s.servico} (${precoTexto(s.preco)})`,
+        b && b.texto && `• Barbeiro: ${b.texto}`,
+        `• Dia: ${dias[v("dia")].texto}`,
+        CONFIG.periodos.length && `• Período: ${CONFIG.periodos[v("periodo")].toLowerCase()}`,
+        "Tem horário?"
+      ].filter(Boolean).join("\n");
+      $("previa").textContent = linhas;
+      $("enviar").href = wa(linhas);
+    };
+    form.onchange = atualizar;
+    atualizar();
+  }
+
+  async function carregarDados() {
+    const fontes = [CONFIG.planilhaCSV, "dados.csv"].filter(Boolean);
+    for (const url of fontes) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(res.status);
+        const dados = parseCSV(await res.text());
+        if (!dados.some(d => d.tipo === "servico")) throw new Error("vazio");
+        return render(dados);
+      } catch (e) { /* tenta a próxima fonte */ }
+    }
+    render(parseCSV(FALLBACK));
+  }
+  carregarDados();
+</script>
+</body>
+</html>
