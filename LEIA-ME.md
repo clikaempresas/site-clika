@@ -50,6 +50,10 @@ Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositór
 4. **Cloudflare Pages:** em **Workers & Pages > Create > Pages > Connect to Git**, autorizar só o repositório do site, e configurar: branch `main`, framework `None`, comando de build vazio, pasta de saída `/`. O link fica `NOME-DO-PROJETO.pages.dev`.
 5. **Planilha:** no Google Sheets, **Arquivo > Importar** o `planos.csv`; depois **Arquivo > Compartilhar > Publicar na Web**, escolher a aba e o formato **CSV**, copiar o link, colar em `planilhaCSV` e fazer commit e push. Testar mudando um preço (o Google leva alguns minutos para atualizar).
 
+## Exemplos (protótipos do portfólio)
+
+Cada protótipo fica em `portfolio/<nicho>/` (ex.: `portfolio/barbearia/`), com o próprio LEIA-ME. Para ele aparecer na seção "Veja um site pronto" da página inicial, copie um item da lista `portfolio` no bloco `CONFIGURAÇÃO` do `index.html` e troque nicho, nome, link, descrição e cores.
+
 ## Domínio próprio (quando tiverem)
 
 No projeto Pages, vá em **Custom domains** e siga o passo 3 do Manual de operação.

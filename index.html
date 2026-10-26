@@ -140,6 +140,25 @@
   .step-list li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); font: 800 1.05rem "Montserrat", sans-serif; margin-bottom: 18px; }
   .step-list p { margin-top: 8px; color: var(--muted-on-dark); }
 
+  /* Exemplos (protótipos do portfólio) */
+  .work-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  @media (max-width: 400px) { .work-grid { grid-template-columns: 1fr; } }
+  .work { display: flex; flex-direction: column; background: var(--surface); border: 2px solid var(--ink); border-radius: 20px; overflow: hidden; text-decoration: none; box-shadow: 6px 6px 0 var(--shadow); transition: transform .12s, box-shadow .12s; }
+  .work:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--shadow); }
+  .work-thumb { position: relative; aspect-ratio: 16 / 10; padding: 22px; display: flex; flex-direction: column; justify-content: flex-end; color: var(--thumb-text); background: var(--thumb-bg) center / cover no-repeat; border-bottom: 2px solid var(--ink); overflow: hidden; }
+  .work-thumb::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: var(--thumb-stripe); }
+  .work-thumb small { font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
+  .work-thumb b { font: 800 2.6rem/1 "Montserrat", sans-serif; letter-spacing: -0.03em; text-transform: uppercase; margin: 6px 0 12px; }
+  .work-thumb i { font-style: normal; font-size: .85rem; font-weight: 600; align-self: flex-start; padding: 7px 12px; border-radius: 999px; background: var(--thumb-accent); color: #fff; }
+  .work-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .work-tag { align-self: flex-start; font-size: .8rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+  .work-body p { color: var(--muted); flex: 1; }
+  .work-link { font-weight: 600; margin-top: 8px; }
+  .work-link::after { content: " →"; }
+  .work.next { border-style: dashed; box-shadow: none; background: transparent; justify-content: center; padding: 32px 28px; gap: 12px; }
+  .work.next:hover { transform: none; box-shadow: none; border-style: solid; }
+  .work.next p { color: var(--muted); }
+
   /* Plans */
   .plans-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
   .plan-group { margin-top: 48px; }
@@ -194,6 +213,7 @@
     <a class="logo" href="#inicio" aria-label="Clika, início"><img src="logos/clika-logo-horizontal.svg" alt="Clika" width="120" height="32"></a>
     <nav class="nav" aria-label="Principal">
       <a href="#como-funciona">Como funciona</a>
+      <a href="#exemplos">Exemplos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
       <a class="btn small js-wa" href="#">Falar no WhatsApp</a>
@@ -269,6 +289,14 @@
     </div>
   </section>
 
+  <section id="exemplos" aria-labelledby="exemplos-titulo">
+    <div class="wrap">
+      <h2 id="exemplos-titulo">Veja um site pronto</h2>
+      <p class="lead" style="margin-top:16px">Modelos que criamos para cada ramo. São negócios fictícios: abra no celular e teste como se fosse cliente.</p>
+      <div class="work-grid" id="portfolio"></div>
+    </div>
+  </section>
+
   <section id="planos" aria-labelledby="precos">
     <div class="wrap">
       <div class="plans-head">
@@ -338,7 +366,17 @@
     // Deixe vazio enquanto não tiver Instagram: o link some do site sozinho
     instagram: "",
     // Link CSV da planilha publicada no Google Sheets. Vazio = usa o arquivo planos.csv
-    planilhaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnioN_rxtpeQ4hnQO8J-OSq19QYkyx2gqMKIEeijvuurMrzX9El88a7bHAjmUFvxQaYhI9T1-voYC7/pub?gid=0&single=true&output=csv"
+    planilhaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnioN_rxtpeQ4hnQO8J-OSq19QYkyx2gqMKIEeijvuurMrzX9El88a7bHAjmUFvxQaYhI9T1-voYC7/pub?gid=0&single=true&output=csv",
+    // Protótipos da pasta portfolio. Para um nicho novo, copie um item e troque os dados.
+    // As cores imitam o protótipo. "imagem" é opcional (ex.: "portfolio/barbearia/fotos/capa.jpg").
+    portfolio: [
+      {
+        nicho: "Barbearia", nome: "Do Zé", sobre: "Barbearia · Centro", link: "portfolio/barbearia/",
+        descricao: "Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.",
+        cores: { fundo: "#0E0E0E", texto: "#F2EFE9", destaque: "#C8312B", listra: "repeating-linear-gradient(-45deg, #C8312B 0 10px, #F2EFE9 10px 20px, #1F3A68 20px 30px, #F2EFE9 30px 40px)" },
+        imagem: ""
+      }
+    ]
   };
   /* ====================================================== */
 
@@ -387,6 +425,26 @@ mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo 
 
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const money = v => { const n = Number(String(v).replace(",", ".")); return isNaN(n) ? esc(v) : "R$ " + n.toLocaleString("pt-BR"); };
+
+  // Exemplos do portfólio
+  const waMsg = text => waLink.replace(encodeURIComponent(CONFIG.mensagemWhatsapp), encodeURIComponent(text));
+  document.getElementById("portfolio").innerHTML = CONFIG.portfolio.map(p => {
+    const bg = p.imagem ? `linear-gradient(transparent 30%, ${p.cores.fundo}), url('${esc(p.imagem)}') center / cover, ${p.cores.fundo}` : p.cores.fundo;
+    return `<a class="work" href="${esc(p.link)}" target="_blank" rel="noopener">
+      <div class="work-thumb" style="--thumb-bg:${bg};--thumb-text:${p.cores.texto};--thumb-accent:${p.cores.destaque};--thumb-stripe:${p.cores.listra || p.cores.destaque}">
+        <small>${esc(p.sobre)}</small><b>${esc(p.nome)}</b><i>Agendar no WhatsApp</i>
+      </div>
+      <div class="work-body">
+        <span class="work-tag">${esc(p.nicho)}</span>
+        <p>${esc(p.descricao)}</p>
+        <span class="work-link">Abrir o site de exemplo</span>
+      </div>
+    </a>`;
+  }).join("") + `<a class="work next" href="${waMsg("Oi! Vi os exemplos no site da Clika. Vocês fazem site para o meu ramo?")}" target="_blank" rel="noopener">
+      <h3>Seu ramo não está aqui?</h3>
+      <p>Salão, pet shop, padaria, oficina... A gente monta uma prévia grátis com a cara do seu negócio.</p>
+      <span class="work-link">Pedir minha prévia</span>
+    </a>`;
 
   function render(plans) {
     const groups = [
