@@ -2,7 +2,7 @@
 
 Protótipo demonstrativo da Clika para o nicho de lanchonetes. Negócio fictício: **Chapa da Esquina**.
 
-Link do portfólio: https://site-clika.pages.dev/portfolio/lanchonete/
+Link do portfólio: https://clika.com.br/portfolio/lanchonete/
 
 Arquivos:
 - `index.html` — o site inteiro (textos, visual e código)
@@ -37,7 +37,9 @@ Abra o `index.html` e procure o bloco `CONFIGURAÇÃO` (fica logo no começo do 
 | `topo` | O lanche mais vendido: `item` precisa ter **o mesmo nome** que está no cardápio, para o preço aparecer |
 | `textos` | Títulos, tempo de entrega, formas de pagamento etc. |
 | `mostrarEsgotados` | `true` = item esgotado aparece apagado; `false` = some do site |
-| `modoDemonstrativo` | **Troque para `false`** — tira o aviso da Clika do rodapé e libera o site no Google |
+| `modoDemonstrativo` | **Troque para `false`** — tira o aviso da Clika do rodapé |
+
+**No topo do `index.html`, apague a linha `<meta name="robots" content="noindex">` e o script do endereço antigo (`site-clika.pages.dev`).** O noindex esconde o site do Google (certo para a demo, errado para o cliente).
 
 ### 3. Prévia do link no WhatsApp
 
@@ -111,6 +113,7 @@ Igual ao site da Clika: `git add .`, `git commit -m "..."`, `git push`. O Cloudf
 ## Checklist antes de entregar ao cliente
 
 - [ ] `modoDemonstrativo: false`
+- [ ] Linha `robots noindex` e script do endereço antigo apagados do topo do `index.html`
 - [ ] WhatsApp testado (clicar no botão abre a conversa certa)
 - [ ] iFood e Instagram com os links do cliente (ou escondidos)
 - [ ] Mapa mostra o lugar certo

@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Endereço antigo: manda para o domínio oficial (os previews de deploy, com subdomínio antes, não são afetados) -->
+<script>if (location.hostname === "site-clika.pages.dev") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
 <title>Clika — sites para negócios do bairro</title>
-<meta name="description" content="A Clika cria sites simples e bonitos para negócios locais: pronto em até 7 dias, com botão de WhatsApp, mapa e horários.">
+<meta name="description" content="A Clika cria sites simples e bonitos para negócios locais: pronto em até 10 dias úteis, com botão de WhatsApp, mapa e horários.">
+<link rel="canonical" href="https://clika.com.br/">
 <meta name="theme-color" content="#F5F5F3">
 <link rel="icon" type="image/png" sizes="512x512" href="logos/favicon.png">
 <link rel="apple-touch-icon" href="logos/favicon.png">
@@ -12,14 +15,32 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Clika">
-<meta property="og:url" content="https://site-clika.pages.dev/">
+<meta property="og:url" content="https://clika.com.br/">
 <meta property="og:title" content="Clika — sites para negócios do bairro">
-<meta property="og:description" content="Sites para comércios de Bauru e região. Prontos em até 7 dias, com botão de WhatsApp, mapa e horários.">
-<meta property="og:image" content="https://site-clika.pages.dev/og-image.png">
+<meta property="og:description" content="Sites para negócios locais. Prontos em até 10 dias úteis, com botão de WhatsApp, mapa e horários.">
+<meta property="og:image" content="https://clika.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Clika: seu negócio a um clique. Sites para comércios de Bauru e região.">
+<meta property="og:image:alt" content="Clika: seu negócio a um clique. Sites para negócios locais.">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Clika",
+  "url": "https://clika.com.br",
+  "logo": "https://clika.com.br/logos/clika-logo.png",
+  "slogan": "Seu negócio a um clique.",
+  "email": "clikaempresas@gmail.com",
+  "sameAs": ["https://www.instagram.com/somosclika/"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-14-99133-7516",
+    "contactType": "customer service",
+    "availableLanguage": "Portuguese"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -204,6 +225,8 @@
   footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
   .footer-brand { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .footer-brand img { display: block; height: 28px; width: auto; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a[hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -216,7 +239,7 @@
       <a href="#exemplos">Exemplos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
-      <a class="btn small js-wa" href="#">Falar no WhatsApp</a>
+      <a class="btn small js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -227,12 +250,12 @@
     <div class="wrap">
       <div>
         <h1>Seu negócio a um <span class="click-word">clique.</span></h1>
-        <p class="lead">A gente cria o site do seu comércio: bonito no celular, com botão de WhatsApp, mapa e horários. Pronto em até 7 dias, sem você precisar entender nada de tecnologia.</p>
+        <p class="lead">A gente cria o site do seu comércio: bonito no celular, com botão de WhatsApp, mapa e horários. Pronto em até 10 dias úteis, sem você precisar entender nada de tecnologia.</p>
         <div class="hero-actions">
-          <a class="btn js-wa" href="#">Quero meu site</a>
+          <a class="btn js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero meu site</a>
           <a class="btn ghost" href="#planos">Ver preços</a>
         </div>
-        <p class="hero-note">Atendemos negócios de Bauru e região.</p>
+        <p class="hero-note">Atendemos negócios de todo o Brasil, tudo pelo WhatsApp.</p>
       </div>
 
       <div class="stage" id="stage">
@@ -284,7 +307,7 @@
         <li><h3>Conversa rápida</h3><p>15 minutos para entender o seu negócio e o que seus clientes mais perguntam.</p></li>
         <li><h3>Prévia grátis</h3><p>Mostramos como a página inicial vai ficar antes de você pagar qualquer coisa.</p></li>
         <li><h3>Ajustes</h3><p>Você pede mudanças em até duas rodadas, e a gente acerta os detalhes.</p></li>
-        <li><h3>Site no ar</h3><p>Publicamos no seu endereço, ligamos ao Google Maps e te mostramos tudo.</p></li>
+        <li><h3>Site no ar</h3><p>Publicamos no seu endereço, deixamos tudo funcionando e te mostramos cada detalhe.</p></li>
       </ol>
     </div>
   </section>
@@ -314,7 +337,7 @@
     <div class="wrap split">
       <div>
         <h2 id="quem">Quem está por trás</h2>
-        <p class="lead">Somos dois amigos de 16 anos que gostam de tecnologia e de empreender. Usamos ferramentas modernas, inclusive inteligência artificial, para entregar rápido e cobrar justo.</p>
+        <p class="lead">Somos uma equipe pequena e jovem, apaixonada por tecnologia e por empreender. Usamos ferramentas modernas para entregar rápido e cobrar justo.</p>
       </div>
       <div class="about-box">
         <h3>Nosso compromisso</h3>
@@ -329,7 +352,7 @@
       <h2 id="faq">Dúvidas</h2>
       <div class="faq-list">
         <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você manda fotos, preços e horários pelo WhatsApp, e a gente cuida do resto.</p></details>
-        <details><summary>Quanto tempo leva?</summary><p>O Essencial fica pronto em até 7 dias e o Completo em até 14, contando a partir do dia em que recebemos suas fotos e textos.</p></details>
+        <details><summary>Quanto tempo leva?</summary><p>O Essencial e o Completo ficam prontos em até 10 dias úteis, contando a partir do dia em que recebemos o sinal e todo o material (fotos, textos, preços e horários).</p></details>
         <details><summary>Como funciona o pagamento?</summary><p>Metade para começar e metade antes de o site ir ao ar, por Pix. Os planos mensais são cobrados sempre no mesmo dia do mês.</p></details>
         <details><summary>Tem algum custo além do que está aqui?</summary><p>Só o endereço do site (o domínio .com.br), que custa R$ 40 por ano no Registro.br e fica no seu nome.</p></details>
         <details><summary>E se eu quiser cancelar o plano mensal?</summary><p>É só avisar com 30 dias de antecedência. Você recebe todos os arquivos do site e a gente ajuda na mudança para o site não sair do ar.</p></details>
@@ -341,7 +364,7 @@
     <div class="wrap">
       <h2 id="bora">Bora colocar seu negócio no ar?</h2>
       <p class="lead">Chama a gente no WhatsApp e receba uma prévia grátis da página do seu negócio.</p>
-      <a class="btn js-wa" href="#">Pedir minha prévia grátis</a>
+      <a class="btn js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Pedir minha prévia grátis</a>
     </div>
   </section>
 
@@ -353,7 +376,10 @@
       <img src="logos/clika-logo-horizontal.svg" alt="Clika" width="105" height="28">
       <span>Clika · sites para negócios do bairro</span>
     </div>
-    <a class="js-ig" href="#">Instagram</a>
+    <div class="footer-links">
+      <a href="mailto:clikaempresas@gmail.com">clikaempresas@gmail.com</a>
+      <a class="js-ig" hidden>Instagram</a>
+    </div>
   </div>
 </footer>
 
@@ -363,9 +389,9 @@
     // WhatsApp do negócio: 55 + DDD + número, só dígitos
     whatsapp: "5514991337516",
     mensagemWhatsapp: "Oi! Vi o site da Clika e quero saber mais sobre um site para o meu negócio.",
-    // Deixe vazio enquanto não tiver Instagram: o link some do site sozinho
-    instagram: "",
-    // Link CSV da planilha publicada no Google Sheets. Vazio = usa o arquivo planos.csv
+    // Link completo do perfil. Vazio = o link do Instagram some do site
+    instagram: "https://www.instagram.com/somosclika/",
+    // Link CSV da planilha publicada no Google Sheets. Se estiver vazio ou falhar, usa o arquivo planos.csv
     planilhaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnioN_rxtpeQ4hnQO8J-OSq19QYkyx2gqMKIEeijvuurMrzX9El88a7bHAjmUFvxQaYhI9T1-voYC7/pub?gid=0&single=true&output=csv",
     // Protótipos da pasta portfolio. Para um nicho novo, copie um item e troque os dados.
     // As cores imitam o protótipo. "imagem" é opcional (ex.: "portfolio/barbearia/fotos/capa.jpg").
@@ -401,8 +427,8 @@
   const waLink = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagemWhatsapp);
   document.querySelectorAll(".js-wa").forEach(a => { a.href = waLink; a.target = "_blank"; a.rel = "noopener"; });
   document.querySelectorAll(".js-ig").forEach(a => {
-    if (!CONFIG.instagram) { a.hidden = true; return; }
-    a.href = CONFIG.instagram; a.target = "_blank"; a.rel = "noopener";
+    if (!CONFIG.instagram) { a.remove(); return; }
+    a.href = CONFIG.instagram; a.target = "_blank"; a.rel = "noopener"; a.hidden = false;
   });
 
   // Antes e depois no celular
@@ -414,13 +440,7 @@
     sw.textContent = on ? "Ver como era antes" : "Clika para ver o antes e depois";
   });
 
-  // Planos vindos da planilha
-  const FALLBACK = `tipo,plano,preco,periodo,descricao,itens,destaque
-criacao,Essencial,450,pagamento único,Uma página com tudo que o cliente precisa saber.,Página única com rolagem;Botão de WhatsApp e Instagram;Mapa e horários;Pronto em até 7 dias,nao
-criacao,Completo,1000,pagamento único,Até 4 páginas para quem quer mostrar mais.,Até 4 páginas;Formulário de contato;Depoimentos de clientes;Google Meu Negócio configurado;Pronto em até 14 dias,sim
-mensal,Autônomo,50,por mês,Você mesmo atualiza preços e horários numa planilha.,Site sempre no ar;Planilha para editar preços e horários;Suporte se algo quebrar,nao
-mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo WhatsApp.,Tudo do Autônomo;Até 2 alterações por mês feitas por nós;Atendimento pelo WhatsApp;Sugestões de melhoria a cada 3 meses,sim`;
-
+  // Planos vindos da planilha (reserva: arquivo planos.csv)
   function parseCSV(text) {
     const rows = []; let row = [], field = "", quoted = false;
     for (let i = 0; i < text.length; i++) {
@@ -476,7 +496,7 @@ mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo 
         const feat = /^s/i.test(p.destaque);
         const list = p.itens.split(";").filter(Boolean).map(i => `<li>${esc(i.trim())}</li>`).join("");
         return `<article class="plan${feat ? " featured" : ""}">
-          <div class="plan-top"><h3>${esc(p.plano)}</h3>${feat ? '<span class="plan-tag">Mais escolhido</span>' : ""}</div>
+          <div class="plan-top"><h3>${esc(p.plano)}</h3>${feat ? '<span class="plan-tag">Recomendado</span>' : ""}</div>
           <p class="plan-price">${money(p.preco)} <small>${esc(p.periodo)}</small></p>
           <p class="plan-desc">${esc(p.descricao)}</p>
           <ul>${list}</ul>
@@ -487,14 +507,18 @@ mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo 
   }
 
   async function loadPlans() {
-    const url = CONFIG.planilhaCSV || "planos.csv";
-    try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error(res.status);
-      render(parseCSV(await res.text()));
-    } catch (e) {
-      render(parseCSV(FALLBACK));
+    const urls = [CONFIG.planilhaCSV, "planos.csv"].filter(Boolean);
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(res.status);
+        const plans = parseCSV(await res.text()).filter(p => p.plano && p.preco);
+        if (!plans.length) throw new Error("vazio");
+        render(plans);
+        return;
+      } catch (e) {}
     }
+    document.getElementById("plans-status").innerHTML = `Não foi possível carregar os preços agora. <a href="${waLink}" target="_blank" rel="noopener">Peça pelo WhatsApp</a>.`;
   }
   loadPlans();
 </script>
