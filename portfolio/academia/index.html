@@ -27,8 +27,8 @@
     // Cores em hexadecimal: destaque (botões), escura (textos e faixas), fundo (página)
     cores: { destaque: "#FF5A1F", escura: "#13213C", fundo: "#F3EFE6" },
 
-    // WhatsApp: 55 + DDD + número, só dígitos
-    whatsapp: "5511999999999",
+    // WhatsApp: 55 + DDD + número, só dígitos. No protótipo está o número da Clika, para quem testar falar com a gente
+    whatsapp: "5514991337516",
     mensagemWhatsapp: "Oi! Vi o site e quero agendar minha aula experimental grátis.",
     // Só o nome de usuário, sem @. Vazio = o botão some
     instagram: "academiaforcatotal",
@@ -116,7 +116,8 @@
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const semAcento = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
-  const waLink = msg => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg || CONFIG.mensagemWhatsapp);
+  const prefixoDemo = CONFIG.avisoDemo ? "(Teste do site demonstrativo) " : "";
+  const waLink = msg => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(prefixoDemo + (msg || CONFIG.mensagemWhatsapp));
   const num = v => { let s = String(v).replace(/[^\d,.]/g, ""); if (s.includes(",")) s = s.replace(/\./g, "").replace(",", "."); return parseFloat(s); };
   const reais = n => "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
   const foto = (arquivo, alt) => `<img src="fotos/${esc(arquivo)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">`;

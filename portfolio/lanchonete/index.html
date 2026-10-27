@@ -281,7 +281,8 @@ const CONFIG = {
   },
 
   // Contatos. WhatsApp: 55 + DDD + número, só números.
-  whatsapp: "5511900000000",
+  // No protótipo está o número da Clika, para quem testar falar com a gente.
+  whatsapp: "5514991337516",
   mensagemWhatsapp: "Olá! Vi o site e quero fazer um pedido.",
   ifood: "https://www.ifood.com.br/",          // "" esconde o botão do iFood
   instagram: "https://www.instagram.com/",     // "" esconde o botão do Instagram
@@ -360,7 +361,8 @@ const ICONE = {
 const $ = (s) => document.querySelector(s);
 const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const norm = (t) => String(t ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").trim().toLowerCase();
-const linkWhats = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+const prefixoDemo = CONFIG.modoDemonstrativo ? "(Teste do site demonstrativo) " : "";
+const linkWhats = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(prefixoDemo + msg)}`;
 const real = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const disponivel = (v) => !["nao", "n", "0", "false", "esgotado"].includes(norm(v));
 const diaDaSemana = (t) => ["dom", "seg", "ter", "qua", "qui", "sex", "sab"].indexOf(norm(t).slice(0, 3));
