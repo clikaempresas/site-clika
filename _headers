@@ -1,0 +1,20 @@
+# Cabeçalhos do Cloudflare Pages
+
+# Endereço antigo (site-clika.pages.dev) nunca entra no Google.
+# Os previews de cada deploy já recebem noindex da própria Cloudflare.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# Arquivos internos (instruções e planilhas de reserva) ficam acessíveis, mas fora da busca
+/*.md
+  X-Robots-Tag: noindex
+
+/*.csv
+  X-Robots-Tag: noindex
+
+# Logos e imagem de compartilhamento mudam pouco
+/logos/*
+  Cache-Control: public, max-age=604800
+
+/og-image.png
+  Cache-Control: public, max-age=604800
