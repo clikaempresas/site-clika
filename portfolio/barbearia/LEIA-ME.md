@@ -1,6 +1,6 @@
 # Modelo Barbearia — como transformar no site de um cliente
 
-Protótipo no ar: https://site-clika.pages.dev/portfolio/barbearia/
+Protótipo no ar: https://clika.com.br/portfolio/barbearia/
 
 Arquivos desta pasta:
 - `index.html` — o site inteiro. Tudo que muda de cliente para cliente fica no bloco `CONFIGURAÇÃO`, no começo do `<script>` (perto do final do arquivo).
@@ -21,7 +21,7 @@ Arquivos desta pasta:
    - `avisoDemo: false` — tira o aviso "Projeto demonstrativo" do rodapé. **Obrigatório no site de cliente.**
 3. **Troque as fotos** na pasta `fotos/`, mantendo os nomes (tabela abaixo). Foto que não existe vira um fundo cinza neutro, sem quebrar o layout.
 4. **Preços e horários:** edite o `dados.csv` (veja "A planilha" abaixo) e, se o cliente tiver o plano com planilha, publique e cole o link em `planilhaCSV`.
-5. **Título da aba e prévia no WhatsApp:** no começo do arquivo, troque as linhas `<title>`, `description`, `og:title` e `og:description`.
+5. **Título da aba e prévia no WhatsApp:** no começo do arquivo, troque as linhas `<title>`, `description`, `og:title` e `og:description`. Apague também a linha `<meta name="robots" content="noindex">` (ela esconde o site do Google, certo só para a demo) e o script do endereço antigo (`site-clika.pages.dev`).
 6. **Teste** (veja "Testar no computador") e publique com `git add .`, `git commit -m "Site da Barbearia X"` e `git push`.
 
 ## Fotos

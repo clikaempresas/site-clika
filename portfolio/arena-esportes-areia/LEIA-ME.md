@@ -1,7 +1,7 @@
 # Modelo: Arena de esportes de areia
 
 Protótipo demonstrativo da Clika (negócio fictício "Arena Pé na Areia").
-Link: https://site-clika.pages.dev/portfolio/arena-esportes-areia/
+Link: https://clika.com.br/portfolio/arena-esportes-areia/
 
 Arquivos:
 - `index.html`: o site inteiro. Tudo o que muda de um cliente para outro fica no bloco `CONFIGURAÇÃO`, no começo do `<script>` (perto do final do arquivo).
@@ -22,7 +22,7 @@ Arquivos:
    - `modalidades`, `niveis`, `eventos` e `estrutura`. Para tirar um item, apague o bloco `{ ... },` inteiro.
    - `fotosGaleria`: quantas fotos de galeria o cliente mandou.
 3. **Tirar o aviso de demonstração.** Mude `avisoDemo: true` para `avisoDemo: false`. Isso some com a frase do rodapé e com o "(Teste do site demonstrativo)" das mensagens de WhatsApp.
-4. **Trocar as 4 linhas do topo do arquivo.** Logo no começo do `index.html`, edite `<title>`, `description`, `og:title` e `og:description`. São elas que aparecem no Google e na prévia do link no WhatsApp.
+4. **Trocar as 4 linhas do topo do arquivo.** Logo no começo do `index.html`, edite `<title>`, `description`, `og:title` e `og:description`. São elas que aparecem no Google e na prévia do link no WhatsApp. Apague também a linha `<meta name="robots" content="noindex">` (ela esconde o site do Google, certo só para a demo) e o script do endereço antigo (`site-clika.pages.dev`).
 5. **Colocar as fotos** na pasta `fotos/` com os nomes exatos da lista. Foto que faltar vira um fundo cor de areia, sem quebrar nada.
 6. **Preencher os preços e as aulas** em `precos.csv` e `aulas.csv` (ou na planilha do Google, passo 7).
 7. **Planilha do Google (opcional, para o cliente editar sozinho):**

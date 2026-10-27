@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Endereço antigo: manda para o domínio oficial (os previews de deploy não são afetados). Apague no site de um cliente real -->
+<script>if (location.hostname === "site-clika.pages.dev") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
+<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="robots" content="noindex">
 <title>Barbearia do Zé · Corte e barba no centro</title>
 <meta name="description" content="Corte, barba, combo, sobrancelha e pigmentação. Agende pelo WhatsApp em poucos segundos.">
 <meta property="og:title" content="Barbearia do Zé">
@@ -327,7 +331,7 @@
     <a class="logo" href="#topo" data-cfg="logo"></a>
     <span data-cfg="endereco"></span>
     <a class="js-ig js-ig-user" href="#">Instagram</a>
-    <p class="demo" id="aviso-demo" hidden>Projeto demonstrativo criado pela <a href="https://site-clika.pages.dev/" target="_blank" rel="noopener">Clika</a> — negócio fictício</p>
+    <p class="demo" id="aviso-demo" hidden>Projeto demonstrativo criado pela <a href="https://clika.com.br/" target="_blank" rel="noopener">Clika</a> — negócio fictício</p>
   </div>
 </footer>
 
@@ -549,7 +553,7 @@ horario,Domingo,,,Fechado,`;
 
   function montarAgendamento(servicos, horarios) {
     const nomesDia = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
-    // Próximos 7 dias, pulando os que aparecem como "Fechado" nos horários
+    // Uma semana à frente, pulando os que aparecem como "Fechado" nos horários
     const fechado = dia => horarios.some(h => /fechad/i.test(h.descricao) && ehHoje(h.servico, dia));
     const dias = Array.from({ length: 14 }, (_, i) => {
       const d = new Date(); d.setDate(d.getDate() + i);

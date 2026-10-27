@@ -2,10 +2,11 @@
 
 Arquivos:
 - `index.html` — o site inteiro (textos, visual e código)
-- `planos.csv` — cópia de reserva dos preços (o site só usa se `planilhaCSV` estiver vazio)
+- `planos.csv` — cópia de reserva dos preços (o site usa se a planilha falhar ou se `planilhaCSV` estiver vazio)
+- `robots.txt` e `sitemap.xml` — dizem ao Google o que indexar (só a página inicial; os protótipos têm `noindex`)
 
 Onde está tudo:
-- Site no ar: https://site-clika.pages.dev
+- Site no ar: https://clika.com.br (o endereço antigo, site-clika.pages.dev, redireciona para cá)
 - Código no GitHub: https://github.com/clikaempresas/site-clika (conta `clikaempresas`)
 - Preços: planilha "Preços Clika" no Google Sheets da conta do negócio
 
@@ -15,9 +16,9 @@ Onde está tudo:
 2. Em até uns 5 minutos o site mostra o valor novo. Não precisa publicar nada.
 
 Cuidados:
-- Na coluna `preco`, escreva só o número: `1000`, não `1.000` nem `R$ 1000`.
+- Na coluna `preco`, escreva só o número, com vírgula nos centavos: `449,99`, não `R$ 449,99` nem `1.000`.
 - Não mude os nomes das colunas na primeira linha.
-- Se a planilha for despublicada ou apagada, o site volta a mostrar os preços guardados dentro do `index.html`.
+- Se a planilha for despublicada ou apagada, o site mostra os preços do arquivo `planos.csv`. Sempre que mudar a planilha, atualize também o `planos.csv` (Arquivo > Fazer download > CSV) e faça commit e push.
 
 Colunas da planilha: `tipo` (criacao ou mensal), `plano`, `preco` (só o número), `periodo`, `descricao`, `itens` (separados por ponto e vírgula) e `destaque` (sim ou nao).
 
@@ -54,8 +55,8 @@ Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositór
 
 Cada protótipo fica em `portfolio/<nicho>/` (ex.: `portfolio/barbearia/`), com o próprio LEIA-ME. Para ele aparecer na seção "Veja um site pronto" da página inicial, copie um item da lista `portfolio` no bloco `CONFIGURAÇÃO` do `index.html` e troque nicho, nome, link, descrição e cores.
 
-## Domínio próprio (quando tiverem)
+## Domínio próprio
 
-No projeto Pages, vá em **Custom domains** e siga o passo 3 do Manual de operação.
+O site está em https://clika.com.br. Se o domínio mudar um dia, troque o endereço em `og:url`, `og:image`, `canonical` e no bloco JSON-LD do `index.html`, e também no `robots.txt` e no `sitemap.xml`.
 
-Depois, troque `https://site-clika.pages.dev` pelo domínio novo nas linhas `og:url` e `og:image` do `index.html` (são as que montam a prévia do link no WhatsApp).
+O endereço antigo (site-clika.pages.dev) é mandado para o domínio por um script no topo de cada página e, de forma definitiva, por um Bulk Redirect no painel da Cloudflare.

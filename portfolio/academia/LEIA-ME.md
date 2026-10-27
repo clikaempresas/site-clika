@@ -2,7 +2,7 @@
 
 Protótipo demonstrativo da Clika (negócio fictício). Serve de portfólio e de modelo para clientes do nicho de academia.
 
-No ar: https://site-clika.pages.dev/portfolio/academia/
+No ar: https://clika.com.br/portfolio/academia/
 
 Arquivos:
 - `index.html` — o site inteiro. Tudo que muda de cliente para cliente fica no bloco `CONFIGURAÇÃO`, no começo do `<script>`.
@@ -46,7 +46,7 @@ Cuidado ao editar: mantenha as aspas `"` e as vírgulas do fim de cada linha. Se
 
 Logo no começo do `index.html` (antes do bloco CONFIGURAÇÃO):
 - Troque `<title>`, `description`, `og:title` e `og:description` pelo nome e pela cidade do cliente. É isso que aparece na prévia do link no WhatsApp e no Google.
-- **Apague a linha `<meta name="robots" content="noindex">`.** Ela esconde o site do Google (certo para a demo, errado para o cliente).
+- **Apague a linha `<meta name="robots" content="noindex">`.** Ela esconde o site do Google (certo para a demo, errado para o cliente). Apague também o script do endereço antigo (`site-clika.pages.dev`), logo acima dela.
 - Troque a cor em `theme-color` pela cor `escura` do cliente.
 
 ### 4. Preços e grade de aulas
@@ -57,7 +57,7 @@ O `dados.csv` tem duas tabelas, uma embaixo da outra, separadas por uma linha va
 - `preco`: valor **por mês**, só o número (`97` ou `97,90`)
 - `periodo`: `1 mês`, `3 meses`, `6 meses`, `12 meses`. O site usa esse número para calcular o total e a economia
 - `beneficios`: separados por ponto e vírgula
-- `destaque`: `sim` no plano que deve aparecer em azul com a etiqueta "Mais escolhido" (só um)
+- `destaque`: `sim` no plano que deve aparecer em azul com a etiqueta "Recomendado" (só um)
 
 A economia mostrada ("Você economiza R$ 384 por ano") é calculada sozinha, comparando com o plano mais caro por mês.
 

@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Endereço antigo: manda para o domínio oficial (os previews de deploy não são afetados). Apague no site de um cliente real -->
+<script>if (location.hostname === "site-clika.pages.dev") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
+<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="robots" content="noindex">
 <!-- EDITE estas 4 linhas para cada cliente (são as que o Google e o WhatsApp leem) -->
 <title>Arena Pé na Areia — Beach tennis, futevôlei e vôlei de praia</title>
 <meta name="description" content="Quadras de areia para beach tennis, futevôlei e vôlei de praia. Locação por hora, aulas para todos os níveis, day use e eventos.">
@@ -421,8 +425,8 @@ const CONFIG = {
 
   // Endereço e mapa
   endereco: "Rua das Palmeiras, 450 — Jardim Praia",
-  cidade: "Bauru — SP",
-  mapaBusca: "Bauru, SP",                // o que o mapa procura: endereço completo ou nome no Google Maps
+  cidade: "São Paulo — SP",
+  mapaBusca: "São Paulo, SP",              // o que o mapa procura: endereço completo ou nome no Google Maps
   mapaLink: "",                          // link do "Como chegar" (vazio = gera pelo mapaBusca)
 
   // Horário de funcionamento. dias: seg, ter, qua, qui, sex, sab, dom (ex.: "seg-sex", "sab,dom")
@@ -477,7 +481,7 @@ const CONFIG = {
 
   // Aviso de site demonstrativo. Para site de cliente: avisoDemo: false
   avisoDemo: true,
-  siteClika: "https://site-clika.pages.dev/",
+  siteClika: "https://clika.com.br/",
 
   // Planilhas do Google publicadas como CSV (uma aba para cada). Vazio = usa precos.csv e aulas.csv
   planilhaCSV: {
