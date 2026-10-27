@@ -680,10 +680,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   montarEntrega(dados);
 });
 </script>
+<style>
+  /* Faixa do modelo (apague no site de um cliente real) */
+  .faixa-modelo { position: relative; z-index: 40; background: #0B0B0B; color: #E6E6E6; font: 13.5px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .faixa-modelo div { max-width: 1160px; margin-inline: auto; padding: 9px 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: center; }
+  .faixa-modelo b { color: #fff; }
+  .faixa-modelo a { color: #9FD3FF; font-weight: 600; text-decoration: none; }
+  .faixa-modelo a:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .faixa-modelo div { font-size: 12.5px; padding-block: 7px; } }
+</style>
 </head>
 
 <body>
 <a class="pular" href="#cardapio">Pular para o cardápio</a>
+
+<!-- Faixa do modelo: apague este bloco no site de um cliente real -->
+<div class="faixa-modelo">
+  <div>
+    <span>Modelo do plano <b>Essencial</b> da Clika · página única · R$ 449,99</span>
+    <a href="completo/index.html">Ver o mesmo negócio no plano Completo →</a>
+  </div>
+</div>
 
 <header class="cabecalho">
   <div class="container cab-linha">

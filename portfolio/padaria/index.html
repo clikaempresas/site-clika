@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Padaria Fornalha · Essencial</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="robots" content="noindex">
+<meta name="description" content="Pão francês saindo às 6h, 10h e 16h. Encomende pelo WhatsApp.">
+<meta name="theme-color" content="#1E4D3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: página única, faixas largas alternando azulejo claro e verde do toldo */
+  :root {
+    --fundo: #F3F5F1;      /* azulejo */
+    --cartao: #FFFFFF;
+    --verde: #1E4D3A;      /* toldo */
+    --casca: #C2702E;      /* casca do pão: preços e destaques */
+    --tinta: #1B2420;
+    --suave: #56645D;
+    --linha: #D7DED6;
+    --titulo: "Alfa Slab One", Rockwell, "Roboto Slab", Georgia, serif;
+    --corpo: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --largura: 1080px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  body { margin: 0; background: var(--fundo); color: var(--tinta); font: 16px/1.6 var(--corpo); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--verde); }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--titulo); font-weight: 400; margin: 0; line-height: 1.05; text-wrap: balance; }
+  .wrap { max-width: calc(var(--largura) + 64px); margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .rotulo { font: 700 12px/1 var(--corpo); letter-spacing: .14em; text-transform: uppercase; color: var(--casca); }
+  :focus-visible { outline: 3px solid var(--casca); outline-offset: 3px; border-radius: 6px; }
+
+  /* Faixa do modelo (apague no site de um cliente real) */
+  .demo { background: var(--tinta); color: #E8ECE7; font-size: 13.5px; }
+  .demo .wrap { display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: center; padding-block: 9px; }
+  .demo b { color: #fff; }
+  .demo a { color: #F2B57E; font-weight: 600; text-decoration: none; }
+  .demo a:hover { text-decoration: underline; }
+
+  /* Botões */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font: 700 15px/1 var(--corpo); padding: 15px 22px; border-radius: 999px; border: 2px solid transparent; transition: transform .15s, background .15s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  .btn-wa { background: var(--casca); color: #fff; }
+  .btn-wa:hover { background: #A95E22; }
+  .btn-claro { border-color: currentColor; color: inherit; }
+
+  /* Topo */
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--verde); color: #fff; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+  .logo { font: 400 22px/1 var(--titulo); text-decoration: none; letter-spacing: .3px; }
+  .logo span { color: #F2B57E; }
+  header .btn { padding: 11px 16px; font-size: 14px; }
+
+  /* Hero */
+  .hero { background: var(--verde); color: #fff; position: relative; overflow: hidden; }
+  .toldo { height: 18px; background: repeating-linear-gradient(90deg, #fff 0 34px, var(--verde) 34px 68px); }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding-block: 48px 64px; }
+  .hero h1 { font-size: clamp(40px, 6.4vw, 72px); }
+  .hero h1 em { font-style: normal; color: #F2B57E; }
+  .hero p { font-size: 18px; color: #D9E5DE; max-width: 34em; margin: 18px 0 28px; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ilustra { position: relative; }
+  .ilustra svg { width: 100%; height: auto; }
+
+  /* Próxima fornada */
+  .fornada { margin-top: -34px; position: relative; z-index: 2; }
+  .fornada .caixa { background: var(--cartao); border: 1px solid var(--linha); border-radius: 18px; box-shadow: 0 14px 30px -18px rgba(27,36,32,.35); display: grid; grid-template-columns: auto 1fr auto; gap: 18px 24px; align-items: center; padding: 20px 24px; }
+  .relogio { width: 56px; height: 56px; border-radius: 50%; background: #FBEBDD; color: var(--casca); display: grid; place-items: center; }
+  .relogio svg { width: 30px; height: 30px; }
+  .fornada strong { display: block; font-size: 19px; }
+  .fornada small { color: var(--suave); font-size: 14.5px; }
+  .horas { display: flex; gap: 8px; }
+  .horas span { font: 700 15px/1 var(--corpo); font-variant-numeric: tabular-nums; padding: 9px 12px; border-radius: 10px; background: var(--fundo); border: 1px solid var(--linha); }
+  .horas span.prox { background: var(--verde); border-color: var(--verde); color: #fff; }
+
+  section { padding-block: 72px; }
+  .cab { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+  .cab h2 { font-size: clamp(30px, 4.4vw, 44px); }
+  .cab p { color: var(--suave); margin: 0; max-width: 36em; }
+
+  /* Balcão */
+  .balcao { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+  .item { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 16px 0; border-bottom: 1px dashed var(--linha); }
+  .item h3 { font: 600 17px/1.3 var(--corpo); }
+  .item p { margin: 0; color: var(--suave); font-size: 14.5px; grid-column: 1; }
+  .preco { font: 700 18px/1.3 var(--corpo); color: var(--casca); font-variant-numeric: tabular-nums; grid-row: 1; grid-column: 2; white-space: nowrap; }
+  .preco small { font-weight: 500; font-size: 13px; color: var(--suave); }
+  .nota { margin-top: 22px; color: var(--suave); font-size: 14.5px; }
+
+  /* Visita */
+  .visita { background: var(--cartao); border-block: 1px solid var(--linha); }
+  .visita .grade { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: start; }
+  .tabela { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  .tabela td { padding: 11px 0; border-bottom: 1px solid var(--linha); }
+  .tabela td:last-child { text-align: right; font-weight: 600; }
+  .tabela tr.hoje td { color: var(--verde); font-weight: 700; }
+  .endereco { margin: 26px 0 18px; font-size: 17px; }
+  .endereco small { display: block; color: var(--suave); font-size: 14.5px; }
+  .mapa { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--linha); background: #E6ECE4; aspect-ratio: 4 / 3; max-width: 100%; }
+  .mapa svg { width: 100%; height: 100%; }
+  .mapa .btn { position: absolute; left: 16px; bottom: 16px; background: var(--cartao); color: var(--tinta); box-shadow: 0 6px 16px -6px rgba(0,0,0,.35); padding: 12px 16px; font-size: 14px; }
+
+  /* Chamada final */
+  .final { text-align: left; }
+  .final .caixa { background: var(--verde); color: #fff; border-radius: 22px; padding: 40px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  .final h2 { font-size: clamp(28px, 4vw, 40px); }
+  .final p { margin: 8px 0 0; color: #D9E5DE; }
+
+  footer { padding-block: 30px 110px; color: var(--suave); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; }
+  footer a { font-weight: 600; }
+
+  /* Botão flutuante */
+  .flutuante { position: fixed; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 25; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 24px -8px rgba(0,0,0,.45); }
+  .flutuante svg { width: 30px; height: 30px; }
+
+  @media (max-width: 820px) {
+    .hero .wrap, .visita .grade { grid-template-columns: 1fr; }
+    .ilustra { max-width: 360px; }
+    .balcao { grid-template-columns: 1fr; }
+    .fornada .caixa { grid-template-columns: auto 1fr; }
+    .horas { grid-column: 1 / -1; }
+    header .btn span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<!-- Ícones usados na página -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- Faixa do modelo: apague este bloco no site de um cliente real -->
+<div class="demo">
+  <div class="wrap">
+    <span>Modelo <b>Essencial</b> da Clika · R$ 449,99</span>
+    <a href="completo/index.html">Ver no plano Completo →</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#topo">Padaria <span>Fornalha</span></a>
+    <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Encomendar</span></a>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="toldo" aria-hidden="true"></div>
+    <div class="wrap">
+      <div>
+        <p class="rotulo" style="color:#F2B57E">Padaria de bairro desde 1994</p>
+        <h1>Pão quentinho às <em>6h, 10h e 16h</em>.</h1>
+        <p>Pão francês, pão de queijo e bolo caseiro feitos aqui, no forno da casa. Peça pelo WhatsApp e retire no balcão sem fila.</p>
+        <div class="acoes">
+          <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Fazer encomenda</a>
+          <a class="btn btn-claro js-ig" href="#" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@padariafornalha</a>
+        </div>
+      </div>
+      <div class="ilustra" aria-hidden="true">
+        <svg viewBox="0 0 360 300">
+          <ellipse cx="180" cy="262" rx="150" ry="18" fill="#163A2B"/>
+          <!-- cesta -->
+          <path d="M40 170h280l-26 92H66Z" fill="#8A5A2B"/>
+          <path d="M40 170h280" stroke="#6E4520" stroke-width="10" stroke-linecap="round"/>
+          <path d="M70 196h220M78 222h204M86 246h188" stroke="#6E4520" stroke-width="4" opacity=".6"/>
+          <!-- pães -->
+          <g transform="rotate(-14 120 140)"><ellipse cx="120" cy="140" rx="78" ry="34" fill="#D8873E"/><ellipse cx="120" cy="132" rx="70" ry="24" fill="#E7A35E"/><path d="M78 128c8-10 18-12 26-4M108 124c8-10 18-12 26-4M138 122c8-10 18-12 26-4" stroke="#F6D7A8" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+          <g transform="rotate(12 238 132)"><ellipse cx="238" cy="132" rx="74" ry="32" fill="#C87532"/><ellipse cx="238" cy="125" rx="66" ry="22" fill="#DE9550"/><path d="M200 122c8-10 18-12 26-4M230 118c8-10 18-12 26-4" stroke="#F6D7A8" stroke-width="6" stroke-linecap="round" fill="none"/></g>
+          <!-- pão de queijo -->
+          <circle cx="176" cy="168" r="22" fill="#F0C36D"/><circle cx="170" cy="162" r="7" fill="#F8DB9C"/>
+          <circle cx="212" cy="174" r="18" fill="#EAB85C"/>
+          <!-- vapor -->
+          <path d="M120 74c-10-14 10-20 0-34M160 66c-10-14 10-20 0-34M230 70c-10-14 10-20 0-34" stroke="#ffffff" stroke-opacity=".55" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="fornada">
+    <div class="wrap">
+      <div class="caixa">
+        <div class="relogio"><svg><use href="#i-relogio"/></svg></div>
+        <div>
+          <strong id="fornada-titulo">Próxima fornada às 16h</strong>
+          <small id="fornada-texto">Pão francês saindo do forno três vezes por dia.</small>
+        </div>
+        <div class="horas" id="horas"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="balcao">
+    <div class="wrap">
+      <div class="cab">
+        <span class="rotulo">No balcão</span>
+        <h2>O que tem hoje</h2>
+        <p>Os preços mais procurados. O que não está aqui, é só perguntar no WhatsApp.</p>
+      </div>
+      <div class="balcao" id="lista"></div>
+      <p class="nota">Bolo inteiro e salgados para festa: encomende com 1 dia de antecedência.</p>
+    </div>
+  </section>
+
+  <section class="visita" id="visita">
+    <div class="wrap grade">
+      <div>
+        <div class="cab">
+          <span class="rotulo">Venha tomar um café</span>
+          <h2>Horário e endereço</h2>
+        </div>
+        <table class="tabela" id="tabela-horarios"></table>
+        <p class="endereco"><b>Av. das Acácias, 1.180 · Vila Nova</b><small>Na esquina com a farmácia. Tem vaga na frente.</small></p>
+        <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Perguntar se tem</a>
+      </div>
+      <div class="mapa">
+        <!-- No site de um cliente real dá para trocar este desenho pelo mapa do Google (iframe) -->
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="300" fill="#E6ECE4"/>
+          <rect x="230" y="20" width="140" height="90" rx="10" fill="#CFE0C9"/>
+          <g fill="#F7F8F5">
+            <rect x="0" y="122" width="400" height="26"/><rect x="0" y="232" width="400" height="18"/>
+            <rect x="196" y="0" width="26" height="300"/><rect x="70" y="0" width="16" height="300"/><rect x="320" y="110" width="16" height="190"/>
+          </g>
+          <g fill="#D6DED3"><rect x="96" y="20" width="90" height="92" rx="6"/><rect x="96" y="158" width="90" height="64" rx="6"/><rect x="232" y="158" width="78" height="64" rx="6"/><rect x="10" y="158" width="50" height="64" rx="6"/></g>
+          <text x="20" y="140" font-family="Figtree, sans-serif" font-size="12" font-weight="600" fill="#8A968F">Av. das Acácias</text>
+          <circle cx="209" cy="135" r="30" fill="#C2702E" opacity=".18"/>
+          <g transform="translate(193 98)" fill="#C2702E"><path d="M16 0a14 14 0 0 0-14 14c0 10 14 26 14 26s14-16 14-26A14 14 0 0 0 16 0Z"/><circle cx="16" cy="14" r="5" fill="#fff"/></g>
+        </svg>
+        <a class="btn js-mapa" href="#" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>Como chegar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <div class="caixa">
+        <div>
+          <h2>Reserve seu pão antes de sair de casa.</h2>
+          <p>Mande o pedido e o horário que você passa. A gente separa.</p>
+        </div>
+        <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Padaria Fornalha</b> · Av. das Acácias, 1.180 · Vila Nova</span>
+    <span>Projeto demonstrativo criado pela <a href="https://clika.com.br/" target="_blank" rel="noopener">Clika</a> · negócio fictício</span>
+  </div>
+</footer>
+
+<a class="flutuante js-wa" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+  // ===== Dados do negócio: troque aqui para cada cliente =====
+  const CONFIG = {
+    nome: "Padaria Fornalha",
+    // 55 + DDD + número, só dígitos. No modelo está o número da Clika, para quem testar falar com a gente.
+    whatsapp: "5514991337516",
+    mensagemWhatsapp: "Olá, Padaria Fornalha! Vi o site e quero fazer uma encomenda.",
+    instagram: "https://www.instagram.com/",
+    mapa: "https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+da+S%C3%A9+S%C3%A3o+Paulo",
+    fornadas: [6, 10, 16],
+    // dia da semana: 0 = domingo ... 6 = sábado
+    horarios: [
+      { dias: "Segunda a sexta", de: [1,2,3,4,5], texto: "6h às 20h" },
+      { dias: "Sábado", de: [6], texto: "6h às 19h" },
+      { dias: "Domingo e feriados", de: [0], texto: "6h às 13h" }
+    ],
+    produtos: [
+      { nome: "Pão francês", desc: "Casquinha crocante, sai nas 3 fornadas", preco: 18.90, unidade: "kg" },
+      { nome: "Pão de queijo", desc: "Com queijo meia cura", preco: 4.50, unidade: "un" },
+      { nome: "Pão na chapa + pingado", desc: "O café da manhã da casa", preco: 12.00 },
+      { nome: "Coxinha de frango", desc: "Massa de batata, frita na hora", preco: 8.00, unidade: "un" },
+      { nome: "Sonho de creme", desc: "Recheio de baunilha feito aqui", preco: 7.90, unidade: "un" },
+      { nome: "Bolo de fubá", desc: "Fatia generosa, com erva-doce", preco: 6.50, unidade: "fatia" },
+      { nome: "Bolo de cenoura inteiro", desc: "Com cobertura de chocolate", preco: 39.90 },
+      { nome: "Café expresso", desc: "Grão torrado em Minas", preco: 5.50 }
+    ]
+  };
+  // ===========================================================
+
+  const $ = id => document.getElementById(id);
+  const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const wa = texto => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`;
+
+  document.querySelectorAll(".js-wa").forEach(a => a.href = wa(CONFIG.mensagemWhatsapp));
+  document.querySelectorAll(".js-ig").forEach(a => CONFIG.instagram ? a.href = CONFIG.instagram : a.remove());
+  document.querySelectorAll(".js-mapa").forEach(a => a.href = CONFIG.mapa);
+
+  $("lista").innerHTML = CONFIG.produtos.map(p => `
+    <div class="item">
+      <h3>${esc(p.nome)}</h3>
+      <span class="preco">${brl(p.preco)}${p.unidade ? ` <small>/${esc(p.unidade)}</small>` : ""}</span>
+      <p>${esc(p.desc)}</p>
+    </div>`).join("");
+
+  const agora = new Date();
+  const dia = agora.getDay();
+  $("tabela-horarios").innerHTML = CONFIG.horarios.map(h =>
+    `<tr class="${h.de.includes(dia) ? "hoje" : ""}"><td>${esc(h.dias)}${h.de.includes(dia) ? " (hoje)" : ""}</td><td>${esc(h.texto)}</td></tr>`).join("");
+
+  // Próxima fornada, pela hora de quem está vendo
+  const hora = agora.getHours() + agora.getMinutes() / 60;
+  const prox = CONFIG.fornadas.find(f => f > hora);
+  $("horas").innerHTML = CONFIG.fornadas.map(f => `<span class="${f === prox ? "prox" : ""}">${f}h</span>`).join("");
+  if (prox !== undefined) {
+    const falta = Math.round((prox - hora) * 60);
+    $("fornada-titulo").textContent = `Próxima fornada às ${prox}h`;
+    $("fornada-texto").textContent = falta <= 60 ? `Faltam ${falta} minutos. Dá tempo de encomendar.` : "Encomende agora e retire quentinho.";
+  } else {
+    $("fornada-titulo").textContent = `Amanhã a primeira fornada sai às ${CONFIG.fornadas[0]}h`;
+    $("fornada-texto").textContent = "Deixe seu pedido do café da manhã reservado pelo WhatsApp.";
+  }
+</script>
+</body>
+</html>

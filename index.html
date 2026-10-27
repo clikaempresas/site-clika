@@ -193,6 +193,10 @@
   .work-body p { color: var(--muted); flex: 1; }
   .work-link { font-weight: 600; margin-top: 8px; }
   .work-link::after { content: " →"; }
+  .work-thumb-link { display: block; text-decoration: none; }
+  .work-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
+  .work-links a { color: inherit; text-underline-offset: 3px; }
+  .work-links a:not(:hover) { text-decoration: none; }
   .work.next { border-style: dashed; box-shadow: none; background: transparent; justify-content: center; padding: 32px 28px; gap: 12px; }
   .work.next:hover { transform: none; box-shadow: none; border-style: solid; }
   .work.next p { color: var(--muted); }
@@ -333,52 +337,88 @@
     <div class="wrap">
       <h2 id="exemplos-titulo">Veja um site pronto</h2>
       <p class="lead" style="margin-top:16px">Modelos que criamos para cada ramo. São negócios fictícios: abra no celular e teste como se fosse cliente.</p>
-      <!-- Um bloco <a class="work"> por protótipo. As cores imitam o protótipo; para usar foto de capa, troque --thumb-bg por
+      <!-- Um bloco <article class="work"> por protótipo, com links para o plano Essencial (portfolio/NICHO/) e o Completo
+           (portfolio/NICHO/completo/). As cores imitam o protótipo; para usar foto de capa, troque --thumb-bg por
            linear-gradient(transparent 30%, COR), url('portfolio/NICHO/fotos/capa.jpg') center / cover, COR -->
       <div class="work-grid" id="portfolio">
-        <a class="work" href="portfolio/barbearia/" target="_blank" rel="noopener">
-          <div class="work-thumb" style="--thumb-bg:#0E0E0E;--thumb-text:#F2EFE9;--thumb-accent:#C8312B;--thumb-stripe:repeating-linear-gradient(-45deg, #C8312B 0 10px, #F2EFE9 10px 20px, #1F3A68 20px 30px, #F2EFE9 30px 40px)">
-            <small>Barbearia · Centro</small><b>Do Zé</b><i>Agendar no WhatsApp</i>
-          </div>
+        <article class="work">
+          <a class="work-thumb-link" href="portfolio/barbearia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="work-thumb" style="--thumb-bg:#0E0E0E;--thumb-text:#F2EFE9;--thumb-accent:#C8312B;--thumb-stripe:repeating-linear-gradient(-45deg, #C8312B 0 10px, #F2EFE9 10px 20px, #1F3A68 20px 30px, #F2EFE9 30px 40px)">
+              <small>Barbearia · Centro</small><b>Do Zé</b><i>Agendar no WhatsApp</i>
+            </div>
+          </a>
           <div class="work-body">
             <span class="work-tag">Barbearia</span>
             <p>Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.</p>
-            <span class="work-link">Abrir o site de exemplo</span>
+            <div class="work-links">
+              <a class="work-link" href="portfolio/barbearia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a class="work-link" href="portfolio/barbearia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
           </div>
-        </a>
-        <a class="work" href="portfolio/lanchonete/" target="_blank" rel="noopener">
-          <div class="work-thumb" style="--thumb-bg:#151210;--thumb-text:#F4EADB;--thumb-accent:#FF6B1A;--thumb-stripe:#FF6B1A">
-            <small>Hambúrguer na chapa</small><b>Chapa da Esquina</b><i>Pedir no WhatsApp</i>
-          </div>
+        </article>
+        <article class="work">
+          <a class="work-thumb-link" href="portfolio/lanchonete/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="work-thumb" style="--thumb-bg:#151210;--thumb-text:#F4EADB;--thumb-accent:#FF6B1A;--thumb-stripe:#FF6B1A">
+              <small>Hambúrguer na chapa</small><b>Chapa da Esquina</b><i>Pedir no WhatsApp</i>
+            </div>
+          </a>
           <div class="work-body">
             <span class="work-tag">Lanchonete</span>
             <p>Cardápio com preços, pedido no WhatsApp com o lanche já escrito, promoções, horários e bairros de entrega.</p>
-            <span class="work-link">Abrir o site de exemplo</span>
+            <div class="work-links">
+              <a class="work-link" href="portfolio/lanchonete/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a class="work-link" href="portfolio/lanchonete/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
           </div>
-        </a>
-        <a class="work" href="portfolio/academia/" target="_blank" rel="noopener">
-          <div class="work-thumb" style="--thumb-bg:#13213C;--thumb-text:#F3EFE6;--thumb-accent:#FF5A1F;--thumb-stripe:#FF5A1F">
-            <small>Academia · Vila Mariana</small><b>Força Total</b><i>Agendar aula experimental</i>
-          </div>
+        </article>
+        <article class="work">
+          <a class="work-thumb-link" href="portfolio/academia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="work-thumb" style="--thumb-bg:#13213C;--thumb-text:#F3EFE6;--thumb-accent:#FF5A1F;--thumb-stripe:#FF5A1F">
+              <small>Academia · Vila Mariana</small><b>Força Total</b><i>Agendar aula experimental</i>
+            </div>
+          </a>
           <div class="work-body">
             <span class="work-tag">Academia</span>
             <p>Planos com preço, grade de aulas e agendamento da aula experimental pelo WhatsApp.</p>
-            <span class="work-link">Abrir o site de exemplo</span>
+            <div class="work-links">
+              <a class="work-link" href="portfolio/academia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a class="work-link" href="portfolio/academia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
           </div>
-        </a>
-        <a class="work" href="portfolio/arena-esportes-areia/" target="_blank" rel="noopener">
-          <div class="work-thumb" style="--thumb-bg:#12324F;--thumb-text:#F5EAD3;--thumb-accent:#E8452C;--thumb-stripe:linear-gradient(90deg, #E8CF9F 0 50%, #1E6FD9 50%)">
-            <small>Beach tennis · Futevôlei</small><b>Pé na Areia</b><i>Reservar quadra</i>
-          </div>
+        </article>
+        <article class="work">
+          <a class="work-thumb-link" href="portfolio/arena-esportes-areia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="work-thumb" style="--thumb-bg:#12324F;--thumb-text:#F5EAD3;--thumb-accent:#E8452C;--thumb-stripe:linear-gradient(90deg, #E8CF9F 0 50%, #1E6FD9 50%)">
+              <small>Beach tennis · Futevôlei</small><b>Pé na Areia</b><i>Reservar quadra</i>
+            </div>
+          </a>
           <div class="work-body">
             <span class="work-tag">Arena de esportes de areia</span>
             <p>Preços por hora, aulas, day use e reserva de quadra ou aula experimental pelo WhatsApp.</p>
-            <span class="work-link">Abrir o site de exemplo</span>
+            <div class="work-links">
+              <a class="work-link" href="portfolio/arena-esportes-areia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a class="work-link" href="portfolio/arena-esportes-areia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
           </div>
-        </a>
+        </article>
+        <article class="work">
+          <a class="work-thumb-link" href="portfolio/padaria/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="work-thumb" style="--thumb-bg:#1E4D3A;--thumb-text:#F3F5F1;--thumb-accent:#C2702E;--thumb-stripe:repeating-linear-gradient(90deg, #F3F5F1 0 20px, #C2702E 20px 40px)">
+              <small>Padaria de bairro</small><b>Fornalha</b><i>Encomendar no WhatsApp</i>
+            </div>
+          </a>
+          <div class="work-body">
+            <span class="work-tag">Padaria</span>
+            <p>Horário das fornadas, balcão com preços, encomenda pelo WhatsApp, horários e como chegar.</p>
+            <div class="work-links">
+              <a class="work-link" href="portfolio/padaria/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a class="work-link" href="portfolio/padaria/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
+          </div>
+        </article>
         <a class="work next" href="https://wa.me/5514991337516?text=Oi!%20Vi%20os%20exemplos%20no%20site%20da%20Clika.%20Voc%C3%AAs%20fazem%20site%20para%20o%20meu%20ramo%3F" target="_blank" rel="noopener">
           <h3>Seu ramo não está aqui?</h3>
-          <p>Salão, pet shop, padaria, oficina... A gente monta uma prévia grátis com a cara do seu negócio.</p>
+          <p>Salão, pet shop, oficina, restaurante... A gente monta uma prévia grátis com a cara do seu negócio.</p>
           <span class="work-link">Pedir minha prévia</span>
         </a>
       </div>

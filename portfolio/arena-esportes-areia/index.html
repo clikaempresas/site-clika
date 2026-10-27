@@ -258,9 +258,25 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .zap:hover{transform:scale(1.06)}
 .zap svg{width:32px;height:32px;fill:currentColor}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Faixa do modelo (apague no site de um cliente real) */
+.faixa-modelo{position:relative;z-index:40;background:#0B0B0B;color:#E6E6E6;font:13.5px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.faixa-modelo div{max-width:1160px;margin-inline:auto;padding:9px 16px;display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;align-items:center}
+.faixa-modelo b{color:#fff}
+.faixa-modelo a{color:#9FD3FF;font-weight:600;text-decoration:none}
+.faixa-modelo a:hover{text-decoration:underline}
+@media (max-width:560px){.faixa-modelo div{font-size:12.5px;padding-block:7px}}
 </style>
 </head>
 <body>
+
+<!-- Faixa do modelo: apague este bloco (e o script logo abaixo do cabeçalho) no site de um cliente real -->
+<div class="faixa-modelo">
+  <div>
+    <span>Modelo do plano <b>Essencial</b> da Clika · página única · R$ 449,99</span>
+    <a href="completo/index.html">Ver o mesmo negócio no plano Completo →</a>
+  </div>
+</div>
 
 <header class="topo" id="topo">
   <div class="wrap">
@@ -276,6 +292,16 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
     <a class="btn btn-cheio js-wa" data-msg="reserva" href="#">Reservar</a>
   </div>
 </header>
+<script>
+  // Cabeçalho fixo fica logo abaixo da faixa do modelo enquanto ela aparece na tela
+  (function () {
+    var faixa = document.querySelector(".faixa-modelo"), topo = document.getElementById("topo");
+    function ajusta() { topo.style.top = Math.max(0, faixa.offsetHeight - window.scrollY) + "px"; }
+    addEventListener("scroll", ajusta, { passive: true });
+    addEventListener("resize", ajusta);
+    ajusta();
+  })();
+</script>
 
 <main id="inicio" class="hero">
   <div class="hero-foto">
