@@ -58,3 +58,7 @@ No protótipo, o WhatsApp é o da Clika (quem testar fala com a gente) e o Insta
 Abrir o `index.html` com dois cliques funciona, mas o navegador bloqueia a leitura do `dados.csv` e o site usa a cópia guardada. Para testar a planilha de verdade, abra por um servidor local (por exemplo, a extensão Live Server do VS Code) ou teste direto no link publicado.
 
 Confira sempre no celular: botão verde no canto, mapa carregando, horário de hoje marcado e a mensagem do WhatsApp certinha.
+
+## Fotos ligadas e desligadas
+
+No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` no HTML (a `<img>` do topo e a linha `preload`).

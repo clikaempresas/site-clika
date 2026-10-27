@@ -16,7 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="fotos/capa.jpg" fetchpriority="high">
+<!-- Foto do topo: quando existir fotos/capa.jpg, tire o comentário desta linha e da <img> do topo -->
+<!-- <link rel="preload" as="image" href="fotos/capa.jpg" fetchpriority="high"> -->
 <style>
   :root {
     --fundo: #0E0E0E;
@@ -221,7 +222,7 @@
 
 <main id="topo">
   <div class="hero">
-    <div class="hero-foto"><img src="fotos/capa.jpg" alt="" fetchpriority="high" onerror="this.remove()"></div>
+    <div class="hero-foto"><!-- <img src="fotos/capa.jpg" alt="" fetchpriority="high" onerror="this.remove()"> --></div>
     <div class="wrap hero-texto">
       <div class="sobre" data-cfg="sobretitulo"></div>
       <h1 data-cfg="titulo"></h1>
@@ -413,6 +414,10 @@
     // Link CSV da planilha publicada no Google Sheets. Vazio = usa o arquivo dados.csv
     planilhaCSV: "",
 
+    // false enquanto a pasta fotos estiver vazia: o site não tenta carregar foto nenhuma.
+    // Ao colocar as fotos, mude para true e tire os comentários da foto do topo (procure por capa.jpg).
+    temFotos: false,
+
     // true no protótipo. Mude para false quando virar site de cliente.
     avisoDemo: true
   };
@@ -446,7 +451,7 @@
   $("como-chegar").href = CONFIG.linkMaps;
 
   // Foto com fundo neutro enquanto o arquivo não existe
-  const foto = (src, alt) => `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">`;
+  const foto = (src, alt) => CONFIG.temFotos ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">` : "";
 
   $("lista-equipe").innerHTML = CONFIG.equipe.map(b => `
     <article class="barbeiro">

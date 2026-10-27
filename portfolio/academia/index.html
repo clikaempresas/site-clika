@@ -102,6 +102,10 @@
       { nome: "Dona Cida, 64 anos", resultado: "Sem dor nos joelhos", texto: "Comecei pelo alongamento e hoje faço musculação três vezes por semana. Subo a escada de casa sem parar.", foto: "" }
     ],
 
+    // false enquanto a pasta fotos estiver vazia: o site não tenta carregar foto nenhuma.
+    // Ao colocar as fotos, mude para true e tire o comentário da foto do topo (procure por capa.jpg)
+    temFotos: false,
+
     // Aviso de projeto demonstrativo no rodapé. Mude para false no site de um cliente real
     avisoDemo: true,
     linkClika: "https://clika.com.br/"
@@ -120,7 +124,7 @@
   const waLink = msg => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(prefixoDemo + (msg || CONFIG.mensagemWhatsapp));
   const num = v => { let s = String(v).replace(/[^\d,.]/g, ""); if (s.includes(",")) s = s.replace(/\./g, "").replace(",", "."); return parseFloat(s); };
   const reais = n => "R$ " + n.toLocaleString("pt-BR", { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
-  const foto = (arquivo, alt) => `<img src="fotos/${esc(arquivo)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">`;
+  const foto = (arquivo, alt) => CONFIG.temFotos && arquivo ? `<img src="fotos/${esc(arquivo)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">` : "";
 
   function parseCSV(text) {
     const rows = []; let row = [], field = "", quoted = false;
@@ -279,8 +283,8 @@
 
     document.getElementById("estrutura-lista").innerHTML = CONFIG.estrutura.map(e => `<figure class="foto">${foto(e.foto, e.legenda)}<figcaption>${esc(e.legenda)}</figcaption></figure>`).join("");
 
-    document.getElementById("resultados-lista").innerHTML = CONFIG.depoimentos.map(d => `<article class="depoimento${d.foto ? "" : " so-texto"}">
-      ${d.foto ? `<div class="foto foto-antes-depois">${foto(d.foto, "Antes e depois de " + d.nome)}<span class="rotulo">Antes</span><span class="rotulo depois">Depois</span></div>` : ""}
+    document.getElementById("resultados-lista").innerHTML = CONFIG.depoimentos.map(d => `<article class="depoimento${d.foto && CONFIG.temFotos ? "" : " so-texto"}">
+      ${d.foto && CONFIG.temFotos ? `<div class="foto foto-antes-depois">${foto(d.foto, "Antes e depois de " + d.nome)}<span class="rotulo">Antes</span><span class="rotulo depois">Depois</span></div>` : ""}
       <div class="depoimento-corpo">
         ${d.resultado ? `<span class="depoimento-resultado">${esc(d.resultado)}</span>` : ""}
         <blockquote>“${esc(d.texto)}”</blockquote><cite>${esc(d.nome)}</cite>
@@ -580,7 +584,8 @@
         <ul class="destaques" id="destaques"></ul>
       </div>
       <div class="hero-foto">
-        <div class="foto"><img src="fotos/capa.jpg" alt="Alunos treinando na academia" fetchpriority="high" decoding="async" onerror="this.remove()"></div>
+        <!-- Quando existir fotos/capa.jpg, tire o comentário da <img> abaixo -->
+        <div class="foto"><!-- <img src="fotos/capa.jpg" alt="Alunos treinando na academia" fetchpriority="high" decoding="async" onerror="this.remove()"> --></div>
         <p class="hero-chip" id="hero-chip"></p>
       </div>
     </div>

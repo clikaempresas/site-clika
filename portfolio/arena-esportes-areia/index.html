@@ -279,7 +279,7 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 
 <main id="inicio" class="hero">
   <div class="hero-foto">
-    <img src="fotos/capa.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
+    <!-- Quando existir fotos/capa.jpg, tire o comentário: <img src="fotos/capa.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()"> -->
     <p class="chip js-status"><i></i><span>Confira nossos horários</span></p>
     <div class="rede" aria-hidden="true"></div>
   </div>
@@ -331,7 +331,7 @@ svg.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stro
   <div class="wrap">
     <div class="cab"><p class="rotulo"><b>04</b>Day use e eventos</p><h2>Um dia inteiro de praia</h2></div>
     <div class="dayuse">
-      <div class="foto"><img src="fotos/dayuse.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></div>
+      <div class="foto"><!-- <img src="fotos/dayuse.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"> --></div>
       <div class="du-card">
         <h3 class="js-du-titulo"></h3>
         <p class="js-du-texto"></p>
@@ -478,6 +478,9 @@ const CONFIG = {
   ],
 
   fotosGaleria: 6,                       // quantas fotos galeria-1.jpg, galeria-2.jpg... existem
+  // false enquanto a pasta fotos estiver vazia: o site não tenta carregar foto nenhuma.
+  // Ao colocar as fotos, mude para true e tire o comentário de capa.jpg e dayuse.jpg no HTML
+  temFotos: false,
 
   // Aviso de site demonstrativo. Para site de cliente: avisoDemo: false
   avisoDemo: true,
@@ -532,7 +535,7 @@ const ICONES = {
   maleta: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>'
 };
 const icone = n => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICONES[n] || ICONES.bola}</svg>`;
-const foto = (src, alt = "") => `<div class="foto"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()"></div>`;
+const foto = (src, alt = "") => `<div class="foto">${CONFIG.temFotos ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="this.remove()">` : ""}</div>`;
 
 // Textos
 const bolinha = '<svg class="bolinha" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--bola)"/><path d="M10 18c14 6 14 22 0 28M54 18c-14 6-14 22 0 28" stroke="#fff" stroke-width="5" fill="none"/></svg>';

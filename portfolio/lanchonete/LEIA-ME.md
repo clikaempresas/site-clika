@@ -121,3 +121,7 @@ Igual ao site da Clika: `git add .`, `git commit -m "..."`, `git push`. O Cloudf
 - [ ] Todas as fotos colocadas e comprimidas
 - [ ] `<title>`, `description` e `og:` trocados no `<head>`
 - [ ] Testado no celular
+
+## Fotos ligadas e desligadas
+
+No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` e a linha `og:image` do topo no HTML.

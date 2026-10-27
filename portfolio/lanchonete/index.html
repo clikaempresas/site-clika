@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chapa da Esquina — hambúrguer na chapa">
 <meta property="og:description" content="Smash burger na chapa, porções, combos e milkshakes. Peça pelo WhatsApp ou iFood.">
-<meta property="og:image" content="https://clika.com.br/portfolio/lanchonete/fotos/compartilhar.jpg">
+<!-- Quando existir fotos/compartilhar.jpg, tire o comentário: <meta property="og:image" content="https://clika.com.br/portfolio/lanchonete/fotos/compartilhar.jpg"> -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FF6B1A'/%3E%3Cpath d='M14 30c0-9 8-15 18-15s18 6 18 15z' fill='%23151210'/%3E%3Crect x='12' y='34' width='40' height='5' rx='2.5' fill='%23151210'/%3E%3Cpath d='M14 43h36c0 4-3 7-7 7H21c-4 0-7-3-7-7z' fill='%23151210'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -324,6 +324,10 @@ const CONFIG = {
   // true = itens com "disponivel" = nao aparecem apagados com "Esgotado"; false = somem do cardápio
   mostrarEsgotados: true,
 
+  // false enquanto a pasta fotos estiver vazia: o site não tenta carregar foto nenhuma.
+  // Ao colocar as fotos, mude para true e tire o comentário de capa.jpg no HTML e da og:image no topo.
+  temFotos: false,
+
   // true = mostra no rodapé o aviso de projeto demonstrativo.
   // No site de um cliente real, troque para false e apague a linha "robots noindex" do topo.
   modoDemonstrativo: true,
@@ -376,7 +380,7 @@ function preco(v) {
 }
 
 function caminhoFoto(f) {
-  if (!f) return "";
+  if (!f || !CONFIG.temFotos) return "";
   return /^https?:\/\//i.test(f) ? f : "fotos/" + f;
 }
 
@@ -698,7 +702,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 <main>
   <section class="topo container" aria-labelledby="topo-titulo">
     <div class="topo-foto">
-      <img src="fotos/capa.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
+      <!-- Quando existir fotos/capa.jpg, tire o comentário: <img src="fotos/capa.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()"> -->
       <span class="etiqueta-preco" id="topo-preco" hidden></span>
       <div class="topo-conteudo">
         <p class="selo" id="topo-selo"></p>

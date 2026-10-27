@@ -50,3 +50,7 @@ Arquivos:
 - `professor`: nome do professor (pode ficar vazio).
 
 Cuidados: não mude os nomes das colunas na primeira linha. Se um texto tiver vírgula, coloque entre aspas (`"Sábado, domingo e feriado"`); no Google Sheets isso é automático.
+
+## Fotos ligadas e desligadas
+
+No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` e `dayuse.jpg` no HTML.

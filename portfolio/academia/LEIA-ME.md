@@ -101,3 +101,7 @@ Abra o site por um servidor local (por exemplo `http://localhost:8080`), não co
 ### 7. Publicar
 
 Igual ao site da Clika (veja o `LEIA-ME.md` da raiz do repositório): repositório no GitHub, depois Cloudflare Pages com branch `main`, sem comando de build e pasta de saída `/`.
+
+## Fotos ligadas e desligadas
+
+No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` no HTML.
