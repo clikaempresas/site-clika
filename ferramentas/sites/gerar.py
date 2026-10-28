@@ -498,9 +498,9 @@ def pagina(site, titulo, descricao, corpo, nav_html, tabs_html, precos):
     }
     if c.get("demo"):
         if site.plano == "essencial":
-            faixa = f'<div class="demo-bar"><span>Modelo <b>Essencial</b> da Clika · negócio fictício<span class="demo-price"> · {E(precos.get("essencial", ""))}</span></span><a href="completo/">Ver no plano Completo →</a></div>'
+            faixa = f'<div class="demo-bar"><span><span class="dl">Modelo </span><b>Essencial</b><span class="dl"> da Clika</span> · negócio fictício<span class="demo-price"> · {E(precos.get("essencial", ""))}</span></span><a href="completo/"><span class="dl">Ver no plano </span>Completo →</a></div>'
         else:
-            faixa = f'<div class="demo-bar"><span>Modelo <b>Completo</b> da Clika · negócio fictício<span class="demo-price"> · {E(precos.get("completo", ""))}</span></span><a href="{rr}index.html">Ver no plano Essencial →</a></div>'
+            faixa = f'<div class="demo-bar"><span><span class="dl">Modelo </span><b>Completo</b><span class="dl"> da Clika</span> · negócio fictício<span class="demo-price"> · {E(precos.get("completo", ""))}</span></span><a href="{rr}index.html"><span class="dl">Ver no plano </span>Essencial →</a></div>'
         robots = '<meta name="robots" content="noindex">'
         assinatura = '<a href="https://clika.com.br/" target="_blank" rel="noopener">Site feito pela Clika</a>'
         og = ""

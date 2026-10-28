@@ -180,6 +180,9 @@ html:not(.js) .nav a[aria-current="page"] { background: oklch(1 0 0 / 0.05); box
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .hero-note { margin-top: 18px; font-size: 0.875rem; color: var(--muted); }
 .hero-phone { display: flex; justify-content: center; }
+/* O celular ocupa a largura disponível (até 300/320 px); sem isso ele encolhia até a largura do botão de baixo e ficava fino */
+.hero-phone > .phone-scroll { width: 100%; max-width: 320px; }
+.ba { width: 100%; }
 @media (min-width: 640px) { .hero { padding: 72px 0 96px; } .hero .lead { font-size: 1.125rem; } }
 @media (min-width: 1024px) {
   .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 64px; }
@@ -204,8 +207,8 @@ html:not(.js) .nav a[aria-current="page"] { background: oklch(1 0 0 / 0.05); box
 
 /* ---------- Antes e depois ---------- */
 .ba { display: flex; flex-direction: column; align-items: center; }
-.ba-area { position: relative; height: 560px; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; }
-@media (min-width: 640px) { .ba-area { height: 640px; } }
+.ba-area { position: relative; aspect-ratio: 9 / 19; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; }
+
 .ba-before { position: absolute; inset: 0; padding: 56px 20px 0; background: var(--paper); color: var(--paper-fg); font-size: 12px; }
 .ba-search { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid oklch(0.16 0.004 260 / 0.1); border-radius: 999px; font-size: 13px; box-shadow: 0 1px 2px oklch(0 0 0 / 0.05); }
 .ba-search .i { opacity: 0.5; font-size: 14px; }
@@ -426,8 +429,9 @@ html:not(.js) .nav a[aria-current="page"] { background: oklch(1 0 0 / 0.05); box
 .reload { display: grid; place-items: center; border: 0; background: transparent; color: var(--muted); cursor: pointer; transition: transform 500ms var(--ease), color var(--fast); }
 .reload:hover { transform: rotate(180deg); color: var(--fg); }
 .browser iframe { display: block; width: 100%; height: 640px; border: 0; background: #fff; }
-.stage .phone { width: 330px; }
-.phone-frame { height: 680px; padding-top: 36px; background: var(--bezel); }
+.stage .phone { width: min(330px, 100%); }
+/* Proporção de celular de verdade em qualquer largura de tela */
+.phone-frame { aspect-ratio: 9 / 19.5; padding-top: 36px; background: var(--bezel); }
 .phone-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
 @media (min-width: 768px) {
   .stage[data-device="computador"] .browser { display: block; }
