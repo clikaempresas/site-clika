@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Endereço antigo e www: manda para o domínio oficial (os previews de deploy, com subdomínio antes, não são afetados) -->
 <script>if (location.hostname === "site-clika.pages.dev" || location.hostname === "www.clika.com.br") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
+<!-- Liga as animações de rolagem só se o script carregar; senão tudo aparece normal -->
+<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
 <title>Criação de sites para pequenos negócios | Clika</title>
 <meta name="description" content="Sites profissionais para pequenos negócios: lojas, lanchonetes, barbearias, academias e mais. Prontos em até 10 dias úteis, com WhatsApp, mapa e prévia grátis.">
 <link rel="canonical" href="https://clika.com.br/">
-<meta name="theme-color" content="#F5F5F3">
-<link rel="icon" type="image/png" sizes="512x512" href="logos/favicon.png">
-<link rel="apple-touch-icon" href="logos/favicon.png">
-<!-- Prévia do link no WhatsApp e redes sociais. Se o endereço do site mudar, troque o link em og:url e og:image -->
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/png" sizes="512x512" href="/logos/favicon.png">
+<link rel="apple-touch-icon" href="/logos/favicon.png">
+<!-- Prévia do link no WhatsApp e redes sociais -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Clika">
@@ -23,7 +25,6 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Clika: seu negócio a um clique. Sites para negócios locais, prontos em até 10 dias úteis, com WhatsApp e mapa.">
 <meta name="twitter:card" content="summary_large_image">
-<!-- Dados para o Google. Só fatos que estão no site; se o WhatsApp mudar, troque também o telephone -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,436 +61,331 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  /* Identidade monocromática da logo: preto, branco e cinzas */
-  :root {
-    color-scheme: light;
-    --bg: #F5F5F3;
-    --surface: #FFFFFF;
-    --ink: #0D0D0D;
-    --white: #FFFFFF;
-    --muted: #6B6B6B;
-    --muted-on-dark: #BDBDBD;
-    --line: #E2E2E2;
-    --shadow: #BDBDBD;
-    --wa: #25D366;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 400 1.0625rem/1.6 "Figtree", system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 { font-family: "Montserrat", sans-serif; line-height: 1.08; margin: 0; letter-spacing: -0.025em; }
-  h2 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; text-wrap: balance; }
-  h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.01em; }
-  p { margin: 0; }
-  a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
-
-  .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
-  section { padding-block: clamp(64px, 10vw, 120px); }
-  .lead { color: var(--muted); font-size: 1.15rem; max-width: 34em; }
-
-  /* Header */
-  .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .logo { display: inline-flex; align-items: center; }
-  .logo img { display: block; height: 32px; width: auto; }
-  .nav { display: flex; gap: 28px; align-items: center; }
-  .nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
-  .nav a:hover { color: var(--ink); }
-  @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px; justify-content: center;
-    font: 600 1rem/1 "Figtree", sans-serif; text-decoration: none; cursor: pointer;
-    padding: 15px 22px; border-radius: 999px; border: 2px solid var(--ink);
-    background: var(--ink); color: var(--white);
-    box-shadow: 3px 3px 0 var(--shadow); transition: transform .12s, box-shadow .12s;
-  }
-  .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--shadow); }
-  .btn:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--shadow); }
-  .btn.small { padding: 10px 16px; font-size: .95rem; }
-  .btn.ghost { background: transparent; color: var(--ink); }
-  .nav .btn { color: var(--white); }
-
-  /* Hero */
-  .hero { padding-top: clamp(48px, 8vw, 96px); }
-  .hero .wrap { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
-  @media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; } }
-  .hero h1 { font-size: clamp(2.6rem, 7.4vw, 5.4rem); font-weight: 800; letter-spacing: -0.04em; }
-  .hero h1 .click-word {
-    position: relative; display: inline-block; padding: 0 .14em .04em; margin-left: -.04em;
-    background: var(--ink); color: var(--white); border-radius: .14em; transform: rotate(-1.5deg);
-  }
-  .hero .lead { margin-top: 28px; }
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
-  .hero-note { margin-top: 18px; color: var(--muted); font-size: .95rem; }
-
-  /* Phone demo: the one memorable moment */
-  .stage { position: relative; display: flex; justify-content: center; }
-  .phone {
-    width: 280px; aspect-ratio: 9 / 18.5; background: var(--ink); border-radius: 40px; padding: 12px;
-    box-shadow: 12px 12px 0 var(--shadow);
-  }
-  .screen { position: relative; height: 100%; border-radius: 30px; overflow: hidden; background: var(--white); }
-  .screen-off, .screen-on { position: absolute; inset: 0; transition: opacity .5s ease, transform .5s ease; }
-  .screen-off { display: grid; place-items: center; text-align: center; padding: 28px; color: var(--muted); background: var(--bg); font-size: .95rem; }
-  .screen-off strong { display: block; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--ink); margin-bottom: 6px; }
-  .screen-on { opacity: 0; transform: translateY(14px); color: var(--ink); font-size: .8rem; }
-  .stage.is-on .screen-off { opacity: 0; }
-  .stage.is-on .screen-on { opacity: 1; transform: none; }
-  .demo-hero { background: var(--ink); color: var(--white); padding: 34px 18px 22px; }
-  .demo-hero b { display: block; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 1.35rem; line-height: 1.05; margin-bottom: 6px; }
-  .demo-hero span { color: var(--muted-on-dark); }
-  .demo-body { padding: 16px 18px; display: grid; gap: 10px; }
-  .demo-row { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 8px; }
-  .demo-wa { margin-top: 6px; background: var(--wa); color: var(--ink); font-weight: 700; text-align: center; border-radius: 999px; padding: 11px; }
-  .demo-map { height: 64px; border-radius: 12px; background:
-      linear-gradient(90deg, transparent 48%, var(--line) 48% 52%, transparent 52%),
-      linear-gradient(0deg, transparent 45%, var(--line) 45% 55%, transparent 55%), var(--bg); position: relative; }
-  .demo-map::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -14px 0 0 -7px; background: var(--ink); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
-
-  .switch {
-    position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
-    white-space: nowrap;
-  }
-  .stage.is-on .switch { background: var(--white); color: var(--ink); }
-
-  /* Benefits */
-  .benefits .wrap > h2 { max-width: 14em; }
-  .benefit-list { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  @media (max-width: 820px) { .benefit-list { grid-template-columns: 1fr; gap: 28px; } }
-  .benefit-list h3 { padding-bottom: 12px; margin-bottom: 12px; border-bottom: 3px solid var(--ink); display: inline-block; }
-  .benefit-list p { color: var(--muted); }
-
-  /* Steps — a real sequence */
-  .steps { background: var(--ink); color: var(--white); }
-  .steps .lead { color: var(--muted-on-dark); }
-  .step-list { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; }
-  @media (max-width: 880px) { .step-list { grid-template-columns: 1fr 1fr; row-gap: 40px; } }
-  @media (max-width: 520px) { .step-list { grid-template-columns: 1fr; } }
-  .step-list li { counter-increment: s; padding-right: 28px; border-top: 2px solid var(--muted); padding-top: 20px; }
-  .step-list li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); font: 800 1.05rem "Montserrat", sans-serif; margin-bottom: 18px; }
-  .step-list p { margin-top: 8px; color: var(--muted-on-dark); }
-
-  /* Exemplos (protótipos do portfólio) */
-  .work-grid { margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-  @media (max-width: 400px) { .work-grid { grid-template-columns: 1fr; } }
-  .work { display: flex; flex-direction: column; background: var(--surface); border: 2px solid var(--ink); border-radius: 20px; overflow: hidden; text-decoration: none; box-shadow: 6px 6px 0 var(--shadow); transition: transform .12s, box-shadow .12s; }
-  .work:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--shadow); }
-  .work-thumb { position: relative; aspect-ratio: 16 / 10; padding: 22px; display: flex; flex-direction: column; justify-content: flex-end; color: var(--thumb-text); background: var(--thumb-bg) center / cover no-repeat; border-bottom: 2px solid var(--ink); overflow: hidden; }
-  .work-thumb::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: var(--thumb-stripe); }
-  .work-thumb small { font-size: .75rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
-  .work-thumb b { font: 800 2.6rem/1 "Montserrat", sans-serif; letter-spacing: -0.03em; text-transform: uppercase; margin: 6px 0 12px; }
-  .work-thumb i { font-style: normal; font-size: .85rem; font-weight: 600; align-self: flex-start; padding: 7px 12px; border-radius: 999px; background: var(--thumb-accent); color: #fff; }
-  .work-body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .work-tag { align-self: flex-start; font-size: .8rem; font-weight: 600; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
-  .work-body p { color: var(--muted); flex: 1; }
-  .work-link { font-weight: 600; margin-top: 8px; }
-  .work-link::after { content: " →"; }
-  .work-thumb-link { display: block; text-decoration: none; }
-  .work-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
-  .work-links a { color: inherit; text-underline-offset: 3px; }
-  .work-links a:not(:hover) { text-decoration: none; }
-  .work.next { border-style: dashed; box-shadow: none; background: transparent; justify-content: center; padding: 32px 28px; gap: 12px; }
-  .work.next:hover { transform: none; box-shadow: none; border-style: solid; }
-  .work.next p { color: var(--muted); }
-
-  /* Plans */
-  .plans-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
-  .plan-group { margin-top: 48px; }
-  .plan-group > h3 { color: var(--muted); font-family: "Figtree", sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: 0; margin-bottom: 16px; }
-  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 720px) { .plan-grid { grid-template-columns: 1fr; } }
-  .plan { background: var(--surface); border: 2px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; }
-  .plan.featured { border-color: var(--ink); box-shadow: 6px 6px 0 var(--ink); }
-  .plan-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-  .plan-tag { background: var(--ink); color: var(--white); font-size: .8rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-  .plan-price { font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 2.4rem; line-height: 1.2; letter-spacing: -0.03em; margin-top: 14px; }
-  .plan-price small { font-family: "Figtree", sans-serif; font-weight: 500; font-size: 1rem; color: var(--muted); letter-spacing: 0; white-space: nowrap; }
-  .plan-desc { color: var(--muted); margin-top: 6px; }
-  .plan ul { list-style: none; padding: 0; margin: 20px 0 24px; display: grid; gap: 8px; flex: 1; }
-  .plan li { padding-left: 26px; position: relative; }
-  .plan li::before { content: ""; position: absolute; left: 0; top: .45em; width: 14px; height: 8px; border-left: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(-45deg); }
-  .plan .btn { align-self: flex-start; }
-  .plans-status { margin-top: 24px; color: var(--muted); font-size: .95rem; }
-
-  /* Demo + about */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-  @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
-  .split p + p { margin-top: 16px; }
-  .split .lead { margin-top: 20px; }
-  .about-box { background: var(--surface); border: 2px solid var(--line); border-radius: 20px; padding: 32px; }
-  .about-box h3 { margin-bottom: 12px; }
-  .about-box p { color: var(--muted); }
-
-  /* FAQ */
-  .faq-list { margin-top: 40px; max-width: 760px; border-top: 2px solid var(--line); }
-  details { border-bottom: 2px solid var(--line); }
-  summary { cursor: pointer; list-style: none; padding: 22px 40px 22px 0; font-weight: 600; font-size: 1.1rem; position: relative; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font: 700 1.6rem "Montserrat", sans-serif; color: var(--ink); }
-  details[open] summary::after { content: "–"; }
-  details p { padding: 0 0 22px; color: var(--muted); max-width: 40em; }
-
-  /* CTA + footer */
-  .cta { text-align: center; }
-  .cta h2 { font-size: clamp(2.4rem, 7vw, 4.8rem); letter-spacing: -0.04em; }
-  .cta .lead { margin: 20px auto 36px; }
-  footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: .95rem; }
-  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-  .footer-brand { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .footer-brand img { display: block; height: 28px; width: auto; }
-  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-  .footer-links a[hidden] { display: none; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/clika.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-drag" viewBox="0 0 24 24"><path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-reload" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+</svg>
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="Clika, início"><img src="logos/clika-logo-horizontal.svg" alt="Clika" width="120" height="32"></a>
+    <a class="logo" href="/" aria-label="Clika, página inicial"><img src="/logos/clika-logo-horizontal-branca.svg" alt="Clika" width="105" height="28"></a>
     <nav class="nav" aria-label="Principal">
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#exemplos">Exemplos</a>
-      <a href="#planos">Planos</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a class="btn small js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a href="/" aria-current="page">Início</a>
+      <a href="/exemplos/">Exemplos</a>
+      <a href="/planos/">Planos</a>
+      <a href="/sobre/">Sobre</a>
     </nav>
+    <a class="btn btn-light btn-sm top-cta js-wa" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-celular" aria-label="Abrir menu"><svg class="i i-menu" aria-hidden="true"><use href="#i-menu"/></svg><svg class="i i-x" aria-hidden="true"><use href="#i-x"/></svg></button>
   </div>
+  <nav class="mobile-nav" id="menu-celular" aria-label="Menu">
+    <a href="/" aria-current="page">Início</a>
+    <a href="/exemplos/">Exemplos</a>
+    <a href="/planos/">Planos</a>
+    <a href="/sobre/">Sobre</a>
+  </nav>
+  <span class="sweep" aria-hidden="true"></span>
 </header>
 
 <main id="inicio">
 
   <section class="hero">
-    <div class="wrap">
+    <div class="grid-fade"></div><div class="glow-top"></div>
+    <div class="wrap hero-grid">
       <div>
-        <h1>Seu negócio a um <span class="click-word">clique.</span></h1>
-        <p class="lead">A gente cria o site do seu comércio: bonito no celular, com botão de WhatsApp, mapa e horários. Pronto em até 10 dias úteis, sem você precisar entender nada de tecnologia.</p>
-        <div class="hero-actions">
-          <a class="btn js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero meu site</a>
-          <a class="btn ghost" href="#planos">Ver preços</a>
+        <a class="offer-badge enter" href="#lancamento"><span class="dot"></span><span><strong>Lançamento:</strong> 20% off para os 3 primeiros negócios</span></a>
+        <h1 class="enter enter-2">Seu negócio a um <span class="fade-word">clique.</span></h1>
+        <p class="lead enter enter-3">A gente cria o site do seu comércio: bonito no celular, com botão de WhatsApp, mapa e horários. Pronto em até 10 dias úteis, sem você precisar entender nada de tecnologia.</p>
+        <div class="hero-actions enter enter-4">
+          <a class="btn btn-light js-wa" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero meu site <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <a class="btn btn-ghost" href="#planos">Ver preços</a>
         </div>
-        <p class="hero-note">Atendemos negócios de todo o Brasil, tudo pelo WhatsApp.</p>
+        <p class="hero-note enter enter-4">Atendemos negócios de todo o Brasil, tudo pelo WhatsApp.</p>
       </div>
-
-      <div class="stage" id="stage">
-        <div class="phone" aria-hidden="true">
-          <div class="screen">
-            <div class="screen-off"><div><strong>Barbearia do Zé</strong>Ainda sem site. Quem procura no Google não acha.</div></div>
-            <div class="screen-on">
-              <div class="demo-hero"><b>Barbearia do Zé</b><span>Corte, barba e sobrancelha</span></div>
-              <div class="demo-body">
-                <div class="demo-row"><span>Corte</span><span>R$ 40</span></div>
-                <div class="demo-row"><span>Barba</span><span>R$ 30</span></div>
-                <div class="demo-row"><span>Seg a sáb</span><span>9h às 20h</span></div>
-                <div class="demo-map"></div>
-                <div class="demo-wa">Agendar no WhatsApp</div>
+      <div class="hero-phone enter enter-3"><div class="phone-scroll">
+        <div class="ba" data-ba>
+          <div class="phone">
+            <span class="phone-btn a"></span><span class="phone-btn b"></span><span class="phone-btn c"></span>
+            <div class="phone-shell"><div class="phone-bezel"><div class="phone-screen">
+              <div class="ba-area" role="slider" tabindex="0" aria-label="Arraste para comparar o negócio sem site e com site" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <div class="ba-before" aria-hidden="true">
+                  <div class="ba-search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg> barbearia perto de mim</div>
+                  <div class="skel"><span></span><span></span><span></span><span></span></div>
+                  <div class="ba-card"><b>Barbearia do Zé</b><p>Ainda sem site. Quem procura no Google não acha.</p><div>Sem fotos · sem horário · sem preço</div></div>
+                  <div class="skel faded"><span></span><span></span><span></span></div>
+                </div>
+                <div class="ba-after" aria-hidden="true">
+                  <div class="ba-photo"><img src="/assets/img/barbearia.webp" alt="Barbearia do Zé com site: foto do salão, preços, horários e botão de WhatsApp" width="800" height="600" fetchpriority="high" draggable="false">
+                    <div class="ba-title"><small>Barbearia · Centro</small><strong>Barbearia do Zé</strong><span>Corte, barba e sobrancelha</span></div>
+                  </div>
+                  <div class="ba-rows">
+                    <div class="ba-row"><span>Corte</span><b>R$ 40</b></div>
+                    <div class="ba-row"><span>Barba</span><b>R$ 30</b></div>
+                    <div class="ba-row"><span class="soft">Seg a sáb</span><b>9h às 20h</b></div>
+                    <div class="ba-wa"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg> Agendar no WhatsApp</div>
+                  </div>
+                </div>
+                <div class="ba-handle" aria-hidden="true"><span class="ba-knob"><svg class="i" aria-hidden="true"><use href="#i-drag"/></svg></span></div>
               </div>
-            </div>
+            </div></div></div>
           </div>
+          <button class="ba-toggle" type="button"><span class="nudge" aria-hidden="true">👆</span> Clika para ver o antes e depois</button>
         </div>
-        <button class="btn small switch" id="switch" type="button" aria-pressed="false">Clika para ver o antes e depois</button>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ganha">
+    <div class="wrap">
+      <h2 id="ganha" class="reveal" style="max-width:14em">O que muda quando seu negócio tem site</h2>
+      <div class="benefits">
+        <div class="benefit reveal"><div class="icon-box"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></div><h3>Aparece no Google</h3><p>Quem procura "barbearia perto de mim" encontra você, com endereço e horário certos.</p></div>
+        <div class="benefit reveal d1"><div class="icon-box"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Passa confiança</h3><p>Um site bem feito mostra que o negócio é sério, antes mesmo do cliente entrar na loja.</p></div>
+        <div class="benefit reveal d2"><div class="icon-box"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></div><h3>Vira mensagem no WhatsApp</h3><p>Um toque e o cliente já está falando com você. Sem formulário, sem complicação.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="benefits" aria-labelledby="ganha">
+  <section class="section" id="por-que-site" aria-labelledby="comparar">
     <div class="wrap">
-      <h2 id="ganha">O que muda quando seu negócio tem site</h2>
-      <div class="benefit-list">
-        <div>
-          <h3>Aparece no Google</h3>
-          <p>Quem procura "barbearia perto de mim" encontra você, com endereço e horário certos.</p>
+      <div class="reveal">
+        <span class="eyebrow">Por que um site</span>
+        <h2 id="comparar" style="max-width:15em">Por que não só o Instagram, ou um site feito sozinho?</h2>
+        <p class="lead">As três opções lado a lado, para você decidir com calma.</p>
+      </div>
+      <div class="compare">
+        <div class="cmp reveal">
+          <h3>Só Instagram</h3>
+          <p>Ótimo para o dia a dia, mas não faz o papel de um site.</p>
+          <ul>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Difícil de achar no Google quando procuram o seu ramo</span></li>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Preço, horário e endereço espalhados em posts e destaques</span></li>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Depende do algoritmo para alguém ver</span></li>
+            <li class="yes"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Não custa nada</span></li>
+          </ul>
         </div>
-        <div>
-          <h3>Passa confiança</h3>
-          <p>Um site bem feito mostra que o negócio é sério, antes mesmo do cliente entrar na loja.</p>
+        <div class="cmp reveal d1">
+          <h3>Fazer sozinho</h3>
+          <p>No Wix e ferramentas parecidas. Dá para fazer, mas o trabalho todo é seu.</p>
+          <ul>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Você aprende a ferramenta, monta e escreve tudo</span></li>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Pode levar vários fins de semana até ficar com cara profissional</span></li>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Aparecer no Google depende de você configurar</span></li>
+            <li class="no"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg><span>Mensalidade da plataforma para usar o seu próprio endereço</span></li>
+          </ul>
         </div>
-        <div>
-          <h3>Vira mensagem no WhatsApp</h3>
-          <p>Um toque e o cliente já está falando com você. Sem formulário, sem complicação.</p>
+        <div class="cmp best reveal d2">
+          <span class="cmp-tag">O caminho mais curto</span>
+          <h3>Com a Clika</h3>
+          <p>Você manda o material, a gente entrega pronto.</p>
+          <ul>
+            <li class="yes"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Você só manda fotos, preços e horários pelo WhatsApp</span></li>
+            <li class="yes"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Pronto em até 10 dias úteis, com prévia grátis antes de pagar</span></li>
+            <li class="yes"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Feito para aparecer no Google, com endereço e horário certos</span></li>
+            <li class="yes"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Pagamento único; mensalidade só se você quiser</span></li>
+          </ul>
         </div>
       </div>
+      <p class="compare-note reveal">O Instagram continua importante. O site junta tudo num lugar só e manda o cliente direto para o seu WhatsApp.</p>
     </div>
   </section>
 
-  <section class="steps" id="como-funciona" aria-labelledby="passos">
+  <section class="section" id="como-funciona" aria-labelledby="passos">
     <div class="wrap">
-      <h2 id="passos">Como funciona</h2>
-      <p class="lead" style="margin-top:16px">Do primeiro papo ao site no ar, em quatro passos.</p>
-      <ol class="step-list">
-        <li><h3>Conversa rápida</h3><p>15 minutos para entender o seu negócio e o que seus clientes mais perguntam.</p></li>
-        <li><h3>Prévia grátis</h3><p>Mostramos como a página inicial vai ficar antes de você pagar qualquer coisa.</p></li>
-        <li><h3>Ajustes</h3><p>Você pede mudanças em até duas rodadas, e a gente acerta os detalhes.</p></li>
-        <li><h3>Site no ar</h3><p>Publicamos no seu endereço, deixamos tudo funcionando e te mostramos cada detalhe.</p></li>
+      <div class="reveal"><span class="eyebrow">Como funciona</span><h2 id="passos" style="max-width:15em">Do primeiro papo ao site no ar, em quatro passos.</h2></div>
+      <ol class="steps">
+        <li class="reveal"><span class="step-n">1</span><h3>Conversa rápida</h3><p>15 minutos para entender o seu negócio e o que seus clientes mais perguntam.</p></li>
+        <li class="reveal d1"><span class="step-n">2</span><h3>Prévia grátis</h3><p>Mostramos como a página inicial vai ficar antes de você pagar qualquer coisa.</p></li>
+        <li class="reveal d2"><span class="step-n">3</span><h3>Ajustes</h3><p>Você pede mudanças em até duas rodadas, e a gente acerta os detalhes.</p></li>
+        <li class="reveal d3"><span class="step-n">4</span><h3>Site no ar</h3><p>Publicamos no seu endereço, deixamos tudo funcionando e te mostramos cada detalhe.</p></li>
       </ol>
     </div>
   </section>
 
-  <section id="exemplos" aria-labelledby="exemplos-titulo">
+  <section class="section" id="exemplos" aria-labelledby="exemplos-titulo">
     <div class="wrap">
-      <h2 id="exemplos-titulo">Veja um site pronto</h2>
-      <p class="lead" style="margin-top:16px">Modelos que criamos para cada ramo. São negócios fictícios: abra no celular e teste como se fosse cliente.</p>
-      <!-- Um bloco <article class="work"> por protótipo, com links para o plano Essencial (portfolio/NICHO/) e o Completo
-           (portfolio/NICHO/completo/). As cores imitam o protótipo; para usar foto de capa, troque --thumb-bg por
-           linear-gradient(transparent 30%, COR), url('portfolio/NICHO/fotos/capa.jpg') center / cover, COR -->
-      <div class="work-grid" id="portfolio">
+      <div class="reveal"><span class="eyebrow"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg> Exemplos</span><h2 id="exemplos-titulo">Veja um site pronto</h2>
+        <p class="lead">Modelos que criamos para cada ramo. São negócios fictícios: abra no celular e teste como se fosse cliente.</p></div>
+      <!-- Um <article class="work"> por protótipo (fica em portfolio/NICHO/ e portfolio/NICHO/completo/) -->
+      <div class="works reveal" id="portfolio">
         <article class="work">
-          <a class="work-thumb-link" href="portfolio/barbearia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <div class="work-thumb" style="--thumb-bg:#0E0E0E;--thumb-text:#F2EFE9;--thumb-accent:#C8312B;--thumb-stripe:repeating-linear-gradient(-45deg, #C8312B 0 10px, #F2EFE9 10px 20px, #1F3A68 20px 30px, #F2EFE9 30px 40px)">
-              <small>Barbearia · Centro</small><b>Do Zé</b><i>Agendar no WhatsApp</i>
-            </div>
-          </a>
-          <div class="work-body">
-            <span class="work-tag">Barbearia</span>
-            <p>Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.</p>
-            <div class="work-links">
-              <a class="work-link" href="portfolio/barbearia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a class="work-link" href="portfolio/barbearia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-thumb-link" href="portfolio/lanchonete/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <div class="work-thumb" style="--thumb-bg:#151210;--thumb-text:#F4EADB;--thumb-accent:#FF6B1A;--thumb-stripe:#FF6B1A">
-              <small>Hambúrguer na chapa</small><b>Chapa da Esquina</b><i>Pedir no WhatsApp</i>
-            </div>
-          </a>
-          <div class="work-body">
-            <span class="work-tag">Lanchonete</span>
-            <p>Cardápio com preços, pedido no WhatsApp com o lanche já escrito, promoções, horários e bairros de entrega.</p>
-            <div class="work-links">
-              <a class="work-link" href="portfolio/lanchonete/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a class="work-link" href="portfolio/lanchonete/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-thumb-link" href="portfolio/academia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <div class="work-thumb" style="--thumb-bg:#13213C;--thumb-text:#F3EFE6;--thumb-accent:#FF5A1F;--thumb-stripe:#FF5A1F">
-              <small>Academia · Vila Mariana</small><b>Força Total</b><i>Agendar aula experimental</i>
-            </div>
-          </a>
-          <div class="work-body">
-            <span class="work-tag">Academia</span>
-            <p>Planos com preço, grade de aulas e agendamento da aula experimental pelo WhatsApp.</p>
-            <div class="work-links">
-              <a class="work-link" href="portfolio/academia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a class="work-link" href="portfolio/academia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-thumb-link" href="portfolio/arena-esportes-areia/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <div class="work-thumb" style="--thumb-bg:#12324F;--thumb-text:#F5EAD3;--thumb-accent:#E8452C;--thumb-stripe:linear-gradient(90deg, #E8CF9F 0 50%, #1E6FD9 50%)">
-              <small>Beach tennis · Futevôlei</small><b>Pé na Areia</b><i>Reservar quadra</i>
-            </div>
-          </a>
-          <div class="work-body">
-            <span class="work-tag">Arena de esportes de areia</span>
-            <p>Preços por hora, aulas, day use e reserva de quadra ou aula experimental pelo WhatsApp.</p>
-            <div class="work-links">
-              <a class="work-link" href="portfolio/arena-esportes-areia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a class="work-link" href="portfolio/arena-esportes-areia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-thumb-link" href="portfolio/padaria/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <div class="work-thumb" style="--thumb-bg:#1E4D3A;--thumb-text:#F3F5F1;--thumb-accent:#C2702E;--thumb-stripe:repeating-linear-gradient(90deg, #F3F5F1 0 20px, #C2702E 20px 40px)">
-              <small>Padaria de bairro</small><b>Fornalha</b><i>Encomendar no WhatsApp</i>
-            </div>
-          </a>
+          <a class="work-photo" href="/exemplos/?ramo=padaria" tabindex="-1" aria-hidden="true"><img src="/assets/img/padaria.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Fornalha</span></a>
           <div class="work-body">
             <span class="work-tag">Padaria</span>
             <p>Horário das fornadas, balcão com preços, encomenda pelo WhatsApp, horários e como chegar.</p>
             <div class="work-links">
-              <a class="work-link" href="portfolio/padaria/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a class="work-link" href="portfolio/padaria/completo/" target="_blank" rel="noopener">Plano Completo</a>
+              <a href="/exemplos/?ramo=padaria">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="/portfolio/padaria/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a href="/portfolio/padaria/completo/" target="_blank" rel="noopener">Plano Completo</a>
             </div>
           </div>
         </article>
-        <a class="work next" href="https://wa.me/5514991337516?text=Oi!%20Vi%20os%20exemplos%20no%20site%20da%20Clika.%20Voc%C3%AAs%20fazem%20site%20para%20o%20meu%20ramo%3F" target="_blank" rel="noopener">
+        <article class="work">
+          <a class="work-photo" href="/exemplos/?ramo=barbearia" tabindex="-1" aria-hidden="true"><img src="/assets/img/barbearia.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Do Zé</span></a>
+          <div class="work-body">
+            <span class="work-tag">Barbearia</span>
+            <p>Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.</p>
+            <div class="work-links">
+              <a href="/exemplos/?ramo=barbearia">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="/portfolio/barbearia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a href="/portfolio/barbearia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <a class="work-photo" href="/exemplos/?ramo=lanchonete" tabindex="-1" aria-hidden="true"><img src="/assets/img/lanchonete.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Chapa da Esquina</span></a>
+          <div class="work-body">
+            <span class="work-tag">Lanchonete</span>
+            <p>Cardápio com preços, pedido no WhatsApp com o lanche já escrito, promoções, horários e bairros de entrega.</p>
+            <div class="work-links">
+              <a href="/exemplos/?ramo=lanchonete">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="/portfolio/lanchonete/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a href="/portfolio/lanchonete/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <a class="work-photo" href="/exemplos/?ramo=academia" tabindex="-1" aria-hidden="true"><img src="/assets/img/academia.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Força Total</span></a>
+          <div class="work-body">
+            <span class="work-tag">Academia</span>
+            <p>Planos com preço, grade de aulas e agendamento da aula experimental pelo WhatsApp.</p>
+            <div class="work-links">
+              <a href="/exemplos/?ramo=academia">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="/portfolio/academia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a href="/portfolio/academia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
+          </div>
+        </article>
+        <article class="work">
+          <a class="work-photo" href="/exemplos/?ramo=arena" tabindex="-1" aria-hidden="true"><img src="/assets/img/arena.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Pé na Areia</span></a>
+          <div class="work-body">
+            <span class="work-tag">Arena de esportes de areia</span>
+            <p>Preços por hora, aulas, day use e reserva de quadra ou aula experimental pelo WhatsApp.</p>
+            <div class="work-links">
+              <a href="/exemplos/?ramo=arena">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+              <a href="/portfolio/arena-esportes-areia/" target="_blank" rel="noopener">Plano Essencial</a>
+              <a href="/portfolio/arena-esportes-areia/completo/" target="_blank" rel="noopener">Plano Completo</a>
+            </div>
+          </div>
+        </article>
+        <a class="work next js-wa" data-msg="Oi! Vi os exemplos no site da Clika. Vocês fazem site para o meu ramo?" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20os%20exemplos%20no%20site%20da%20Clika.%20Voc%C3%AAs%20fazem%20site%20para%20o%20meu%20ramo%3F" target="_blank" rel="noopener">
           <h3>Seu ramo não está aqui?</h3>
           <p>Salão, pet shop, oficina, restaurante... A gente monta uma prévia grátis com a cara do seu negócio.</p>
-          <span class="work-link">Pedir minha prévia</span>
+          <span class="more">Pedir minha prévia <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
         </a>
       </div>
     </div>
   </section>
 
-  <section id="planos" aria-labelledby="precos">
-    <div class="wrap">
-      <div class="plans-head">
-        <div>
-          <h2 id="precos">Preços sem surpresa</h2>
-          <p class="lead" style="margin-top:16px">Você paga a criação uma vez. Depois, escolhe se quer cuidar sozinho ou deixar com a gente.</p>
-        </div>
-      </div>
-      <!-- Cópia fixa do planos.csv, para o Google e para quem abre sem JavaScript. O script troca pelos valores da planilha -->
-      <div id="plans">
-        <div class="plan-group"><h3>Criação do site</h3><div class="plan-grid">
+  <section class="section" id="planos" aria-labelledby="precos">
+    <div class="wrap mid">
+      <div class="reveal center"><span class="eyebrow">Planos</span><h2 id="precos">Preços sem surpresa</h2>
+        <p class="lead">Você paga a criação uma vez. Depois, escolhe se quer cuidar sozinho ou deixar com a gente.</p></div>
+      <!-- Cópia fixa do planos.csv: é o que o Google lê e o que aparece se a planilha falhar. O script troca pelos valores da planilha -->
+      <div id="plans" data-plans>
+        <p class="plan-label reveal">Criação do site</p>
+        <div class="plan-grid reveal" data-tipo="criacao">
           <article class="plan">
             <div class="plan-top"><h3>Essencial</h3></div>
-            <p class="plan-price">R$ 449,99 <small>pagamento único</small></p>
             <p class="plan-desc">Uma página com tudo que o cliente precisa saber.</p>
-            <ul><li>Página única com rolagem</li><li>Botão de WhatsApp e Instagram</li><li>Mapa e horários</li><li>Pronto em até 10 dias úteis</li></ul>
-            <a class="btn small" href="https://wa.me/5514991337516?text=Oi!%20Tenho%20interesse%20no%20plano%20Essencial%20da%20Clika." target="_blank" rel="noopener">Quero o Essencial</a>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">449</span><span class="cents">,99</span><span class="plan-unit">pagamento único</span></p>
+            <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Página única com rolagem</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Botão de WhatsApp e Instagram</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Mapa e horários</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pronto em até 10 dias úteis</li></ul>
+            <a class="btn btn-ghost" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Essencial%20da%20Clika." target="_blank" rel="noopener">Quero o Essencial <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
           <article class="plan featured">
             <div class="plan-top"><h3>Completo</h3><span class="plan-tag">Recomendado</span></div>
-            <p class="plan-price">R$ 899,99 <small>pagamento único</small></p>
             <p class="plan-desc">Até 4 páginas para quem quer mostrar mais.</p>
-            <ul><li>Até 4 páginas</li><li>Formulário de contato</li><li>Depoimentos de clientes</li><li>Perfil da Empresa no Google configurado</li><li>Pronto em até 10 dias úteis</li></ul>
-            <a class="btn small" href="https://wa.me/5514991337516?text=Oi!%20Tenho%20interesse%20no%20plano%20Completo%20da%20Clika." target="_blank" rel="noopener">Quero o Completo</a>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">899</span><span class="cents">,99</span><span class="plan-unit">pagamento único</span></p>
+            <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Até 4 páginas</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Formulário de contato</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Depoimentos de clientes</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Perfil da Empresa no Google configurado</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pronto em até 10 dias úteis</li></ul>
+            <a class="btn btn-dark" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Completo%20da%20Clika." target="_blank" rel="noopener">Quero o Completo <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
-        </div></div>
-        <div class="plan-group"><h3>Depois do site no ar (opcional)</h3><div class="plan-grid">
+        </div>
+        <p class="plan-label reveal">Depois do site no ar (opcional)</p>
+        <div class="plan-grid reveal" data-tipo="mensal">
           <article class="plan">
             <div class="plan-top"><h3>Autônomo</h3></div>
-            <p class="plan-price">R$ 49,99 <small>por mês</small></p>
             <p class="plan-desc">Você mesmo atualiza preços e horários numa planilha.</p>
-            <ul><li>Site sempre no ar</li><li>Planilha para editar preços e horários</li><li>Suporte se algo quebrar</li></ul>
-            <a class="btn small" href="https://wa.me/5514991337516?text=Oi!%20Tenho%20interesse%20no%20plano%20Aut%C3%B4nomo%20da%20Clika." target="_blank" rel="noopener">Quero o Autônomo</a>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">49</span><span class="cents">,99</span><span class="plan-unit">por mês</span></p>
+            <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Site sempre no ar</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Planilha para editar preços e horários</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Suporte se algo quebrar</li></ul>
+            <a class="btn btn-ghost" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Aut%C3%B4nomo%20da%20Clika." target="_blank" rel="noopener">Quero o Autônomo <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
           <article class="plan featured">
             <div class="plan-top"><h3>Com atendimento</h3><span class="plan-tag">Recomendado</span></div>
-            <p class="plan-price">R$ 109,99 <small>por mês</small></p>
             <p class="plan-desc">A gente faz as alterações para você pelo WhatsApp.</p>
-            <ul><li>Tudo do Autônomo</li><li>Até 4 alterações por mês feitas por nós</li><li>Atendimento pelo WhatsApp</li><li>Sugestões de melhoria a cada 3 meses</li></ul>
-            <a class="btn small" href="https://wa.me/5514991337516?text=Oi!%20Tenho%20interesse%20no%20plano%20Com%20atendimento%20da%20Clika." target="_blank" rel="noopener">Quero o Com atendimento</a>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">109</span><span class="cents">,99</span><span class="plan-unit">por mês</span></p>
+            <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tudo do Autônomo</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Até 4 alterações por mês feitas por nós</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Atendimento pelo WhatsApp</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sugestões de melhoria a cada 3 meses</li></ul>
+            <a class="btn btn-dark" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Com%20atendimento%20da%20Clika." target="_blank" rel="noopener">Quero o Com atendimento <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
-        </div></div>
+        </div>
       </div>
-      <p class="plans-status" id="plans-status" role="status"></p>
+      <div class="plans-more reveal"><a class="btn btn-ghost" href="/planos/">Ver planos e todas as dúvidas <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
     </div>
   </section>
 
-  <section aria-labelledby="quem">
-    <div class="wrap split">
-      <div>
+  <!-- OFERTA DE LANÇAMENTO. Quando as 3 vagas acabarem: apague esta seção, o selo do topo (class="offer-badge")
+       e o aviso na página de planos, e mostre os depoimentos (veja o LEIA-ME). -->
+  <section class="section" id="lancamento" aria-labelledby="oferta">
+    <div class="wrap">
+      <div class="offer reveal">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Lançamento</span>
+          <h2 id="oferta">Os 3 primeiros negócios ganham 20% de desconto.</h2>
+          <p class="lead">Em troca, você deixa a gente mostrar o seu site no nosso portfólio e conta, num depoimento curto, como foi trabalhar com a Clika. É aqui que essas histórias vão aparecer.</p>
+        </div>
+        <div class="offer-side">
+          <div class="offer-slots" aria-label="3 vagas disponíveis"><span>1</span><span>2</span><span>3</span></div>
+          <p class="offer-fine" style="margin-top:12px">Vagas abertas enquanto durarem.</p>
+          <a class="btn btn-whats js-wa" data-msg="Oi! Quero uma das 3 vagas com 20% de desconto da Clika." href="https://wa.me/5514991337516?text=Oi%21%20Quero%20uma%20das%203%20vagas%20com%2020%25%20de%20desconto%20da%20Clika." target="_blank" rel="noopener" style="margin-top:20px">Quero uma das vagas <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+      <!-- DEPOIMENTOS: quando chegarem, troque "hidden" por nada e repita um <figure class="testimonial"> por cliente.
+      <div class="testimonials">
+        <figure class="testimonial reveal">
+          <blockquote>"Texto do depoimento, nas palavras do cliente."</blockquote>
+          <figcaption>Nome do cliente · Nome do negócio</figcaption>
+        </figure>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <section class="section" id="quem-somos" aria-labelledby="quem">
+    <div class="wrap about-grid">
+      <div class="reveal"><span class="eyebrow">Sobre a Clika</span>
         <h2 id="quem">Quem está por trás</h2>
         <p class="lead">Somos uma equipe pequena e jovem, apaixonada por tecnologia e por empreender. Usamos ferramentas modernas para entregar rápido e cobrar justo.</p>
+        <p style="margin-top:24px"><a class="btn btn-ghost" href="/sobre/">Conhecer a Clika <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
       </div>
-      <div class="about-box">
-        <h3>Nosso compromisso</h3>
-        <p>Tudo combinado por escrito antes de começar. O site e o domínio são seus: se um dia quiser sair, você leva todos os arquivos, sem multa e sem drama.</p>
-        <p style="margin-top:16px">E você fala sempre com a gente, direto no WhatsApp, não com robô.</p>
-      </div>
+      <div class="about-box glow reveal d1">
+          <h3>Nosso compromisso</h3>
+          <p>Tudo combinado por escrito antes de começar. O site e o domínio são seus: se um dia quiser sair, você leva todos os arquivos, sem multa e sem drama.</p>
+          <p>E você fala sempre com a gente, direto no WhatsApp, não com robô.</p>
+          <div class="promises"><div><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Combinado por escrito</div><div><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Site e domínio seus</div><div><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sem fidelidade nem multa</div><div><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Direto no WhatsApp</div></div>
+        </div>
     </div>
   </section>
 
-  <section id="duvidas" aria-labelledby="faq">
-    <div class="wrap">
-      <h2 id="faq">Dúvidas</h2>
-      <div class="faq-list">
+  <section class="section" id="duvidas" aria-labelledby="faq">
+    <div class="wrap narrow">
+      <div class="reveal"><span class="eyebrow">Dúvidas</span><h2 id="faq">Dúvidas</h2></div>
+      <div class="faq reveal">
         <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você manda fotos, preços e horários pelo WhatsApp, e a gente cuida do resto.</p></details>
         <details><summary>Quanto tempo leva?</summary><p>O Essencial e o Completo ficam prontos em até 10 dias úteis, contando a partir do dia em que recebemos o sinal e todo o material (fotos, textos, preços e horários).</p></details>
         <details><summary>Como funciona o pagamento?</summary><p>50% de sinal para começar e 50% na entrega, somente por Pix. Os planos mensais são cobrados sempre no mesmo dia do mês.</p></details>
@@ -502,121 +398,41 @@
     </div>
   </section>
 
-  <section class="cta" aria-labelledby="bora">
+  <section class="cta-wrap">
     <div class="wrap">
-      <h2 id="bora">Bora colocar seu negócio no ar?</h2>
-      <p class="lead">Chama a gente no WhatsApp e receba uma prévia grátis da página do seu negócio.</p>
-      <a class="btn js-wa" href="https://wa.me/5514991337516?text=Oi!%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Pedir minha prévia grátis</a>
+      <div class="cta reveal">
+        <h2>Bora colocar seu negócio no ar?</h2>
+        <p>Chama a gente no WhatsApp e receba uma prévia grátis da página do seu negócio.</p>
+        <a class="btn btn-dark js-wa" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Pedir minha prévia grátis <svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-brand">
-      <img src="logos/clika-logo-horizontal.svg" alt="Clika" width="105" height="28">
-      <span>Clika · sites para negócios do bairro</span>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img src="/logos/clika-logo-horizontal-branca.svg" alt="Clika" width="105" height="28" loading="lazy">
+      <p>Clika · sites para pequenos negócios</p>
     </div>
-    <div class="footer-links">
+    <nav class="footer-col" aria-label="Rodapé">
+      <h2>Navegação</h2>
+      <a href="/">Início</a><a href="/exemplos/">Exemplos</a><a href="/planos/">Planos</a><a href="/sobre/">Sobre</a>
+    </nav>
+    <div class="footer-col">
+      <h2>Contato</h2>
+      <a class="js-wa" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">WhatsApp (14) 99133-7516</a>
       <a href="mailto:clikaempresas@gmail.com">clikaempresas@gmail.com</a>
       <a class="js-ig" href="https://www.instagram.com/somosclika/" target="_blank" rel="noopener">Instagram</a>
+      <span><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Atendimento em todo o Brasil</span>
     </div>
   </div>
+  <div class="footer-bottom">© 2026 Clika. Todos os direitos reservados.</div>
 </footer>
 
-<script>
-  /* ============ CONFIGURAÇÃO — edite só aqui ============ */
-  const CONFIG = {
-    // WhatsApp do negócio: 55 + DDD + número, só dígitos
-    whatsapp: "5514991337516",
-    mensagemWhatsapp: "Oi! Vi o site da Clika e quero saber mais sobre um site para o meu negócio.",
-    // Link completo do perfil. Vazio = o link do Instagram some do site
-    instagram: "https://www.instagram.com/somosclika/",
-    // Link CSV da planilha publicada no Google Sheets. Se estiver vazio ou falhar, usa o arquivo planos.csv
-    planilhaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnioN_rxtpeQ4hnQO8J-OSq19QYkyx2gqMKIEeijvuurMrzX9El88a7bHAjmUFvxQaYhI9T1-voYC7/pub?gid=0&single=true&output=csv"
-  };
-  /* ====================================================== */
+<a class="wa-float js-wa" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Clika%20e%20quero%20saber%20mais%20sobre%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></a>
 
-  const waLink = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagemWhatsapp);
-  document.querySelectorAll(".js-wa").forEach(a => { a.href = waLink; a.target = "_blank"; a.rel = "noopener"; });
-  document.querySelectorAll(".js-ig").forEach(a => {
-    if (!CONFIG.instagram) { a.remove(); return; }
-    a.href = CONFIG.instagram; a.target = "_blank"; a.rel = "noopener"; a.hidden = false;
-  });
-
-  // Antes e depois no celular
-  const stage = document.getElementById("stage");
-  const sw = document.getElementById("switch");
-  sw.addEventListener("click", () => {
-    const on = stage.classList.toggle("is-on");
-    sw.setAttribute("aria-pressed", on);
-    sw.textContent = on ? "Ver como era antes" : "Clika para ver o antes e depois";
-  });
-
-  // Planos vindos da planilha (reserva: arquivo planos.csv)
-  function parseCSV(text) {
-    const rows = []; let row = [], field = "", quoted = false;
-    for (let i = 0; i < text.length; i++) {
-      const c = text[i];
-      if (quoted) {
-        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
-        else if (c === '"') quoted = false;
-        else field += c;
-      } else if (c === '"') quoted = true;
-      else if (c === ",") { row.push(field); field = ""; }
-      else if (c === "\n" || c === "\r") {
-        if (c === "\r" && text[i + 1] === "\n") i++;
-        row.push(field); rows.push(row); row = []; field = "";
-      } else field += c;
-    }
-    if (field || row.length) { row.push(field); rows.push(row); }
-    const head = rows.shift().map(h => h.trim().toLowerCase());
-    return rows.filter(r => r.some(v => v.trim())).map(r => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
-  }
-
-  const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const money = v => { const n = Number(String(v).replace(",", ".")); return isNaN(n) ? esc(v) : "R$ " + n.toLocaleString("pt-BR"); };
-
-  function render(plans) {
-    const groups = [
-      { key: "criacao", title: "Criação do site" },
-      { key: "mensal", title: "Depois do site no ar (opcional)" }
-    ];
-    document.getElementById("plans").innerHTML = groups.map(g => {
-      const items = plans.filter(p => p.tipo === g.key);
-      if (!items.length) return "";
-      return `<div class="plan-group"><h3>${g.title}</h3><div class="plan-grid">${items.map(p => {
-        const feat = /^s/i.test(p.destaque);
-        const list = p.itens.split(";").filter(Boolean).map(i => `<li>${esc(i.trim())}</li>`).join("");
-        return `<article class="plan${feat ? " featured" : ""}">
-          <div class="plan-top"><h3>${esc(p.plano)}</h3>${feat ? '<span class="plan-tag">Recomendado</span>' : ""}</div>
-          <p class="plan-price">${money(p.preco)} <small>${esc(p.periodo)}</small></p>
-          <p class="plan-desc">${esc(p.descricao)}</p>
-          <ul>${list}</ul>
-          <a class="btn small" href="${waLink.replace(encodeURIComponent(CONFIG.mensagemWhatsapp), encodeURIComponent("Oi! Tenho interesse no plano " + p.plano + " da Clika."))}" target="_blank" rel="noopener">Quero o ${esc(p.plano)}</a>
-        </article>`;
-      }).join("")}</div></div>`;
-    }).join("");
-  }
-
-  async function loadPlans() {
-    const urls = [CONFIG.planilhaCSV, "planos.csv"].filter(Boolean);
-    for (const url of urls) {
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) throw new Error(res.status);
-        const plans = parseCSV(await res.text()).filter(p => p.plano && p.preco);
-        if (!plans.length) throw new Error("vazio");
-        render(plans);
-        return;
-      } catch (e) {}
-    }
-    // A cópia fixa do HTML continua na tela; o aviso só aparece se ela tiver sido apagada
-    if (document.querySelector("#plans .plan")) return;
-    document.getElementById("plans-status").innerHTML = `Não foi possível carregar os preços agora. <a href="${waLink}" target="_blank" rel="noopener">Peça pelo WhatsApp</a>.`;
-  }
-  loadPlans();
-</script>
+<script src="/assets/clika.js" defer></script>
 </body>
 </html>
