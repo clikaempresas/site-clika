@@ -1,0 +1,25 @@
+tipo,categoria,nome,descricao,preco,unidade,tag,disponivel
+item,Pães,Pão francês,"Casquinha crocante, sai nas 3 fornadas do dia.",18.90,o kg,Sai às 6h,sim
+item,Pães,Pão de queijo,Com queijo meia cura de Minas.,4.50,a unidade,,sim
+item,Pães,Pão de leite,Macio e levemente adocicado.,14.90,o pacote,,sim
+item,Pães,Pão italiano,"Fermentação longa, casca grossa.",22.00,a unidade,,sim
+item,Pães,Pão de forma integral,Com grãos e sem conservantes.,16.50,a unidade,,sim
+item,Salgados,Coxinha de frango,"Massa de batata, frita na hora.",8.00,a unidade,Mais pedido,sim
+item,Salgados,Esfiha de carne,Massa fina e recheio temperado.,7.00,a unidade,,sim
+item,Salgados,Enroladinho de salsicha,Massa folhada da casa.,6.50,a unidade,,sim
+item,Salgados,Misto quente,"Pão de forma, presunto e queijo na chapa.",11.00,,,sim
+item,Doces,Sonho de creme,Recheio de baunilha feito aqui.,7.90,a unidade,,sim
+item,Doces,Bomba de chocolate,Massa choux e ganache.,9.50,a unidade,,sim
+item,Doces,Pudim de leite,Receita da vó.,10.00,a fatia,,sim
+item,Doces,Brigadeiro gourmet,Caixa com 6 unidades.,21.00,a caixa,,sim
+item,Bolos,Bolo de fubá,"Fatia generosa, com erva-doce.",6.50,a fatia,,sim
+item,Bolos,Bolo de cenoura inteiro,Com cobertura de chocolate.,39.90,,,sim
+item,Bolos,Bolo de laranja inteiro,Com calda de laranja.,36.90,,,sim
+item,Bolos,Torta de aniversário 2 kg,Sob encomenda com 48h de antecedência.,149.00,,Encomenda,sim
+item,Café,Café expresso,Grão torrado em Minas.,5.50,,,sim
+item,Café,Pingado,Na xícara de vidro.,6.00,,,sim
+item,Café,Pão na chapa + pingado,O café da manhã da casa.,12.00,,,sim
+item,Café,Suco de laranja,Espremido na hora.,9.00,,,sim
+horario,,Segunda a sexta,6h às 20h,,,,
+horario,,Sábado,6h às 19h,,,,
+horario,,Domingo e feriados,6h às 13h,,,,

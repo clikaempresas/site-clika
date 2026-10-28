@@ -18,3 +18,7 @@ https://:project.pages.dev/*
 
 /og-image.png
   Cache-Control: public, max-age=604800
+
+# Ferramentas internas (gerador dos sites-modelo) ficam fora da busca
+/ferramentas/*
+  X-Robots-Tag: noindex

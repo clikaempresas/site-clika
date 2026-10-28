@@ -2,814 +2,251 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- Endereço antigo: manda para o domínio oficial (os previews de deploy não são afetados). Apague no site de um cliente real -->
-<script>if (location.hostname === "site-clika.pages.dev") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
-<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
+<title>Chapa da Esquina · Hamburgueria</title>
+<meta name="description" content="Hamburgueria com smash na chapa, combos, porções e milkshakes. Cardápio com preços, promoções do dia e pedido pelo WhatsApp.">
 <meta name="robots" content="noindex">
-<title>Chapa da Esquina — hambúrguer na chapa</title>
-<meta name="description" content="Smash burger na chapa, porções, combos e milkshakes. Peça pelo WhatsApp ou iFood.">
-<meta name="theme-color" content="#151210">
-<!-- Prévia do link no WhatsApp: troque o título, a descrição e o endereço da imagem para cada cliente (veja o LEIA-ME) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chapa da Esquina — hambúrguer na chapa">
-<meta property="og:description" content="Smash burger na chapa, porções, combos e milkshakes. Peça pelo WhatsApp ou iFood.">
-<!-- Quando existir fotos/compartilhar.jpg, tire o comentário: <meta property="og:image" content="https://clika.com.br/portfolio/lanchonete/fotos/compartilhar.jpg"> -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FF6B1A'/%3E%3Cpath d='M14 30c0-9 8-15 18-15s18 6 18 15z' fill='%23151210'/%3E%3Crect x='12' y='34' width='40' height='5' rx='2.5' fill='%23151210'/%3E%3Cpath d='M14 43h36c0 4-3 7-7 7H21c-4 0-7-3-7-7z' fill='%23151210'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-
-<style>
-  :root {
-    --fundo: #151210;
-    --superficie: #1F1A16;
-    --superficie-2: #2A221D;
-    --destaque: #FF6B1A;
-    --texto-no-destaque: #151210;
-    --texto: #F4EADB;
-    --texto-suave: #B5A797;
-    --whatsapp: #25D366;
-    --borda: color-mix(in srgb, var(--texto) 12%, transparent);
-    --fonte-titulo: "Anton", Impact, "Arial Narrow", sans-serif;
-    --fonte-texto: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --raio: 14px;
-    --altura-categorias: 56px;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0;
-    background: var(--fundo);
-    color: var(--texto);
-    font: 400 16px/1.55 var(--fonte-texto);
-    -webkit-font-smoothing: antialiased;
-  }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; }
-  h1, h2, h3, h4 { margin: 0; font-weight: 400; }
-  [hidden] { display: none !important; }
-  .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 16px; }
-  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .pular { position: absolute; left: 16px; top: -60px; background: var(--destaque); color: var(--texto-no-destaque); padding: 10px 14px; border-radius: 8px; z-index: 100; font-weight: 600; }
-  .pular:focus { top: 12px; }
-  :focus-visible { outline: 2px solid var(--destaque); outline-offset: 3px; }
-
-  /* ---------- Cabeçalho ---------- */
-  .cabecalho { padding: 14px 0; }
-  .cab-linha { display: flex; align-items: center; gap: 24px; }
-  .logo { font-family: var(--fonte-titulo); font-size: 22px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; line-height: 1; }
-  .logo span, .rodape-logo span { color: var(--destaque); }
-  .cab-links { display: none; gap: 22px; margin-left: auto; font-size: 14px; font-weight: 500; }
-  .cab-links a { text-decoration: none; color: var(--texto-suave); }
-  .cab-links a:hover { color: var(--texto); }
-  .status { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; padding: 6px 11px; border-radius: 999px; background: var(--superficie); border: 1px solid var(--borda); white-space: nowrap; }
-  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--texto-suave); }
-  .status.aberto::before { background: var(--whatsapp); box-shadow: 0 0 0 3px color-mix(in srgb, var(--whatsapp) 25%, transparent); }
-  .cab-links + .status { margin-left: 0; }
-
-  /* ---------- Topo ---------- */
-  .topo-foto {
-    position: relative; overflow: hidden; border-radius: var(--raio);
-    min-height: clamp(470px, 76svh, 640px);
-    display: flex; align-items: flex-end;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23F4EADB' stroke-opacity='.07' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M12 28c0-9 9-16 20-16s20 7 20 16z'/%3E%3Cpath d='M10 35h44'/%3E%3Cpath d='M12 42h40c0 5-4 9-9 9H21c-5 0-9-4-9-9z'/%3E%3C/svg%3E") right -8% top 6% / min(420px, 80%) no-repeat,
-      radial-gradient(120% 90% at 80% 15%, color-mix(in srgb, var(--destaque) 20%, var(--superficie-2)) 0%, var(--superficie) 48%, var(--fundo) 100%);
-  }
-  .topo-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .topo-foto::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(to top, color-mix(in srgb, var(--fundo) 96%, transparent) 0%, color-mix(in srgb, var(--fundo) 70%, transparent) 38%, transparent 72%);
-  }
-  .topo-conteudo { position: relative; z-index: 1; padding: 22px 18px; width: 100%; }
-  .selo { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 10px; color: var(--destaque); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-  .selo::before { content: ""; width: 24px; height: 2px; background: currentColor; }
-  .topo h1 { font-family: var(--fonte-titulo); text-transform: uppercase; font-size: clamp(60px, 17vw, 132px); line-height: .9; letter-spacing: .01em; }
-  .topo-desc { margin: 12px 0 0; max-width: 460px; color: color-mix(in srgb, var(--texto) 85%, transparent); font-size: 16px; }
-  .etiqueta-preco {
-    position: absolute; z-index: 1; top: 16px; right: 16px; transform: rotate(-4deg);
-    background: var(--destaque); color: var(--texto-no-destaque);
-    font-family: var(--fonte-titulo); font-size: 26px; line-height: 1; padding: 9px 13px 8px; border-radius: 8px;
-  }
-  .etiqueta-preco small { display: block; font-family: var(--fonte-texto); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 3px; }
-  .topo-acoes { display: grid; gap: 10px; margin-top: 22px; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 22px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .15s, background .15s; }
-  .btn:active { transform: scale(.98); }
-  .btn svg { width: 20px; height: 20px; flex: none; }
-  .btn-principal { background: var(--destaque); color: var(--texto-no-destaque); }
-  .btn-principal:hover { background: color-mix(in srgb, var(--destaque) 88%, white); }
-  .btn-contorno { border: 1.5px solid color-mix(in srgb, var(--texto) 55%, transparent); color: var(--texto); }
-  .btn-contorno:hover { background: color-mix(in srgb, var(--texto) 8%, transparent); }
-
-  /* ---------- Faixa de informações ---------- */
-  .faixa { display: grid; gap: 1px; margin-top: 14px; background: var(--borda); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; }
-  .faixa > div { background: var(--superficie); padding: 14px 16px; display: flex; gap: 12px; align-items: center; }
-  .faixa svg { width: 22px; height: 22px; color: var(--destaque); flex: none; }
-  .faixa strong { display: block; font-size: 14px; font-weight: 600; }
-  .faixa span { font-size: 13px; color: var(--texto-suave); }
-
-  /* ---------- Seções ---------- */
-  .secao { padding-top: 64px; scroll-margin-top: 8px; }
-  .secao-titulo { font-family: var(--fonte-titulo); text-transform: uppercase; font-size: clamp(40px, 9vw, 64px); line-height: .95; }
-  .secao-sub { margin: 10px 0 0; color: var(--texto-suave); max-width: 560px; }
-  .chapeu { margin: 0 0 8px; color: var(--destaque); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-
-  /* Fotos com fundo neutro enquanto não existem */
-  .foto {
-    position: relative; overflow: hidden; flex: none;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%23F4EADB' stroke-opacity='.16' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 28c0-9 9-16 20-16s20 7 20 16z'/%3E%3Cpath d='M10 35h44'/%3E%3Cpath d='M12 42h40c0 5-4 9-9 9H21c-5 0-9-4-9-9z'/%3E%3C/svg%3E") center / 38% no-repeat,
-      radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--destaque) 16%, var(--superficie-2)), var(--superficie-2) 70%);
-  }
-  .foto img { width: 100%; height: 100%; object-fit: cover; }
-
-  /* ---------- Promoção ---------- */
-  .promo { margin-top: 26px; display: grid; border-radius: var(--raio); overflow: hidden; background: var(--superficie); border: 1.5px solid var(--destaque); }
-  .promo .foto { aspect-ratio: 16 / 10; }
-  .promo-info { padding: 22px 18px; display: flex; flex-direction: column; gap: 10px; }
-  .promo-dia { align-self: flex-start; background: var(--destaque); color: var(--texto-no-destaque); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; }
-  .promo h3 { font-family: var(--fonte-titulo); text-transform: uppercase; font-size: clamp(34px, 8vw, 52px); line-height: .95; }
-  .promo p { margin: 0; color: color-mix(in srgb, var(--texto) 82%, transparent); }
-  .promo-preco { font-family: var(--fonte-titulo); font-size: 34px; color: var(--destaque); line-height: 1; }
-  .promo .btn { margin-top: 6px; align-self: stretch; }
-  .semana { list-style: none; margin: 16px 0 0; padding: 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
-  .semana::-webkit-scrollbar { display: none; }
-  .semana li { flex: none; background: var(--superficie); border: 1px solid var(--borda); border-radius: 10px; padding: 10px 14px; min-width: 150px; }
-  .semana li.hoje { border-color: var(--destaque); }
-  .semana b { display: block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-suave); font-weight: 700; }
-  .semana li.hoje b { color: var(--destaque); }
-  .semana span { font-size: 14px; font-weight: 600; }
-
-  /* ---------- Cardápio ---------- */
-  .categorias {
-    position: sticky; top: 0; z-index: 20; margin-top: 22px;
-    background: color-mix(in srgb, var(--fundo) 94%, transparent);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--borda);
-  }
-  .categorias nav { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; height: var(--altura-categorias); align-items: center; scroll-snap-type: x proximity; }
-  .categorias nav::-webkit-scrollbar { display: none; }
-  .categorias a {
-    flex: none; scroll-snap-align: start; text-decoration: none; white-space: nowrap;
-    font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--texto-suave); padding: 9px 14px; border-radius: 999px; border: 1px solid transparent;
-  }
-  .categorias a.ativo { color: var(--texto-no-destaque); background: var(--destaque); }
-  .categoria { padding-top: 30px; scroll-margin-top: calc(var(--altura-categorias) + 8px); }
-  .categoria h3 { font-family: var(--fonte-titulo); text-transform: uppercase; font-size: 30px; line-height: 1; display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
-  .categoria h3 span { font-family: var(--fonte-texto); font-size: 13px; color: var(--texto-suave); font-weight: 500; letter-spacing: 0; }
-  .itens { display: grid; gap: 10px; }
-  .item { display: flex; gap: 14px; padding: 12px; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); }
-  .item .foto { width: 104px; height: 104px; border-radius: 10px; }
-  .item-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-  .item h4 { font-size: 16px; font-weight: 700; line-height: 1.25; }
-  .item p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--texto-suave); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .item-rodape { margin-top: auto; padding-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .item-rodape strong { font-size: 16px; font-weight: 700; white-space: nowrap; }
-  .pedir { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: 8px; font-size: 13px; font-weight: 700; text-decoration: none; color: var(--destaque); border: 1.5px solid color-mix(in srgb, var(--destaque) 60%, transparent); }
-  .pedir:hover { background: var(--destaque); color: var(--texto-no-destaque); }
-  .item.esgotado { opacity: .55; }
-  .item.esgotado .foto { filter: grayscale(1); }
-  .tag-esgotado { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 9px; border-radius: 6px; background: var(--superficie-2); color: var(--texto-suave); }
-  .aviso-carregando { padding: 40px 0; color: var(--texto-suave); }
-
-  /* ---------- Horários ---------- */
-  .horarios { margin-top: 26px; display: grid; gap: 12px; }
-  .cartao { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 20px 18px; }
-  .cartao h3 { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--destaque); margin-bottom: 10px; }
-  .cartao h3 svg { width: 20px; height: 20px; }
-  .tabela { width: 100%; border-collapse: collapse; font-size: 15px; }
-  .tabela td { padding: 9px 0; border-top: 1px solid var(--borda); }
-  .tabela tr:first-child td { border-top: 0; }
-  .tabela td:last-child { text-align: right; font-weight: 600; }
-  .tabela .fechado td:last-child { color: var(--texto-suave); font-weight: 400; }
-  .tabela .hoje td { color: var(--destaque); font-weight: 700; }
-  .tabela .hoje td:first-child::after { content: "hoje"; margin-left: 8px; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: color-mix(in srgb, var(--destaque) 18%, transparent); padding: 3px 7px; border-radius: 5px; vertical-align: 2px; }
-
-  /* ---------- Área de entrega ---------- */
-  .bairros { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 1px; background: var(--borda); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; }
-  .bairros li { background: var(--superficie); padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
-  .bairros .nome { font-weight: 600; flex: 1; }
-  .bairros .tempo { font-size: 13px; color: var(--texto-suave); }
-  .bairros .taxa { min-width: 74px; text-align: right; font-weight: 700; }
-  .bairros .gratis { color: var(--whatsapp); }
-  .nota { margin: 14px 0 0; font-size: 14px; color: var(--texto-suave); }
-  .nota a { color: var(--destaque); font-weight: 600; }
-
-  /* ---------- Onde estamos ---------- */
-  .local { margin-top: 26px; display: grid; gap: 14px; }
-  .endereco { font-size: 18px; font-weight: 600; line-height: 1.4; margin: 0 0 18px; }
-  .local-acoes { display: grid; gap: 10px; }
-  .mapa { border-radius: var(--raio); overflow: hidden; background: var(--superficie-2); aspect-ratio: 4 / 3; border: 1px solid var(--borda); }
-  .mapa iframe { width: 100%; height: 100%; border: 0; display: block; filter: grayscale(.25) contrast(1.05); }
-
-  /* ---------- Rodapé ---------- */
-  .rodape { margin-top: 72px; padding: 36px 0 110px; border-top: 1px solid var(--borda); color: var(--texto-suave); font-size: 14px; }
-  .rodape-linha { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: space-between; }
-  .rodape-logo { font-family: var(--fonte-titulo); font-size: 26px; text-transform: uppercase; color: var(--texto); letter-spacing: .03em; }
-  .rodape p { margin: 4px 0 0; }
-  .rodape-links { display: flex; gap: 18px; }
-  .rodape-links a { text-decoration: none; font-weight: 600; color: var(--texto); }
-  .demo { margin-top: 26px; font-size: 12px; opacity: .75; }
-  .demo a { color: inherit; }
-
-  /* ---------- Botão fixo do WhatsApp ---------- */
-  .whats-fixo {
-    position: fixed; z-index: 50; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
-    width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center;
-    background: var(--whatsapp); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.45);
-    transition: transform .15s;
-  }
-  .whats-fixo:active { transform: scale(.94); }
-  .whats-fixo svg { width: 30px; height: 30px; }
-
-  /* ---------- Telas maiores ---------- */
-  @media (min-width: 640px) {
-    .topo-acoes { grid-auto-flow: column; justify-content: start; }
-    .faixa { grid-template-columns: repeat(3, 1fr); }
-    .local-acoes { grid-auto-flow: column; justify-content: start; }
-    .bairros { grid-template-columns: 1fr 1fr; }
-  }
-  @media (min-width: 900px) {
-    .container { padding: 0 24px; }
-    .cab-links { display: flex; }
-    .cabecalho { padding: 20px 0; }
-    .logo { font-size: 26px; }
-    .topo-foto { min-height: 620px; }
-    .topo-foto::after { background: linear-gradient(90deg, color-mix(in srgb, var(--fundo) 92%, transparent) 0%, color-mix(in srgb, var(--fundo) 60%, transparent) 42%, transparent 70%); }
-    .topo-conteudo { padding: 48px; max-width: 700px; }
-    .etiqueta-preco { top: auto; bottom: 48px; right: 48px; font-size: 40px; padding: 12px 18px 10px; }
-    .secao { padding-top: 96px; }
-    .promo { grid-template-columns: 1.1fr 1fr; }
-    .promo .foto { aspect-ratio: auto; min-height: 340px; }
-    .promo-info { padding: 36px; justify-content: center; }
-    .promo .btn { align-self: flex-start; }
-    .itens { grid-template-columns: 1fr 1fr; gap: 14px; }
-    .item .foto { width: 128px; height: 128px; }
-    .horarios { grid-template-columns: 1fr 1fr; gap: 16px; }
-    .cartao { padding: 26px 28px; }
-    .bairros { grid-template-columns: repeat(3, 1fr); }
-    .local { grid-template-columns: 1fr 1.5fr; gap: 32px; align-items: center; }
-    .local-acoes { grid-auto-flow: row; justify-content: stretch; max-width: 320px; }
-    .mapa { aspect-ratio: 16 / 10; }
-  }
-</style>
-
-<script>
-/* ================================================================
-   CONFIGURAÇÃO — para trocar de cliente, edite só este bloco
-   (e coloque as fotos na pasta "fotos"). Veja o LEIA-ME.md.
-   ================================================================ */
-const CONFIG = {
-  // Nome do negócio. "nomeDestaque" é a parte do nome que fica colorida no logo ("" para nenhuma).
-  nome: "Chapa da Esquina",
-  nomeDestaque: "da Esquina",
-  slogan: "Hambúrguer na chapa, do jeito do bairro.",
-
-  // Cores do site (código de cor com #)
-  cores: {
-    fundo: "#151210",          // fundo da página
-    superficie: "#1F1A16",     // fundo dos cartões
-    superficie2: "#2A221D",    // fundo das fotos que ainda não foram colocadas
-    destaque: "#FF6B1A",       // cor principal (botões, preços, títulos pequenos)
-    textoNoDestaque: "#151210",// cor do texto em cima da cor principal
-    texto: "#F4EADB",          // texto principal
-    textoSuave: "#B5A797",     // texto secundário
-  },
-
-  // Contatos. WhatsApp: 55 + DDD + número, só números.
-  // No protótipo está o número da Clika, para quem testar falar com a gente.
-  whatsapp: "5514991337516",
-  mensagemWhatsapp: "Olá! Vi o site e quero fazer um pedido.",
-  ifood: "https://www.ifood.com.br/",          // "" esconde o botão do iFood
-  instagram: "https://www.instagram.com/",     // "" esconde o botão do Instagram
-  instagramUsuario: "@chapadaesquina",
-
-  // Endereço (usado no mapa). "linkMaps" é o link do botão "Como chegar";
-  // deixe "" para montar sozinho a partir do endereço.
-  endereco: "Rua das Palmeiras, 120 — Centro, São Paulo - SP",
-  linkMaps: "",
-
-  // Link da planilha do Google publicada como CSV. Vazio = usa o arquivo dados.csv.
-  planilhaCSV: "",
-
-  // Topo do site: o lanche mais vendido. "item" tem que ter o mesmo nome do cardápio,
-  // para o preço vir da planilha. A foto do topo é fotos/capa.jpg.
-  topo: {
-    selo: "O mais pedido da casa",
-    item: "Smash Duplo",
-    descricao: "Dois blends de 90 g prensados na chapa, cheddar derretido e cebola caramelizada no pão brioche.",
-  },
-
-  // Textos principais
-  textos: {
-    tituloCardapio: "Cardápio",
-    subtituloCardapio: "Tudo feito na hora, na chapa. Escolha e peça direto pelo WhatsApp.",
-    tituloPromocao: "Promoção do dia",
-    tituloHorarios: "Horários",
-    subtituloHorarios: "Salão aberto para comer na hora e entrega pelo WhatsApp ou iFood.",
-    tituloEntrega: "Área de entrega",
-    subtituloEntrega: "Entregamos quentinho nestes bairros. A taxa e o tempo variam com a distância.",
-    tempoEntrega: "25 a 60 min",
-    pagamento: "Pix, cartão e dinheiro",
-    avisoEntrega: "Não achou seu bairro? Chama no WhatsApp que a gente vê.",
-    tituloLocal: "Onde estamos",
-    subtituloLocal: "Vem comer na chapa: mesas na calçada, ambiente família.",
-    rodape: "Feito na chapa desde 2012.",
-  },
-
-  // true = itens com "disponivel" = nao aparecem apagados com "Esgotado"; false = somem do cardápio
-  mostrarEsgotados: true,
-
-  // false enquanto a pasta fotos estiver vazia: o site não tenta carregar foto nenhuma.
-  // Ao colocar as fotos, mude para true e tire o comentário de capa.jpg no HTML e da og:image no topo.
-  temFotos: false,
-
-  // true = mostra no rodapé o aviso de projeto demonstrativo.
-  // No site de um cliente real, troque para false e apague a linha "robots noindex" do topo.
-  modoDemonstrativo: true,
-  linkClika: "../../",
-};
-/* ================== fim da CONFIGURAÇÃO ================== */
-
-
-// Aplica as cores da configuração assim que a página começa a carregar
-(function () {
-  const c = CONFIG.cores, r = document.documentElement.style;
-  r.setProperty("--fundo", c.fundo);
-  r.setProperty("--superficie", c.superficie);
-  r.setProperty("--superficie-2", c.superficie2);
-  r.setProperty("--destaque", c.destaque);
-  r.setProperty("--texto-no-destaque", c.textoNoDestaque);
-  r.setProperty("--texto", c.texto);
-  r.setProperty("--texto-suave", c.textoSuave);
-  document.title = `${CONFIG.nome} — ${CONFIG.slogan}`;
-})();
-
-const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
-const ORDEM_SEMANA = [1, 2, 3, 4, 5, 6, 0];
-const ICONE = {
-  whats: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2S21.8 6.6 21.8 12 17.4 21.8 12 21.8zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>',
-  insta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
-  pino: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
-  relogio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
-  moto: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M15 6h3l.5 4.5"/><path d="M3 11h6l2 3"/></svg>',
-  cartao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg>',
-  loja: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v10h16V10M3 10l1.5-6h15L21 10M3 10h18M10 20v-5h4v5"/></svg>',
-};
-
-// ---------- Utilitários ----------
-const $ = (s) => document.querySelector(s);
-const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const norm = (t) => String(t ?? "").normalize("NFD").replace(/[̀-ͯ]/g, "").trim().toLowerCase();
-const prefixoDemo = CONFIG.modoDemonstrativo ? "(Teste do site demonstrativo) " : "";
-const linkWhats = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(prefixoDemo + msg)}`;
-const real = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-const disponivel = (v) => !["nao", "n", "0", "false", "esgotado"].includes(norm(v));
-const diaDaSemana = (t) => ["dom", "seg", "ter", "qua", "qui", "sex", "sab"].indexOf(norm(t).slice(0, 3));
-
-function preco(v) {
-  let t = String(v ?? "").replace(/[^\d,.-]/g, "");
-  if (!t) return null;
-  if (t.includes(",")) t = t.replace(/\./g, "").replace(",", ".");
-  const n = parseFloat(t);
-  return isNaN(n) ? null : n;
-}
-
-function caminhoFoto(f) {
-  if (!f || !CONFIG.temFotos) return "";
-  return /^https?:\/\//i.test(f) ? f : "fotos/" + f;
-}
-
-// Se a foto não existir, o <img> some e fica o fundo neutro
-function htmlFoto(f, classe = "") {
-  const src = caminhoFoto(f);
-  return `<div class="foto ${classe}">${src ? `<img src="${esc(src)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : ""}</div>`;
-}
-
-function htmlNome(nome, destaque) {
-  if (destaque && nome.includes(destaque)) {
-    const i = nome.lastIndexOf(destaque);
-    return `${esc(nome.slice(0, i))}<span>${esc(destaque)}</span>${esc(nome.slice(i + destaque.length))}`;
-  }
-  return esc(nome);
-}
-
-// ---------- Leitura do CSV (aceita vírgula ou ponto e vírgula) ----------
-function lerCSV(texto) {
-  texto = texto.replace(/^﻿/, "");
-  const primeira = texto.split(/\r?\n/, 1)[0];
-  const sep = (primeira.split(";").length > primeira.split(",").length) ? ";" : ",";
-  const linhas = [];
-  let linha = [], campo = "", aspas = false;
-  for (let i = 0; i < texto.length; i++) {
-    const c = texto[i];
-    if (aspas) {
-      if (c === '"') { if (texto[i + 1] === '"') { campo += '"'; i++; } else aspas = false; }
-      else campo += c;
-    } else if (c === '"') aspas = true;
-    else if (c === sep) { linha.push(campo); campo = ""; }
-    else if (c === "\n" || c === "\r") {
-      if (c === "\r" && texto[i + 1] === "\n") i++;
-      linha.push(campo); linhas.push(linha); linha = []; campo = "";
-    } else campo += c;
-  }
-  if (campo || linha.length) { linha.push(campo); linhas.push(linha); }
-  const cabecalho = (linhas.shift() || []).map(norm);
-  return linhas
-    .filter((l) => l.some((v) => v.trim()))
-    .map((l) => Object.fromEntries(cabecalho.map((h, i) => [h, (l[i] ?? "").trim()])));
-}
-
-async function buscar(url, ms = 7000) {
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), ms);
-  try {
-    const r = await fetch(url, { signal: ctl.signal, cache: "no-cache" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return await r.text();
-  } finally { clearTimeout(t); }
-}
-
-// Tenta a planilha do Google; se falhar, usa o dados.csv local
-async function carregarDados() {
-  const fontes = CONFIG.planilhaCSV ? [CONFIG.planilhaCSV, "dados.csv"] : ["dados.csv"];
-  for (const url of fontes) {
-    try {
-      const dados = lerCSV(await buscar(url));
-      if (dados.length && "tipo" in dados[0]) return dados;
-      console.warn("Arquivo sem a coluna 'tipo':", url);
-    } catch (e) {
-      console.warn("Não foi possível ler", url, e);
-    }
-  }
-  return null;
-}
-
-// ---------- Horários ----------
-function lerIntervalo(t) {
-  const m = norm(t).match(/(\d{1,2})\s*(?:[:h]\s*(\d{2})?)?\s*(?:as|a|ate|-|–)\s*(\d{1,2})\s*(?:[:h]\s*(\d{2})?)?/);
-  if (!m) return null;
-  return { abre: +m[1] * 60 + (+m[2] || 0), fecha: +m[3] * 60 + (+m[4] || 0) };
-}
-const fmtHora = (min) => { const h = Math.floor(min / 60) % 24, m = min % 60; return m ? `${h}h${String(m).padStart(2, "0")}` : `${h}h`; };
-
-function situacao(dias) {
-  const agora = new Date(), d = agora.getDay(), min = agora.getHours() * 60 + agora.getMinutes();
-  const ontem = dias[(d + 6) % 7]?.int, hoje = dias[d]?.int;
-  if (ontem && ontem.fecha <= ontem.abre && min < ontem.fecha) return { aberto: true, texto: `Aberto agora · fecha às ${fmtHora(ontem.fecha)}` };
-  if (hoje) {
-    const virada = hoje.fecha <= hoje.abre;
-    if (min >= hoje.abre && (virada || min < hoje.fecha)) return { aberto: true, texto: `Aberto agora · fecha às ${fmtHora(hoje.fecha)}` };
-    if (min < hoje.abre) return { aberto: false, texto: `Fechado · abre hoje às ${fmtHora(hoje.abre)}` };
-  }
-  for (let i = 1; i <= 7; i++) {
-    const x = dias[(d + i) % 7]?.int;
-    if (x) return { aberto: false, texto: `Fechado · abre ${i === 1 ? "amanhã" : DIAS[(d + i) % 7].toLowerCase()} às ${fmtHora(x.abre)}` };
-  }
-  return null;
-}
-
-// ---------- Montagem das seções ----------
-function montarFixos() {
-  const nomeHTML = htmlNome(CONFIG.nome, CONFIG.nomeDestaque);
-  $("#logo").innerHTML = nomeHTML;
-  $("#rodape-logo").innerHTML = nomeHTML;
-  $("#rodape-slogan").textContent = `${CONFIG.slogan} ${CONFIG.textos.rodape}`;
-  $("#topo-nome").textContent = CONFIG.nome + " — ";
-  $("#topo-selo").textContent = CONFIG.topo.selo;
-  $("#topo-titulo").textContent = CONFIG.topo.item;
-  $("#topo-desc").textContent = CONFIG.topo.descricao;
-
-  const whats = linkWhats(CONFIG.mensagemWhatsapp);
-  document.querySelectorAll("[data-whats]").forEach((a) => { a.href = whats; });
-  $("#btn-whats-topo").innerHTML = ICONE.whats + "Pedir no WhatsApp";
-  $("#btn-whats-local").innerHTML = ICONE.whats + "Chamar no WhatsApp";
-  $("#whats-fixo").innerHTML = ICONE.whats;
-  $("#whats-fixo").setAttribute("aria-label", `Pedir no WhatsApp da ${CONFIG.nome}`);
-
-  if (CONFIG.ifood) $("#btn-ifood").href = CONFIG.ifood; else $("#btn-ifood").hidden = true;
-  if (CONFIG.instagram) {
-    $("#btn-insta").href = CONFIG.instagram;
-    $("#btn-insta").innerHTML = ICONE.insta + (CONFIG.instagramUsuario || "Instagram");
-    $("#rodape-insta").href = CONFIG.instagram;
-  } else { $("#btn-insta").hidden = true; $("#rodape-insta").hidden = true; }
-
-  const t = CONFIG.textos;
-  $("#titulo-cardapio").textContent = t.tituloCardapio;
-  $("#sub-cardapio").textContent = t.subtituloCardapio;
-  $("#titulo-promocao").textContent = t.tituloPromocao;
-  $("#titulo-horarios").textContent = t.tituloHorarios;
-  $("#sub-horarios").textContent = t.subtituloHorarios;
-  $("#titulo-entrega").textContent = t.tituloEntrega;
-  $("#sub-entrega").textContent = t.subtituloEntrega;
-  $("#titulo-local").textContent = t.tituloLocal;
-  $("#sub-local").textContent = t.subtituloLocal;
-  $("#nota-entrega").innerHTML = `${esc(t.avisoEntrega)} <a href="${esc(whats)}" target="_blank" rel="noopener">Falar no WhatsApp</a>`;
-
-  $("#info-entrega").innerHTML = `${ICONE.moto}<div><strong>Entrega em ${esc(t.tempoEntrega)}</strong><span id="info-bairros">Pelo WhatsApp ou iFood</span></div>`;
-  $("#info-pagamento").innerHTML = `${ICONE.cartao}<div><strong>Pagamento</strong><span>${esc(t.pagamento)}</span></div>`;
-  $("#info-status").innerHTML = `${ICONE.relogio}<div><strong id="info-status-titulo">Horários</strong><span id="info-status-texto">Veja abaixo</span></div>`;
-
-  $("#endereco").textContent = CONFIG.endereco;
-  const mapsBusca = encodeURIComponent(CONFIG.endereco);
-  $("#btn-maps").href = CONFIG.linkMaps || `https://www.google.com/maps/search/?api=1&query=${mapsBusca}`;
-  $("#btn-maps").innerHTML = ICONE.pino + "Como chegar";
-  $("#mapa").src = `https://maps.google.com/maps?q=${mapsBusca}&z=16&output=embed`;
-  $("#mapa").title = `Mapa: ${CONFIG.nome}`;
-
-  if (CONFIG.modoDemonstrativo) {
-    $("#aviso-demo").hidden = false;
-    $("#link-clika").href = CONFIG.linkClika;
-  }
-}
-
-function cartaoItem(it) {
-  const p = preco(it.preco), disp = disponivel(it.disponivel);
-  const precoTxt = p != null ? real(p) : "";
-  const acao = disp
-    ? `<a class="pedir" href="${esc(linkWhats(`Olá! Quero pedir: 1x ${it.item}${precoTxt ? ` (${precoTxt})` : ""}`))}" target="_blank" rel="noopener" aria-label="Pedir ${esc(it.item)} no WhatsApp">Pedir</a>`
-    : `<span class="tag-esgotado">Esgotado</span>`;
-  return `<article class="item${disp ? "" : " esgotado"}">
-    ${htmlFoto(it.foto)}
-    <div class="item-info">
-      <h4>${esc(it.item)}</h4>
-      ${it.descricao ? `<p>${esc(it.descricao)}</p>` : ""}
-      <div class="item-rodape"><strong>${precoTxt}</strong>${acao}</div>
-    </div>
-  </article>`;
-}
-
-function montarCardapio(dados) {
-  let itens = dados.filter((d) => norm(d.tipo) === "cardapio" && d.item);
-  if (!CONFIG.mostrarEsgotados) itens = itens.filter((d) => disponivel(d.disponivel));
-  const categorias = [], grupos = {};
-  for (const it of itens) {
-    const c = it.categoria || "Outros";
-    if (!grupos[c]) { grupos[c] = []; categorias.push(c); }
-    grupos[c].push(it);
-  }
-  // Esgotados vão para o fim de cada categoria
-  for (const c of categorias) grupos[c].sort((a, b) => disponivel(b.disponivel) - disponivel(a.disponivel));
-
-  const nav = $("#nav-categorias");
-  nav.innerHTML = categorias.map((c, i) => `<a href="#cat-${i}"${i ? "" : ' class="ativo"'}>${esc(c)}</a>`).join("");
-  $("#lista-cardapio").innerHTML = categorias.map((c, i) => `
-    <section class="categoria" id="cat-${i}" aria-labelledby="cat-${i}-t">
-      <h3 id="cat-${i}-t">${esc(c)} <span>${grupos[c].length} ${grupos[c].length === 1 ? "item" : "itens"}</span></h3>
-      <div class="itens">${grupos[c].map(cartaoItem).join("")}</div>
-    </section>`).join("");
-
-  // Marca a categoria que está na tela e rola a barra até ela
-  const links = [...nav.querySelectorAll("a")];
-  const ativar = (id) => {
-    links.forEach((a) => {
-      const ativo = a.getAttribute("href") === "#" + id;
-      a.classList.toggle("ativo", ativo);
-      if (ativo) nav.scrollTo({ left: a.offsetLeft - 16, behavior: "smooth" });
-    });
-  };
-  const obs = new IntersectionObserver((entradas) => {
-    entradas.forEach((e) => { if (e.isIntersecting) ativar(e.target.id); });
-  }, { rootMargin: "-25% 0px -70% 0px" });
-  document.querySelectorAll(".categoria").forEach((s) => obs.observe(s));
-
-  // Preço do lanche do topo vem do cardápio
-  const doTopo = itens.find((i) => norm(i.item) === norm(CONFIG.topo.item));
-  const p = doTopo && preco(doTopo.preco);
-  if (p) { $("#topo-preco").innerHTML = `<small>Só</small>${real(p)}`; $("#topo-preco").hidden = false; }
-}
-
-function montarPromocao(dados) {
-  const promos = dados.filter((d) => norm(d.tipo) === "promocao" && d.item && disponivel(d.disponivel));
-  if (!promos.length) return;
-  const d = new Date().getDay();
-  // Sem promoção hoje? Mostra a próxima da semana.
-  let hoje = promos.find((p) => diaDaSemana(p.categoria) === d) || promos.find((p) => norm(p.categoria).startsWith("tod"));
-  let rotulo = `Hoje, ${DIAS[d].toLowerCase()}`;
-  for (let i = 1; !hoje && i < 7; i++) {
-    hoje = promos.find((p) => diaDaSemana(p.categoria) === (d + i) % 7);
-    if (hoje) rotulo = i === 1 ? `Amanhã, ${DIAS[(d + i) % 7].toLowerCase()}` : DIAS[(d + i) % 7];
-  }
-  const secao = $("#promocao");
-  secao.hidden = false;
-
-  if (hoje) {
-    const p = preco(hoje.preco);
-    $("#promo-cartao").innerHTML = `
-      ${htmlFoto(hoje.foto)}
-      <div class="promo-info">
-        <span class="promo-dia">${esc(rotulo)}</span>
-        <h3>${esc(hoje.item)}</h3>
-        ${hoje.descricao ? `<p>${esc(hoje.descricao)}</p>` : ""}
-        ${p ? `<span class="promo-preco">${real(p)}</span>` : ""}
-        <a class="btn btn-principal" href="${esc(linkWhats(`Olá! Quero a promoção: ${hoje.item}`))}" target="_blank" rel="noopener">${ICONE.whats}Quero essa promoção</a>
-      </div>`;
-  } else {
-    $("#promo-cartao").hidden = true;
-  }
-
-  const semana = ORDEM_SEMANA
-    .map((i) => ({ i, p: promos.find((x) => diaDaSemana(x.categoria) === i) }))
-    .filter((x) => x.p);
-  $("#promo-semana").innerHTML = semana.map(({ i, p }) =>
-    `<li class="${i === d ? "hoje" : ""}"><b>${i === d ? "Hoje" : DIAS[i]}</b><span>${esc(p.item)}</span></li>`).join("");
-}
-
-function montarHorarios(dados) {
-  const linhas = dados.filter((d) => norm(d.tipo) === "horario");
-  if (!linhas.length) return;
-  const grupos = [], porNome = {};
-  for (const l of linhas) {
-    const g = l.categoria || "Funcionamento";
-    if (!porNome[g]) { porNome[g] = []; grupos.push(g); }
-    const i = diaDaSemana(l.item);
-    if (i >= 0) porNome[g][i] = { texto: l.descricao, int: lerIntervalo(l.descricao) };
-  }
-  const hoje = new Date().getDay();
-  $("#lista-horarios").innerHTML = grupos.map((g, n) => `
-    <div class="cartao">
-      <h3>${n === 0 ? ICONE.loja : ICONE.moto}${esc(g)}</h3>
-      <table class="tabela">${ORDEM_SEMANA.map((i) => {
-        const dia = porNome[g][i];
-        const fechado = !dia || !dia.int;
-        return `<tr class="${fechado ? "fechado" : ""} ${i === hoje ? "hoje" : ""}"><td>${DIAS[i]}</td><td>${esc(fechado ? (dia?.texto || "Fechado") : dia.texto)}</td></tr>`;
-      }).join("")}</table>
-    </div>`).join("");
-  $("#horarios").hidden = false;
-
-  // Status "aberto agora" usa o primeiro grupo de horários (ex.: Salão)
-  const s = situacao(porNome[grupos[0]]);
-  if (s) {
-    const st = $("#status-topo");
-    st.textContent = s.aberto ? "Aberto agora" : "Fechado agora";
-    st.classList.toggle("aberto", s.aberto);
-    st.hidden = false;
-    const [titulo, resto] = s.texto.split(" · ");
-    $("#info-status-titulo").textContent = titulo;
-    $("#info-status-texto").textContent = resto ? resto.charAt(0).toUpperCase() + resto.slice(1) : "";
-  }
-}
-
-function montarEntrega(dados) {
-  const areas = dados.filter((d) => norm(d.tipo) === "area" && d.item);
-  if (!areas.length) return;
-  $("#lista-bairros").innerHTML = areas.map((a) => {
-    const p = preco(a.preco);
-    const taxa = p === 0 ? '<span class="taxa gratis">Grátis</span>' : `<span class="taxa">${p != null ? real(p) : ""}</span>`;
-    return `<li><span class="nome">${esc(a.item)}</span><span class="tempo">${esc(a.descricao)}</span>${taxa}</li>`;
-  }).join("");
-  $("#info-bairros").textContent = `${areas.length} bairros atendidos`;
-  $("#entrega").hidden = false;
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-  montarFixos();
-  const dados = await carregarDados();
-  if (!dados) {
-    $("#lista-cardapio").innerHTML = `<p class="aviso-carregando">Não conseguimos carregar o cardápio agora. <a href="${esc(linkWhats(CONFIG.mensagemWhatsapp))}" target="_blank" rel="noopener">Peça pelo WhatsApp</a> que a gente te manda.</p>`;
-    $("#categorias").hidden = true;
-    return;
-  }
-  montarCardapio(dados);
-  montarPromocao(dados);
-  montarHorarios(dados);
-  montarEntrega(dados);
-});
-</script>
-<style>
-  /* Faixa do modelo (apague no site de um cliente real) */
-  .faixa-modelo { position: relative; z-index: 40; background: #0B0B0B; color: #E6E6E6; font: 13.5px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  .faixa-modelo div { max-width: 1160px; margin-inline: auto; padding: 9px 16px; display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: space-between; align-items: center; }
-  .faixa-modelo b { color: #fff; }
-  .faixa-modelo a { color: #9FD3FF; font-weight: 600; text-decoration: none; }
-  .faixa-modelo a:hover { text-decoration: underline; }
-  @media (max-width: 560px) { .faixa-modelo div { font-size: 12.5px; padding-block: 7px; } }
-</style>
+<meta name="theme-color" content="#fbf6ec">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="fotos/capa.webp">
+<link rel="stylesheet" href="site.css">
+<style>:root { --bg: oklch(0.975 0.015 85); --fg: oklch(0.2 0.02 40); --muted: oklch(0.47 0.03 40); --card: oklch(1 0 0); --line: oklch(0.2 0.02 40 / 0.1); --accent: oklch(0.6 0.2 32); --accent-fg: oklch(0.99 0 0);
+  --font-d: "Anton", system-ui, sans-serif; --font-b: "Inter", system-ui, sans-serif; --wd: 400; --ls-d: 0; --tt-d: uppercase; --fs-d: normal; color-scheme: light; }</style>
 </head>
-
 <body>
-<a class="pular" href="#cardapio">Pular para o cardápio</a>
-
-<!-- Faixa do modelo: apague este bloco no site de um cliente real -->
-<div class="faixa-modelo">
-  <div>
-    <span>Modelo do plano <b>Essencial</b> da Clika · página única · R$ 449,99</span>
-    <a href="completo/index.html">Ver o mesmo negócio no plano Completo →</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+<symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M15 6h3l.5 4.5"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.3 2.8 2.5 2.8z"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2v-4l-2-5H5L3 13v4h2"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+<symbol id="i-bread" viewBox="0 0 24 24"><path d="M5 11a4 4 0 1 1 3-7.2A5 5 0 0 1 12 2a5 5 0 0 1 4 1.8A4 4 0 1 1 19 11v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+</svg>
+<div class="demo-bar"><span>Modelo <b>Essencial</b> da Clika · negócio fictício<span class="demo-price"> · R$ 449,99</span></span><a href="completo/">Ver no plano Completo →</a></div>
+<header class="hd">
+  <div class="wrap hd-row">
+    <a class="brand" href="index.html"><span class="brand-mark">C</span><span class="brand-name">Chapa <span>da Esquina</span></span></a>
+    <nav class="hd-nav" aria-label="Menu"><a href="#cardapio">Cardápio</a><a href="#horarios">Horários</a><a href="#local">Localização</a></nav>
+    <a class="btn btn-accent btn-sm hd-cta" data-wa href="https://wa.me/5514991337516?text=Oi%2C%20Chapa%20da%20Esquina%21%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp</a>
   </div>
-</div>
-
-<header class="cabecalho">
-  <div class="container cab-linha">
-    <a href="#" class="logo" id="logo" aria-label="Início"></a>
-    <nav class="cab-links" aria-label="Seções do site">
-      <a href="#cardapio">Cardápio</a>
-      <a href="#promocao">Promoção</a>
-      <a href="#horarios">Horários</a>
-      <a href="#entrega">Entrega</a>
-      <a href="#local">Onde estamos</a>
-    </nav>
-    <span class="status" id="status-topo" hidden></span>
-  </div>
+  
 </header>
-
 <main>
-  <section class="topo container" aria-labelledby="topo-titulo">
-    <div class="topo-foto">
-      <!-- Quando existir fotos/capa.jpg, tire o comentário: <img src="fotos/capa.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()"> -->
-      <span class="etiqueta-preco" id="topo-preco" hidden></span>
-      <div class="topo-conteudo">
-        <p class="selo" id="topo-selo"></p>
-        <h1><span class="sr" id="topo-nome"></span><span id="topo-titulo"></span></h1>
-        <p class="topo-desc" id="topo-desc"></p>
-        <div class="topo-acoes">
-          <a class="btn btn-principal" id="btn-whats-topo" data-whats target="_blank" rel="noopener">Pedir no WhatsApp</a>
-          <a class="btn btn-contorno" id="btn-ifood" target="_blank" rel="noopener">Pedir no iFood</a>
-        </div>
-      </div>
+
+<section class="hero">
+  <div class="hero-img" style="--focus:55% 50%"><img src="fotos/capa.webp" alt="Smash burger duplo com cheddar no balcão da Chapa da Esquina" fetchpriority="high" decoding="async"></div>
+  <div class="hero-body wrap">
+    <span class="kicker enter">Hamburgueria · Smash na chapa</span>
+    <h1 class="enter e2">Chapa da Esquina</h1>
+    <p class="tagline enter e3">Smash prensado na chapa, pão brioche na manteiga e entrega quentinha no bairro.</p>
+    <div class="hero-actions enter e4">
+      <a class="btn btn-accent" data-wa href="https://wa.me/5514991337516?text=Oi%2C%20Chapa%20da%20Esquina%21%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> Pedir no WhatsApp</a>
+      <span class="live" data-live></span>
     </div>
+    <div class="selos enter e4"><span><b>Desde 2012</b> na chapa</span><span><b>25 a 60 min</b> na entrega</span><span><b>Pix</b>, cartão e dinheiro</span></div>
+  </div>
+</section>
 
-    <div class="faixa">
-      <div id="info-status"></div>
-      <div id="info-entrega"></div>
-      <div id="info-pagamento"></div>
+<section class="sec" id="cardapio">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Cardápio</span><h2>Tudo feito na hora, na chapa</h2><p>Escolha a categoria e toque no lanche: o pedido já vai escrito no WhatsApp.</p></div>
+    <div class="rv tabbed">
+      <div class="cat" data-cat="Lanches"><h3 class="cat-title">Lanches</h3><div class="items">
+        <a class="item card" data-wa data-item="Smash Clássico" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Smash%20Cl%C3%A1ssico%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Smash Clássico</div><div class="item-desc">Blend de 90 g prensado na chapa, queijo prato, picles e molho da casa no pão brioche.</div></div>
+          <div class="item-price">R$ 24,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Smash Duplo" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Smash%20Duplo%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Smash Duplo<span class="tag">Mais pedido</span></div><div class="item-desc">Dois blends de 90 g, cheddar derretido e cebola caramelizada no pão brioche.</div></div>
+          <div class="item-price">R$ 32,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Smash Bacon" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Smash%20Bacon%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Smash Bacon</div><div class="item-desc">Blend de 90 g, bacon crocante, cheddar e maionese defumada.</div></div>
+          <div class="item-price">R$ 34,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="X-Salada da Casa" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20X-Salada%20da%20Casa%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">X-Salada da Casa</div><div class="item-desc">Hambúrguer de 150 g, queijo, alface, tomate, cebola roxa e maionese verde.</div></div>
+          <div class="item-price">R$ 27,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="X-Tudo da Esquina" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20X-Tudo%20da%20Esquina%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">X-Tudo da Esquina</div><div class="item-desc">Hambúrguer de 150 g, ovo, bacon, presunto, queijo, salada e batata palha.</div></div>
+          <div class="item-price">R$ 38,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Chicken Crispy" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Chicken%20Crispy%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Chicken Crispy</div><div class="item-desc">Sobrecoxa empanada e crocante, coleslaw e molho de mel com mostarda.</div></div>
+          <div class="item-price">R$ 29,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Veggie de Grão-de-Bico" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Veggie%20de%20Gr%C3%A3o-de-Bico%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Veggie de Grão-de-Bico</div><div class="item-desc">Hambúrguer de grão-de-bico, queijo coalho grelhado, rúcula e tomate seco.</div></div>
+          <div class="item-price">R$ 30,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card off" data-wa data-item="Cheddar Melt" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Cheddar%20Melt%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Cheddar Melt</div><div class="item-desc">Blend de 150 g mergulhado em cheddar cremoso, no pão australiano.</div></div>
+          <div class="item-price">R$ 36,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+      </div></div><div class="cat" data-cat="Combos"><h3 class="cat-title">Combos</h3><div class="items">
+        <a class="item card" data-wa data-item="Combo Smash" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Combo%20Smash%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Combo Smash</div><div class="item-desc">Smash Clássico + batata frita pequena + refrigerante lata.</div></div>
+          <div class="item-price">R$ 39,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Combo Duplo" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Combo%20Duplo%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Combo Duplo</div><div class="item-desc">Smash Duplo + batata frita pequena + refrigerante lata.</div></div>
+          <div class="item-price">R$ 47,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Combo Família" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Combo%20Fam%C3%ADlia%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Combo Família</div><div class="item-desc">4 Smash Clássicos + 2 batatas grandes + refrigerante 2 litros.</div></div>
+          <div class="item-price">R$ 129,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+      </div></div><div class="cat" data-cat="Porções"><h3 class="cat-title">Porções</h3><div class="items">
+        <a class="item card" data-wa data-item="Batata Frita" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Batata%20Frita%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Batata Frita</div><div class="item-desc">Porção de 400 g, sequinha e crocante, com sal e alecrim.</div></div>
+          <div class="item-price">R$ 19,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Batata Cheddar e Bacon" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Batata%20Cheddar%20e%20Bacon%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Batata Cheddar e Bacon</div><div class="item-desc">Porção de 400 g coberta com cheddar cremoso e bacon em cubos.</div></div>
+          <div class="item-price">R$ 29,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Onion Rings" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Onion%20Rings%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Onion Rings</div><div class="item-desc">Anéis de cebola empanados, com molho barbecue para acompanhar.</div></div>
+          <div class="item-price">R$ 22,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Mandioca Frita" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Mandioca%20Frita%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Mandioca Frita</div><div class="item-desc">Mandioca cozida e frita, com maionese da casa.</div></div>
+          <div class="item-price">R$ 21,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Frango a Passarinho" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Frango%20a%20Passarinho%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Frango a Passarinho</div><div class="item-desc">500 g de frango temperado no alho, com limão.</div></div>
+          <div class="item-price">R$ 34,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+      </div></div><div class="cat" data-cat="Bebidas"><h3 class="cat-title">Bebidas</h3><div class="items">
+        <a class="item card" data-wa data-item="Refrigerante Lata" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Refrigerante%20Lata%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Refrigerante Lata</div><div class="item-desc">Coca-Cola, Guaraná ou Sprite. 350 ml.</div></div>
+          <div class="item-price">R$ 7</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Refrigerante 2 Litros" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Refrigerante%202%20Litros%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Refrigerante 2 Litros</div><div class="item-desc">Coca-Cola ou Guaraná.</div></div>
+          <div class="item-price">R$ 16</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Suco Natural" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Suco%20Natural%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Suco Natural</div><div class="item-desc">Laranja, limão ou maracujá. 400 ml.</div></div>
+          <div class="item-price">R$ 10</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Chá Gelado da Casa" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Ch%C3%A1%20Gelado%20da%20Casa%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Chá Gelado da Casa</div><div class="item-desc">Chá mate com limão e hortelã. 400 ml.</div></div>
+          <div class="item-price">R$ 9</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Cerveja Long Neck" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Cerveja%20Long%20Neck%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Cerveja Long Neck</div><div class="item-desc">Pergunte as marcas do dia. Venda para maiores de 18 anos.</div></div>
+          <div class="item-price">R$ 12</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Água Mineral" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20%C3%81gua%20Mineral%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Água Mineral</div><div class="item-desc">Com ou sem gás. 500 ml.</div></div>
+          <div class="item-price">R$ 4</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+      </div></div><div class="cat" data-cat="Sobremesas"><h3 class="cat-title">Sobremesas</h3><div class="items">
+        <a class="item card" data-wa data-item="Milkshake de Ovomaltine" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Milkshake%20de%20Ovomaltine%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Milkshake de Ovomaltine</div><div class="item-desc">Sorvete de creme batido com Ovomaltine crocante. 400 ml.</div></div>
+          <div class="item-price">R$ 19,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Milkshake de Nutella" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Milkshake%20de%20Nutella%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Milkshake de Nutella</div><div class="item-desc">Sorvete de creme batido com Nutella e calda de chocolate. 400 ml.</div></div>
+          <div class="item-price">R$ 21,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Brownie com Sorvete" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Brownie%20com%20Sorvete%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Brownie com Sorvete</div><div class="item-desc">Brownie quentinho de chocolate meio amargo com bola de sorvete.</div></div>
+          <div class="item-price">R$ 18,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+        <a class="item card" data-wa data-item="Churros de Doce de Leite" href="https://wa.me/5514991337516?text=Oi%21%20Quero%20pedir%201%20Churros%20de%20Doce%20de%20Leite%20da%20Chapa%20da%20Esquina." target="_blank" rel="noopener">
+          <div class="item-main"><div class="item-name">Churros de Doce de Leite</div><div class="item-desc">Três mini churros recheados, com açúcar e canela.</div></div>
+          <div class="item-price">R$ 14,90</div>
+          <span class="item-go" aria-hidden="true"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg></span>
+        </a>
+      </div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="secao container" id="promocao" aria-labelledby="titulo-promocao" hidden>
-    <p class="chapeu">Todo dia tem</p>
-    <h2 class="secao-titulo" id="titulo-promocao"></h2>
-    <div class="promo" id="promo-cartao"></div>
-    <ul class="semana" id="promo-semana" aria-label="Promoções da semana"></ul>
-  </section>
-
-  <section class="secao" id="cardapio" aria-labelledby="titulo-cardapio">
-    <div class="container">
-      <p class="chapeu">Feito na hora</p>
-      <h2 class="secao-titulo" id="titulo-cardapio"></h2>
-      <p class="secao-sub" id="sub-cardapio"></p>
-    </div>
-    <div class="categorias" id="categorias">
-      <div class="container"><nav id="nav-categorias" aria-label="Categorias do cardápio"></nav></div>
-    </div>
-    <div class="container" id="lista-cardapio">
-      <p class="aviso-carregando">Carregando o cardápio…</p>
-    </div>
-  </section>
-
-  <section class="secao container" id="horarios" aria-labelledby="titulo-horarios" hidden>
-    <p class="chapeu">Quando estamos abertos</p>
-    <h2 class="secao-titulo" id="titulo-horarios"></h2>
-    <p class="secao-sub" id="sub-horarios"></p>
-    <div class="horarios" id="lista-horarios"></div>
-  </section>
-
-  <section class="secao container" id="entrega" aria-labelledby="titulo-entrega" hidden>
-    <p class="chapeu">Delivery</p>
-    <h2 class="secao-titulo" id="titulo-entrega"></h2>
-    <p class="secao-sub" id="sub-entrega"></p>
-    <ul class="bairros" id="lista-bairros"></ul>
-    <p class="nota" id="nota-entrega"></p>
-  </section>
-
-  <section class="secao container" id="local" aria-labelledby="titulo-local">
-    <p class="chapeu">Visite a gente</p>
-    <h2 class="secao-titulo" id="titulo-local"></h2>
-    <p class="secao-sub" id="sub-local"></p>
+<section class="sec" id="horarios">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Horários e localização</span><h2>Salão e entrega</h2></div>
     <div class="local">
-      <div>
-        <p class="endereco" id="endereco"></p>
-        <div class="local-acoes">
-          <a class="btn btn-principal" id="btn-maps" target="_blank" rel="noopener">Como chegar</a>
-          <a class="btn btn-contorno" id="btn-whats-local" data-whats target="_blank" rel="noopener">Chamar no WhatsApp</a>
-          <a class="btn btn-contorno" id="btn-insta" target="_blank" rel="noopener">Instagram</a>
+      <div class="rv"><div class="hours card"><div class="hours-group"><div class="hours-label">Salão</div><div class="hours-row" data-dias="1"><span>Segunda</span><span class="closed">Fechado</span></div><div class="hours-row" data-dias="2,3,4"><span>Terça a quinta</span><b>18h às 23h30</b></div><div class="hours-row" data-dias="5,6"><span>Sexta e sábado</span><b>18h à 1h</b></div><div class="hours-row" data-dias="0"><span>Domingo</span><b>18h às 23h</b></div></div><div class="hours-group"><div class="hours-label">Entrega</div><div class="hours-row" data-dias="1"><span>Segunda</span><span class="closed">Fechado</span></div><div class="hours-row" data-dias="2,3,4"><span>Terça a quinta</span><b>18h30 às 23h</b></div><div class="hours-row" data-dias="5,6"><span>Sexta e sábado</span><b>18h30 à 0h30</b></div><div class="hours-row" data-dias="0"><span>Domingo</span><b>18h30 às 22h30</b></div></div></div></div>
+      <div class="map card rv d1" id="local">
+        <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect class="ground" width="400" height="190"/>
+          <rect class="street" x="0" y="30" width="400" height="11"/><rect class="street" x="0" y="96" width="400" height="11"/><rect class="street" x="0" y="152" width="400" height="11"/>
+          <rect class="street" x="58" y="0" width="11" height="190"/><rect class="street" x="168" y="0" width="11" height="190"/><rect class="street" x="288" y="0" width="11" height="190"/><rect class="street" x="356" y="0" width="11" height="190"/>
+          <rect class="block" x="190" y="112" width="86" height="32" rx="5"/>
+          <path class="route" d="M 22 175 L 63 175 L 63 101 L 173 101 L 173 58 L 252 58"/>
+          <circle class="you" cx="22" cy="175" r="6"/>
+          <g transform="translate(252 58)"><circle class="pin-ping" r="16"/><path class="pin" d="M0 -24 C 12 -24 16 -14 12 -6 L 0 10 L -12 -6 C -16 -14 -12 -24 0 -24 Z"/><circle class="pin-dot" cy="-13" r="4.5"/></g>
+        </svg>
+        <div class="map-foot">
+          <p class="map-addr"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>Rua das Palmeiras, 120 · Centro<small>Mesas na calçada, ambiente família.</small></span></p>
+          <div class="map-btns"><button class="btn btn-line btn-sm" type="button" data-route><svg class="i" aria-hidden="true"><use href="#i-route"/></svg><span> Traçar rota</span></button><a class="btn btn-accent btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Centro%2C%20S%C3%A3o%20Paulo%20-%20SP" target="_blank" rel="noopener">Abrir no Maps</a></div>
         </div>
       </div>
-      <div class="mapa"><iframe id="mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa"></iframe></div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<footer class="rodape">
-  <div class="container">
-    <div class="rodape-linha">
-      <div>
-        <div class="rodape-logo" id="rodape-logo"></div>
-        <p id="rodape-slogan"></p>
-      </div>
-      <div class="rodape-links">
-        <a href="#cardapio">Cardápio</a>
-        <a data-whats target="_blank" rel="noopener">WhatsApp</a>
-        <a id="rodape-insta" target="_blank" rel="noopener">Instagram</a>
-      </div>
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div><h2>Bateu a fome?</h2><p>Escolha no cardápio e chama no WhatsApp. Sai da chapa direto para você.</p></div>
+      <a class="btn btn-inv" data-wa href="https://wa.me/5514991337516?text=Oi%2C%20Chapa%20da%20Esquina%21%20Vi%20o%20site%20e%20quero%20fazer%20um%20pedido." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> Pedir no WhatsApp</a>
     </div>
-    <p class="demo" id="aviso-demo" hidden>Projeto demonstrativo criado pela <a id="link-clika">Clika</a> — negócio fictício.</p>
+  </div>
+</section>
+</main>
+<footer class="ft">
+  <div class="wrap">
+    
+    <div class="ft-row"><span>© Chapa da Esquina · Rua das Palmeiras, 120 · Centro</span><a href="https://clika.com.br/" target="_blank" rel="noopener">Site feito pela Clika</a></div>
   </div>
 </footer>
-
-<a class="whats-fixo" id="whats-fixo" data-whats target="_blank" rel="noopener" aria-label="Pedir no WhatsApp"></a>
+<script id="dados-site" type="application/json">{"whatsapp": "5514991337516", "demo": true, "nome": "Chapa da Esquina", "inicial": "C", "resposta": "Opa! Anotado 🍔 Vai ser para entrega ou retirada? Se for entrega, me passa o endereço.", "horarios": [{"nome": "Salão", "linhas": [{"rotulo": "Segunda", "texto": "Fechado", "dias": [1], "abre": null, "fecha": null}, {"rotulo": "Terça a quinta", "texto": "18h às 23h30", "dias": [2, 3, 4], "abre": 1080, "fecha": 1410}, {"rotulo": "Sexta e sábado", "texto": "18h à 1h", "dias": [5, 6], "abre": 1080, "fecha": 1500}, {"rotulo": "Domingo", "texto": "18h às 23h", "dias": [0], "abre": 1080, "fecha": 1380}]}, {"nome": "Entrega", "linhas": [{"rotulo": "Segunda", "texto": "Fechado", "dias": [1], "abre": null, "fecha": null}, {"rotulo": "Terça a quinta", "texto": "18h30 às 23h", "dias": [2, 3, 4], "abre": 1110, "fecha": 1380}, {"rotulo": "Sexta e sábado", "texto": "18h30 à 0h30", "dias": [5, 6], "abre": 1110, "fecha": 1470}, {"rotulo": "Domingo", "texto": "18h30 às 22h30", "dias": [0], "abre": 1110, "fecha": 1350}]}], "aulas": [], "msgAula": "Oi! Quero fazer a aula de {aula} de {dia} às {hora}.", "msgAgenda": "", "rotuloForm": "Seu pedido", "proximos": null, "planilha": ""}</script>
+<script src="site.js" defer></script>
 </body>
 </html>

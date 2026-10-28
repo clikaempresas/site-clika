@@ -1,0 +1,82 @@
+{
+  "pasta": "lanchonete",
+  "nome": "Chapa da Esquina",
+  "logo": "Chapa [da Esquina]",
+  "inicial": "C",
+  "kicker": "Hamburgueria · Smash na chapa",
+  "titulo": "Chapa da Esquina",
+  "slogan": "Smash prensado na chapa, pão brioche na manteiga e entrega quentinha no bairro.",
+  "descricaoGoogle": "Hamburgueria com smash na chapa, combos, porções e milkshakes. Cardápio com preços, promoções do dia e pedido pelo WhatsApp.",
+  "demo": true,
+  "dominio": "chapadaesquina.com.br",
+  "altCapa": "Smash burger duplo com cheddar no balcão da Chapa da Esquina",
+
+  "tema": {
+    "fundo": "oklch(0.975 0.015 85)", "texto": "oklch(0.2 0.02 40)", "suave": "oklch(0.47 0.03 40)",
+    "cartao": "oklch(1 0 0)", "linha": "oklch(0.2 0.02 40 / 0.1)",
+    "destaque": "oklch(0.6 0.2 32)", "textoNoDestaque": "oklch(0.99 0 0)",
+    "fonteTitulo": "Anton", "pesoTitulo": 400, "espacoTitulo": "0", "caixaTitulo": "uppercase", "fonteTexto": "Inter",
+    "googleFonts": "family=Anton&family=Inter:wght@400;500;600;700;800", "esquema": "light", "corBarra": "#fbf6ec"
+  },
+
+  "whatsapp": "5514991337516",
+  "cta": "Pedir no WhatsApp",
+  "msgGeral": "Oi, Chapa da Esquina! Vi o site e quero fazer um pedido.",
+  "msgItem": "Oi! Quero pedir 1 {item} da Chapa da Esquina.",
+  "resposta": "Opa! Anotado 🍔 Vai ser para entrega ou retirada? Se for entrega, me passa o endereço.",
+  "instagram": "https://www.instagram.com/",
+  "instagramUsuario": "@chapadaesquina",
+
+  "endereco": "Rua das Palmeiras, 120 · Centro",
+  "referencia": "Mesas na calçada, ambiente família.",
+  "mapaBusca": "Centro, São Paulo - SP",
+  "tituloLocal": "Salão e entrega",
+
+  "selos": ["<b>Desde 2012</b> na chapa", "<b>25 a 60 min</b> na entrega", "<b>Pix</b>, cartão e dinheiro"],
+  "catalogo": { "id": "cardapio", "menu": "Cardápio", "kicker": "Cardápio", "titulo": "Tudo feito na hora, na chapa", "texto": "Escolha a categoria e toque no lanche: o pedido já vai escrito no WhatsApp." },
+  "destaques": [
+    { "icone": "fire", "texto": "Smash prensado na hora" },
+    { "icone": "moto", "texto": "Entrega em 6 bairros" },
+    { "icone": "card", "texto": "Pix, cartão e dinheiro" }
+  ],
+  "tops": { "titulo": "Os mais pedidos", "itens": ["Smash Duplo", "Combo Smash", "Batata Cheddar e Bacon"] },
+  "notaGoogle": { "nota": "4,8", "texto": "média de 410 avaliações no Google" },
+  "tituloAvaliacoes": "Quem prova, volta",
+  "depoimentos": [
+    { "texto": "O Smash Duplo é o melhor da cidade, sem exagero. Chega quente mesmo na entrega.", "nome": "Ana P.", "info": "Pede toda sexta" },
+    { "texto": "Peço pelo site, a mensagem já vai pronta e em 40 minutos está aqui. Muito prático.", "nome": "Rodrigo L.", "info": "Vila Nova" },
+    { "texto": "Ambiente gostoso pra levar as crianças. O Domingo Kids salvou nosso fim de semana.", "nome": "Patrícia M.", "info": "Cliente desde 2018" }
+  ],
+  "promos": { "kicker": "Promoções", "titulo": "Uma promoção para cada dia", "texto": "A de hoje fica marcada. Toque para pedir com o desconto." },
+  "entrega": {
+    "kicker": "Entrega", "titulo": "Chega quentinho na sua casa", "texto": "Entregamos nestes bairros. Não achou o seu? Chama no WhatsApp que a gente vê.",
+    "fatos": [["25 a 60 min", "tempo de entrega"], ["Pix e cartão", "na entrega ou no site"]]
+  },
+  "galeria": { "kicker": "Na chapa", "titulo": "Feito na hora, todo dia" },
+  "rotuloForm": "Seu pedido",
+  "chamadaFinal": { "titulo": "Bateu a fome?", "texto": "Escolha no cardápio e chama no WhatsApp. Sai da chapa direto para você." },
+
+  "fotos": {
+    "base": "lanchonete.jpg",
+    "capa": { "corte": [0, 0, 1, 1], "foco": "55% 50%" },
+    "galeria": [
+      { "c": [0.52, 0.52, 0.70], "legenda": "Smash Duplo" },
+      { "c": [0.50, 0.58, 0.40], "legenda": "Cheddar derretendo" },
+      { "c": [0.12, 0.40, 0.70], "legenda": "Molhos da casa" },
+      { "c": [0.42, 0.40, 0.42], "legenda": "Pão brioche na manteiga" },
+      { "c": [0.75, 0.80, 0.45], "legenda": "Tábua de madeira" },
+      { "c": [0.70, 0.20, 0.55], "legenda": "Craft desde 2012" }
+    ],
+    "tops": [[0.52, 0.52, 0.75], [0.40, 0.55, 0.55], [0.62, 0.60, 0.45]]
+  },
+
+  "essencial": { "blocos": ["hero", "catalogo", "local", "cta"] },
+  "completo": {
+    "paginas": [
+      { "arquivo": "index.html", "menu": "Início", "blocos": ["hero", "feats", "tops", "avaliacoes", "cta"] },
+      { "arquivo": "cardapio.html", "menu": "Cardápio", "kicker": "Cardápio", "titulo": "O cardápio inteiro", "texto": "Lanches, combos, porções, bebidas e sobremesas. Toque em qualquer item para pedir.", "blocos": ["catalogo-completo", "cta"] },
+      { "arquivo": "promocoes.html", "menu": "Promoções e entrega", "kicker": "Promoções e entrega", "titulo": "Promoção todo dia", "texto": "Confira a promoção de hoje e os bairros onde a gente entrega.", "blocos": ["promos", "entrega", "galeria"] },
+      { "arquivo": "contato.html", "menu": "Contato", "kicker": "Contato", "titulo": "Fale com a gente", "texto": "Faça o pedido pelo formulário, chame no WhatsApp ou venha comer na chapa.", "blocos": ["contato"] }
+    ]
+  }
+}

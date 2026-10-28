@@ -1,0 +1,86 @@
+{
+  "pasta": "padaria",
+  "nome": "Padaria Fornalha",
+  "logo": "Padaria [Fornalha]",
+  "inicial": "F",
+  "kicker": "Padaria de bairro desde 1994",
+  "titulo": "Pão quentinho às 6h, 10h e 16h.",
+  "slogan": "Pão francês, pão de queijo e bolo caseiro feitos aqui, três fornadas por dia. Encomendas pelo WhatsApp.",
+  "descricaoGoogle": "Padaria com pães, salgados, doces e bolos feitos na casa. Horário das fornadas, cardápio com preços e encomendas pelo WhatsApp.",
+  "demo": true,
+  "dominio": "padariafornalha.com.br",
+  "altCapa": "Balcão da Padaria Fornalha com cestos de pão francês, pão de queijo e bolo de fubá",
+  "proximos": { "rotulo": "Próxima fornada", "horas": [6, 10, 16] },
+
+  "tema": {
+    "fundo": "oklch(0.17 0.012 50)", "texto": "oklch(0.97 0.012 80)", "suave": "oklch(0.76 0.025 70)",
+    "cartao": "oklch(0.225 0.014 50)", "linha": "oklch(1 0 0 / 0.1)",
+    "destaque": "oklch(0.8 0.13 75)", "textoNoDestaque": "oklch(0.17 0.012 50)",
+    "fonteTitulo": "Fraunces", "pesoTitulo": 600, "espacoTitulo": "-0.02em", "fonteTexto": "Figtree",
+    "googleFonts": "family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800", "corBarra": "#1c1612"
+  },
+
+  "whatsapp": "5514991337516",
+  "cta": "Encomendar no WhatsApp",
+  "msgGeral": "Olá, Padaria Fornalha! Vi o site e quero fazer uma encomenda.",
+  "msgItem": "Oi! Quero encomendar {item} na Padaria Fornalha para retirar no balcão.",
+  "resposta": "Bom dia! ☕ Separado aqui. Pode retirar a partir das 6h, viu?",
+  "instagram": "https://www.instagram.com/",
+  "instagramUsuario": "@padariafornalha",
+
+  "endereco": "Av. das Acácias, 1.180 · Vila Nova",
+  "referencia": "Na esquina da praça. Vagas em frente.",
+  "mapaBusca": "Praça da Sé, São Paulo - SP",
+
+  "selos": ["<b>30 anos</b> de forno", "<b>3 fornadas</b> por dia", "<b>Encomendas</b> pelo WhatsApp"],
+  "catalogo": { "id": "cardapio", "menu": "Cardápio", "kicker": "Cardápio", "titulo": "Preços sem surpresa", "texto": "Toque no que você quer: a encomenda já vai escrita para retirar no balcão." },
+  "destaques": [
+    { "icone": "bread", "texto": "Três fornadas por dia" },
+    { "icone": "coffee", "texto": "Café torrado em Minas" },
+    { "icone": "heart", "texto": "Receitas de família" }
+  ],
+  "tops": { "titulo": "Os mais pedidos", "itens": ["Pão francês", "Pão de queijo", "Bolo de fubá"] },
+  "notaGoogle": { "nota": "4,8", "texto": "média de 540 avaliações no Google" },
+  "tituloAvaliacoes": "O bairro inteiro passa aqui",
+  "depoimentos": [
+    { "texto": "O pão das 6h é sagrado. Passo antes do trabalho todo dia há uns dez anos.", "nome": "Seu Antônio", "info": "Vizinho de porta" },
+    { "texto": "Encomendei a torta de aniversário pelo WhatsApp e ficou linda. Todo mundo perguntou de onde era.", "nome": "Renata F.", "info": "Encomenda de festa" },
+    { "texto": "O pão de queijo daqui é o único que meu filho come. Sempre saindo quentinho.", "nome": "Márcia O.", "info": "Cliente desde 2015" }
+  ],
+  "historia": {
+    "kicker": "Nossa história", "titulo": "Três gerações de forno aceso",
+    "paragrafos": [
+      "A Fornalha abriu em <b>1994</b>, quando a dona Lurdes trocou a cozinha de casa por um forno de lastro na esquina da praça.",
+      "Hoje quem comanda é a neta, mas as receitas continuam as mesmas: <b>fermentação longa</b>, manteiga de verdade e nada de pré-mistura.",
+      "São <b>três fornadas por dia</b>, às 6h, 10h e 16h. Se quiser garantir, é só encomendar pelo WhatsApp e retirar no balcão."
+    ]
+  },
+  "galeria": { "kicker": "Do forno", "titulo": "Feito aqui, todo dia" },
+  "extras": { "kicker": "Encomendas", "titulo": "Para festas e empresas", "itens": ["Tortas de aniversário", "Salgados para festa", "Café da manhã para empresas", "Cestas de presente", "Pão de forma fatiado", "Bolos caseiros inteiros"] },
+  "rotuloForm": "Sua encomenda",
+  "chamadaFinal": { "titulo": "Vai querer o de sempre?", "texto": "Encomende pelo WhatsApp e retire no balcão, sem fila." },
+
+  "fotos": {
+    "base": "padaria.jpg",
+    "capa": { "corte": [0, 0, 1, 1], "foco": "40% 60%" },
+    "galeria": [
+      { "c": [0.28, 0.66, 0.62], "legenda": "Pão francês das 6h" },
+      { "c": [0.62, 0.62, 0.40], "legenda": "Pão de queijo" },
+      { "c": [0.85, 0.75, 0.40], "legenda": "Bolo de fubá" },
+      { "c": [0.62, 0.25, 0.45], "legenda": "O forno de lastro" },
+      { "c": [0.30, 0.20, 0.42], "legenda": "Prateleiras cheias" },
+      { "c": [0.92, 0.35, 0.50], "legenda": "Assadeiras" }
+    ],
+    "tops": [[0.25, 0.68, 0.5], [0.62, 0.62, 0.35], [0.86, 0.75, 0.35]]
+  },
+
+  "essencial": { "blocos": ["hero", "catalogo", "local", "cta"] },
+  "completo": {
+    "paginas": [
+      { "arquivo": "index.html", "menu": "Início", "blocos": ["hero", "feats", "tops", "avaliacoes", "cta"] },
+      { "arquivo": "cardapio.html", "menu": "Cardápio", "kicker": "Cardápio", "titulo": "Tudo que sai do nosso forno", "texto": "Pães, salgados, doces, bolos e café. Toque para encomendar.", "blocos": ["catalogo-completo", "cta"] },
+      { "arquivo": "historia.html", "menu": "Nossa história", "kicker": "Nossa história", "titulo": "Desde 1994 na esquina da praça", "texto": "Como a Fornalha começou e por que o pão daqui tem esse gosto.", "blocos": ["historia", "galeria", "extras", "cta"] },
+      { "arquivo": "contato.html", "menu": "Contato", "kicker": "Contato", "titulo": "Encomende ou venha tomar um café", "texto": "Faça sua encomenda pelo formulário, chame no WhatsApp ou passe no balcão.", "blocos": ["contato"] }
+    ]
+  }
+}

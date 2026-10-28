@@ -1,0 +1,38 @@
+tipo,categoria,nome,descricao,preco,unidade,tag,disponivel
+item,Planos,Mensal,Musculação livre;Aulas coletivas;Avaliação física,129,por mês · sem fidelidade,,sim
+item,Planos,Trimestral,Tudo do Mensal;Treino revisado todo mês;1 aula grátis para um amigo,119,por mês · plano de 3 meses,,sim
+item,Planos,Semestral,Tudo do Trimestral;Reavaliação a cada 3 meses;Camiseta da academia,109,por mês · plano de 6 meses,Melhor custo,sim
+item,Planos,Anual,Tudo do Semestral;Congelamento de até 30 dias;2 consultas com nutricionista,97,por mês · plano de 12 meses,,sim
+item,Modalidades,Musculação,"Aparelhos novos, pesos livres e treino montado pelo professor.",Incluso,Livre,,sim
+item,Modalidades,Funcional,"Circuitos rápidos para ganhar força, fôlego e disposição.",Incluso,45 min,,sim
+item,Modalidades,Spinning,Bike indoor com música alta e luz baixa. Sem impacto nos joelhos.,Incluso,45 min,,sim
+item,Modalidades,Muay Thai,"Técnica, condicionamento e confiança. Iniciante e avançado.",Incluso,60 min,,sim
+item,Modalidades,Jiu-jítsu,"Defesa pessoal e treino de chão, com turma adulta e kids.",Incluso,60 min,,sim
+item,Modalidades,Alongamento,Mobilidade e relaxamento para treinar melhor.,Incluso,30 min,,sim
+horario,,Segunda a sexta,5h às 23h,,,,
+horario,,Sábado,8h às 16h,,,,
+horario,,Domingo e feriados,9h às 13h,,,,
+aula,Segunda,Funcional,com Camila Prado,,06h30,,
+aula,Segunda,Spinning,com Camila Prado,,07h30,,
+aula,Segunda,Alongamento,com Rafael Souza,,12h15,,
+aula,Segunda,Spinning,com Camila Prado,,18h30,,
+aula,Segunda,Muay Thai,com Diego Martins,,19h30,,
+aula,Terça,Spinning,com Camila Prado,,06h30,,
+aula,Terça,Funcional,com Camila Prado,,18h00,,
+aula,Terça,Jiu-jítsu,com Diego Martins,,19h00,,
+aula,Terça,Muay Thai,com Diego Martins,,20h30,,
+aula,Quarta,Funcional,com Camila Prado,,06h30,,
+aula,Quarta,Spinning,com Camila Prado,,07h30,,
+aula,Quarta,Alongamento,com Rafael Souza,,12h15,,
+aula,Quarta,Spinning,com Camila Prado,,18h30,,
+aula,Quarta,Muay Thai,com Diego Martins,,19h30,,
+aula,Quinta,Spinning,com Camila Prado,,06h30,,
+aula,Quinta,Funcional,com Camila Prado,,18h00,,
+aula,Quinta,Jiu-jítsu,com Diego Martins,,19h00,,
+aula,Quinta,Muay Thai,com Diego Martins,,20h30,,
+aula,Sexta,Funcional,com Camila Prado,,06h30,,
+aula,Sexta,Spinning,com Camila Prado,,07h30,,
+aula,Sexta,Funcional,com Camila Prado,,18h30,,
+aula,Sábado,Spinning,com Camila Prado,,09h00,,
+aula,Sábado,Funcional,com Camila Prado,,10h00,,
+aula,Sábado,Jiu-jítsu kids,com Diego Martins,,10h30,,

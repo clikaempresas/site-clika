@@ -6,7 +6,7 @@
 <!-- Endereço antigo e www: manda para o domínio oficial (os previews de deploy, com subdomínio antes, não são afetados) -->
 <script>if (location.hostname === "site-clika.pages.dev" || location.hostname === "www.clika.com.br") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
 <!-- Liga as animações de rolagem só se o script carregar; senão tudo aparece normal -->
-<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
+<script>document.documentElement.classList.add("js");try{if(sessionStorage.getItem("clika-nav"))document.documentElement.classList.add("nav-in")}catch(e){}setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
 <title>Preços de sites para pequenos negócios | Clika</title>
 <meta name="description" content="Criação de site a partir de R$ 449,99 em pagamento único, pronto em até 10 dias úteis. Planos mensais opcionais e respostas para as dúvidas mais comuns.">
 <link rel="canonical" href="https://clika.com.br/planos/">

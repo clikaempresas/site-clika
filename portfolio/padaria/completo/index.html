@@ -2,179 +2,110 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Padaria Fornalha · Completo</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
+<title>Padaria Fornalha · Padaria de bairro desde 1994</title>
+<meta name="description" content="Padaria com pães, salgados, doces e bolos feitos na casa. Horário das fornadas, cardápio com preços e encomendas pelo WhatsApp.">
 <meta name="robots" content="noindex">
-<meta name="description" content="Pão quentinho às 6h, 10h e 16h. Encomendas de tortas, salgados e café da manhã.">
-<meta name="theme-color" content="#1E4D3A">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css">
+<meta name="theme-color" content="#1c1612">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../fotos/capa.webp">
+<link rel="stylesheet" href="../site.css">
+<style>:root { --bg: oklch(0.17 0.012 50); --fg: oklch(0.97 0.012 80); --muted: oklch(0.76 0.025 70); --card: oklch(0.225 0.014 50); --line: oklch(1 0 0 / 0.1); --accent: oklch(0.8 0.13 75); --accent-fg: oklch(0.17 0.012 50);
+  --font-d: "Fraunces", system-ui, sans-serif; --font-b: "Figtree", system-ui, sans-serif; --wd: 600; --ls-d: -0.02em; --tt-d: none; --fs-d: normal; color-scheme: dark; }</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></symbol>
-  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
-  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9.1L6.4 14Z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5l3.3 2.6C7.2 7.8 9.4 6 12 6Z"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+<symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M15 6h3l.5 4.5"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.3 2.8 2.5 2.8z"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2v-4l-2-5H5L3 13v4h2"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+<symbol id="i-bread" viewBox="0 0 24 24"><path d="M5 11a4 4 0 1 1 3-7.2A5 5 0 0 1 12 2a5 5 0 0 1 4 1.8A4 4 0 1 1 19 11v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
 </svg>
-
-<!-- Faixa do modelo: apague este bloco no site de um cliente real -->
-<div class="demo">
-  <div class="wrap">
-    <span>Modelo <b>Completo</b> da Clika · R$ 899,99</span>
-    <a href="../index.html">Ver no plano Essencial →</a>
+<div class="demo-bar"><span>Modelo <b>Completo</b> da Clika · negócio fictício<span class="demo-price"> · R$ 899,99</span></span><a href="../index.html">Ver no plano Essencial →</a></div>
+<header class="hd">
+  <div class="wrap hd-row">
+    <a class="brand" href="index.html"><span class="brand-mark">F</span><span class="brand-name">Padaria <span>Fornalha</span></span></a>
+    <nav class="hd-nav" aria-label="Menu"><a href="index.html" aria-current="page">Início</a><a href="cardapio.html">Cardápio</a><a href="historia.html">Nossa história</a><a href="contato.html">Contato</a></nav>
+    <a class="btn btn-accent btn-sm hd-cta" data-wa href="https://wa.me/5514991337516?text=Ol%C3%A1%2C%20Padaria%20Fornalha%21%20Vi%20o%20site%20e%20quero%20fazer%20uma%20encomenda." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp</a>
   </div>
-</div>
-
-<header>
-  <div class="wrap">
-    <a class="logo" href="index.html">Padaria <span>Fornalha</span></a>
-    <nav id="nav" aria-label="Páginas"><ul><li><a href="index.html" aria-current="page">Início</a></li><li><a href="cardapio.html">Cardápio</a></li><li><a href="historia.html">Nossa história</a></li><li><a href="contato.html">Contato</a></li></ul></nav>
-    <a class="btn btn-wa js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Encomendar</span></a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><svg><use href="#i-menu"/></svg><span class="sr">Abrir menu</span></button>
-  </div>
+  <nav class="hd-tabs" aria-label="Páginas"><a href="index.html" aria-current="page">Início</a><a href="cardapio.html">Cardápio</a><a href="historia.html">Nossa história</a><a href="contato.html">Contato</a></nav>
 </header>
-
 <main>
 
-<div class="hero claro">
-  <div class="toldo" aria-hidden="true"></div>
-  <div class="wrap">
-    <div>
-      <p class="rotulo">Padaria de bairro desde 1994</p>
-      <h1>Pão quentinho às <em>6h, 10h e 16h</em>.</h1>
-      <p class="lead">Pão francês, bolo caseiro e salgado feito na hora. Monte seu pedido pelo site e retire no balcão sem fila.</p>
-      <div class="acoes">
-        <a class="btn btn-wa" href="cardapio.html">Montar meu pedido</a>
-        <a class="btn btn-claro js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Falar no WhatsApp</a>
-      </div>
-      <div class="selos"><span><b>30 anos</b> no bairro</span><span><b>4,9</b> no Google</span><span><b>3 fornadas</b> por dia</span></div>
+<section class="hero tall">
+  <div class="hero-img" style="--focus:40% 60%"><img src="../fotos/capa.webp" alt="Balcão da Padaria Fornalha com cestos de pão francês, pão de queijo e bolo de fubá" fetchpriority="high" decoding="async"></div>
+  <div class="hero-body wrap">
+    <span class="kicker enter">Padaria de bairro desde 1994</span>
+    <h1 class="enter e2">Pão quentinho às 6h, 10h e 16h.</h1>
+    <p class="tagline enter e3">Pão francês, pão de queijo e bolo caseiro feitos aqui, três fornadas por dia. Encomendas pelo WhatsApp.</p>
+    <div class="hero-actions enter e4">
+      <a class="btn btn-accent" data-wa href="https://wa.me/5514991337516?text=Ol%C3%A1%2C%20Padaria%20Fornalha%21%20Vi%20o%20site%20e%20quero%20fazer%20uma%20encomenda." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> Encomendar no WhatsApp</a>
+      <span class="live" data-live></span><span class="live open" data-next></span>
     </div>
-    <div class="ilustra"><svg viewBox="0 0 360 300" aria-hidden="true">
-  <ellipse cx="180" cy="262" rx="150" ry="18" fill="#163A2B"/>
-  <path d="M40 170h280l-26 92H66Z" fill="#8A5A2B"/>
-  <path d="M40 170h280" stroke="#6E4520" stroke-width="10" stroke-linecap="round"/>
-  <path d="M70 196h220M78 222h204M86 246h188" stroke="#6E4520" stroke-width="4" opacity=".6"/>
-  <g transform="rotate(-14 120 140)"><ellipse cx="120" cy="140" rx="78" ry="34" fill="#D8873E"/><ellipse cx="120" cy="132" rx="70" ry="24" fill="#E7A35E"/><path d="M78 128c8-10 18-12 26-4M108 124c8-10 18-12 26-4M138 122c8-10 18-12 26-4" stroke="#F6D7A8" stroke-width="6" stroke-linecap="round" fill="none"/></g>
-  <g transform="rotate(12 238 132)"><ellipse cx="238" cy="132" rx="74" ry="32" fill="#C87532"/><ellipse cx="238" cy="125" rx="66" ry="22" fill="#DE9550"/><path d="M200 122c8-10 18-12 26-4M230 118c8-10 18-12 26-4" stroke="#F6D7A8" stroke-width="6" stroke-linecap="round" fill="none"/></g>
-  <circle cx="176" cy="168" r="22" fill="#F0C36D"/><circle cx="170" cy="162" r="7" fill="#F8DB9C"/>
-  <circle cx="212" cy="174" r="18" fill="#EAB85C"/>
-  <path d="M120 74c-10-14 10-20 0-34M160 66c-10-14 10-20 0-34M230 70c-10-14 10-20 0-34" stroke="#ffffff" stroke-opacity=".55" stroke-width="5" stroke-linecap="round" fill="none"/>
-</svg></div>
+    <div class="selos enter e4"><span><b>30 anos</b> de forno</span><span><b>3 fornadas</b> por dia</span><span><b>Encomendas</b> pelo WhatsApp</span></div>
   </div>
-</div>
-<div class="fornada">
-  <div class="wrap">
-    <div class="caixa">
-      <div class="relogio"><svg><use href="#i-relogio"/></svg></div>
-      <div>
-        <strong id="fornada-titulo">Próxima fornada às 16h</strong>
-        <small id="fornada-texto">Pão francês saindo do forno três vezes por dia.</small>
-      </div>
-      <div class="horas" id="horas"></div>
-    </div>
-  </div>
-</div>
+</section>
+<section class="sec" style="padding-top:28px"><div class="wrap"><div class="feats"><div class="feat card rv"><svg class="i" aria-hidden="true"><use href="#i-bread"/></svg>Três fornadas por dia</div><div class="feat card rv d1"><svg class="i" aria-hidden="true"><use href="#i-coffee"/></svg>Café torrado em Minas</div><div class="feat card rv d2"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Receitas de família</div></div></div></section>
 
-<section>
+<section class="sec">
   <div class="wrap">
-    <div class="cab">
-      <span class="rotulo">Mais pedidos</span>
-      <h2>O que sai primeiro do balcão</h2>
-    </div>
-    <div class="destaques">
-      <article class="prato"><div class="arte" style="background:#F6E7D3"><svg viewBox="0 0 200 120"><g transform="rotate(-8 100 60)"><ellipse cx="100" cy="64" rx="86" ry="36" fill="#C87532"/><ellipse cx="100" cy="56" rx="78" ry="26" fill="#E09A55"/><path d="M50 54c9-11 20-13 29-4M88 50c9-11 20-13 29-4M126 50c9-11 20-13 29-4" stroke="#F8DDB4" stroke-width="7" stroke-linecap="round" fill="none"/></g></svg></div><div class="txt"><h3>Pão francês</h3><p>Casquinha que estala. Sai nas três fornadas do dia.</p><span class="preco">R$ 18,90 <small>/kg</small></span></div></article>
-      <article class="prato"><div class="arte" style="background:#F8EDC9"><svg viewBox="0 0 200 120"><circle cx="70" cy="66" r="34" fill="#EAB85C"/><circle cx="60" cy="56" r="10" fill="#F8DB9C"/><circle cx="128" cy="58" r="40" fill="#F0C36D"/><circle cx="116" cy="46" r="12" fill="#F8DB9C"/><circle cx="104" cy="96" r="22" fill="#E2AC4E"/></svg></div><div class="txt"><h3>Pão de queijo</h3><p>Com queijo meia cura, assado a cada hora.</p><span class="preco">R$ 4,50 <small>/un</small></span></div></article>
-      <article class="prato"><div class="arte" style="background:#EADFD3"><svg viewBox="0 0 200 120"><ellipse cx="100" cy="100" rx="78" ry="12" fill="#D6C7B8"/><rect x="36" y="44" width="128" height="56" rx="10" fill="#E49A4C"/><path d="M36 54c0-6 4-10 10-10h108c6 0 10 4 10 10v8c-10 8-18 0-26 6s-18 0-26 6-18-2-26 4-18 0-26 6-14-2-24 2Z" fill="#5B3420"/><rect x="36" y="80" width="128" height="6" fill="#F3C38A" opacity=".7"/></svg></div><div class="txt"><h3>Bolo de cenoura</h3><p>Inteiro, com cobertura de chocolate que escorre.</p><span class="preco">R$ 39,90</span></div></article>
-    </div>
-    <p class="mais"><a class="link-seta" href="cardapio.html">Ver o cardápio completo com 21 itens →</a></p>
+    <div class="sec-head-row"><div class="sec-head rv"><span class="kicker">Destaques</span><h2>Os mais pedidos</h2></div><a class="link-arrow" href="cardapio.html">Ver cardápio completo <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    <div class="tops"><a class="top card rv" data-wa href="https://wa.me/5514991337516?text=Oi%21%20Quero%20encomendar%20P%C3%A3o%20franc%C3%AAs%20na%20Padaria%20Fornalha%20para%20retirar%20no%20balc%C3%A3o." target="_blank" rel="noopener">
+        <div class="top-img"><img src="../fotos/destaque-1.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="top-body"><div><b>Pão francês</b><small>R$ 18,90 · o kg</small></div><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+      </a><a class="top card rv d1" data-wa href="https://wa.me/5514991337516?text=Oi%21%20Quero%20encomendar%20P%C3%A3o%20de%20queijo%20na%20Padaria%20Fornalha%20para%20retirar%20no%20balc%C3%A3o." target="_blank" rel="noopener">
+        <div class="top-img"><img src="../fotos/destaque-2.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="top-body"><div><b>Pão de queijo</b><small>R$ 4,50 · a unidade</small></div><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+      </a><a class="top card rv d2" data-wa href="https://wa.me/5514991337516?text=Oi%21%20Quero%20encomendar%20Bolo%20de%20fub%C3%A1%20na%20Padaria%20Fornalha%20para%20retirar%20no%20balc%C3%A3o." target="_blank" rel="noopener">
+        <div class="top-img"><img src="../fotos/destaque-3.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="top-body"><div><b>Bolo de fubá</b><small>R$ 6,50 · a fatia</small></div><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+      </a></div>
   </div>
 </section>
 
-<section class="faixa-verde claro">
+<section class="sec">
   <div class="wrap">
-    <div class="cab">
-      <span class="rotulo">Encomendas</span>
-      <h2>Para a festa, a reunião ou o domingo</h2>
-      <p>Faça o pedido com antecedência e a gente deixa tudo pronto no horário combinado.</p>
-    </div>
-    <div class="encomendas">
-      <div class="encomenda"><span class="prazo">2 DIAS ANTES</span><h3>Tortas de aniversário</h3><p>De 1 a 4 kg, com massa e recheio à sua escolha. A partir de R$ 89.</p></div>
-      <div class="encomenda"><span class="prazo">1 DIA ANTES</span><h3>Salgados para festa</h3><p>Coxinha, esfiha e enroladinho. Cento a partir de R$ 95.</p></div>
-      <div class="encomenda"><span class="prazo">1 DIA ANTES</span><h3>Café da manhã para empresas</h3><p>Kit com pães, frios, bolo e café para 10 pessoas. R$ 189.</p></div>
-    </div>
-    <div class="acoes" style="margin-top:28px"><a class="btn btn-branco" href="contato.html">Pedir orçamento</a></div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="cab">
-      <span class="rotulo">Quem compra aqui</span>
-      <h2>O que dizem os clientes</h2>
-    </div>
-    <div class="depoimentos">
-      <figure class="depo"><span class="estrelas" aria-label="5 estrelas">★★★★★</span><blockquote>O pão das 16h é sagrado aqui em casa. Encomendo pelo WhatsApp do trabalho e só passo para pegar.</blockquote><figcaption><span class="avatar">MS</span><span><b>Marina S.</b>Cliente há 6 anos</span></figcaption></figure>
-      <figure class="depo"><span class="estrelas" aria-label="5 estrelas">★★★★★</span><blockquote>Fiz a torta do aniversário da minha filha. Chegou no horário, linda e muito mais barata que nos lugares do centro.</blockquote><figcaption><span class="avatar" style="background:#C2702E">RP</span><span><b>Rogério P.</b>Encomenda de 3 kg</span></figcaption></figure>
-      <figure class="depo"><span class="estrelas" aria-label="5 estrelas">★★★★★</span><blockquote>O kit de café da manhã salvou nossa reunião de segunda. Tudo fresquinho e bem embalado.</blockquote><figcaption><span class="avatar" style="background:#3E6B57">BV</span><span><b>Clínica Bem Viver</b>Kit para empresas</span></figcaption></figure>
-    </div>
-    <div class="google">
-  <svg width="40" height="40"><use href="#i-g"/></svg>
-  <div>
-    <span class="nota-g">4,9</span> <span class="estrelas" aria-label="5 estrelas">★★★★★</span>
-    <p><b>312 avaliações no Google.</b> Perfil com fotos, horário e telefone sempre certos.</p>
-  </div>
-  <div class="acoes">
-    <a class="btn btn-linha js-google" href="#" target="_blank" rel="noopener">Ver no Google</a>
-    <a class="btn btn-wa js-avaliar" href="#" target="_blank" rel="noopener">Deixar avaliação</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<section class="final" style="padding-top:0">
-  <div class="wrap">
-    <div class="caixa">
-      <div>
-        <h2>Reserve seu pão antes de sair de casa.</h2>
-        <p>Monte o pedido no cardápio e mande pronto pelo WhatsApp.</p>
-      </div>
-      <a class="btn btn-wa" href="cardapio.html">Abrir o cardápio</a>
+    <div class="sec-head rv"><span class="kicker">Clientes</span><h2>O bairro inteiro passa aqui</h2></div>
+    <div class="reviews">
+      <div class="score card rv"><strong>4,8</strong><div class="stars"><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg></div><p>média de 540 avaliações no Google</p></div>
+      <figure class="review card rv d1"><div class="stars"><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>“O pão das 6h é sagrado. Passo antes do trabalho todo dia há uns dez anos.”</blockquote><figcaption><b>Seu Antônio</b> · Vizinho de porta</figcaption></figure><figure class="review card rv d2"><div class="stars"><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>“Encomendei a torta de aniversário pelo WhatsApp e ficou linda. Todo mundo perguntou de onde era.”</blockquote><figcaption><b>Renata F.</b> · Encomenda de festa</figcaption></figure><figure class="review card rv d3"><div class="stars"><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg><svg class="i i-fill" aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>“O pão de queijo daqui é o único que meu filho come. Sempre saindo quentinho.”</blockquote><figcaption><b>Márcia O.</b> · Cliente desde 2015</figcaption></figure>
     </div>
   </div>
 </section>
 
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div><h2>Vai querer o de sempre?</h2><p>Encomende pelo WhatsApp e retire no balcão, sem fila.</p></div>
+      <a class="btn btn-inv" data-wa href="https://wa.me/5514991337516?text=Ol%C3%A1%2C%20Padaria%20Fornalha%21%20Vi%20o%20site%20e%20quero%20fazer%20uma%20encomenda." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> Encomendar no WhatsApp</a>
+    </div>
+  </div>
+</section>
 </main>
-
-<footer>
+<footer class="ft">
   <div class="wrap">
-    <div>
-      <a class="logo" href="index.html">Padaria <span>Fornalha</span></a>
-      <p>Av. das Acácias, 1.180 · Vila Nova<br>Seg a sex 6h–20h · Sáb 6h–19h · Dom 6h–13h</p>
-    </div>
-    <div>
-      <h3>Páginas</h3>
-      <ul><li><a href="index.html">Início</a></li><li><a href="cardapio.html">Cardápio</a></li><li><a href="historia.html">Nossa história</a></li><li><a href="contato.html">Contato</a></li></ul>
-    </div>
-    <div>
-      <h3>Fale com a gente</h3>
-      <ul>
-        <li><a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a class="js-ig" href="#" target="_blank" rel="noopener">Instagram @padariafornalha</a></li>
-        <li><a class="js-google" href="#" target="_blank" rel="noopener">Ver no Google</a></li>
-      </ul>
-    </div>
-    <p class="credito">Projeto demonstrativo criado pela <a href="https://clika.com.br/" target="_blank" rel="noopener">Clika</a> · negócio fictício, depoimentos de exemplo</p>
+    <nav class="ft-nav" aria-label="Rodapé"><a href="index.html" aria-current="page">Início</a><a href="cardapio.html">Cardápio</a><a href="historia.html">Nossa história</a><a href="contato.html">Contato</a></nav>
+    <div class="ft-row"><span>© Padaria Fornalha · Av. das Acácias, 1.180 · Vila Nova</span><a href="https://clika.com.br/" target="_blank" rel="noopener">Site feito pela Clika</a></div>
   </div>
 </footer>
-
-<a class="flutuante js-wa" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
-<script src="site.js"></script>
+<script id="dados-site" type="application/json">{"whatsapp": "5514991337516", "demo": true, "nome": "Padaria Fornalha", "inicial": "F", "resposta": "Bom dia! ☕ Separado aqui. Pode retirar a partir das 6h, viu?", "horarios": [{"nome": "", "linhas": [{"rotulo": "Segunda a sexta", "texto": "6h às 20h", "dias": [1, 2, 3, 4, 5], "abre": 360, "fecha": 1200}, {"rotulo": "Sábado", "texto": "6h às 19h", "dias": [6], "abre": 360, "fecha": 1140}, {"rotulo": "Domingo e feriados", "texto": "6h às 13h", "dias": [0], "abre": 360, "fecha": 780}]}], "aulas": [], "msgAula": "Oi! Quero fazer a aula de {aula} de {dia} às {hora}.", "msgAgenda": "", "rotuloForm": "Sua encomenda", "proximos": {"rotulo": "Próxima fornada", "horas": [6, 10, 16]}, "planilha": ""}</script>
+<script src="../site.js" defer></script>
 </body>
 </html>

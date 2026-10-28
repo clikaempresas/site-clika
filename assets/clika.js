@@ -39,6 +39,93 @@ if (menuBtn && mobileNav) {
   });
 }
 
+/* Barra do topo: pílula que desliza até o item clicado e troca de página em duas fases
+   (a página atual sobe e some, depois a nova chega). Igual ao comportamento do Lovable,
+   mas em páginas separadas: a posição de onde a pílula saiu vai junto para a próxima página. */
+(function topNav() {
+  const KEY = "clika-nav";
+  const EXIT_MS = 240;
+  const nav = document.querySelector(".nav");
+  const main = document.querySelector("main");
+  const root = document.documentElement;
+  let from = null; // posição exata da pílula no momento em que a página anterior saiu
+  try { from = JSON.parse(sessionStorage.getItem(KEY) || "null"); sessionStorage.removeItem(KEY); } catch (e) {}
+  // A chegada animada só dura o tempo dela; depois a classe sai para não interferir
+  if (root.classList.contains("nav-in")) setTimeout(() => root.classList.remove("nav-in"), 700);
+
+  let pill = null;
+  let arriving = false; // true enquanto a pílula desliza vinda da página anterior
+  const place = (a, animate) => {
+    if (!pill || !a) return;
+    pill.classList.toggle("glide", !!animate);
+    const nr = nav.getBoundingClientRect(), ar = a.getBoundingClientRect();
+    pill.style.setProperty("--nav-x", ar.left - nr.left + "px");
+    pill.style.setProperty("--nav-y", ar.top - nr.top + "px");
+    pill.style.setProperty("--nav-w", ar.width + "px");
+    pill.style.setProperty("--nav-h", ar.height + "px");
+  };
+  const active = () => nav && nav.querySelector('[aria-current="page"]');
+  if (nav) {
+    pill = document.createElement("span");
+    pill.className = "nav-pill";
+    pill.setAttribute("aria-hidden", "true");
+    nav.prepend(pill);
+    if (active()) {
+      if (from && from.w && !reduced) {
+        // Começa onde a pílula parou na página anterior e termina o deslize aqui
+        pill.style.setProperty("--nav-x", from.x + "px");
+        pill.style.setProperty("--nav-y", from.y + "px");
+        pill.style.setProperty("--nav-w", from.w + "px");
+        pill.style.setProperty("--nav-h", from.h + "px");
+        pill.classList.add("ready");
+        arriving = true;
+        setTimeout(() => { arriving = false; }, 700);
+        requestAnimationFrame(() => requestAnimationFrame(() => place(active(), true)));
+      } else {
+        place(active(), false);
+        pill.classList.add("ready");
+      }
+    }
+    // Reajusta quando a fonte carrega ou a tela muda, sem cortar um deslize em andamento
+    const settle = () => { if (!arriving) place(active(), false); };
+    addEventListener("resize", settle);
+    document.fonts && document.fonts.ready.then(settle);
+  }
+
+  // Duas fases ao clicar em qualquer link interno para outra página
+  document.addEventListener("click", (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest("a");
+    if (!a || a.target || a.hasAttribute("download")) return;
+    const href = a.getAttribute("href");
+    if (!href || !href.startsWith("/") || href.startsWith("//")) return;
+    const url = new URL(href, location.href);
+    if (url.pathname === location.pathname) return; // âncora na mesma página: rolagem normal
+    if (reduced || !main) return;
+    e.preventDefault();
+    // Como no Lovable: primeiro a página atual sai (240 ms) com a pílula parada;
+    // o deslize da pílula acontece na página nova, junto com a chegada dela.
+    main.classList.add("page-exit");
+    setTimeout(() => {
+      try {
+        let pos = null;
+        if (pill && nav && getComputedStyle(nav).display !== "none" && pill.classList.contains("ready")) {
+          const nr = nav.getBoundingClientRect(), pr = pill.getBoundingClientRect();
+          pos = { x: pr.left - nr.left, y: pr.top - nr.top, w: pr.width, h: pr.height };
+        }
+        sessionStorage.setItem(KEY, JSON.stringify(pos || { w: 0 }));
+      } catch (err) {}
+      location.href = url.href;
+    }, EXIT_MS);
+  });
+  // Voltar pelo navegador (a página volta do cache): desfaz a saída
+  addEventListener("pageshow", (e) => {
+    if (!e.persisted) return;
+    main && main.classList.remove("page-exit");
+    place(active(), false);
+  });
+})();
+
 /* Revelação ao rolar: o que já está na tela aparece na hora; o resto, ao chegar perto */
 (function reveal() {
   const els = [...document.querySelectorAll(".reveal")];

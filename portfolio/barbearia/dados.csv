@@ -1,11 +1,12 @@
-tipo,servico,preco,duracao,descricao,destaque
-servico,Corte,45,40 min,"Máquina e tesoura, do social ao degradê na régua. Lavagem e finalização inclusas.",nao
-servico,Barba,35,30 min,"Toalha quente, navalha e balm. Contorno alinhado e pele sem irritação.",nao
-servico,Combo corte + barba,70,1h10,O pacote completo com desconto. O mais pedido da casa.,sim
-servico,Sobrancelha,15,10 min,Limpeza e alinhamento na navalha ou na pinça.,nao
-servico,Pigmentação,40,30 min,Preenche falhas da barba ou do corte e deixa o desenho mais marcado.,nao
-servico,Corte infantil,35,30 min,Até 12 anos. Paciência e capricho para a primeira visita.,nao
-horario,Segunda,,,Fechado,
-horario,Terça a sexta,,,9h às 20h,
-horario,Sábado,,,8h às 18h,
-horario,Domingo,,,Fechado,
+tipo,categoria,nome,descricao,preco,unidade,tag,disponivel
+item,Cabelo,Corte,"Máquina e tesoura, do social ao degradê na régua. Lavagem e finalização inclusas.",45,40 min,,sim
+item,Cabelo,Corte infantil,Até 12 anos. Paciência e capricho para a primeira visita.,35,30 min,,sim
+item,Cabelo,Pigmentação,Preenche falhas da barba ou do corte e deixa o desenho mais marcado.,40,30 min,,sim
+item,Barba,Barba,"Toalha quente, navalha e balm. Contorno alinhado e pele sem irritação.",35,30 min,,sim
+item,Barba,Combo corte + barba,O pacote completo com desconto. O mais pedido da casa.,70,1h10,Mais pedido,sim
+item,Outros,Sobrancelha,Limpeza e alinhamento na navalha ou na pinça.,15,10 min,,sim
+item,Outros,Hidratação,Cabelo e barba com produtos profissionais.,25,20 min,,sim
+horario,,Segunda,Fechado,,,,
+horario,,Terça a sexta,9h às 20h,,,,
+horario,,Sábado,8h às 18h,,,,
+horario,,Domingo,Fechado,,,,

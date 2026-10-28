@@ -2,106 +2,89 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
 <title>Aulas · Arena Pé na Areia</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<!-- Endereço antigo: manda para o domínio oficial. Apague no site de um cliente real -->
-<script>if (location.hostname === "site-clika.pages.dev") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
-<!-- Projeto demonstrativo: não aparece no Google. Apague esta linha no site de um cliente real -->
+<meta name="description" content="Grade da semana, professores e tudo que tem na arena.">
 <meta name="robots" content="noindex">
-<meta name="description" content="Aulas para todos os níveis, grade da semana e day use.">
-<meta name="theme-color" content="#12324F">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css">
+<meta name="theme-color" content="#f8f3e6">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../fotos/capa.webp">
+<link rel="stylesheet" href="../site.css">
+<style>:root { --bg: oklch(0.97 0.02 90); --fg: oklch(0.24 0.05 230); --muted: oklch(0.48 0.04 230); --card: oklch(1 0 0); --line: oklch(0.24 0.05 230 / 0.11); --accent: oklch(0.58 0.14 225); --accent-fg: oklch(0.99 0 0);
+  --font-d: "Barlow Condensed", system-ui, sans-serif; --font-b: "Barlow", system-ui, sans-serif; --wd: 800; --ls-d: -0.01em; --tt-d: uppercase; --fs-d: italic; color-scheme: light; }</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></symbol>
-  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-  <symbol id="i-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9.1L6.4 14Z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5l3.3 2.6C7.2 7.8 9.4 6 12 6Z"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.5 10.2-7.4 11.8a1 1 0 0 1-1.2 0C9.5 20.2 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+<symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+<symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M6 2v2M10 2v2M14 2v2"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+<symbol id="i-moto" viewBox="0 0 24 24"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M8.5 16.5h5l3-6h-4M15 6h3l.5 4.5"/></symbol>
+<symbol id="i-fire" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.3 2.8 2.5 2.8z"/></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2v-4l-2-5H5L3 13v4h2"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+<symbol id="i-bread" viewBox="0 0 24 24"><path d="M5 11a4 4 0 1 1 3-7.2A5 5 0 0 1 12 2a5 5 0 0 1 4 1.8A4 4 0 1 1 19 11v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
 </svg>
-
-<!-- Faixa do modelo: apague este bloco no site de um cliente real -->
-<div class="demo">
-  <div class="wrap">
-    <span>Modelo <b>Completo</b> da Clika · R$ 899,99</span>
-    <a href="../index.html">Ver no plano Essencial →</a>
+<div class="demo-bar"><span>Modelo <b>Completo</b> da Clika · negócio fictício<span class="demo-price"> · R$ 899,99</span></span><a href="../index.html">Ver no plano Essencial →</a></div>
+<header class="hd">
+  <div class="wrap hd-row">
+    <a class="brand" href="index.html"><span class="brand-mark">P</span><span class="brand-name">Pé na <span>Areia</span></span></a>
+    <nav class="hd-nav" aria-label="Menu"><a href="index.html">Início</a><a href="reservas.html">Preços e reservas</a><a href="aulas.html" aria-current="page">Aulas</a><a href="contato.html">Contato</a></nav>
+    <a class="btn btn-accent btn-sm hd-cta" data-wa href="https://wa.me/5514991337516?text=Oi%21%20Vi%20o%20site%20da%20Arena%20P%C3%A9%20na%20Areia%20e%20quero%20reservar%20uma%20quadra." target="_blank" rel="noopener"><svg class="i i-fill" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp</a>
   </div>
-</div>
-
-<header>
-  <div class="wrap">
-    <a class="logo" href="index.html">Pé na <span>Areia</span></a>
-    <nav id="nav" aria-label="Páginas"><ul><li><a href="index.html">Início</a></li><li><a href="reservas.html">Reservar quadra</a></li><li><a href="aulas.html" aria-current="page">Aulas e day use</a></li><li><a href="contato.html">Eventos e contato</a></li></ul></nav>
-    <a class="btn btn-cta btn-peq js-wa" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>Reservar</span></a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><svg><use href="#i-menu"/></svg><span class="sr">Abrir menu</span></button>
-  </div>
+  <nav class="hd-tabs" aria-label="Páginas"><a href="index.html">Início</a><a href="reservas.html">Preços e reservas</a><a href="aulas.html" aria-current="page">Aulas</a><a href="contato.html">Contato</a></nav>
 </header>
-
 <main>
 
-<div class="abertura">
+<section class="page-head"><div class="wrap"><span class="kicker enter">Aulas e estrutura</span><h1 class="enter e2">Aulas para todos os níveis</h1><p class="enter e3">Grade da semana, professores e tudo que tem na arena.</p></div></section>
+<section class="sec">
   <div class="wrap">
-    <span class="rotulo">Aulas e day use</span>
-    <h1>Aprenda com quem joga</h1>
-    <p>Turmas pequenas, de no máximo 6 alunos por professor. A primeira aula é experimental e não precisa ter equipamento.</p>
-  </div>
-</div>
-<section>
-  <div class="wrap">
-    <div class="g3" style="margin-bottom:28px">
-      <div class="cartao"><span class="tag">1x por semana</span><h3>4 aulas no mês</h3><span class="preco">R$ 180,00 <small>/mês</small></span></div>
-      <div class="cartao"><span class="tag">2x por semana</span><h3>8 aulas no mês</h3><span class="preco">R$ 290,00 <small>/mês</small></span></div>
-      <div class="cartao"><span class="tag">Experimente</span><h3>Aula experimental</h3><span class="preco">R$ 40,00 <small>/aula</small></span></div>
-    </div>
-    <div class="niveis"><div class="cartao"><span class="nivel" style="--cor-n:#2BA84A">Iniciante</span><p>Nunca jogou? Começa aqui.</p></div><div class="cartao"><span class="nivel" style="--cor-n:#1E6FD9">Intermediário</span><p>Já troca bola e quer evoluir.</p></div><div class="cartao"><span class="nivel" style="--cor-n:#E8452C">Avançado</span><p>Treino tático e de torneio.</p></div><div class="cartao"><span class="nivel" style="--cor-n:#C98A00">Kids</span><p>De 6 a 12 anos.</p></div></div>
-  </div>
-</section>
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="cab"><span class="rotulo">Grade da semana</span><h2>Encontre sua turma</h2></div>
-    <div class="abas" id="abas" role="toolbar" aria-label="Dia da semana"></div>
-    <div class="chips" id="filtro-mod" role="radiogroup" aria-label="Modalidade" style="margin-bottom:18px"></div>
-    <div id="grade"></div>
-  </div>
-</section>
-<section class="faixa na-faixa">
-  <div class="wrap dayuse">
-    <div class="cab" style="margin-bottom:0"><span class="rotulo">Day use</span><h2>Passe o dia na arena</h2><p>Quadras liberadas nos horários livres, espreguiçadeiras, ducha e bar. Só chegar com protetor solar.</p>
-      <div class="acoes" style="margin-top:12px"><a class="btn btn-cta js-wa" href="#" target="_blank" rel="noopener" data-msg="Oi! Quero saber sobre o day use.">Garantir meu day use</a></div></div>
-    <div class="ingresso"><span>Sábado, domingo e feriado · 8h às 18h</span><strong>R$ 45</strong><span>por pessoa · crianças até 10 anos R$ 25</span></div>
+    <div class="sec-head rv"><span class="kicker">Aulas</span><h2>Aprenda com quem joga</h2><p>Turmas pequenas, de no máximo 6 alunos. Toque na aula para marcar a experimental: não precisa ter equipamento.</p></div>
+    <div data-grade class="rv"><div class="chips"></div><div class="grade-list"><p class="aula card"><time>07h</time><span><b>Segunda · Beach Tennis</b> <small>Iniciante · com Lari Souza</small></span></p><p class="aula card"><time>18h</time><span><b>Segunda · Futevôlei</b> <small>Intermediário · com Dudu Ramos</small></span></p><p class="aula card"><time>19h</time><span><b>Segunda · Beach Tennis</b> <small>Intermediário · com Lari Souza</small></span></p><p class="aula card"><time>20h</time><span><b>Segunda · Vôlei de Praia</b> <small>Iniciante · com Bia Costa</small></span></p><p class="aula card"><time>07h</time><span><b>Terça · Futevôlei</b> <small>Iniciante · com Dudu Ramos</small></span></p><p class="aula card"><time>18h</time><span><b>Terça · Beach Tennis</b> <small>Avançado · com Rafa Lima</small></span></p><p class="aula card"><time>19h</time><span><b>Terça · Vôlei de Praia</b> <small>Intermediário · com Bia Costa</small></span></p><p class="aula card"><time>20h</time><span><b>Terça · Beach Tennis</b> <small>Iniciante · com Rafa Lima</small></span></p><p class="aula card"><time>07h</time><span><b>Quarta · Beach Tennis</b> <small>Iniciante · com Lari Souza</small></span></p><p class="aula card"><time>18h</time><span><b>Quarta · Futevôlei</b> <small>Avançado · com Dudu Ramos</small></span></p><p class="aula card"><time>19h</time><span><b>Quarta · Beach Tennis</b> <small>Intermediário · com Lari Souza</small></span></p><p class="aula card"><time>20h</time><span><b>Quarta · Vôlei de Praia</b> <small>Avançado · com Bia Costa</small></span></p><p class="aula card"><time>07h</time><span><b>Quinta · Futevôlei</b> <small>Iniciante · com Dudu Ramos</small></span></p><p class="aula card"><time>18h</time><span><b>Quinta · Beach Tennis</b> <small>Avançado · com Rafa Lima</small></span></p><p class="aula card"><time>19h</time><span><b>Quinta · Vôlei de Praia</b> <small>Intermediário · com Bia Costa</small></span></p><p class="aula card"><time>20h</time><span><b>Quinta · Beach Tennis</b> <small>Iniciante · com Rafa Lima</small></span></p><p class="aula card"><time>07h</time><span><b>Sexta · Beach Tennis</b> <small>Iniciante · com Lari Souza</small></span></p><p class="aula card"><time>18h</time><span><b>Sexta · Futevôlei</b> <small>Intermediário · com Dudu Ramos</small></span></p><p class="aula card"><time>19h</time><span><b>Sexta · Beach Tennis</b> <small>Kids · com Rafa Lima</small></span></p><p class="aula card"><time>08h</time><span><b>Sábado · Beach Tennis</b> <small>Kids · com Lari Souza</small></span></p><p class="aula card"><time>09h</time><span><b>Sábado · Futevôlei</b> <small>Iniciante · com Dudu Ramos</small></span></p><p class="aula card"><time>10h</time><span><b>Sábado · Vôlei de Praia</b> <small>Iniciante · com Bia Costa</small></span></p></div></div>
   </div>
 </section>
 
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Professores</span><h2>Quem dá as aulas</h2></div>
+    <div class="team"><div class="person card rv"><span class="avatar">L</span><div><b>Lari Souza</b><small>Beach tennis</small><small>Do iniciante ao avançado.</small></div></div><div class="person card rv d1"><span class="avatar">D</span><div><b>Dudu Ramos</b><small>Futevôlei</small><small>Fundamentos e jogo tático.</small></div></div><div class="person card rv d2"><span class="avatar">B</span><div><b>Bia Costa</b><small>Vôlei de praia e kids</small><small>Turmas infantis de 6 a 12 anos.</small></div></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">A arena</span><h2>Areia, luz e bola no ar</h2></div>
+    <div class="gallery"><figure class="rv"><img src="../fotos/galeria-1.webp" alt="Jogo à noite" loading="lazy" decoding="async"><figcaption>Jogo à noite</figcaption></figure><figure class="rv d1"><img src="../fotos/galeria-2.webp" alt="Luz de estádio" loading="lazy" decoding="async"><figcaption>Luz de estádio</figcaption></figure><figure class="rv d2"><img src="../fotos/galeria-3.webp" alt="Quadras cobertas" loading="lazy" decoding="async"><figcaption>Quadras cobertas</figcaption></figure><figure class="rv d3"><img src="../fotos/galeria-4.webp" alt="Duplas" loading="lazy" decoding="async"><figcaption>Duplas</figcaption></figure><figure class="rv d3"><img src="../fotos/galeria-5.webp" alt="Área de descanso" loading="lazy" decoding="async"><figcaption>Área de descanso</figcaption></figure><figure class="rv d3"><img src="../fotos/galeria-6.webp" alt="Estrutura metálica" loading="lazy" decoding="async"><figcaption>Estrutura metálica</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kicker">Estrutura</span><h2>Tudo para o pós-jogo</h2></div>
+    <div class="pills rv"><span>Bar e petiscos</span><span>Vestiários com ducha</span><span>Estacionamento grátis</span><span>Iluminação LED</span><span>Aluguel de raquetes</span><span>Área de descanso</span></div>
+  </div>
+</section>
 </main>
-
-<footer>
+<footer class="ft">
   <div class="wrap">
-    <div>
-      <a class="logo" href="index.html">Pé na <span>Areia</span></a>
-      <p>Rua das Palmeiras, 450 · Jardim Praia<br>Seg a sex 6h–23h · Sáb 7h–20h · Dom 7h–18h</p>
-    </div>
-    <div>
-      <h3>Páginas</h3>
-      <ul><li><a href="index.html">Início</a></li><li><a href="reservas.html">Reservar quadra</a></li><li><a href="aulas.html">Aulas e day use</a></li><li><a href="contato.html">Eventos e contato</a></li></ul>
-    </div>
-    <div>
-      <h3>Fale com a gente</h3>
-      <ul>
-        <li><a class="js-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a class="js-ig" href="#" target="_blank" rel="noopener">Instagram @arenapenaareia</a></li>
-        <li><a class="js-google" href="#" target="_blank" rel="noopener">Ver no Google</a></li>
-      </ul>
-    </div>
-    <p class="credito">Projeto demonstrativo criado pela <a href="https://clika.com.br/" target="_blank" rel="noopener">Clika</a> · negócio fictício, depoimentos de exemplo</p>
+    <nav class="ft-nav" aria-label="Rodapé"><a href="index.html">Início</a><a href="reservas.html">Preços e reservas</a><a href="aulas.html" aria-current="page">Aulas</a><a href="contato.html">Contato</a></nav>
+    <div class="ft-row"><span>© Arena Pé na Areia · Rua das Palmeiras, 450 · Jardim Praia</span><a href="https://clika.com.br/" target="_blank" rel="noopener">Site feito pela Clika</a></div>
   </div>
 </footer>
-
-<a class="flutuante js-wa" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#i-wa"/></svg></a>
-<script src="site.js"></script>
+<script id="dados-site" type="application/json">{"whatsapp": "5514991337516", "demo": true, "nome": "Arena Pé na Areia", "inicial": "P", "resposta": "Opa! 🏐 Tenho quadra livre hoje às 19h e amanhã às 7h. Qual prefere?", "horarios": [{"nome": "", "linhas": [{"rotulo": "Segunda a sexta", "texto": "6h às 23h", "dias": [1, 2, 3, 4, 5], "abre": 360, "fecha": 1380}, {"rotulo": "Sábado", "texto": "7h às 20h", "dias": [6], "abre": 420, "fecha": 1200}, {"rotulo": "Domingo", "texto": "7h às 18h", "dias": [0], "abre": 420, "fecha": 1080}]}], "aulas": [{"dia": "Segunda", "nome": "Beach Tennis", "info": "Iniciante · com Lari Souza", "hora": "07h"}, {"dia": "Segunda", "nome": "Futevôlei", "info": "Intermediário · com Dudu Ramos", "hora": "18h"}, {"dia": "Segunda", "nome": "Beach Tennis", "info": "Intermediário · com Lari Souza", "hora": "19h"}, {"dia": "Segunda", "nome": "Vôlei de Praia", "info": "Iniciante · com Bia Costa", "hora": "20h"}, {"dia": "Terça", "nome": "Futevôlei", "info": "Iniciante · com Dudu Ramos", "hora": "07h"}, {"dia": "Terça", "nome": "Beach Tennis", "info": "Avançado · com Rafa Lima", "hora": "18h"}, {"dia": "Terça", "nome": "Vôlei de Praia", "info": "Intermediário · com Bia Costa", "hora": "19h"}, {"dia": "Terça", "nome": "Beach Tennis", "info": "Iniciante · com Rafa Lima", "hora": "20h"}, {"dia": "Quarta", "nome": "Beach Tennis", "info": "Iniciante · com Lari Souza", "hora": "07h"}, {"dia": "Quarta", "nome": "Futevôlei", "info": "Avançado · com Dudu Ramos", "hora": "18h"}, {"dia": "Quarta", "nome": "Beach Tennis", "info": "Intermediário · com Lari Souza", "hora": "19h"}, {"dia": "Quarta", "nome": "Vôlei de Praia", "info": "Avançado · com Bia Costa", "hora": "20h"}, {"dia": "Quinta", "nome": "Futevôlei", "info": "Iniciante · com Dudu Ramos", "hora": "07h"}, {"dia": "Quinta", "nome": "Beach Tennis", "info": "Avançado · com Rafa Lima", "hora": "18h"}, {"dia": "Quinta", "nome": "Vôlei de Praia", "info": "Intermediário · com Bia Costa", "hora": "19h"}, {"dia": "Quinta", "nome": "Beach Tennis", "info": "Iniciante · com Rafa Lima", "hora": "20h"}, {"dia": "Sexta", "nome": "Beach Tennis", "info": "Iniciante · com Lari Souza", "hora": "07h"}, {"dia": "Sexta", "nome": "Futevôlei", "info": "Intermediário · com Dudu Ramos", "hora": "18h"}, {"dia": "Sexta", "nome": "Beach Tennis", "info": "Kids · com Rafa Lima", "hora": "19h"}, {"dia": "Sábado", "nome": "Beach Tennis", "info": "Kids · com Lari Souza", "hora": "08h"}, {"dia": "Sábado", "nome": "Futevôlei", "info": "Iniciante · com Dudu Ramos", "hora": "09h"}, {"dia": "Sábado", "nome": "Vôlei de Praia", "info": "Iniciante · com Bia Costa", "hora": "10h"}], "msgAula": "Oi! Quero fazer uma aula experimental de {aula} na {dia} às {hora}. Tem vaga?", "msgAgenda": "Oi! Quero reservar {item} para {dia}, de {periodo}. Tem horário?", "rotuloForm": "O que quer reservar", "proximos": null, "planilha": ""}</script>
+<script src="../site.js" defer></script>
 </body>
 </html>

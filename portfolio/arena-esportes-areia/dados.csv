@@ -1,0 +1,35 @@
+tipo,categoria,nome,descricao,preco,unidade,tag,disponivel
+item,Quadras,Quadra · semana,"Segunda a sexta, das 6h às 17h",80,por hora,,sim
+item,Quadras,Quadra · semana à noite,"Segunda a sexta, das 17h às 23h, com iluminação",120,por hora,Concorrido,sim
+item,Quadras,Quadra · fim de semana,"Sábado, domingo e feriado, das 7h às 13h",100,por hora,,sim
+item,Quadras,Quadra · fim de semana à tarde,"Sábado, domingo e feriado, das 13h às 20h",140,por hora,,sim
+item,Aulas,Aulas 1x por semana,"4 aulas no mês, turmas de até 6 alunos",180,por mês,,sim
+item,Aulas,Aulas 2x por semana,"8 aulas no mês, turmas de até 6 alunos",290,por mês,Mais procurado,sim
+item,Aulas,Aula experimental,Qualquer turma com vaga. Não precisa ter raquete.,40,por aula,,sim
+item,Day use,Day use,"Sábado, domingo e feriado, das 8h às 18h. Quadra livre, ducha e espreguiçadeira.",45,por pessoa,,sim
+item,Day use,Day use kids,"Crianças até 10 anos, das 8h às 18h.",25,por pessoa,,sim
+horario,,Segunda a sexta,6h às 23h,,,,
+horario,,Sábado,7h às 20h,,,,
+horario,,Domingo,7h às 18h,,,,
+aula,Segunda,Beach Tennis,Iniciante · com Lari Souza,,07h,,
+aula,Segunda,Futevôlei,Intermediário · com Dudu Ramos,,18h,,
+aula,Segunda,Beach Tennis,Intermediário · com Lari Souza,,19h,,
+aula,Segunda,Vôlei de Praia,Iniciante · com Bia Costa,,20h,,
+aula,Terça,Futevôlei,Iniciante · com Dudu Ramos,,07h,,
+aula,Terça,Beach Tennis,Avançado · com Rafa Lima,,18h,,
+aula,Terça,Vôlei de Praia,Intermediário · com Bia Costa,,19h,,
+aula,Terça,Beach Tennis,Iniciante · com Rafa Lima,,20h,,
+aula,Quarta,Beach Tennis,Iniciante · com Lari Souza,,07h,,
+aula,Quarta,Futevôlei,Avançado · com Dudu Ramos,,18h,,
+aula,Quarta,Beach Tennis,Intermediário · com Lari Souza,,19h,,
+aula,Quarta,Vôlei de Praia,Avançado · com Bia Costa,,20h,,
+aula,Quinta,Futevôlei,Iniciante · com Dudu Ramos,,07h,,
+aula,Quinta,Beach Tennis,Avançado · com Rafa Lima,,18h,,
+aula,Quinta,Vôlei de Praia,Intermediário · com Bia Costa,,19h,,
+aula,Quinta,Beach Tennis,Iniciante · com Rafa Lima,,20h,,
+aula,Sexta,Beach Tennis,Iniciante · com Lari Souza,,07h,,
+aula,Sexta,Futevôlei,Intermediário · com Dudu Ramos,,18h,,
+aula,Sexta,Beach Tennis,Kids · com Rafa Lima,,19h,,
+aula,Sábado,Beach Tennis,Kids · com Lari Souza,,08h,,
+aula,Sábado,Futevôlei,Iniciante · com Dudu Ramos,,09h,,
+aula,Sábado,Vôlei de Praia,Iniciante · com Bia Costa,,10h,,

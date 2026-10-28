@@ -1,0 +1,93 @@
+{
+  "pasta": "arena-esportes-areia",
+  "nome": "Arena Pé na Areia",
+  "logo": "Pé na [Areia]",
+  "inicial": "P",
+  "kicker": "Beach tennis · Futevôlei · Vôlei",
+  "titulo": "Pé na Areia",
+  "slogan": "4 quadras de areia tratada, luz de estádio para jogar à noite, aulas para todos os níveis e bar gelado no fim da partida.",
+  "descricaoGoogle": "Arena de beach tennis, futevôlei e vôlei de praia. Preço das quadras, grade de aulas, day use e reserva pelo WhatsApp.",
+  "demo": true,
+  "dominio": "penaareiaarena.com.br",
+  "altCapa": "Quadras de areia iluminadas da Arena Pé na Areia à noite",
+
+  "tema": {
+    "fundo": "oklch(0.97 0.02 90)", "texto": "oklch(0.24 0.05 230)", "suave": "oklch(0.48 0.04 230)",
+    "cartao": "oklch(1 0 0)", "linha": "oklch(0.24 0.05 230 / 0.11)",
+    "destaque": "oklch(0.58 0.14 225)", "textoNoDestaque": "oklch(0.99 0 0)",
+    "fonteTitulo": "Barlow Condensed", "pesoTitulo": 800, "espacoTitulo": "-0.01em", "caixaTitulo": "uppercase", "estiloTitulo": "italic", "fonteTexto": "Barlow",
+    "googleFonts": "family=Barlow+Condensed:ital,wght@1,700;1,800&family=Barlow:wght@400;500;600;700;800", "esquema": "light", "corBarra": "#f8f3e6"
+  },
+
+  "whatsapp": "5514991337516",
+  "cta": "Reservar quadra",
+  "msgGeral": "Oi! Vi o site da Arena Pé na Areia e quero reservar uma quadra.",
+  "msgItem": "Oi! Quero reservar: {item}. Tem horário disponível?",
+  "msgAula": "Oi! Quero fazer uma aula experimental de {aula} na {dia} às {hora}. Tem vaga?",
+  "resposta": "Opa! 🏐 Tenho quadra livre hoje às 19h e amanhã às 7h. Qual prefere?",
+  "instagram": "https://www.instagram.com/",
+  "instagramUsuario": "@arenapenaareia",
+
+  "endereco": "Rua das Palmeiras, 450 · Jardim Praia",
+  "referencia": "Estacionamento gratuito para clientes, 40 vagas. Feriados: 7h às 18h.",
+  "mapaBusca": "São Paulo, SP",
+
+  "selos": ["<b>4</b> quadras", "<b>3</b> modalidades", "<b>Luz de estádio</b> à noite"],
+  "catalogo": { "id": "precos", "menu": "Preços", "kicker": "Preços", "titulo": "Quadras, aulas e day use", "texto": "Cancelamento grátis até 12h antes. Raquetes e bolas para alugar na recepção." },
+  "destaques": [
+    { "icone": "sun", "texto": "Day use no fim de semana" },
+    { "icone": "users", "texto": "Turmas de até 6 alunos" },
+    { "icone": "car", "texto": "Estacionamento grátis" }
+  ],
+  "tops": { "titulo": "Mais procurados", "itens": ["Quadra · semana à noite", "Aulas 2x por semana", "Day use"] },
+  "notaGoogle": { "nota": "4,9", "texto": "média de 180 avaliações no Google" },
+  "tituloAvaliacoes": "Quem joga aqui, volta",
+  "depoimentos": [
+    { "texto": "Comecei no beach tennis sem nunca ter pegado numa raquete. Três meses depois já jogo torneio interno.", "nome": "Fernanda C.", "info": "Aluna desde 2024" },
+    { "texto": "Reservo a quadra pelo WhatsApp em um minuto. A areia é sempre bem cuidada e a luz à noite é ótima.", "nome": "Bruno A.", "info": "Joga às terças" },
+    { "texto": "Fizemos o aniversário do meu filho aqui. Organizaram os jogos e a criançada amou.", "nome": "Luciana T.", "info": "Festa kids" }
+  ],
+  "grade": { "kicker": "Aulas", "titulo": "Aprenda com quem joga", "texto": "Turmas pequenas, de no máximo 6 alunos. Toque na aula para marcar a experimental: não precisa ter equipamento." },
+  "equipe": {
+    "kicker": "Professores", "titulo": "Quem dá as aulas",
+    "pessoas": [
+      { "nome": "Lari Souza", "cargo": "Beach tennis", "texto": "Do iniciante ao avançado." },
+      { "nome": "Dudu Ramos", "cargo": "Futevôlei", "texto": "Fundamentos e jogo tático." },
+      { "nome": "Bia Costa", "cargo": "Vôlei de praia e kids", "texto": "Turmas infantis de 6 a 12 anos." }
+    ]
+  },
+  "galeria": { "kicker": "A arena", "titulo": "Areia, luz e bola no ar" },
+  "extras": { "kicker": "Estrutura", "titulo": "Tudo para o pós-jogo", "itens": ["Bar e petiscos", "Vestiários com ducha", "Estacionamento grátis", "Iluminação LED", "Aluguel de raquetes", "Área de descanso"] },
+  "agenda": {
+    "kicker": "Reserva", "titulo": "Reserve em 3 toques", "texto": "Escolha a quadra, o dia e o período. A gente confirma o horário pelo WhatsApp.",
+    "rotuloItem": "O que você quer", "periodos": ["Manhã", "Tarde", "Noite"],
+    "itens": ["Quadra · semana", "Quadra · semana à noite", "Quadra · fim de semana", "Aula experimental", "Day use"],
+    "mensagem": "Oi! Quero reservar {item} para {dia}, de {periodo}. Tem horário?"
+  },
+  "rotuloForm": "O que quer reservar",
+  "chamadaFinal": { "titulo": "Bora pra areia?", "texto": "Reserve a quadra, marque uma aula ou venha passar o dia. É só chamar." },
+
+  "fotos": {
+    "base": "arena.jpg",
+    "capa": { "corte": [0, 0, 1, 0.74], "foco": "50% 60%" },
+    "galeria": [
+      { "c": [0.55, 0.62, 0.45], "legenda": "Jogo à noite" },
+      { "c": [0.40, 0.30, 0.55], "legenda": "Luz de estádio" },
+      { "c": [0.75, 0.42, 0.42], "legenda": "Quadras cobertas" },
+      { "c": [0.60, 0.65, 0.30], "legenda": "Duplas" },
+      { "c": [0.20, 0.45, 0.45], "legenda": "Área de descanso" },
+      { "c": [0.85, 0.30, 0.45], "legenda": "Estrutura metálica" }
+    ],
+    "tops": [[0.55, 0.60, 0.45], [0.62, 0.65, 0.3], [0.45, 0.45, 0.55]]
+  },
+
+  "essencial": { "blocos": ["hero", "catalogo", "local", "cta"] },
+  "completo": {
+    "paginas": [
+      { "arquivo": "index.html", "menu": "Início", "blocos": ["hero", "feats", "tops", "avaliacoes", "cta"] },
+      { "arquivo": "reservas.html", "menu": "Preços e reservas", "kicker": "Preços e reservas", "titulo": "Reserve sua quadra", "texto": "Todos os preços e a reserva em 3 toques.", "blocos": ["catalogo-completo", "agenda"] },
+      { "arquivo": "aulas.html", "menu": "Aulas", "kicker": "Aulas e estrutura", "titulo": "Aulas para todos os níveis", "texto": "Grade da semana, professores e tudo que tem na arena.", "blocos": ["grade", "equipe", "galeria", "extras"] },
+      { "arquivo": "contato.html", "menu": "Contato", "kicker": "Contato", "titulo": "Fale com a gente", "texto": "Mande uma mensagem pelo formulário, chame no WhatsApp ou venha conhecer.", "blocos": ["contato"] }
+    ]
+  }
+}

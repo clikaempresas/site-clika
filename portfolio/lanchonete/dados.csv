@@ -1,53 +1,47 @@
-tipo,categoria,item,descricao,preco,foto,disponivel
-cardapio,Lanches,Smash Clássico,"Blend de 90 g prensado na chapa, queijo prato, picles e molho da casa no pão brioche.",24.90,smash-classico.jpg,sim
-cardapio,Lanches,Smash Duplo,"Dois blends de 90 g, cheddar derretido e cebola caramelizada no pão brioche.",32.90,smash-duplo.jpg,sim
-cardapio,Lanches,Smash Bacon,"Blend de 90 g, bacon crocante, cheddar e maionese defumada.",34.90,smash-bacon.jpg,sim
-cardapio,Lanches,X-Salada da Casa,"Hambúrguer de 150 g, queijo, alface, tomate, cebola roxa e maionese verde.",27.90,x-salada.jpg,sim
-cardapio,Lanches,X-Tudo da Esquina,"Hambúrguer de 150 g, ovo, bacon, presunto, queijo, salada e batata palha.",38.90,x-tudo.jpg,sim
-cardapio,Lanches,Chicken Crispy,"Sobrecoxa empanada e crocante, coleslaw e molho de mel com mostarda.",29.90,chicken-crispy.jpg,sim
-cardapio,Lanches,Veggie de Grão-de-Bico,"Hambúrguer de grão-de-bico, queijo coalho grelhado, rúcula e tomate seco.",30.90,veggie.jpg,sim
-cardapio,Lanches,Cheddar Melt,"Blend de 150 g mergulhado em cheddar cremoso, no pão australiano.",36.90,cheddar-melt.jpg,nao
-cardapio,Combos,Combo Smash,"Smash Clássico + batata frita pequena + refrigerante lata.",39.90,combo-smash.jpg,sim
-cardapio,Combos,Combo Duplo,"Smash Duplo + batata frita pequena + refrigerante lata.",47.90,combo-duplo.jpg,sim
-cardapio,Combos,Combo Família,"4 Smash Clássicos + 2 batatas grandes + refrigerante 2 litros.",129.90,combo-familia.jpg,sim
-cardapio,Porções,Batata Frita,"Porção de 400 g, sequinha e crocante, com sal e alecrim.",19.90,batata-frita.jpg,sim
-cardapio,Porções,Batata Cheddar e Bacon,"Porção de 400 g coberta com cheddar cremoso e bacon em cubos.",29.90,batata-cheddar.jpg,sim
-cardapio,Porções,Onion Rings,"Anéis de cebola empanados, com molho barbecue para acompanhar.",22.90,onion-rings.jpg,sim
-cardapio,Porções,Mandioca Frita,"Mandioca cozida e frita, com maionese da casa.",21.90,mandioca.jpg,sim
-cardapio,Porções,Frango a Passarinho,"500 g de frango temperado no alho, com limão.",34.90,frango-passarinho.jpg,sim
-cardapio,Bebidas,Refrigerante Lata,"Coca-Cola, Guaraná ou Sprite. 350 ml.",7.00,refrigerante.jpg,sim
-cardapio,Bebidas,Refrigerante 2 Litros,"Coca-Cola ou Guaraná.",16.00,refrigerante-2l.jpg,sim
-cardapio,Bebidas,Suco Natural,"Laranja, limão ou maracujá. 400 ml.",10.00,suco.jpg,sim
-cardapio,Bebidas,Chá Gelado da Casa,"Chá mate com limão e hortelã. 400 ml.",9.00,cha-gelado.jpg,sim
-cardapio,Bebidas,Cerveja Long Neck,"Pergunte as marcas do dia. Venda para maiores de 18 anos.",12.00,cerveja.jpg,sim
-cardapio,Bebidas,Água Mineral,"Com ou sem gás. 500 ml.",4.00,agua.jpg,sim
-cardapio,Sobremesas,Milkshake de Ovomaltine,"Sorvete de creme batido com Ovomaltine crocante. 400 ml.",19.90,milkshake-ovomaltine.jpg,sim
-cardapio,Sobremesas,Milkshake de Nutella,"Sorvete de creme batido com Nutella e calda de chocolate. 400 ml.",21.90,milkshake-nutella.jpg,sim
-cardapio,Sobremesas,Brownie com Sorvete,"Brownie quentinho de chocolate meio amargo com bola de sorvete.",18.90,brownie.jpg,sim
-cardapio,Sobremesas,Churros de Doce de Leite,"Três mini churros recheados, com açúcar e canela.",14.90,churros.jpg,sim
-promocao,Terça,Terça do Smash,"Smash Clássico de R$ 24,90 por R$ 18,90 o dia todo.",18.90,promo-terca.jpg,sim
-promocao,Quarta,Quarta da Batata,"Na compra de qualquer lanche, a batata frita pequena sai de graça.",0,promo-quarta.jpg,sim
-promocao,Quinta,Quinta em Dobro,"Dois Smash Duplos por R$ 54,90.",54.90,promo-quinta.jpg,sim
-promocao,Sexta,Sexta do Combo,"Combo Duplo com milkshake no lugar do refrigerante, sem custo a mais.",47.90,promo-sexta.jpg,sim
-promocao,Sábado,Sábado da Galera,"Combo Família com 2 milkshakes de brinde.",129.90,promo-sabado.jpg,sim
-promocao,Domingo,Domingo Kids,"Na compra de um combo, o mini smash para criança sai por R$ 9,90.",9.90,promo-domingo.jpg,sim
-horario,Salão,Segunda,Fechado,,,
-horario,Salão,Terça,18:00 às 23:30,,,
-horario,Salão,Quarta,18:00 às 23:30,,,
-horario,Salão,Quinta,18:00 às 23:30,,,
-horario,Salão,Sexta,18:00 às 01:00,,,
-horario,Salão,Sábado,18:00 às 01:00,,,
-horario,Salão,Domingo,18:00 às 23:00,,,
-horario,Entrega,Segunda,Fechado,,,
-horario,Entrega,Terça,18:30 às 23:00,,,
-horario,Entrega,Quarta,18:30 às 23:00,,,
-horario,Entrega,Quinta,18:30 às 23:00,,,
-horario,Entrega,Sexta,18:30 às 00:30,,,
-horario,Entrega,Sábado,18:30 às 00:30,,,
-horario,Entrega,Domingo,18:30 às 22:30,,,
-area,Entrega,Centro,25 a 35 min,0,,
-area,Entrega,Vila Nova,30 a 40 min,5,,
-area,Entrega,Jardim América,30 a 45 min,6,,
-area,Entrega,Bela Vista,35 a 45 min,7,,
-area,Entrega,Santa Cruz,40 a 50 min,8,,
-area,Entrega,Parque das Flores,45 a 60 min,10,,
+tipo,categoria,nome,descricao,preco,unidade,tag,disponivel
+item,Lanches,Smash Clássico,"Blend de 90 g prensado na chapa, queijo prato, picles e molho da casa no pão brioche.",24.90,,,sim
+item,Lanches,Smash Duplo,"Dois blends de 90 g, cheddar derretido e cebola caramelizada no pão brioche.",32.90,,Mais pedido,sim
+item,Lanches,Smash Bacon,"Blend de 90 g, bacon crocante, cheddar e maionese defumada.",34.90,,,sim
+item,Lanches,X-Salada da Casa,"Hambúrguer de 150 g, queijo, alface, tomate, cebola roxa e maionese verde.",27.90,,,sim
+item,Lanches,X-Tudo da Esquina,"Hambúrguer de 150 g, ovo, bacon, presunto, queijo, salada e batata palha.",38.90,,,sim
+item,Lanches,Chicken Crispy,"Sobrecoxa empanada e crocante, coleslaw e molho de mel com mostarda.",29.90,,,sim
+item,Lanches,Veggie de Grão-de-Bico,"Hambúrguer de grão-de-bico, queijo coalho grelhado, rúcula e tomate seco.",30.90,,,sim
+item,Lanches,Cheddar Melt,"Blend de 150 g mergulhado em cheddar cremoso, no pão australiano.",36.90,,,nao
+item,Combos,Combo Smash,Smash Clássico + batata frita pequena + refrigerante lata.,39.90,,,sim
+item,Combos,Combo Duplo,Smash Duplo + batata frita pequena + refrigerante lata.,47.90,,,sim
+item,Combos,Combo Família,4 Smash Clássicos + 2 batatas grandes + refrigerante 2 litros.,129.90,,,sim
+item,Porções,Batata Frita,"Porção de 400 g, sequinha e crocante, com sal e alecrim.",19.90,,,sim
+item,Porções,Batata Cheddar e Bacon,Porção de 400 g coberta com cheddar cremoso e bacon em cubos.,29.90,,,sim
+item,Porções,Onion Rings,"Anéis de cebola empanados, com molho barbecue para acompanhar.",22.90,,,sim
+item,Porções,Mandioca Frita,"Mandioca cozida e frita, com maionese da casa.",21.90,,,sim
+item,Porções,Frango a Passarinho,"500 g de frango temperado no alho, com limão.",34.90,,,sim
+item,Bebidas,Refrigerante Lata,"Coca-Cola, Guaraná ou Sprite. 350 ml.",7.00,,,sim
+item,Bebidas,Refrigerante 2 Litros,Coca-Cola ou Guaraná.,16.00,,,sim
+item,Bebidas,Suco Natural,"Laranja, limão ou maracujá. 400 ml.",10.00,,,sim
+item,Bebidas,Chá Gelado da Casa,Chá mate com limão e hortelã. 400 ml.,9.00,,,sim
+item,Bebidas,Cerveja Long Neck,Pergunte as marcas do dia. Venda para maiores de 18 anos.,12.00,,,sim
+item,Bebidas,Água Mineral,Com ou sem gás. 500 ml.,4.00,,,sim
+item,Sobremesas,Milkshake de Ovomaltine,Sorvete de creme batido com Ovomaltine crocante. 400 ml.,19.90,,,sim
+item,Sobremesas,Milkshake de Nutella,Sorvete de creme batido com Nutella e calda de chocolate. 400 ml.,21.90,,,sim
+item,Sobremesas,Brownie com Sorvete,Brownie quentinho de chocolate meio amargo com bola de sorvete.,18.90,,,sim
+item,Sobremesas,Churros de Doce de Leite,"Três mini churros recheados, com açúcar e canela.",14.90,,,sim
+horario,Salão,Segunda,Fechado,,,,
+horario,Salão,Terça a quinta,18h às 23h30,,,,
+horario,Salão,Sexta e sábado,18h à 1h,,,,
+horario,Salão,Domingo,18h às 23h,,,,
+horario,Entrega,Segunda,Fechado,,,,
+horario,Entrega,Terça a quinta,18h30 às 23h,,,,
+horario,Entrega,Sexta e sábado,18h30 à 0h30,,,,
+horario,Entrega,Domingo,18h30 às 22h30,,,,
+promo,Terça,Terça do Smash,"Smash Clássico de R$ 24,90 por R$ 18,90 o dia todo.",18.90,,,
+promo,Quarta,Quarta da Batata,"Na compra de qualquer lanche, a batata frita pequena sai de graça.",0,,,
+promo,Quinta,Quinta em Dobro,"Dois Smash Duplos por R$ 54,90.",54.90,,,
+promo,Sexta,Sexta do Combo,"Combo Duplo com milkshake no lugar do refrigerante, sem custo a mais.",47.90,,,
+promo,Sábado,Sábado da Galera,Combo Família com 2 milkshakes de brinde.,129.90,,,
+promo,Domingo,Domingo Kids,"Na compra de um combo, o mini smash para criança sai por R$ 9,90.",9.90,,,
+area,,Centro,25 a 35 min,0,,,
+area,,Vila Nova,30 a 40 min,5,,,
+area,,Jardim América,30 a 45 min,6,,,
+area,,Bela Vista,35 a 45 min,7,,,
+area,,Santa Cruz,40 a 50 min,8,,,
+area,,Parque das Flores,45 a 60 min,10,,,

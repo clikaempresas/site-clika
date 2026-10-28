@@ -1,0 +1,88 @@
+{
+  "pasta": "barbearia",
+  "nome": "Barbearia do Zé",
+  "logo": "Barbearia [do Zé]",
+  "inicial": "Z",
+  "kicker": "Barbearia · Centro",
+  "titulo": "Barbearia do Zé",
+  "slogan": "Corte na régua, barba na toalha quente e aquele papo bom. Desde 2009 no bairro.",
+  "descricaoGoogle": "Barbearia com corte, barba e sobrancelha com hora marcada. Preços, horários e agendamento pelo WhatsApp.",
+  "demo": true,
+  "dominio": "barbeariadoze.com.br",
+
+  "tema": {
+    "fundo": "oklch(0.16 0.01 60)", "texto": "oklch(0.96 0.01 80)", "suave": "oklch(0.72 0.02 70)",
+    "cartao": "oklch(0.205 0.012 60)", "linha": "oklch(1 0 0 / 0.09)",
+    "destaque": "oklch(0.76 0.12 75)", "textoNoDestaque": "oklch(0.16 0.01 60)",
+    "fonteTitulo": "Bebas Neue", "pesoTitulo": 400, "espacoTitulo": "0.01em", "fonteTexto": "Inter",
+    "googleFonts": "family=Bebas+Neue&family=Inter:wght@400;500;600;700;800"
+  },
+
+  "whatsapp": "5514991337516",
+  "cta": "Agendar no WhatsApp",
+  "msgGeral": "Olá, Barbearia do Zé! Vi o site e quero agendar um horário.",
+  "msgItem": "Oi! Quero agendar um {item} na Barbearia do Zé. Qual o próximo horário?",
+  "resposta": "Opa, tudo certo? Tenho horário hoje às 15h30 ou amanhã às 10h. Qual fica melhor? ✂️",
+  "instagram": "https://www.instagram.com/",
+  "instagramUsuario": "@barbeariadoze",
+
+  "endereco": "Rua das Palmeiras, 245 · Centro",
+  "referencia": "Em frente à praça da matriz. Estacionamento na rua.",
+  "mapaBusca": "Praça da Sé, São Paulo - SP",
+
+  "selos": ["<b>15 anos</b> no bairro", "<b>4,9</b> no Google", "<b>Café</b> por conta da casa"],
+  "catalogo": { "id": "servicos", "menu": "Serviços", "kicker": "Serviços", "titulo": "Preço fechado, sem surpresa", "texto": "Todo serviço inclui lavagem e finalização. Toque no serviço e a mensagem já vai pronta." },
+  "destaques": [
+    { "icone": "clock", "texto": "Hora marcada, sem fila" },
+    { "icone": "coffee", "texto": "Café e água por conta da casa" },
+    { "icone": "card", "texto": "Pix e cartão" }
+  ],
+  "tops": { "titulo": "Os mais pedidos", "itens": ["Combo corte + barba", "Corte", "Barba"] },
+  "notaGoogle": { "nota": "4,9", "texto": "média de 230 avaliações no Google" },
+  "depoimentos": [
+    { "texto": "Corto com o Rafa há três anos. Degradê perfeito toda vez e nunca atrasa.", "nome": "Lucas M.", "info": "Cliente desde 2021" },
+    { "texto": "Levei meu filho pro primeiro corte e foi tranquilo. O Zé tem uma paciência absurda.", "nome": "Carlos A.", "info": "Pai do Theo, 4 anos" },
+    { "texto": "A barba na toalha quente é outro nível. Agendo pelo WhatsApp e sou atendido na hora.", "nome": "Felipe R.", "info": "Cliente desde 2019" }
+  ],
+  "equipe": {
+    "kicker": "Equipe", "titulo": "Três cadeiras, três estilos", "texto": "Escolha o seu barbeiro ou deixe com a gente: quem estiver livre te atende na hora marcada.",
+    "pessoas": [
+      { "nome": "Zé", "cargo": "Fundador · 15 anos de navalha", "texto": "Corte social, tesoura e barba clássica." },
+      { "nome": "Rafa", "cargo": "Barbeiro", "texto": "Degradê, navalhado e desenhos na máquina." },
+      { "nome": "Dudu", "cargo": "Barbeiro", "texto": "Barboterapia, pigmentação e sobrancelha." }
+    ]
+  },
+  "galeria": { "kicker": "Galeria", "titulo": "Feito aqui" },
+  "extras": { "kicker": "Por que a gente", "titulo": "Detalhes que fazem diferença", "itens": ["Hora marcada, sem fila", "Café e água por conta da casa", "Toalha quente em toda barba", "Ar-condicionado", "Pix e cartão", "Wi-Fi liberado"] },
+  "agenda": {
+    "kicker": "Agendamento", "titulo": "Marque em 10 segundos", "texto": "Escolha o serviço, o dia e o período. A mensagem chega pronta no WhatsApp da barbearia.",
+    "rotuloItem": "Serviço", "rotuloPessoa": "Barbeiro", "periodos": ["Manhã", "Tarde", "Noite"],
+    "mensagem": "Oi! Quero agendar {item} para {dia}, de {periodo}, com {pessoa}. Tem horário?"
+  },
+  "rotuloForm": "Serviço desejado",
+  "chamadaFinal": { "titulo": "Bora dar um tapa no visual?", "texto": "Escolha o serviço e chama no WhatsApp. A gente confirma o horário na hora." },
+
+  "fotos": {
+    "base": "barbearia.jpg",
+    "capa": { "corte": [0, 0, 1, 1], "foco": "40% 60%" },
+    "galeria": [
+      { "c": [0.30, 0.62, 0.80], "legenda": "A cadeira do Zé" },
+      { "c": [0.12, 0.22, 0.55], "legenda": "Luz baixa, papo bom" },
+      { "c": [0.62, 0.40, 0.70], "legenda": "Três cadeiras" },
+      { "c": [0.45, 0.80, 0.45], "legenda": "Detalhes em couro" },
+      { "c": [0.85, 0.35, 0.60], "legenda": "Nosso balcão" },
+      { "c": [0.20, 0.45, 0.42], "legenda": "Espelhos de época" }
+    ],
+    "tops": [[0.30, 0.60, 0.75], [0.15, 0.30, 0.6], [0.62, 0.45, 0.7]]
+  },
+
+  "essencial": { "blocos": ["hero", "catalogo", "local", "cta"] },
+  "completo": {
+    "paginas": [
+      { "arquivo": "index.html", "menu": "Início", "blocos": ["hero", "feats", "tops", "avaliacoes", "equipe", "cta"] },
+      { "arquivo": "servicos.html", "menu": "Serviços e agenda", "kicker": "Serviços e agenda", "titulo": "Escolha o serviço e marque", "texto": "Todos os serviços com preço e duração. Lá embaixo, o agendamento em 3 toques.", "blocos": ["catalogo-completo", "agenda"] },
+      { "arquivo": "equipe.html", "menu": "Equipe", "kicker": "Equipe e galeria", "titulo": "Quem faz o seu corte", "texto": "Três barbeiros, cada um com a sua especialidade.", "blocos": ["equipe", "galeria", "extras", "cta"] },
+      { "arquivo": "contato.html", "menu": "Contato", "kicker": "Contato", "titulo": "Fale com a gente", "texto": "Mande uma mensagem pelo formulário, chame no WhatsApp ou passe aqui.", "blocos": ["contato"] }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "pasta": "academia",
+  "nome": "Força Total",
+  "logo": "Força [Total]",
+  "inicial": "F",
+  "kicker": "Academia · Vila Mariana",
+  "titulo": "Força Total",
+  "slogan": "Musculação, funcional e lutas, das 5h às 23h. Sua primeira aula é por nossa conta.",
+  "descricaoGoogle": "Academia com musculação, funcional, spinning e lutas. Planos com preço, grade de aulas e aula experimental grátis pelo WhatsApp.",
+  "demo": true,
+  "dominio": "forcatotalacademia.com.br",
+  "altCapa": "Salão de treino da academia Força Total com janelas amplas",
+
+  "tema": {
+    "fundo": "oklch(0.13 0.005 250)", "texto": "oklch(0.97 0 0)", "suave": "oklch(0.7 0.01 250)",
+    "cartao": "oklch(0.19 0.006 250)", "linha": "oklch(1 0 0 / 0.09)",
+    "destaque": "oklch(0.88 0.2 125)", "textoNoDestaque": "oklch(0.13 0.005 250)",
+    "fonteTitulo": "Archivo", "pesoTitulo": 900, "espacoTitulo": "-0.025em", "caixaTitulo": "uppercase", "estiloTitulo": "italic", "fonteTexto": "Inter",
+    "googleFonts": "family=Archivo:ital,wght@1,800;1,900&family=Inter:wght@400;500;600;700;800", "corBarra": "#0e1014"
+  },
+
+  "whatsapp": "5514991337516",
+  "cta": "Agendar aula grátis",
+  "msgGeral": "Oi! Vi o site da Força Total e quero agendar minha aula experimental grátis.",
+  "msgItem": "Oi! Tenho interesse em {item} na Força Total. Pode me passar mais detalhes?",
+  "msgAula": "Oi! Quero fazer a aula experimental de {aula} na {dia} às {hora}. Tem vaga?",
+  "resposta": "Bora! 💪 Tem vaga sim. Me passa seu nome completo que eu já deixo reservado.",
+  "instagram": "https://www.instagram.com/",
+  "instagramUsuario": "@forcatotal",
+
+  "endereco": "Rua das Palmeiras, 450 · Vila Mariana",
+  "referencia": "Estacionamento próprio com 20 vagas.",
+  "mapaBusca": "Vila Mariana, São Paulo - SP",
+
+  "selos": ["<b>Sem</b> taxa de matrícula", "<b>5h às 23h</b> de segunda a sexta", "<b>Avaliação</b> física inclusa"],
+  "catalogo": { "id": "planos", "menu": "Planos", "kicker": "Planos", "titulo": "Quanto mais tempo, menos você paga", "texto": "Todos os planos dão acesso à musculação e às aulas coletivas. Valores por mês." },
+  "destaques": [
+    { "icone": "bolt", "texto": "Primeira aula grátis" },
+    { "icone": "clock", "texto": "Aberto das 5h às 23h" },
+    { "icone": "car", "texto": "Estacionamento próprio" }
+  ],
+  "tops": { "titulo": "Por onde começar", "itens": ["Semestral", "Funcional", "Muay Thai"] },
+  "notaGoogle": { "nota": "4,9", "texto": "média de 320 avaliações no Google" },
+  "tituloAvaliacoes": "Quem treina aqui, vê resultado",
+  "depoimentos": [
+    { "texto": "Eu já tinha desistido de academia três vezes. Aqui o pessoal lembra do meu nome e me cobra quando eu sumo.", "nome": "Juliana R.", "info": "−12 kg em 7 meses" },
+    { "texto": "O treino muda todo mês e o Rafa corrige cada exercício. Nunca evoluí tão rápido.", "nome": "Marcos T.", "info": "+6 kg de massa magra" },
+    { "texto": "Comecei pelo alongamento e hoje faço musculação três vezes por semana. Subo a escada sem parar.", "nome": "Dona Cida", "info": "64 anos" }
+  ],
+  "grade": { "kicker": "Grade de aulas", "titulo": "Encontre a sua turma", "texto": "Escolha o dia e toque na aula para reservar a experimental. A musculação fica liberada o dia inteiro." },
+  "equipe": {
+    "kicker": "Professores", "titulo": "Quem vai treinar com você", "texto": "Todos formados e com registro no CREF.",
+    "pessoas": [
+      { "nome": "Rafael Souza", "cargo": "Musculação e hipertrofia", "texto": "CREF 012345-G/SP" },
+      { "nome": "Camila Prado", "cargo": "Funcional e spinning", "texto": "CREF 023456-G/SP" },
+      { "nome": "Diego Martins", "cargo": "Muay Thai e jiu-jítsu", "texto": "Faixa preta 2º grau" }
+    ]
+  },
+  "galeria": { "kicker": "Estrutura", "titulo": "Espaço pensado para o seu treino" },
+  "extras": { "kicker": "Estrutura", "titulo": "Tudo que você precisa", "itens": ["Estacionamento", "Vestiário com ducha", "Armários", "Avaliação física", "Wi-Fi", "Bebedouro gelado"] },
+  "agenda": {
+    "kicker": "Aula experimental", "titulo": "Sua primeira aula é por nossa conta", "texto": "Escolha a modalidade, o dia e o período. A gente confirma pelo WhatsApp.",
+    "rotuloItem": "Modalidade", "periodos": ["Manhã", "Tarde", "Noite"],
+    "itens": ["Musculação", "Funcional", "Spinning", "Muay Thai", "Jiu-jítsu", "Alongamento"],
+    "mensagem": "Oi! Quero agendar minha aula experimental grátis de {item} para {dia}, de {periodo}."
+  },
+  "rotuloForm": "Interesse",
+  "chamadaFinal": { "titulo": "Bora começar hoje?", "texto": "Mande uma mensagem, escolha o horário e venha conhecer. Sem matrícula, sem compromisso." },
+
+  "fotos": {
+    "base": "academia.jpg",
+    "capa": { "corte": [0, 0, 1, 1], "foco": "50% 55%" },
+    "galeria": [
+      { "c": [0.50, 0.50, 0.85], "legenda": "Salão de treino" },
+      { "c": [0.80, 0.42, 0.55], "legenda": "Pesos livres" },
+      { "c": [0.12, 0.40, 0.70], "legenda": "Luz natural o dia todo" },
+      { "c": [0.38, 0.72, 0.40], "legenda": "Espaço funcional" },
+      { "c": [0.95, 0.40, 0.60], "legenda": "Espelhos" },
+      { "c": [0.47, 0.30, 0.38], "legenda": "Stronger, taller, happier" }
+    ],
+    "tops": [[0.78, 0.45, 0.6], [0.40, 0.70, 0.5], [0.50, 0.45, 0.85]]
+  },
+
+  "essencial": { "blocos": ["hero", "catalogo", "local", "cta"] },
+  "completo": {
+    "paginas": [
+      { "arquivo": "index.html", "menu": "Início", "blocos": ["hero", "feats", "tops", "avaliacoes", "cta"] },
+      { "arquivo": "planos.html", "menu": "Planos", "kicker": "Planos e modalidades", "titulo": "Escolha o seu plano", "texto": "Valores por mês. Quanto mais longo o plano, mais você economiza.", "blocos": ["catalogo-completo", "agenda"] },
+      { "arquivo": "aulas.html", "menu": "Aulas e equipe", "kicker": "Aulas e equipe", "titulo": "A semana inteira de aulas", "texto": "Grade completa, professores e a estrutura da academia.", "blocos": ["grade", "equipe", "galeria", "extras"] },
+      { "arquivo": "contato.html", "menu": "Contato", "kicker": "Contato", "titulo": "Venha fazer uma visita", "texto": "Mande uma mensagem pelo formulário, chame no WhatsApp ou passe aqui.", "blocos": ["contato"] }
+    ]
+  }
+}
