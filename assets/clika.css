@@ -36,12 +36,6 @@
   --measure: 65ch;
   --section-space: clamp(88px, 12vw, 152px);
   --header: 64px;
-
-  /* Seção clara (planos), no estilo das páginas de produto */
-  --light-bg: #F5F5F7;
-  --light-fg: #1D1D1F;
-  --light-muted: #6E6E73;
-  --light-border: oklch(0 0 0 / 0.1);
 }
 
 /* ---------- Base ---------- */
@@ -276,41 +270,29 @@ html.js .wa-float:not(.on) { opacity: 0; visibility: hidden; transform: translat
 .shelf-btn[data-shelf="-1"] .i { transform: scaleX(-1); }
 .shelf-btn:disabled { opacity: 0.35; cursor: default; }
 
-/* ---------- Seção clara (planos): quebra a sequência de seções pretas ---------- */
-.light {
-  --bg: var(--light-bg); --fg: var(--light-fg); --muted: var(--light-muted); --border: var(--light-border);
-  color-scheme: light; background: var(--bg); color: var(--fg);
-}
-.light :focus-visible { outline-color: var(--fg); }
-.light .btn-ghost { border-color: oklch(0 0 0 / 0.18); background: transparent; }
-.light .btn-ghost:hover { border-color: oklch(0 0 0 / 0.4); background: transparent; }
-
 /* ---------- Planos ---------- */
 .plan-label { margin: 64px 0 16px; font-size: var(--fs-small); font-weight: 500; color: var(--muted); }
 .plan-grid { display: grid; gap: 20px; }
 @media (min-width: 768px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
-/* Único lugar do site com cartão de borda. O Completo é o único invertido (preto no fundo claro) */
-.plan { display: flex; flex-direction: column; height: 100%; padding: 32px; border: 1px solid var(--border); border-radius: 20px; background: #fff; color: var(--light-fg); }
-.plan.featured { border-color: var(--light-fg); background: var(--light-fg); color: #fff; }
+/* Único lugar do site com cartão de borda. O Completo é o único invertido (branco no fundo escuro) */
+.plan { display: flex; flex-direction: column; height: 100%; padding: 32px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); }
+.plan.featured { border-color: var(--paper); background: var(--paper); color: var(--paper-fg); }
 .plan-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.plan-tag { padding: 4px 10px; border-radius: 999px; background: oklch(1 0 0 / 0.14); color: #fff; font-size: 0.75rem; font-weight: 500; }
-.plan-desc { margin-top: 6px; font-size: var(--fs-small); color: var(--light-muted); }
-.plan.featured .plan-desc, .plan.featured .plan-unit, .plan.featured .plan-year { color: oklch(1 0 0 / 0.68); }
+.plan-tag { padding: 4px 10px; border-radius: 999px; background: var(--paper-fg); color: var(--paper); font-size: 0.75rem; font-weight: 500; }
+.plan-desc { margin-top: 6px; font-size: var(--fs-small); color: var(--muted); }
+.plan.featured .plan-desc, .plan.featured .plan-unit, .plan.featured .plan-year { color: var(--paper-muted); }
 .plan-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-top: 24px; }
 .plan-price .cur { font-size: var(--fs-small); font-weight: 500; }
 .plan-price .int { font-size: 3rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
 .plan-price .cents { font-size: 1.25rem; font-weight: 600; }
-.plan-unit { margin-left: 8px; font-size: var(--fs-small); color: var(--light-muted); }
-.plan ul { flex: 1; list-style: none; margin: 24px 0 0; padding: 24px 0 0; border-top: 1px solid var(--light-border); display: grid; align-content: start; gap: 12px; font-size: 0.9375rem; }
-.plan.featured ul { border-color: oklch(1 0 0 / 0.16); }
+.plan-unit { margin-left: 8px; font-size: var(--fs-small); color: var(--muted); }
+.plan ul { flex: 1; list-style: none; margin: 24px 0 0; padding: 24px 0 0; border-top: 1px solid var(--border); display: grid; align-content: start; gap: 12px; font-size: 0.9375rem; }
+.plan.featured ul { border-color: oklch(0.16 0.004 260 / 0.1); }
 .plan li { display: flex; gap: 12px; }
 .plan li .i { margin-top: 4px; opacity: 0.6; font-size: 16px; }
 .plan .btn { margin-top: 32px; }
-.plan .btn-ghost { border-color: oklch(0 0 0 / 0.18); background: transparent; color: var(--light-fg); }
-.plan .btn-ghost:hover { border-color: oklch(0 0 0 / 0.4); background: transparent; }
-.plan.featured .btn { background: #fff; color: var(--light-fg); }
-.plan.featured .btn:hover { background: oklch(0.92 0 0); }
-.plan-year { margin-top: 20px; font-size: var(--fs-small); color: var(--light-muted); }
+.plan .btn-ghost { background: transparent; }
+.plan-year { margin-top: 20px; font-size: var(--fs-small); color: var(--muted); }
 .plans-more { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
 
 /* ---------- Oferta e depoimentos ---------- */
