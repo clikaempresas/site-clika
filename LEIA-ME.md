@@ -19,7 +19,7 @@ Onde está tudo:
 
 Os preços ficam escritos direto no HTML (a planilha "Preços Clika" do Google Sheets não é mais lida pelo site). Para mudar:
 
-1. Em `index.html` e em `planos/index.html`, mude o cartão do plano (dentro do comentário "Planos e preços fixos"): o número em `<span class="int">`, os itens e a linha "Custo no 1º ano" ou "por ano". As duas páginas precisam ficar iguais.
+1. Em `index.html` e em `planos/index.html`, mude o cartão do plano (dentro do comentário "Planos e preços fixos"): o número em `<span class="int">`, os itens, a linha "Custo no 1º ano" (criação) ou "ou R$ ... por ano" (mensais), a faixa Sob medida e a linha do plano Hospedagem. As duas páginas precisam ficar iguais. Em `planos/index.html`, atualize também a tabela comparativa (`class="plans-table"`) e, se mudar alguma resposta do FAQ, o bloco JSON-LD no topo da página.
 2. Em `planos/index.html`, ajuste também a `description` e a `og:description` se o menor preço mudar ("a partir de R$ ...").
 3. Atualize o `planos.csv` e a faixa de preço dos sites-modelo (`<span class="demo-price">` nos arquivos de `portfolio/`).
 4. Faça commit e push (veja abaixo).

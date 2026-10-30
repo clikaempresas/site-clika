@@ -274,13 +274,44 @@ html.js .wa-float:not(.on) { opacity: 0; visibility: hidden; transform: translat
 .plan-label { margin: 64px 0 16px; font-size: var(--fs-small); font-weight: 500; color: var(--muted); }
 .plan-grid { display: grid; gap: 20px; }
 @media (min-width: 768px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
-/* Único lugar do site com cartão de borda. O Completo é o único invertido (branco no fundo escuro) */
+/* Único lugar do site com cartão de borda. Os planos com "Recomendado" (Completo e Com atendimento) ficam invertidos */
 .plan { display: flex; flex-direction: column; height: 100%; padding: 32px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); }
 .plan.featured { border-color: var(--paper); background: var(--paper); color: var(--paper-fg); }
-.plan-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.plan-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
 .plan-tag { padding: 4px 10px; border-radius: 999px; background: var(--paper-fg); color: var(--paper); font-size: 0.75rem; font-weight: 500; }
 .plan-desc { margin-top: 6px; font-size: var(--fs-small); color: var(--muted); }
 .plan.featured .plan-desc, .plan.featured .plan-unit, .plan.featured .plan-year { color: var(--paper-muted); }
+.plan-annual { margin-top: 6px; font-size: var(--fs-small); color: var(--muted); }
+.plan.featured .plan-annual { color: var(--paper-muted); }
+/* Planos mensais: três cartões lado a lado só quando cabem */
+@media (min-width: 768px) and (max-width: 899px) { .plan-grid.three { grid-template-columns: 1fr; } }
+@media (min-width: 900px) { .plan-grid.three { grid-template-columns: repeat(3, 1fr); }
+  /* Selo acima do título e o mesmo espaço reservado nos três cartões, para os preços ficarem na mesma altura */
+  .plan-grid.three .plan-top { flex-direction: column-reverse; align-items: flex-start; justify-content: flex-start; gap: 8px; min-height: 60px; }
+}
+/* Sob medida: faixa menor abaixo dos planos de criação */
+.plan-custom { margin-top: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px 32px; border: 1px solid var(--border); border-radius: 20px; }
+.plan-custom h3 span { margin-left: 6px; font-size: var(--fs-small); font-weight: 400; letter-spacing: 0; color: var(--muted); white-space: nowrap; }
+.plan-custom p { margin-top: 6px; font-size: var(--fs-small); color: var(--muted); }
+.plan-custom .btn { background: transparent; flex-shrink: 0; }
+@media (min-width: 640px) { .plan-custom { flex-direction: row; align-items: center; justify-content: space-between; } }
+/* Hospedagem: só uma linha discreta */
+.plan-note { margin-top: 24px; font-size: var(--fs-small); color: var(--muted); max-width: var(--measure); }
+.plan-note strong { color: var(--fg); font-weight: 600; }
+.plan-note a { color: var(--fg); font-weight: 500; text-underline-offset: 3px; white-space: nowrap; }
+/* Tabela comparativa (página de planos). No celular só a tabela rola para o lado */
+.plans-compare .plan-label { margin-top: 64px; }
+.table-scroll { position: relative; overflow-x: auto; border: 1px solid var(--border); border-radius: 20px; }
+.plans-table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 0.9375rem; }
+.plans-table th, .plans-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle; }
+.plans-table tr:last-child th, .plans-table tr:last-child td { border-bottom: 0; }
+.plans-table thead th { font-weight: 600; }
+.plans-table th[scope="row"] { font-weight: 400; color: var(--muted); text-align: left; }
+.plans-table thead th:first-child, .plans-table th[scope="row"] { position: sticky; left: 0; z-index: 1; background: var(--bg); }
+.plans-table td .i { font-size: 16px; vertical-align: -3px; }
+.table-hint { margin: -4px 0 12px; font-size: var(--fs-small); color: var(--muted); }
+@media (min-width: 700px) { .table-hint { display: none; } }
+@media (max-width: 639px) { .plans-table { font-size: var(--fs-small); } .plans-table th, .plans-table td { padding: 12px; } }
 .plan-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-top: 24px; }
 .plan-price .cur { font-size: var(--fs-small); font-weight: 500; }
 .plan-price .int { font-size: 3rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
