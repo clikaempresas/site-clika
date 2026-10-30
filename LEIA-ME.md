@@ -2,36 +2,31 @@
 
 Arquivos:
 - `index.html` — página inicial (tem tudo resumido: comparação, exemplos, planos, oferta, sobre e dúvidas)
-- `planos/`, `exemplos/` e `sobre/` — páginas extras, cada uma com o próprio `index.html`
-- `assets/clika.css` — o visual de todas as páginas (cores, fontes, animações)
-- `assets/clika.js` — o comportamento de todas as páginas. As configurações (WhatsApp, Instagram, link da planilha) ficam no bloco `CONFIGURAÇÃO`, no começo do arquivo
-- `assets/img/` — fotos dos exemplos, em `.webp`
-- `planos.csv` — cópia de reserva dos preços (o site usa se a planilha falhar ou se `planilhaCSV` estiver vazio)
-- `robots.txt` e `sitemap.xml` — dizem ao Google o que indexar (início, planos, exemplos e sobre; os protótipos têm `noindex`)
+- `planos/`, `exemplos/`, `sobre/` e `privacidade/` — páginas extras, cada uma com o próprio `index.html`
+- `assets/clika.css` — o visual de todas as páginas (cores, fonte Inter, escala de tamanhos, espaçamento entre seções e animações; tudo começa pelas variáveis do `:root`)
+- `assets/clika.js` — o comportamento de todas as páginas. As configurações (WhatsApp e Instagram) ficam no bloco `CONFIGURAÇÃO`, no começo do arquivo
+- `assets/img/` — fotos e capturas dos exemplos no celular (`NICHO-celular.webp`), em `.webp`
+- `planos.csv` — registro dos planos e preços. O site não lê este arquivo; só o gerador dos sites-modelo (`ferramentas/sites/gerar.py`) usa o preço daqui na faixa do topo de cada exemplo
+- `robots.txt` e `sitemap.xml` — dizem ao Google o que indexar (início, planos, exemplos, sobre e privacidade; os protótipos têm `noindex`)
 - `404.html` — página de "não encontrado". Sem ela, a Cloudflare devolve a página inicial para qualquer endereço errado
 - `_headers` — tira do Google o endereço antigo (.pages.dev) e os arquivos `.md` e `.csv`
 
 Onde está tudo:
 - Site no ar: https://clika.com.br (o endereço antigo, site-clika.pages.dev, redireciona para cá)
 - Código no GitHub: https://github.com/clikaempresas/site-clika (conta `clikaempresas`)
-- Preços: planilha "Preços Clika" no Google Sheets da conta do negócio
 
-## Mudar um preço (sem Git)
+## Mudar um preço ou um plano
 
-1. Edite a planilha "Preços Clika" no Google Sheets. Ela salva sozinha.
-2. Em até uns 5 minutos o site mostra o valor novo. Não precisa publicar nada.
+Os preços ficam escritos direto no HTML (a planilha "Preços Clika" do Google Sheets não é mais lida pelo site). Para mudar:
 
-Cuidados:
-- Na coluna `preco`, escreva só o número, com vírgula nos centavos: `449,99`, não `R$ 449,99` nem `1.000`.
-- Não mude os nomes das colunas na primeira linha.
-- Se a planilha for despublicada ou apagada, o site mostra os preços do arquivo `planos.csv`. Sempre que mudar a planilha, atualize também o `planos.csv` (Arquivo > Fazer download > CSV) e faça commit e push.
-- O `index.html` e o `planos/index.html` trazem uma cópia fixa dos planos (dentro do `<div data-plans>`), que é o que o Google lê. Ao mudar preço, nome ou itens de um plano, atualize essa cópia nas duas páginas.
-
-Colunas da planilha: `tipo` (criacao ou mensal), `plano`, `preco` (só o número), `periodo`, `descricao`, `itens` (separados por ponto e vírgula) e `destaque` (sim ou nao).
+1. Em `index.html` e em `planos/index.html`, mude o cartão do plano (dentro do comentário "Planos e preços fixos"): o número em `<span class="int">`, os itens e a linha "Custo no 1º ano" ou "por ano". As duas páginas precisam ficar iguais.
+2. Em `planos/index.html`, ajuste também a `description` e a `og:description` se o menor preço mudar ("a partir de R$ ...").
+3. Atualize o `planos.csv` e a faixa de preço dos sites-modelo (`<span class="demo-price">` nos arquivos de `portfolio/`).
+4. Faça commit e push (veja abaixo).
 
 ## Mudar textos, fotos ou o visual
 
-1. Edite a página (`index.html`, `planos/index.html`, `exemplos/index.html` ou `sobre/index.html`). O visual fica em `assets/clika.css` e as configurações (WhatsApp, Instagram, link da planilha) no bloco `CONFIGURAÇÃO` do `assets/clika.js`.
+1. Edite a página (`index.html`, `planos/index.html`, `exemplos/index.html`, `sobre/index.html` ou `privacidade/index.html`). O visual fica em `assets/clika.css` e as configurações (WhatsApp e Instagram) no bloco `CONFIGURAÇÃO` do `assets/clika.js`.
 2. Abra o terminal na pasta `clika-site` e rode, um de cada vez:
 
 ```
@@ -60,15 +55,21 @@ Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositór
 
 ## Exemplos (protótipos do portfólio)
 
-Cada protótipo fica em `portfolio/<nicho>/` (ex.: `portfolio/barbearia/`), com o próprio LEIA-ME. Para ele aparecer na seção "Veja um site pronto" da página inicial, copie um bloco `<article class="work">` dentro de `<div id="portfolio">` no `index.html` e troque ramo, nome, links, descrição e foto. Para aparecer também na vitrine de `exemplos/index.html`, copie um `<a class="choice">` e preencha `data-ramo`, `data-path` e `data-domain`. Todo protótipo novo precisa de `<meta name="robots" content="noindex">`, porque são negócios fictícios.
+Cada protótipo fica em `portfolio/<nicho>/` (ex.: `portfolio/barbearia/`), com o próprio LEIA-ME. Para ele aparecer na seção "Veja um site pronto" da página inicial, copie um `<li class="show">` dentro de `<div id="portfolio">` no `index.html` e troque ramo, descrição, link e imagem. A imagem é uma captura do site-modelo no celular (390 px de largura), salva como `assets/img/NICHO-celular.webp`. Para aparecer também na vitrine de `exemplos/index.html`, copie um `<a class="choice">` e preencha `data-ramo`, `data-path` e `data-domain`. Todo protótipo novo precisa de `<meta name="robots" content="noindex">`, porque são negócios fictícios.
 
 ## Domínio próprio
 
-O site está em https://clika.com.br. Se o domínio mudar um dia, troque o endereço em `og:url`, `og:image`, `canonical` e no bloco JSON-LD de cada página (`index.html`, `planos/`, `exemplos/`, `sobre/`), e também no `robots.txt` e no `sitemap.xml`.
+O site está em https://clika.com.br. Se o domínio mudar um dia, troque o endereço em `og:url`, `og:image`, `canonical` e no bloco JSON-LD de cada página (`index.html`, `planos/`, `exemplos/`, `sobre/`, `privacidade/`), e também no `robots.txt` e no `sitemap.xml`.
 
 O endereço antigo (site-clika.pages.dev) é mandado para o domínio por um script no topo de cada página e, de forma definitiva, por um Bulk Redirect no painel da Cloudflare. O `www.clika.com.br` também é mandado para `clika.com.br` pelo script da página inicial; o ideal é criar também um Redirect Rule (301) no painel da Cloudflare para ele.
 
 ## Oferta de lançamento e depoimentos
 
 - A oferta "20% off para os 3 primeiros negócios" aparece em três lugares: o selo no topo da página inicial (`class="offer-badge"`), a seção `id="lancamento"` da página inicial e o selo no topo de `planos/index.html`. Quando as vagas acabarem, apague os três.
-- Os depoimentos já têm lugar pronto, comentado dentro da seção `lancamento`. Quando chegarem, tire o comentário (`<!--` e `-->`), repita um `<figure class="testimonial">` por cliente e troque o título da seção para algo como "Quem já está no ar".
+- Os depoimentos já têm lugar pronto: a seção `id="depoimentos"` da página inicial, escondida pelo atributo `hidden`. Quando chegarem depoimentos de verdade, apague o `hidden`, tire o comentário do modelo e repita um `<figure class="testimonial">` por cliente (frase, nome do negócio, ramo e link do site).
+
+
+
+## Privacidade
+
+A página `privacidade/` explica o que a Clika faz com os dados do formulário, do WhatsApp e do e-mail. Ela tem link no rodapé de todas as páginas e embaixo do botão do formulário em `sobre/`. Se a Clika passar a usar alguma ferramenta nova que recebe dados (estatísticas de visita, CRM, formulário que guarda dados), atualize a página e a data no topo.
