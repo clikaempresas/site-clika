@@ -6,9 +6,9 @@
 <!-- Endereço antigo e www: manda para o domínio oficial (os previews de deploy, com subdomínio antes, não são afetados) -->
 <script>if (location.hostname === "site-clika.pages.dev" || location.hostname === "www.clika.com.br") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
 <!-- Liga as animações de rolagem só se o script carregar; senão tudo aparece normal -->
-<script>document.documentElement.classList.add("js");try{if(sessionStorage.getItem("clika-nav"))document.documentElement.classList.add("nav-in")}catch(e){}setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
+<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
 <title>Preços de sites para pequenos negócios | Clika</title>
-<meta name="description" content="Criação de site a partir de R$ 449,99 em pagamento único, pronto em até 10 dias úteis. Planos mensais opcionais e respostas para as dúvidas mais comuns.">
+<meta name="description" content="Criação de site a partir de R$ 450 em pagamento único, pronto em até 10 dias úteis. Planos mensais opcionais e respostas para as dúvidas mais comuns.">
 <link rel="canonical" href="https://clika.com.br/planos/">
 <meta name="theme-color" content="#0B0B0C">
 <link rel="icon" type="image/png" sizes="512x512" href="/logos/favicon.png">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Clika">
 <meta property="og:url" content="https://clika.com.br/planos/">
 <meta property="og:title" content="Preços de sites para pequenos negócios | Clika">
-<meta property="og:description" content="Criação de site a partir de R$ 449,99 em pagamento único, pronto em até 10 dias úteis. Planos mensais opcionais e respostas para as dúvidas mais comuns.">
+<meta property="og:description" content="Criação de site a partir de R$ 450 em pagamento único, pronto em até 10 dias úteis. Planos mensais opcionais e respostas para as dúvidas mais comuns.">
 <meta property="og:image" content="https://clika.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -140,7 +140,6 @@
     <a href="/planos/" aria-current="page">Planos</a>
     <a href="/sobre/">Sobre</a>
   </nav>
-  <span class="sweep" aria-hidden="true"></span>
 </header>
 
 <main>
@@ -149,7 +148,7 @@
       <div class="reveal center"><h1>Preços sem surpresa</h1>
         <p class="lead">Você paga a criação uma vez. Depois, escolhe se quer cuidar sozinho ou deixar com a gente.</p>
         <!-- OFERTA DE LANÇAMENTO: apague este selo quando as 3 vagas acabarem -->
-        <p style="margin-top:24px"><a class="offer-badge" href="/#lancamento"><span><strong>Lançamento:</strong> 20% off para os 3 primeiros negócios</span></a></p>
+        <p style="margin-top:24px"><a class="offer-badge" href="/#lancamento"><span class="badge-long"><strong>Lançamento:</strong> 20% off para os 3 primeiros negócios</span><span class="badge-short">20% off · 3 primeiros</span></a></p>
       </div>
       <!-- Planos e preços fixos. Ao mudar algo aqui, mude igual em index.html e planos/index.html -->
       <div data-plans>
@@ -158,14 +157,14 @@
           <article class="plan">
             <div class="plan-top"><h3>Essencial</h3></div>
             <p class="plan-desc">Uma página com tudo que o cliente precisa saber.</p>
-            <p class="plan-price"><span class="cur">R$</span><span class="int">449</span><span class="cents">,99</span><span class="plan-unit">pagamento único</span></p>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">450</span><span class="plan-unit">pagamento único</span></p>
             <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Página única com rolagem</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Botão de WhatsApp e Instagram</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Mapa e horários</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pronto em até 10 dias úteis</li></ul>
             <a class="btn btn-ghost" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Essencial%20da%20Clika." target="_blank" rel="noopener">Quero o Essencial <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
           <article class="plan featured">
             <div class="plan-top"><h3>Completo</h3><span class="plan-tag">Recomendado</span></div>
             <p class="plan-desc">Até 4 páginas para quem quer mostrar mais.</p>
-            <p class="plan-price"><span class="cur">R$</span><span class="int">899</span><span class="cents">,99</span><span class="plan-unit">pagamento único</span></p>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">900</span><span class="plan-unit">pagamento único</span></p>
             <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Até 4 páginas</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Formulário de contato</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Depoimentos de clientes</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Perfil da Empresa no Google configurado</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pronto em até 10 dias úteis</li></ul>
             <a class="btn btn-dark" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Completo%20da%20Clika." target="_blank" rel="noopener">Quero o Completo <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
@@ -175,14 +174,14 @@
           <article class="plan">
             <div class="plan-top"><h3>Autônomo</h3></div>
             <p class="plan-desc">Você mesmo atualiza preços e horários numa planilha.</p>
-            <p class="plan-price"><span class="cur">R$</span><span class="int">49</span><span class="cents">,99</span><span class="plan-unit">por mês</span></p>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">50</span><span class="plan-unit">por mês</span></p>
             <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Site sempre no ar</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Planilha para editar preços e horários</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Suporte se algo quebrar</li></ul>
             <a class="btn btn-ghost" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Aut%C3%B4nomo%20da%20Clika." target="_blank" rel="noopener">Quero o Autônomo <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>
           <article class="plan">
             <div class="plan-top"><h3>Com atendimento</h3></div>
             <p class="plan-desc">A gente faz as alterações para você pelo WhatsApp.</p>
-            <p class="plan-price"><span class="cur">R$</span><span class="int">109</span><span class="cents">,99</span><span class="plan-unit">por mês</span></p>
+            <p class="plan-price"><span class="cur">R$</span><span class="int">110</span><span class="plan-unit">por mês</span></p>
             <ul><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tudo do Autônomo</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Até 4 alterações por mês feitas por nós</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Atendimento pelo WhatsApp</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sugestões de melhoria a cada 3 meses</li></ul>
             <a class="btn btn-ghost" href="https://wa.me/5514991337516?text=Oi%21%20Tenho%20interesse%20no%20plano%20Com%20atendimento%20da%20Clika." target="_blank" rel="noopener">Quero o Com atendimento <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
           </article>

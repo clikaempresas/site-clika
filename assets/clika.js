@@ -37,93 +37,6 @@ if (menuBtn && mobileNav) {
   });
 }
 
-/* Barra do topo: pílula que desliza até o item clicado e troca de página em duas fases
-   (a página atual sobe e some, depois a nova chega). Igual ao comportamento do Lovable,
-   mas em páginas separadas: a posição de onde a pílula saiu vai junto para a próxima página. */
-(function topNav() {
-  const KEY = "clika-nav";
-  const EXIT_MS = 240;
-  const nav = document.querySelector(".nav");
-  const main = document.querySelector("main");
-  const root = document.documentElement;
-  let from = null; // posição exata da pílula no momento em que a página anterior saiu
-  try { from = JSON.parse(sessionStorage.getItem(KEY) || "null"); sessionStorage.removeItem(KEY); } catch (e) {}
-  // A chegada animada só dura o tempo dela; depois a classe sai para não interferir
-  if (root.classList.contains("nav-in")) setTimeout(() => root.classList.remove("nav-in"), 700);
-
-  let pill = null;
-  let arriving = false; // true enquanto a pílula desliza vinda da página anterior
-  const place = (a, animate) => {
-    if (!pill || !a) return;
-    pill.classList.toggle("glide", !!animate);
-    const nr = nav.getBoundingClientRect(), ar = a.getBoundingClientRect();
-    pill.style.setProperty("--nav-x", ar.left - nr.left + "px");
-    pill.style.setProperty("--nav-y", ar.top - nr.top + "px");
-    pill.style.setProperty("--nav-w", ar.width + "px");
-    pill.style.setProperty("--nav-h", ar.height + "px");
-  };
-  const active = () => nav && nav.querySelector('[aria-current="page"]');
-  if (nav) {
-    pill = document.createElement("span");
-    pill.className = "nav-pill";
-    pill.setAttribute("aria-hidden", "true");
-    nav.prepend(pill);
-    if (active()) {
-      if (from && from.w && !reduced) {
-        // Começa onde a pílula parou na página anterior e termina o deslize aqui
-        pill.style.setProperty("--nav-x", from.x + "px");
-        pill.style.setProperty("--nav-y", from.y + "px");
-        pill.style.setProperty("--nav-w", from.w + "px");
-        pill.style.setProperty("--nav-h", from.h + "px");
-        pill.classList.add("ready");
-        arriving = true;
-        setTimeout(() => { arriving = false; }, 700);
-        requestAnimationFrame(() => requestAnimationFrame(() => place(active(), true)));
-      } else {
-        place(active(), false);
-        pill.classList.add("ready");
-      }
-    }
-    // Reajusta quando a fonte carrega ou a tela muda, sem cortar um deslize em andamento
-    const settle = () => { if (!arriving) place(active(), false); };
-    addEventListener("resize", settle);
-    document.fonts && document.fonts.ready.then(settle);
-  }
-
-  // Duas fases ao clicar em qualquer link interno para outra página
-  document.addEventListener("click", (e) => {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    const a = e.target.closest("a");
-    if (!a || a.target || a.hasAttribute("download")) return;
-    const href = a.getAttribute("href");
-    if (!href || !href.startsWith("/") || href.startsWith("//")) return;
-    const url = new URL(href, location.href);
-    if (url.pathname === location.pathname) return; // âncora na mesma página: rolagem normal
-    if (reduced || !main) return;
-    e.preventDefault();
-    // Como no Lovable: primeiro a página atual sai (240 ms) com a pílula parada;
-    // o deslize da pílula acontece na página nova, junto com a chegada dela.
-    main.classList.add("page-exit");
-    setTimeout(() => {
-      try {
-        let pos = null;
-        if (pill && nav && getComputedStyle(nav).display !== "none" && pill.classList.contains("ready")) {
-          const nr = nav.getBoundingClientRect(), pr = pill.getBoundingClientRect();
-          pos = { x: pr.left - nr.left, y: pr.top - nr.top, w: pr.width, h: pr.height };
-        }
-        sessionStorage.setItem(KEY, JSON.stringify(pos || { w: 0 }));
-      } catch (err) {}
-      location.href = url.href;
-    }, EXIT_MS);
-  });
-  // Voltar pelo navegador (a página volta do cache): desfaz a saída
-  addEventListener("pageshow", (e) => {
-    if (!e.persisted) return;
-    main && main.classList.remove("page-exit");
-    place(active(), false);
-  });
-})();
-
 /* Revelação ao rolar: o que já está na tela aparece na hora; o resto, ao chegar perto */
 (function reveal() {
   const els = [...document.querySelectorAll(".reveal")];
@@ -148,28 +61,52 @@ if (menuBtn && mobileNav) {
   addEventListener("hashchange", () => els.forEach(show));
 })();
 
-/* Antes e depois: arrastar ou tocar no botão */
+/* Antes e depois: começa mostrando todo o "antes" e, quando aparece na tela, desliza sozinho
+   uma vez até o "depois". Dá para arrastar ou tocar no botão. Sem deslize automático para
+   quem pede menos movimento. */
 document.querySelectorAll("[data-ba]").forEach((box) => {
   const area = box.querySelector(".ba-area");
   const toggle = box.querySelector(".ba-toggle");
-  let pos = 50, dragging = false;
+  let pos = 0, dragging = false, touched = false;
   const set = (p) => {
     pos = Math.max(0, Math.min(100, p));
     area.style.setProperty("--pos", pos + "%");
     area.setAttribute("aria-valuenow", Math.round(pos));
+    toggle.textContent = pos > 50 ? "Ver como era antes" : "Ver como fica com site";
   };
   const fromX = (x) => { const r = area.getBoundingClientRect(); set(((x - r.left) / r.width) * 100); };
-  area.addEventListener("pointerdown", (e) => { dragging = true; area.classList.add("dragging"); area.setPointerCapture(e.pointerId); fromX(e.clientX); });
+  area.addEventListener("pointerdown", (e) => { touched = true; dragging = true; area.classList.remove("auto"); area.classList.add("dragging"); area.setPointerCapture(e.pointerId); fromX(e.clientX); });
   area.addEventListener("pointermove", (e) => dragging && fromX(e.clientX));
   const stop = () => { dragging = false; area.classList.remove("dragging"); };
   ["pointerup", "pointercancel", "lostpointercapture"].forEach((ev) => area.addEventListener(ev, stop));
   area.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") { set(pos - 10); e.preventDefault(); }
-    if (e.key === "ArrowRight") { set(pos + 10); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { touched = true; set(pos - 10); e.preventDefault(); }
+    if (e.key === "ArrowRight") { touched = true; set(pos + 10); e.preventDefault(); }
   });
-  toggle.addEventListener("click", () => set(pos > 50 ? 0 : 100));
-  set(50);
+  toggle.addEventListener("click", () => { touched = true; area.classList.remove("auto"); set(pos > 50 ? 0 : 100); });
+  set(0);
+  if (reduced || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    io.disconnect();
+    setTimeout(() => { if (!touched) { area.classList.add("auto"); set(100); } }, 600);
+  }, { threshold: 0.6 });
+  io.observe(area);
 });
+
+/* WhatsApp flutuante (celular): aparece depois do topo da página e some perto do rodapé */
+(function floatWhats() {
+  const btn = document.querySelector(".wa-float");
+  const top = document.querySelector(".hero, .page-head");
+  const foot = document.querySelector(".cta-wrap, .footer");
+  if (!btn) return;
+  if (!top || !("IntersectionObserver" in window)) { btn.classList.add("on"); return; }
+  let pastTop = false, nearEnd = false;
+  const paint = () => btn.classList.toggle("on", pastTop && !nearEnd && !document.querySelector(".mobile-nav.open"));
+  new IntersectionObserver(([e]) => { pastTop = !e.isIntersecting && e.boundingClientRect.top < 0; paint(); }).observe(top);
+  if (foot) new IntersectionObserver(([e]) => { nearEnd = e.isIntersecting; paint(); }).observe(foot);
+  menuBtn && menuBtn.addEventListener("click", paint);
+})();
 
 /* Os preços ficam fixos no HTML (index.html e planos/index.html). A planilha não é mais lida:
    ela trocava os valores e os textos dos cartões depois que a página abria. */

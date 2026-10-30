@@ -1,5 +1,5 @@
 tipo,plano,preco,periodo,descricao,itens,destaque
-criacao,Essencial,"449,99",pagamento único,Uma página com tudo que o cliente precisa saber.,Página única com rolagem;Botão de WhatsApp e Instagram;Mapa e horários;Pronto em até 10 dias úteis,nao
-criacao,Completo,"899,99",pagamento único,Até 4 páginas para quem quer mostrar mais.,Até 4 páginas;Formulário de contato;Depoimentos de clientes;Perfil da Empresa no Google configurado;Pronto em até 10 dias úteis,sim
-mensal,Autônomo,"49,99",por mês,Você mesmo atualiza preços e horários numa planilha.,Site sempre no ar;Planilha para editar preços e horários;Suporte se algo quebrar,nao
-mensal,Com atendimento,"109,99",por mês,A gente faz as alterações para você pelo WhatsApp.,Tudo do Autônomo;Até 4 alterações por mês feitas por nós;Atendimento pelo WhatsApp;Sugestões de melhoria a cada 3 meses,sim
+criacao,Essencial,450,pagamento único,Uma página com tudo que o cliente precisa saber.,Página única com rolagem;Botão de WhatsApp e Instagram;Mapa e horários;Pronto em até 10 dias úteis,nao
+criacao,Completo,900,pagamento único,Até 4 páginas para quem quer mostrar mais.,Até 4 páginas;Formulário de contato;Depoimentos de clientes;Perfil da Empresa no Google configurado;Pronto em até 10 dias úteis,sim
+mensal,Autônomo,50,por mês,Você mesmo atualiza preços e horários numa planilha.,Site sempre no ar;Planilha para editar preços e horários;Suporte se algo quebrar,nao
+mensal,Com atendimento,110,por mês,A gente faz as alterações para você pelo WhatsApp.,Tudo do Autônomo;Até 4 alterações por mês feitas por nós;Atendimento pelo WhatsApp;Sugestões de melhoria a cada 3 meses,sim

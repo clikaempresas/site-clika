@@ -6,7 +6,7 @@
 <!-- Endereço antigo e www: manda para o domínio oficial (os previews de deploy, com subdomínio antes, não são afetados) -->
 <script>if (location.hostname === "site-clika.pages.dev" || location.hostname === "www.clika.com.br") location.replace("https://clika.com.br" + location.pathname + location.search + location.hash);</script>
 <!-- Liga as animações de rolagem só se o script carregar; senão tudo aparece normal -->
-<script>document.documentElement.classList.add("js");try{if(sessionStorage.getItem("clika-nav"))document.documentElement.classList.add("nav-in")}catch(e){}setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
+<script>document.documentElement.classList.add("js");setTimeout(function(){if(!window.__clika)document.documentElement.classList.remove("js")},2500);</script>
 <title>Sobre a Clika e contato | Clika</title>
 <meta name="description" content="Equipe pequena e jovem que cria sites para pequenos negócios de todo o Brasil. Tudo combinado por escrito, site e domínio no seu nome, atendimento direto no WhatsApp.">
 <link rel="canonical" href="https://clika.com.br/sobre/">
@@ -67,7 +67,6 @@
     <a href="/planos/">Planos</a>
     <a href="/sobre/" aria-current="page">Sobre</a>
   </nav>
-  <span class="sweep" aria-hidden="true"></span>
 </header>
 
 <main>
