@@ -72,4 +72,4 @@ O endereço antigo (site-clika.pages.dev) é mandado para o domínio por um scri
 
 ## Privacidade
 
-A página `privacidade/` explica o que a Clika faz com os dados do formulário, do WhatsApp e do e-mail. Ela tem link no rodapé de todas as páginas e embaixo do botão do formulário em `sobre/`. Se a Clika passar a usar alguma ferramenta nova que recebe dados (estatísticas de visita, CRM, formulário que guarda dados), atualize a página e a data no topo.
+A página `privacidade/` explica o que a Clika faz com os dados do formulário, do WhatsApp e do e-mail. Ela tem link no rodapé de todas as páginas e embaixo do botão do formulário em `sobre/`. Ela cita o Cloudflare Web Analytics (estatística de visitas sem cookies, ligado no painel da Cloudflare). Se a Clika passar a usar alguma ferramenta nova que recebe dados (outra estatística de visita, CRM, formulário que guarda dados), atualize a página e a data no topo.
