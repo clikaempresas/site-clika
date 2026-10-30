@@ -275,27 +275,32 @@ html:not(.js) .nav a[aria-current="page"] { background: oklch(1 0 0 / 0.05); box
 .steps p { margin-top: 8px; color: var(--muted); }
 @media (min-width: 768px) { .steps { grid-template-columns: repeat(4, 1fr); gap: 32px; } }
 
-/* ---------- Cartões de exemplo (início) ---------- */
-.works { margin-top: 56px; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.work { position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); text-decoration: none; transition: border-color var(--fast) var(--ease), transform var(--fast) var(--ease); }
-.work:hover { border-color: oklch(1 0 0 / 0.2); }
-.work-photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
-.work-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease); }
-.work:hover .work-photo img { transform: scale(1.05); }
-.work-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--surface), transparent 60%); }
-.work-photo span { position: absolute; left: 20px; bottom: 14px; z-index: 1; font: 600 1.5rem/1 var(--font); letter-spacing: -0.02em; }
-.work-body { display: flex; flex-direction: column; gap: 8px; flex: 1; padding: 6px 20px 22px; }
-.work-tag { font-size: var(--fs-small); font-weight: 500; color: var(--muted); }
-.work-body p { flex: 1; color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
-.work-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 0.875rem; font-weight: 600; }
-.work-links a { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
-.work-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.work-links .i { font-size: 14px; }
-.work.next { justify-content: center; padding: 28px; border-style: dashed; background: transparent; }
-.work.next p { margin-top: 8px; color: var(--muted); }
-.work.next .more { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.9375rem; }
-.works-more { margin-top: 28px; }
-@media (hover: hover) and (pointer: fine) { .work:hover { transform: translateY(-2px); } }
+/* ---------- Vitrine de exemplos (início): carrossel de celulares ---------- */
+/* A trilha ocupa a tela toda; o recuo lateral alinha o primeiro celular com o resto do conteúdo */
+.shelf { --gutter: max(20px, calc((100% - 72rem) / 2 + 20px)); margin-top: 56px; }
+.shelf-track {
+  display: flex; gap: 24px; margin: 0; padding: 0 var(--gutter) 4px; list-style: none;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain; scrollbar-width: none;
+}
+.shelf-track::-webkit-scrollbar { display: none; }
+.shelf-track:focus-visible { outline-offset: -2px; }
+.show { position: relative; flex: 0 0 auto; width: min(70vw, 280px); scroll-snap-align: start; }
+@media (min-width: 768px) { .show { width: 300px; } .shelf-track { gap: 32px; } }
+.show-phone { padding: 8px; border: 1px solid oklch(1 0 0 / 0.16); border-radius: 44px; background: var(--bezel); }
+.show-phone img { width: 100%; height: auto; aspect-ratio: 9 / 17; object-fit: cover; object-position: top; border-radius: 36px; }
+.show h3 { margin-top: 24px; }
+.show p { margin-top: 6px; color: var(--muted); font-size: 0.9375rem; }
+.show-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-weight: 500; text-decoration: none; }
+.show-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+/* O cartão inteiro abre o exemplo, mas só existe um link */
+.show-link::after { content: ""; position: absolute; inset: 0; }
+.show-next .show-phone { display: grid; place-items: center; aspect-ratio: 9 / 17; background: var(--surface); border-color: transparent; }
+.show-plus { font-size: 3rem; font-weight: 300; line-height: 1; color: var(--muted); }
+.shelf-nav { display: flex; justify-content: flex-end; gap: 12px; margin-top: 32px; }
+.shelf-btn { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--surface-2); color: var(--fg); font-size: 18px; cursor: pointer; transition: opacity var(--fast); }
+.shelf-btn[data-shelf="-1"] .i { transform: scaleX(-1); }
+.shelf-btn:disabled { opacity: 0.35; cursor: default; }
 
 /* ---------- Seção clara (planos): quebra a sequência de seções pretas ---------- */
 .light {

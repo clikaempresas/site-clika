@@ -174,6 +174,27 @@ document.querySelectorAll("[data-ba]").forEach((box) => {
 /* Os preços ficam fixos no HTML (index.html e planos/index.html). A planilha não é mais lida:
    ela trocava os valores e os textos dos cartões depois que a página abria. */
 
+/* Vitrine de exemplos (início): no toque é só deslizar; as setas ajudam quem usa mouse */
+(function shelf() {
+  const track = document.querySelector(".shelf-track");
+  if (!track) return;
+  const prev = document.querySelector('[data-shelf="-1"]');
+  const next = document.querySelector('[data-shelf="1"]');
+  const step = () => {
+    const item = track.querySelector(".show");
+    return item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : 300;
+  };
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+  };
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: reduced ? "auto" : "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: reduced ? "auto" : "smooth" }));
+  track.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();
+
 /* Vitrine de exemplos: troca o protótipo mostrado no celular ou no computador */
 (function showroom() {
   const root = document.getElementById("vitrine");

@@ -212,73 +212,52 @@
     <div class="wrap">
       <div class="reveal"><h2 id="exemplos-titulo">Veja um site pronto</h2>
         <p class="lead">Modelos que criamos para cada ramo. São negócios fictícios: abra no celular e teste como se fosse cliente.</p></div>
-      <!-- Um <article class="work"> por protótipo (fica em portfolio/NICHO/ e portfolio/NICHO/completo/) -->
-      <div class="works reveal" id="portfolio">
-        <article class="work">
-          <a class="work-photo" href="/exemplos/?ramo=padaria" tabindex="-1" aria-hidden="true"><img src="/assets/img/padaria.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Fornalha</span></a>
-          <div class="work-body">
-            <span class="work-tag">Padaria</span>
-            <p>Horário das fornadas, balcão com preços, encomenda pelo WhatsApp, horários e como chegar.</p>
-            <div class="work-links">
-              <a href="/exemplos/?ramo=padaria">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="/portfolio/padaria/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a href="/portfolio/padaria/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-photo" href="/exemplos/?ramo=barbearia" tabindex="-1" aria-hidden="true"><img src="/assets/img/barbearia.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Do Zé</span></a>
-          <div class="work-body">
-            <span class="work-tag">Barbearia</span>
-            <p>Serviços com preço, agendamento no WhatsApp com o serviço já escrito, equipe, galeria, horários e mapa.</p>
-            <div class="work-links">
-              <a href="/exemplos/?ramo=barbearia">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="/portfolio/barbearia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a href="/portfolio/barbearia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-photo" href="/exemplos/?ramo=lanchonete" tabindex="-1" aria-hidden="true"><img src="/assets/img/lanchonete.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Chapa da Esquina</span></a>
-          <div class="work-body">
-            <span class="work-tag">Lanchonete</span>
-            <p>Cardápio com preços, pedido no WhatsApp com o lanche já escrito, promoções, horários e bairros de entrega.</p>
-            <div class="work-links">
-              <a href="/exemplos/?ramo=lanchonete">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="/portfolio/lanchonete/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a href="/portfolio/lanchonete/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-photo" href="/exemplos/?ramo=academia" tabindex="-1" aria-hidden="true"><img src="/assets/img/academia.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Força Total</span></a>
-          <div class="work-body">
-            <span class="work-tag">Academia</span>
-            <p>Planos com preço, grade de aulas e agendamento da aula experimental pelo WhatsApp.</p>
-            <div class="work-links">
-              <a href="/exemplos/?ramo=academia">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="/portfolio/academia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a href="/portfolio/academia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <article class="work">
-          <a class="work-photo" href="/exemplos/?ramo=arena" tabindex="-1" aria-hidden="true"><img src="/assets/img/arena.webp" alt="" width="800" height="600" loading="lazy" decoding="async"><span>Pé na Areia</span></a>
-          <div class="work-body">
-            <span class="work-tag">Arena de esportes de areia</span>
-            <p>Preços por hora, aulas, day use e reserva de quadra ou aula experimental pelo WhatsApp.</p>
-            <div class="work-links">
-              <a href="/exemplos/?ramo=arena">Ver na vitrine <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
-              <a href="/portfolio/arena-esportes-areia/" target="_blank" rel="noopener">Plano Essencial</a>
-              <a href="/portfolio/arena-esportes-areia/completo/" target="_blank" rel="noopener">Plano Completo</a>
-            </div>
-          </div>
-        </article>
-        <a class="work next js-wa" data-msg="Oi! Vi os exemplos no site da Clika. Vocês fazem site para o meu ramo?" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20os%20exemplos%20no%20site%20da%20Clika.%20Voc%C3%AAs%20fazem%20site%20para%20o%20meu%20ramo%3F" target="_blank" rel="noopener">
+    </div>
+    <!-- Vitrine: um <li class="show"> por protótipo (fica em portfolio/NICHO/). A imagem é uma captura do site
+         no celular (390 px de largura), salva em assets/img/NICHO-celular.webp. O link leva ao plano Essencial;
+         a faixa no topo de cada exemplo troca para o Completo. -->
+    <div class="shelf reveal" id="portfolio">
+      <ul class="shelf-track" tabindex="0" aria-label="Exemplos de sites, deslize para ver mais">
+        <li class="show">
+          <div class="show-phone"><img src="/assets/img/padaria-celular.webp" alt="Site-modelo da Padaria Fornalha aberto no celular" width="600" height="1298" loading="lazy" decoding="async"></div>
+          <h3>Padaria</h3>
+          <p>Horário das fornadas, preços do balcão e encomenda pelo WhatsApp.</p>
+          <a class="show-link" href="/portfolio/padaria/" target="_blank" rel="noopener">Ver exemplo<span class="sr-only"> de padaria</span> <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+        <li class="show">
+          <div class="show-phone"><img src="/assets/img/barbearia-celular.webp" alt="Site-modelo da Barbearia do Zé aberto no celular" width="600" height="1298" loading="lazy" decoding="async"></div>
+          <h3>Barbearia</h3>
+          <p>Serviços com preço e agendamento pelo WhatsApp.</p>
+          <a class="show-link" href="/portfolio/barbearia/" target="_blank" rel="noopener">Ver exemplo<span class="sr-only"> de barbearia</span> <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+        <li class="show">
+          <div class="show-phone"><img src="/assets/img/lanchonete-celular.webp" alt="Site-modelo da lanchonete Chapa da Esquina aberto no celular" width="600" height="1298" loading="lazy" decoding="async"></div>
+          <h3>Lanchonete</h3>
+          <p>Cardápio com preços e pedido pelo WhatsApp.</p>
+          <a class="show-link" href="/portfolio/lanchonete/" target="_blank" rel="noopener">Ver exemplo<span class="sr-only"> de lanchonete</span> <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+        <li class="show">
+          <div class="show-phone"><img src="/assets/img/academia-celular.webp" alt="Site-modelo da academia Força Total aberto no celular" width="600" height="1298" loading="lazy" decoding="async"></div>
+          <h3>Academia</h3>
+          <p>Planos, grade de aulas e aula experimental pelo WhatsApp.</p>
+          <a class="show-link" href="/portfolio/academia/" target="_blank" rel="noopener">Ver exemplo<span class="sr-only"> de academia</span> <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+        <li class="show">
+          <div class="show-phone"><img src="/assets/img/arena-celular.webp" alt="Site-modelo da arena Pé na Areia aberto no celular" width="600" height="1298" loading="lazy" decoding="async"></div>
+          <h3>Arena de esportes de areia</h3>
+          <p>Preço por hora, aulas e reserva de quadra pelo WhatsApp.</p>
+          <a class="show-link" href="/portfolio/arena-esportes-areia/" target="_blank" rel="noopener">Ver exemplo<span class="sr-only"> de arena de esportes de areia</span> <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+        <li class="show show-next">
+          <div class="show-phone" aria-hidden="true"><span class="show-plus">+</span></div>
           <h3>Seu ramo não está aqui?</h3>
           <p>Salão, pet shop, oficina, restaurante... A gente monta uma prévia grátis com a cara do seu negócio.</p>
-          <span class="more">Pedir minha prévia <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-        </a>
+          <a class="show-link js-wa" data-msg="Oi! Vi os exemplos no site da Clika. Vocês fazem site para o meu ramo?" href="https://wa.me/5514991337516?text=Oi%21%20Vi%20os%20exemplos%20no%20site%20da%20Clika.%20Voc%C3%AAs%20fazem%20site%20para%20o%20meu%20ramo%3F" target="_blank" rel="noopener">Pedir minha prévia <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </li>
+      </ul>
+      <div class="wrap shelf-nav">
+        <button class="shelf-btn" type="button" data-shelf="-1" aria-label="Exemplo anterior"><svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+        <button class="shelf-btn" type="button" data-shelf="1" aria-label="Próximo exemplo"><svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
       </div>
     </div>
   </section>
