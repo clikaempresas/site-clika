@@ -94,18 +94,30 @@ document.querySelectorAll("[data-ba]").forEach((box) => {
   io.observe(area);
 });
 
-/* WhatsApp flutuante (celular): aparece depois do topo da página e some perto do rodapé */
+/* WhatsApp flutuante (celular): aparece depois do topo da página, some perto do rodapé
+   e também sempre que houver um botão ou link embaixo dele, para nunca cobrir um clique */
 (function floatWhats() {
   const btn = document.querySelector(".wa-float");
   const top = document.querySelector(".hero, .page-head");
   const foot = document.querySelector(".cta-wrap, .footer");
   if (!btn) return;
   if (!top || !("IntersectionObserver" in window)) { btn.classList.add("on"); return; }
-  let pastTop = false, nearEnd = false;
-  const paint = () => btn.classList.toggle("on", pastTop && !nearEnd && !document.querySelector(".mobile-nav.open"));
-  new IntersectionObserver(([e]) => { pastTop = !e.isIntersecting && e.boundingClientRect.top < 0; paint(); }).observe(top);
-  if (foot) new IntersectionObserver(([e]) => { nearEnd = e.isIntersecting; paint(); }).observe(foot);
-  menuBtn && menuBtn.addEventListener("click", paint);
+  let pastTop = false, nearEnd = false, ticking = false;
+  const covers = () => {
+    const r = btn.getBoundingClientRect();
+    const pts = [[r.left + 6, r.top + 6], [r.right - 6, r.top + 6], [r.left + 6, r.bottom - 6], [r.right - 6, r.bottom - 6], [r.left + r.width / 2, r.top + r.height / 2]];
+    return pts.some(([x, y]) => document.elementsFromPoint(x, y).some((el) => !btn.contains(el) && el.closest("a, button, summary, input, textarea")));
+  };
+  const paint = () => {
+    ticking = false;
+    const ok = pastTop && !nearEnd && !document.querySelector(".mobile-nav.open");
+    btn.classList.toggle("on", ok && !covers());
+  };
+  const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
+  new IntersectionObserver(([e]) => { pastTop = !e.isIntersecting && e.boundingClientRect.top < 0; queue(); }).observe(top);
+  if (foot) new IntersectionObserver(([e]) => { nearEnd = e.isIntersecting; queue(); }).observe(foot);
+  addEventListener("scroll", queue, { passive: true });
+  menuBtn && menuBtn.addEventListener("click", queue);
 })();
 
 /* Os preços ficam fixos no HTML (index.html e planos/index.html). A planilha não é mais lida:

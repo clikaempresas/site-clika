@@ -309,6 +309,7 @@ html.js .wa-float:not(.on) { opacity: 0; visibility: hidden; transform: translat
 .plan .btn-ghost:hover { border-color: oklch(0 0 0 / 0.4); background: transparent; }
 .plan.featured .btn { background: #fff; color: var(--light-fg); }
 .plan.featured .btn:hover { background: oklch(0.92 0 0); }
+.plan-year { margin-top: 20px; font-size: var(--fs-small); color: var(--light-muted); }
 .plans-more { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
 
 /* ---------- Oferta e depoimentos ---------- */
