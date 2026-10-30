@@ -71,6 +71,7 @@ document.querySelectorAll("[data-ba]").forEach((box) => {
   const set = (p) => {
     pos = Math.max(0, Math.min(100, p));
     area.style.setProperty("--pos", pos + "%");
+    area.style.setProperty("--p", pos);
     area.setAttribute("aria-valuenow", Math.round(pos));
     toggle.textContent = pos > 50 ? "Ver como era antes" : "Ver como fica com site";
   };
