@@ -8,9 +8,8 @@ const CONFIG = {
   whatsapp: "5514991337516",
   mensagemWhatsapp: "Oi! Vi o site da Clika e quero saber mais sobre um site para o meu negócio.",
   // Link completo do perfil. Vazio = o link do Instagram some do site
-  instagram: "https://www.instagram.com/somosclika/",
-  // Link CSV da planilha publicada no Google Sheets. Se estiver vazio ou falhar, usa o arquivo /planos.csv
-  planilhaCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQnioN_rxtpeQ4hnQO8J-OSq19QYkyx2gqMKIEeijvuurMrzX9El88a7bHAjmUFvxQaYhI9T1-voYC7/pub?gid=0&single=true&output=csv"
+  instagram: "https://www.instagram.com/somosclika/"
+  // (Os preços dos planos ficam direto no HTML; não há mais planilha)
 };
 /* ====================================================== */
 
@@ -18,7 +17,6 @@ window.__clika = true; // avisa o <head> que o script carregou (senão ele mostr
 
 const waLink = (msg) => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg || CONFIG.mensagemWhatsapp);
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const ICON = (id) => `<svg class="i" aria-hidden="true"><use href="#i-${id}"/></svg>`;
 
 /* Links de WhatsApp e Instagram (data-msg muda a mensagem pronta) */
 document.querySelectorAll(".js-wa").forEach((a) => { a.href = waLink(a.dataset.msg); a.target = "_blank"; a.rel = "noopener"; });
@@ -173,65 +171,8 @@ document.querySelectorAll("[data-ba]").forEach((box) => {
   set(50);
 });
 
-/* Planos vindos da planilha (reserva: arquivo planos.csv). A cópia fixa no HTML é o que o Google lê */
-function parseCSV(text) {
-  const rows = []; let row = [], field = "", quoted = false;
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (quoted) {
-      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
-      else if (c === '"') quoted = false;
-      else field += c;
-    } else if (c === '"') quoted = true;
-    else if (c === ",") { row.push(field); field = ""; }
-    else if (c === "\n" || c === "\r") {
-      if (c === "\r" && text[i + 1] === "\n") i++;
-      row.push(field); rows.push(row); row = []; field = "";
-    } else field += c;
-  }
-  if (field || row.length) { row.push(field); rows.push(row); }
-  const head = rows.shift().map((h) => h.trim().toLowerCase());
-  return rows.filter((r) => r.some((v) => v.trim())).map((r) => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
-}
-const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-function priceHTML(v) {
-  const n = Number(String(v).replace(",", "."));
-  if (isNaN(n)) return `<span class="int">${esc(v)}</span>`;
-  const [int, cents] = n.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).split(",");
-  return `<span class="cur">R$</span><span class="int">${int}</span><span class="cents">,${cents}</span>`;
-}
-function planHTML(p) {
-  const feat = /^s/i.test(p.destaque);
-  const items = p.itens.split(";").filter(Boolean).map((i) => `<li>${ICON("check")}${esc(i.trim())}</li>`).join("");
-  return `<article class="plan${feat ? " featured" : ""}">
-    <div class="plan-top"><h3>${esc(p.plano)}</h3>${feat ? '<span class="plan-tag">Recomendado</span>' : ""}</div>
-    <p class="plan-desc">${esc(p.descricao)}</p>
-    <p class="plan-price">${priceHTML(p.preco)}<span class="plan-unit">${esc(p.periodo)}</span></p>
-    <ul>${items}</ul>
-    <a class="btn ${feat ? "btn-dark" : "btn-ghost"}" href="${waLink("Oi! Tenho interesse no plano " + p.plano + " da Clika.")}" target="_blank" rel="noopener">Quero o ${esc(p.plano)} ${ICON("arrow-right")}</a>
-  </article>`;
-}
-async function loadPlans() {
-  const boxes = document.querySelectorAll("[data-plans]");
-  if (!boxes.length) return;
-  for (const url of [CONFIG.planilhaCSV, "/planos.csv"].filter(Boolean)) {
-    try {
-      const res = await fetch(url, { cache: "no-store" });
-      if (!res.ok) throw new Error(res.status);
-      const plans = parseCSV(await res.text()).filter((p) => p.plano && p.preco);
-      if (!plans.length) throw new Error("vazio");
-      boxes.forEach((box) => {
-        box.querySelectorAll("[data-tipo]").forEach((grid) => {
-          const items = plans.filter((p) => p.tipo === grid.dataset.tipo);
-          if (items.length) grid.innerHTML = items.map(planHTML).join("");
-        });
-      });
-      return;
-    } catch (e) {}
-  }
-  // Se tudo falhar, a cópia fixa do HTML continua na tela
-}
-loadPlans();
+/* Os preços ficam fixos no HTML (index.html e planos/index.html). A planilha não é mais lida:
+   ela trocava os valores e os textos dos cartões depois que a página abria. */
 
 /* Vitrine de exemplos: troca o protótipo mostrado no celular ou no computador */
 (function showroom() {
