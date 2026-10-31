@@ -1,5 +1,7 @@
 # Site da Clika — como publicar
 
+> **Atenção: este repositório é público.** Nunca coloque aqui dados, fotos ou pastas de clientes. Eles ficam em repositórios privados, um por cliente. Aqui ficam só o site da Clika, o gerador e os protótipos fictícios do portfólio.
+
 Arquivos:
 - `index.html` — página inicial (tem tudo resumido: comparação, exemplos, planos, oferta, sobre e dúvidas)
 - `planos/`, `exemplos/`, `sobre/` e `privacidade/` — páginas extras, cada uma com o próprio `index.html`
@@ -27,7 +29,7 @@ Os preços ficam escritos direto no HTML (a planilha "Preços Clika" do Google S
 ## Mudar textos, fotos ou o visual
 
 1. Edite a página (`index.html`, `planos/index.html`, `exemplos/index.html`, `sobre/index.html` ou `privacidade/index.html`). O visual fica em `assets/clika.css` e as configurações (WhatsApp e Instagram) no bloco `CONFIGURAÇÃO` do `assets/clika.js`.
-2. Abra o terminal na pasta `clika-site` e rode, um de cada vez:
+2. Abra o terminal na pasta `site-clika` e rode, um de cada vez:
 
 ```
 git add .
@@ -43,15 +45,7 @@ Nunca coloque senhas, tokens ou chaves dentro dos arquivos do site: o repositór
 
 ## Como foi montado (para repetir com clientes)
 
-1. **Configuração:** preencher o bloco `CONFIGURAÇÃO` do `index.html` (WhatsApp com 55 + DDD + número, só dígitos; Instagram vazio se não tiver) e trocar os textos de exemplo, como a cidade.
-2. **Teste local:** abrir o site por um servidor local (por exemplo `http://localhost:8080`), não com dois cliques no arquivo, senão o navegador bloqueia a leitura dos preços.
-3. **GitHub:** com Git e GitHub CLI instalados (`winget install --id Git.Git -e` e `winget install --id GitHub.cli -e`):
-   - `gh auth login --hostname github.com --git-protocol https --web` (o login é feito no navegador)
-   - `git init -b main`, configurar nome e o e-mail privado (noreply) do GitHub com `git config user.name` / `git config user.email`
-   - `git add .` e `git commit -m "Primeira versão"`
-   - `gh repo create NOME-DO-REPO --public --source . --push`
-4. **Cloudflare Pages:** em **Workers & Pages > Create > Pages > Connect to Git**, autorizar só o repositório do site, e configurar: branch `main`, framework `None`, comando de build vazio, pasta de saída `/`. O link fica `NOME-DO-PROJETO.pages.dev`.
-5. **Planilha:** no Google Sheets, **Arquivo > Importar** o `planos.csv`; depois **Arquivo > Compartilhar > Publicar na Web**, escolher a aba e o formato **CSV**, copiar o link, colar em `planilhaCSV` e fazer commit e push. Testar mudando um preço (o Google leva alguns minutos para atualizar).
+Sites de clientes não são copiados deste repositório: são feitos com o gerador (`ferramentas/sites/gerar.py`, veja o `LEIA-ME.md` da pasta `ferramentas/sites/`) e seguem o manual "13 Como fazer um site", na pasta Manuais De Operação do Google Drive da Clika. O antigo passo 5, de ligar uma planilha do Google aos preços, não vale mais para o site da Clika: os preços ficam escritos no HTML (veja "Mudar um preço ou um plano").
 
 ## Exemplos (protótipos do portfólio)
 

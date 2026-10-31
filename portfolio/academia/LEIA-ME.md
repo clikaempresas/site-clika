@@ -1,107 +1,41 @@
-# Modelo de site para academia — "Força Total"
+# Protótipo: Academia ("Força Total")
 
-Protótipo demonstrativo da Clika (negócio fictício). Serve de portfólio e de modelo para clientes do nicho de academia.
-
+Site-modelo da Clika, com negócio fictício, nos planos Essencial (`index.html`) e Completo (`completo/`).
 No ar: https://clika.com.br/portfolio/academia/
 
-Arquivos:
-- `index.html` — o site inteiro. Tudo que muda de cliente para cliente fica no bloco `CONFIGURAÇÃO`, no começo do `<script>`.
-- `dados.csv` — preços dos planos e grade de aulas (cópia de reserva da planilha).
-- `fotos/` — as fotos, sempre com os mesmos nomes (lista abaixo).
+> **Não edite esta pasta à mão.** `index.html`, `completo/`, `site.css`, `site.js`, `dados.csv` e `fotos/` são gerados pelo `ferramentas/sites/gerar.py`. A próxima geração sobrescreve esses arquivos e apaga as páginas antigas de `completo/`. Só este LEIA-ME não é tocado.
 
-## Transformar no site de um cliente real
+## De onde vem
 
-### 1. Copiar a pasta
+- `ferramentas/sites/negocios/academia/config.json`: textos, cores, WhatsApp, endereço, equipe, depoimentos, fotos e quais blocos entram em cada página
+- `ferramentas/sites/negocios/academia/dados.csv`: planos, modalidades, horários e grade de aulas
 
-Copie a pasta `portfolio/academia` inteira para a raiz de um repositório novo, só do cliente (por exemplo `site-academia-cliente`). Os arquivos `index.html`, `dados.csv` e a pasta `fotos/` ficam na raiz.
+Depois de mudar um dos dois, gere de novo a partir da raiz do repositório (precisa de Python com Pillow):
 
-Não edite a pasta `portfolio/academia` original: ela é o portfólio da Clika.
+```bash
+python ferramentas/sites/gerar.py academia
+```
 
-### 2. Preencher o bloco CONFIGURAÇÃO
+Páginas do Completo: `index.html` (Início), `planos.html`, `aulas.html` (Aulas e equipe) e `contato.html`.
 
-Abra o `index.html` e edite só o que está entre `CONFIGURAÇÃO — edite só aqui` e a linha de `=====` logo abaixo:
+## dados.csv
 
-| Campo | O que colocar |
-|---|---|
-| `nome`, `tipo`, `slogan` | Nome da academia, a palavra que vem antes ("Academia", "Studio", "CT") e uma frase curta |
-| `cores` | Três cores em hexadecimal: `destaque` (botões), `escura` (textos e faixas) e `fundo` (página). Pegue da logo do cliente; se ficar sem contraste, mantenha o azul e mude só o `destaque` |
-| `whatsapp` | 55 + DDD + número, só dígitos. Ex.: `5514991234567` |
-| `mensagemWhatsapp` | A mensagem que já vem escrita quando o aluno clica |
-| `instagram` | Só o usuário, sem @. Vazio = os botões do Instagram somem |
-| `endereco` | Endereço como aparece no site |
-| `mapaBusca` | Deixe vazio para o mapa procurar o endereço. Se o Google achar o lugar errado, escreva o nome da academia como está no Google Maps |
-| `mapaLink` | Opcional. No Google Maps: Compartilhar > Copiar link |
-| `horarios` | Uma linha por grupo de dias: `["Segunda a sexta", "5h às 23h"]` |
-| `planilhaCSV` | Link da planilha publicada (passo 4). Vazio = usa o `dados.csv` |
-| `textos` | Chamadas e títulos de cada seção. Mude à vontade, mas mantenha frases curtas |
-| `modalidades` | Nome, texto curto e uma etiqueta (duração ou nível). Pode ter mais ou menos de 6 |
-| `professores` | Nome, função, registro (CREF ou faixa) e o nome do arquivo da foto |
-| `estrutura` | Legenda e nome do arquivo de cada foto. O primeiro item aparece grande |
-| `depoimentos` | Nome, resultado, texto e foto. `foto: ""` = depoimento só com texto |
-| `avisoDemo` | **Mude para `false`.** Isso tira o aviso "Projeto demonstrativo" do rodapé |
+Colunas: `tipo,categoria,nome,descricao,preco,unidade,tag,disponivel`. Tipos usados aqui:
 
-Cuidado ao editar: mantenha as aspas `"` e as vírgulas do fim de cada linha. Se o site ficar em branco, quase sempre é uma vírgula ou aspa faltando.
+| tipo | categoria | nome | descricao | preco | unidade | tag | disponivel |
+|---|---|---|---|---|---|---|---|
+| `item` | Grupo (`Planos`, `Modalidades`) | Plano ou modalidade | Texto ou benefícios separados por `;` (vira lista) | Só o número (`129`); `0` = Grátis | `por mês · sem fidelidade` | Etiqueta opcional (`Melhor custo`) | `sim`, ou `nao` para aparecer apagado |
+| `horario` | vazio | Dias (`Segunda a sexta`) | `5h às 23h` ou `Fechado` | | | | |
+| `aula` | Dia (`Segunda`) | Modalidade | Detalhe (`com Camila Prado`) | | Hora (`06h30`) | | |
 
-### 3. Trocar as linhas do topo do arquivo
+## Fotos
 
-Logo no começo do `index.html` (antes do bloco CONFIGURAÇÃO):
-- Troque `<title>`, `description`, `og:title` e `og:description` pelo nome e pela cidade do cliente. É isso que aparece na prévia do link no WhatsApp e no Google.
-- **Apague a linha `<meta name="robots" content="noindex">`.** Ela esconde o site do Google (certo para a demo, errado para o cliente). Apague também o script do endereço antigo (`site-clika.pages.dev`), logo acima dela.
-- Troque a cor em `theme-color` pela cor `escura` do cliente.
+Na pasta `fotos/`, em `.webp`. No protótipo, o gerador recorta todas de `ferramentas/sites/fotos-base/academia.jpg`.
 
-### 4. Preços e grade de aulas
+- `capa.webp`: topo do site
+- `galeria-1.webp` a `galeria-6.webp`: galeria (as legendas vêm de `fotos.galeria` no config)
+- `destaque-1.webp` a `destaque-3.webp`: cartões de destaque, na ordem de `tops.itens` do config
 
-O `dados.csv` tem duas tabelas, uma embaixo da outra, separadas por uma linha vazia:
+## Site de cliente real
 
-**Planos**, com cabeçalho `plano,preco,periodo,beneficios,destaque`:
-- `preco`: valor **por mês**, só o número (`97` ou `97,90`)
-- `periodo`: `1 mês`, `3 meses`, `6 meses`, `12 meses`. O site usa esse número para calcular o total e a economia
-- `beneficios`: separados por ponto e vírgula
-- `destaque`: `sim` no plano que deve aparecer em azul com a etiqueta "Recomendado" (só um)
-
-A economia mostrada ("Você economiza R$ 384 por ano") é calculada sozinha, comparando com o plano mais caro por mês.
-
-**Grade de aulas**, com cabeçalho `dia,horario,modalidade,professor`:
-- `dia`: Segunda, Terça, Quarta, Quinta, Sexta, Sábado ou Domingo
-- `horario`: `07:00` ou `18:30`
-- Dias sem aula não aparecem. O site abre no dia de hoje
-
-Para o próprio cliente atualizar sem mexer no código:
-1. No Google Sheets da conta do cliente: **Arquivo > Importar** o `dados.csv`.
-2. **Arquivo > Compartilhar > Publicar na Web**, escolha a aba e o formato **CSV** e copie o link.
-3. Cole o link em `planilhaCSV`.
-4. Se a planilha sair do ar, o site usa o `dados.csv` sozinho. Lembre de atualizar o `dados.csv` de vez em quando com os preços da planilha.
-
-### 5. Fotos
-
-Coloque na pasta `fotos/` com exatamente estes nomes (minúsculos, `.jpg`):
-
-| Arquivo | Tamanho | Conteúdo |
-|---|---|---|
-| `capa.jpg` | 1200 × 1500 (vertical) | Foto principal do topo: alunos treinando, com energia |
-| `estrutura-1.jpg` | 1600 × 1200 | Foto mais bonita do espaço (aparece grande) |
-| `estrutura-2.jpg` a `estrutura-5.jpg` | 1000 × 750 | Outras áreas: spinning, tatame, funcional, vestiário |
-| `professor-1.jpg` a `professor-3.jpg` | 800 × 1000 (vertical) | Um professor por foto, rosto no terço de cima |
-| `antes-depois-1.jpg`, `antes-depois-2.jpg` | 1200 × 900 | Uma imagem só: antes na metade esquerda, depois na direita |
-
-- Deixe cada foto com menos de 300 KB (https://squoosh.app, formato JPG, qualidade 75–80). Isso deixa o site rápido no celular.
-- Foto que faltar mostra um fundo azul com um anel laranja, sem quebrar o layout.
-- Para mais ou menos professores ou fotos da estrutura, acrescente ou apague itens no CONFIGURAÇÃO e use os nomes seguintes (`professor-4.jpg`...).
-- **Antes e depois e depoimentos têm que ser reais, com autorização por escrito do aluno.** Se o cliente não tiver, deixe só depoimentos em texto (`foto: ""`).
-
-### 6. Testar no computador
-
-Abra o site por um servidor local (por exemplo `http://localhost:8080`), não com dois cliques no arquivo, senão o navegador bloqueia a leitura do `dados.csv`. Confira:
-- Botões de WhatsApp abrem a conversa certa, com a mensagem
-- Instagram abre o perfil certo
-- Mapa mostra o lugar certo
-- Planos e grade de aulas aparecem
-- No celular (ou com o navegador estreito), o botão verde do WhatsApp fica no canto
-
-### 7. Publicar
-
-Igual ao site da Clika (veja o `LEIA-ME.md` da raiz do repositório): repositório no GitHub, depois Cloudflare Pages com branch `main`, sem comando de build e pasta de saída `/`.
-
-## Fotos ligadas e desligadas
-
-No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` no HTML.
+Não copie esta pasta. O passo a passo completo está no manual **"13 Como fazer um site"**, na pasta Manuais De Operação do Google Drive da Clika. Dados e fotos de cliente nunca entram neste repositório, que é público.

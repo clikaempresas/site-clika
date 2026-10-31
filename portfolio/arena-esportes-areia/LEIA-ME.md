@@ -1,56 +1,43 @@
-# Modelo: Arena de esportes de areia
+# Protótipo: Arena de esportes de areia ("Arena Pé na Areia")
 
-Protótipo demonstrativo da Clika (negócio fictício "Arena Pé na Areia").
-Link: https://clika.com.br/portfolio/arena-esportes-areia/
+Site-modelo da Clika, com negócio fictício, nos planos Essencial (`index.html`) e Completo (`completo/`).
+No ar: https://clika.com.br/portfolio/arena-esportes-areia/
 
-Arquivos:
-- `index.html`: o site inteiro. Tudo o que muda de um cliente para outro fica no bloco `CONFIGURAÇÃO`, no começo do `<script>` (perto do final do arquivo).
-- `precos.csv`: preços de locação de quadra, aulas e day use.
-- `aulas.csv`: grade de aulas (dia, horário, modalidade, nível, professor).
-- `fotos/`: as fotos do site. A lista de nomes e tamanhos está em `fotos/LISTA-DE-FOTOS.txt`.
+> **Não edite esta pasta à mão.** `index.html`, `completo/`, `site.css`, `site.js`, `dados.csv` e `fotos/` são gerados pelo `ferramentas/sites/gerar.py`. A próxima geração sobrescreve esses arquivos e apaga as páginas antigas de `completo/`. Só este LEIA-ME não é tocado.
 
-## Transformar no site de um cliente, passo a passo
+## De onde vem
 
-1. **Copiar o modelo.** Copie a pasta inteira `arena-esportes-areia` para o lugar do novo site (repositório novo do cliente, ou outra pasta).
-2. **Preencher a configuração.** Abra o `index.html`, procure por `CONFIGURAÇÃO` e troque:
-   - `nome`, `nomeCurto`, `slogan`, os textos do topo (`tituloTopo`, `tituloDestaque`, `textoTopo`) e o `placar` (3 números de destaque).
-   - `cores`, se o cliente tiver cores próprias (formato `#RRGGBB`).
-   - `whatsapp` (55 + DDD + número, só dígitos) e as `mensagens` que já chegam escritas.
-   - `instagram` (link completo) e `instagramArroba`. Deixe `instagram: ""` para esconder os botões.
-   - `endereco`, `cidade` e `mapaBusca` (escreva o endereço completo ou o nome do lugar como aparece no Google Maps; teste se o pino cai no lugar certo).
-   - `horarios` de funcionamento. Em `dias` use `seg`, `ter`, `qua`, `qui`, `sex`, `sab`, `dom`, com hífen para intervalo (`seg-sex`) e vírgula para dias soltos (`sab,dom`). O selo "Aberto agora" do topo usa esses horários.
-   - `modalidades`, `niveis`, `eventos` e `estrutura`. Para tirar um item, apague o bloco `{ ... },` inteiro.
-   - `fotosGaleria`: quantas fotos de galeria o cliente mandou.
-3. **Tirar o aviso de demonstração.** Mude `avisoDemo: true` para `avisoDemo: false`. Isso some com a frase do rodapé e com o "(Teste do site demonstrativo)" das mensagens de WhatsApp.
-4. **Trocar as 4 linhas do topo do arquivo.** Logo no começo do `index.html`, edite `<title>`, `description`, `og:title` e `og:description`. São elas que aparecem no Google e na prévia do link no WhatsApp. Apague também a linha `<meta name="robots" content="noindex">` (ela esconde o site do Google, certo só para a demo) e o script do endereço antigo (`site-clika.pages.dev`).
-5. **Colocar as fotos** na pasta `fotos/` com os nomes exatos da lista. Foto que faltar vira um fundo cor de areia, sem quebrar nada.
-6. **Preencher os preços e as aulas** em `precos.csv` e `aulas.csv` (ou na planilha do Google, passo 7).
-7. **Planilha do Google (opcional, para o cliente editar sozinho):**
-   - Crie uma planilha e importe `precos.csv` numa aba e `aulas.csv` em outra (**Arquivo > Importar > Inserir nova(s) página(s)**).
-   - **Arquivo > Compartilhar > Publicar na Web**: escolha a aba de preços e o formato **CSV**, copie o link e cole em `planilhaCSV.precos`. Repita com a aba de aulas e cole em `planilhaCSV.aulas`.
-   - Se a planilha sair do ar, o site usa sozinho os arquivos `precos.csv` e `aulas.csv`. Então mantenha os CSV atualizados de vez em quando.
-8. **Testar localmente** com um servidor local (por exemplo `http://localhost:8080`), não com dois cliques no arquivo, senão o navegador bloqueia a leitura dos CSV. Confira no celular: botão de WhatsApp, grade de aulas, mapa.
-9. **Publicar** (git add, commit e push), como no LEIA-ME principal da Clika.
+No gerador, este nicho se chama `arena`. O campo `pasta` do config é que manda a saída para `portfolio/arena-esportes-areia/`.
 
-## Como preencher os CSV
+- `ferramentas/sites/negocios/arena/config.json`: textos, cores, WhatsApp, endereço, equipe, depoimentos, fotos e quais blocos entram em cada página
+- `ferramentas/sites/negocios/arena/dados.csv`: preços de quadra, aulas e day use, horários e grade de aulas
 
-`precos.csv`, colunas:
-- `categoria`: `locacao` (tabela de preços da quadra), `aulas` (planos de aula) ou `dayuse`.
-- `quando`: para locação, é o título do quadro (ex.: `Segunda a sexta`). Cada valor diferente vira um quadro.
-- `nome`: ex.: `Horário normal`, `Horário de pico`. Se tiver a palavra "pico", ganha a etiqueta vermelha.
-- `horario`: texto livre (ex.: `17h às 23h`).
-- `valor`: só o número (`120` ou `120,50`), sem `R$`.
-- `unidade`: ex.: `por hora`, `por pessoa`, `por mês`.
+Depois de mudar um dos dois, gere de novo a partir da raiz do repositório (precisa de Python com Pillow):
 
-`aulas.csv`, colunas:
-- `dia`: `Segunda`, `Terça`, `Quarta`, `Quinta`, `Sexta`, `Sábado` ou `Domingo`.
-- `horario`: `07:00`, `18:30`...
-- `modalidade`: igual ao nome na configuração (`Beach Tennis`, `Futevôlei`, `Vôlei de Praia`), para pegar a cor certa.
-- `nivel`: igual aos níveis da configuração (`Iniciante`, `Intermediário`, `Avançado`, `Kids`).
-- `professor`: nome do professor (pode ficar vazio).
+```bash
+python ferramentas/sites/gerar.py arena
+```
 
-Cuidados: não mude os nomes das colunas na primeira linha. Se um texto tiver vírgula, coloque entre aspas (`"Sábado, domingo e feriado"`); no Google Sheets isso é automático.
+Páginas do Completo: `index.html` (Início), `reservas.html` (Preços e reservas), `aulas.html` e `contato.html`.
 
-## Fotos ligadas e desligadas
+## dados.csv
 
-No protótipo, `temFotos: false` no CONFIGURAÇÃO faz o site não procurar nenhuma foto, porque a pasta `fotos/` ainda está vazia (assim não aparecem erros 404). Quando as fotos estiverem na pasta, mude para `temFotos: true` e tire o comentário (`<!-- ... -->`) da foto `capa.jpg` e `dayuse.jpg` no HTML.
+Colunas: `tipo,categoria,nome,descricao,preco,unidade,tag,disponivel`. Tipos usados aqui:
+
+| tipo | categoria | nome | descricao | preco | unidade | tag | disponivel |
+|---|---|---|---|---|---|---|---|
+| `item` | Grupo (`Quadras`, `Aulas`, `Day use`) | Nome | Texto (com `;` vira lista) | Só o número (`120`); `0` = Grátis | `por hora`, `por mês`, `por pessoa` | Etiqueta opcional (`Concorrido`) | `sim`, ou `nao` para aparecer apagado |
+| `horario` | vazio | Dias (`Segunda a sexta`) | `6h às 23h` ou `Fechado` | | | | |
+| `aula` | Dia (`Segunda`) | Modalidade | Nível e professor (`Iniciante · com Lari Souza`) | | Hora (`18h`) | | |
+
+## Fotos
+
+Na pasta `fotos/`, em `.webp`. No protótipo, o gerador recorta todas de `ferramentas/sites/fotos-base/arena.jpg`.
+
+- `capa.webp`: topo do site
+- `galeria-1.webp` a `galeria-6.webp`: galeria (as legendas vêm de `fotos.galeria` no config)
+- `destaque-1.webp` a `destaque-3.webp`: cartões de destaque, na ordem de `tops.itens` do config
+
+## Site de cliente real
+
+Não copie esta pasta. O passo a passo completo está no manual **"13 Como fazer um site"**, na pasta Manuais De Operação do Google Drive da Clika. Dados e fotos de cliente nunca entram neste repositório, que é público.
